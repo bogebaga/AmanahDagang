@@ -1,0 +1,29 @@
+[
+    {
+        "no" :1,
+        "tanggal": "02/02/1993",
+        "nama": "Supirmin",
+        "judul_iklan": "$0",
+        "status":"test0",
+        "harga":"5000",
+        "action" :"a | b | c"
+    },
+    {
+        "no" :2,
+        "tanggal": "02/02/1993",
+        "nama": "Suparman",
+        "judul_iklan": "$0",
+        "status":"test1",
+        "harga":"50000",
+        "action" :"a | b | c"
+    },
+    {
+        "no" :3,
+        "tanggal": "02/02/1993",
+        "nama": "Paejo",
+        "judul_iklan": "$0",
+        "status":"test2",
+        "harga":"500000",
+        "action" :"a | b | c"
+    }
+]

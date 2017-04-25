@@ -1,0 +1,26 @@
+[
+    {
+        "no" :1,
+        "tanggal": "02/02/1993",
+        "nama": "Supirmin",
+        "email": "bogebaga@gmail.com",
+        "user_type":"general",
+        "action": "<button class='btn btn-default btn-circle margin' type='button'><span class='glyphicon glyphicon-trash'></span></button><button class='btn btn-default btn-circle margin' type='button' onmouseover=\"this.style.background-color='#f9243f'\"><span class='glyphicon glyphicon-edit'></span></button>"
+    },
+    {
+        "no" :2,
+        "tanggal": "02/02/1993",
+        "nama": "Suparman",
+        "email": "bogebaga@gmail.com",
+        "user_type":"general",
+        "action": "A B C"
+    },
+    {
+        "no" :3,
+        "tanggal": "02/02/1993",
+        "nama": "Paejo",
+        "email": "bogebaga@gmail.com",
+        "user_type":"general",
+        "action": "A B C"
+    }
+]

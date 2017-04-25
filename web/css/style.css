@@ -1,0 +1,853 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #ededed !important;
+}
+
+a, p, h1, h2, h3, h4, label{
+	font-family: 'Roboto', 'Oswald',sans-serif;
+}
+
+#menu {
+    background-color: #2c3e50;
+    border-radius: 0;
+    border-bottom: solid 3px #6498a3;
+}
+
+#menu .navbar-brand {
+    margin-top: 14px;
+    margin-bottom: 11px;
+    padding: 1px 1px;
+    height: auto;
+    text-transform: uppercase;
+}
+
+.tengah {
+    width: 83%;
+    margin: auto;
+}
+
+.navbar-header {
+    float: left;
+}
+
+.menu-header .navbar-nav{
+	float: right
+}
+
+.menu-header .navbar-nav li form{
+	margin-top: 12px;
+	margin-right: 60px;
+}
+
+.menu-header .navbar-nav li form input{
+	padding: 7px 60px 7px 7px;
+}
+
+.menu-header .navbar-nav li form button:hover{
+	background: #d65811 !important;
+}
+
+.menu-header .navbar-nav li form button{
+	padding: 9px 18px;
+	margin-left: -5px;
+	background: #f27935;
+	border: none;
+	color: white;
+}
+
+.menu-header .navbar-nav li:last-child{
+	background: #F27935;
+	cursor: pointer;
+}
+
+.menu-header .navbar-nav li:last-child a:hover{
+	background: #d65811 !important;
+	text-decoration: none;
+}
+
+/* .menu-header .navbar-nav li:last-child::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 8px solid #2c3e50;
+  border-left: 34px solid transparent;
+  border-right: 34px solid transparent;
+} */
+
+.menu-header ul li a{
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	font-weight: 100;
+	color: #ffffff !important;
+	padding-top: 21px;
+}
+
+.menu-header ul li a:hover{
+	text-decoration:underline;
+	background: transparent;
+}
+
+.menu-header ul li a:focus{
+	text-decoration: underline;
+	background: transparent;
+}
+
+
+.logo img{
+	width: 165px;
+	height: 35px;
+	float: left;
+	vertical-align: middle;
+}
+
+#bagian-atas ul li{
+	display: inline;
+}
+
+.wrapper{
+	width: 1150px;
+	margin: 0 auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+.iklan{
+	overflow: hidden;
+	/* position: relative; */
+	width: 100%;
+	height: fit-content;
+	/* background: black; */
+	/* margin-top: 65px; */
+}
+
+.iklan .login-background{
+	width: 1150px;
+	/* background: black; */
+	/* margin: 0 auto; */
+	padding: 35px 0;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+}
+
+.iklan .login-background .kotak-daftar{
+	width: 306px;
+}
+
+.iklan .login-background .kotak-daftar h3{
+	padding: 15px 25px;
+	background: #2c3e50;
+	margin: 0;
+	color: white;
+	border-radius: 6px 6px 0 0;
+}
+
+.iklan .login-background .kotak-daftar .form-pendaftaran{
+	width: fit-content;
+	background: white;
+	/* float: left; */
+	padding: 25px;
+	box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+/* 	position: absolute;
+	left: 50px;
+	top: 120px; */
+	border-radius: 0 0 6px 6px;
+}
+
+.iklan .login-background .kotak-daftar .form-pendaftaran input{
+	display: block;
+	padding: 7px;
+	margin-bottom: 15px;
+	border-radius: 4px;
+	border: 1px solid gray;
+
+}
+
+.iklan .login-background .kotak-daftar .form-pendaftaran button{
+	margin-top: 15px;
+	width: 100%;
+}
+
+
+/* .iklan .arah-kiri, .iklan .arah-kanan{
+	font-size: 50px;
+	position: absolute;
+	top: 50%;
+	text-decoration: none;
+	cursor: pointer;
+	padding: 5px 15px;
+	background: gray;
+	opacity: 0.2;
+}
+
+.iklan .arah-kiri:hover, .iklan .arah-kanan:hover{
+	opacity: 1;
+}
+
+.iklan .arah-kanan{
+	right: 0;
+}
+
+.iklan .arah-kiri{
+	left: 0;
+}
+
+.slide-iklan{
+	margin-top: 70px;
+	transition: 3s linear;
+}
+
+.slide-iklan img{
+	float: left;
+}
+
+.slide-iklan-kecil img{
+	margin-left: 10px;
+}
+
+.slide-iklan-kecil img:last-child{
+	margin-top: 10px;
+}
+ */
+.fanpage{
+	width: 600px;
+	position: absolute;
+	top: 240px;
+	right: 175px;
+	text-align: center;
+}
+
+.fanpage h1{
+	font-size: 60px;
+	font-weight: bold;
+	margin: 0;
+}
+
+.fanpage h3{
+	margin: 0;
+}
+
+.fanpage .sosmed-1{
+	background: #6577C2;
+	border: none;
+	padding: 15px;
+	font-weight: bold;
+	color: white;
+	border-radius: 4px;
+	margin: 25px 5px;
+}
+
+.fanpage .sosmed-2{
+	background: #33ccff;
+	border: none;
+	padding: 15px;
+	font-weight: bold;
+	color: white;
+	border-radius: 4px;
+	margin: 25px 5px;
+}
+
+.menu-bawah ul{
+	width: 100%;
+	margin-top: 60px;
+	background: linear-gradient(to right, #2c3e50, #679da5);
+}
+
+.menu-bawah ul li{
+/* 	background: #6498a3;  */
+}
+
+.menu-bawah ul li a{
+	font-family: 'Roboto', sans-serif;
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
+	margin-right: 0;
+	border-radius: 0;
+}
+
+.menu-bawah ul li a:hover{
+	background: #7ab2c9;
+	border-color: transparent;
+}
+
+.form-detail{
+	overflow: hidden;
+	background: white;
+	border: 1px solid #ddd;
+	border-top: transparent;
+	border-bottom: transparent;
+}
+
+.form-detail select{
+	float: right;
+	margin: 15px 7px;
+	padding: 10px;
+	cursor: pointer;
+	border-color: #a9a9a9;
+}
+
+.form-detail option{
+	padding: 5px;
+}
+
+.form-detail p{
+	display: inline-block;
+	margin: 14px 0px;
+	font-size: 16px;
+	padding: 10px;
+	float: right;
+}
+
+.form-detail .input-harga{
+	float: left;
+	margin: 15px 7px;
+}
+
+.form-detail .input-harga input{
+	padding: 8px;
+}
+
+.form-detail .input-harga select{
+	margin: 0 0 0 10px;
+	float: right;
+}
+
+.form-detail button{
+	margin: 15px 3px;
+	float: left;
+	padding: 9px 30px;
+	border-radius: 0;
+}
+
+.foto-dagangan{
+	text-align: center;
+	float: left;
+	background: white;
+	border: 1px solid #ddd;
+	border-top: transparent;
+}
+
+.foto-dagangan li{
+	list-style: none;
+	float: left;
+	width: 150px;
+	height: 270px;
+	border: 1px solid #ddd;
+	margin: 7px;
+	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.1);
+}
+
+.foto-dagangan li:hover{
+	border: 1px solid skyblue;
+}
+
+.foto-dagangan li a{
+	text-decoration: none;
+	color: #464646;
+}
+
+.foto-dagangan li img{
+	width: 148px;
+	height: 150px;
+}
+
+.foto-dagangan figcaption{
+	padding: 12px;
+}
+
+.foto-dagangan h4{
+	color: #f44336;
+	font-weight: bold;
+	margin: 0;
+}
+
+.foto-dagangan h3{
+	font-size: 15px;
+	height: 65px;
+	text-align: center;
+	margin: 0;
+}
+
+.iklan-lebar{
+	margin-bottom: 10px;
+}
+
+footer{
+	width: 100%;
+	background: #2c3e50;
+	border-top: solid 4px #6498a3;
+}
+
+.footer1{
+	width: fit-content;
+	margin: 0 auto;
+	padding: 15px 0;
+}
+
+.footer1 ul{
+	list-style: none;
+	display: flex;
+	margin-bottom: 7px;
+}
+
+.footer1 li a{
+	font-size: 15px;
+	color: #ffffff;
+	padding-left: 13px;
+}
+
+.footer1 p{
+	text-align: center;
+	color: white;
+	margin-bottom: 0;
+}
+
+.footer1 .garis-footer{
+	border: 1px solid #c75f5f;
+	width: 20%;
+	margin: 0 auto;
+	border-radius: 4px;
+}
+
+.footer1 .footer-law{
+	margin-top: 7px;
+}
+
+
+/* MODAL */
+
+#masuk .modal-dialog{
+	width: 380px;
+	margin: 90px auto;
+}
+
+.modal-content .modal-body{
+	text-align: center;
+}
+
+.modal-content .modal-body input{
+	width: 80%;
+	padding: 7px;
+	margin-bottom: 10px;
+}
+
+.modal-content .modal-body button{
+	width: 80%;
+}
+
+.modal-content .modal-footer h4{
+	float: left;
+	font-size: 14px;
+}
+
+
+
+
+/* CSS BARANG */
+
+.bungkus{
+	width: 1150px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.detail-barang, .detail-form{
+	width: 800px;
+	background: white;
+	margin-right: 10px;
+	float: left;
+	padding: 15px;
+	margin: 75px 0 10px;
+	box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+}
+
+.detail-form h1{
+	border-bottom: 1px solid #dcdcdc;
+	padding-bottom: 10px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 35px;
+	font-weight: 400;
+}
+
+.detail-form form .df input[type=text], .detail-form form .df input[type=email], .detail-form form .df select, .detail-form form .df textarea{
+	width: 430px;
+	padding: 6px 7px;
+}
+
+.detail-form form .df input[type=radio]:not(old){
+	width: 15px;
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	opacity: 1;
+}
+
+.detail-form form .df{
+	margin-bottom: 10px;
+}
+
+.detail-form form .df label{
+	margin-right: 30px;
+}
+
+.detail-form form .df h4{
+	display: inline-flex;
+	width: 200px;
+}
+
+.detail-form form .df textarea{
+	height: 180px;
+	resize: none;
+	margin-left: 4px;
+}
+
+.detail-form .simpan{
+	float: right;
+	padding: 6px 30px;
+}
+
+.detail-form form .df .buf{
+	display: inline-block;
+	width: 85px;
+	height: 85px;
+	border: 1px dashed #a9a9a9;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+.detail-form form .df .buf i{
+	font-size: 35px;
+	color: #a9a9a9;
+	position: relative;
+	top: 23px;
+	left: 23px;
+}
+
+.slide-barang{
+	text-align: center;
+}
+
+.slide-barang a{
+	font-size: 30px;
+	text-decoration: none;
+	cursor: pointer;
+	padding: 5px 15px;
+	background: #7ab2c9;
+	color: white;
+	margin-top: 10px;
+}
+
+.slide-barang a:hover{
+	text-decoration: none;
+}
+
+.gambar-gambar{
+	margin-bottom: 10px;
+}
+
+.judul-barang .fa{
+	padding-right: 7px;
+}
+
+.judul-barang h2:last-child{
+	font-family: 'Roboto', sans-serif;
+	font-size: 40px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.judul-barang h2:first-child{
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	font-size: 35px;
+	margin-bottom: 20px;
+}
+
+.deskripsi-barang h3{
+	border-top : 1px dashed #b9b9b9;
+	padding-top: 10px;
+}
+
+.deskripsi-barang p:last-child{
+	width: 100%;
+	background: #ce6161;
+	padding: 20px;
+	color: white;
+	font-size: 16px;
+	font-weight: 400;
+	margin-top: 25px;
+}
+
+.iklan-barang{
+	width: 340px;
+	background: #ededed;
+	float: right;
+	margin-top: 75px;
+}
+
+.bungkus-penjual{
+	background: white;
+	padding: 15px;
+	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
+}
+
+.foto-penjual{
+	float: left;
+}
+
+.foto-penjual img{
+	width: 100px;
+	height: 100px;
+	margin-right: 10px;
+}
+
+.identitas-penjual h3{
+	margin: 0;
+	margin-bottom: 7px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.identitas-penjual h4{
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.tombol-penjual button{
+	width: 100%;
+	border-radius: 0;
+	margin-top: 10px;
+}
+
+.sosmed-penjual{
+	/* text-align: center; */
+	margin-top: 15px;
+	padding-top: 8px;
+	border-top: 1px solid #dcdcdc;
+}
+
+.sosmed-penjual a:hover{
+	text-decoration: none;
+}
+
+.sosmed-penjual p{
+	float: left;
+	margin-right: 15px;
+	margin-top: 8px;
+	font-size: 18px;
+}
+
+.sosmed-penjual img{
+	width: 30px;
+	margin: 5px;
+}
+
+.bungkus-detail{
+	background: white;
+	margin-top: 10px;
+	padding: 15px;
+	font-size: 15px;
+	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
+}
+
+.bungkus-info{
+	background: white;
+	padding: 15px;
+	font-size: 15px;
+	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
+}
+
+.bungkus-info h3{
+
+}
+
+.bungkus-info ol{
+	margin-left: 20px;
+}
+
+.bungkus-detail i{
+	float: left;
+	padding-top: 7px;
+	width: 30px;
+	text-align: center;
+	color: #ce6161;
+}
+
+.detail-kategori p:last-child, .detail-waktu p:last-child, .detail-lokasi p:last-child, .detail-view p:last-child, .detail-rating p:last-child{
+	float: right;
+	margin: 5px 0;
+}
+
+.detail-kategori p:first-child, .detail-waktu p:first-child, .detail-lokasi p:first-child, .detail-view p:first-child, .detail-rating p:first-child{
+	float: left;
+	font-weight: bold;
+	margin: 5px 0;
+}
+
+.detail-kategori, .detail-waktu, .detail-lokasi, .detail-view, .detail-rating{
+	overflow: hidden;
+	margin: 7px 0;
+}
+
+.bungkus-iklan{
+	margin-top: 10px;
+}
+
+
+
+/* PROFIL PERUSAHAAN */
+
+.kotak-profil{
+    width: 1150px;
+    background: white;
+    margin: 75px auto 10px;
+}
+
+.kotak-profil .identitas-perusahaan, .kotak-profil .identitas-team{
+	padding: 15px;
+}
+
+
+.kotak-profil .identitas-team{
+	text-align: center;
+}
+
+.kotak-profil .identitas-team h2{
+	text-align: center;
+	margin-bottom: 30px;
+	font-size: 40px;
+}
+
+.kotak-profil .identitas-team .profil{
+	text-align: center;
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+.kotak-profil .identitas-team .profil .sosmed-team img{
+	width: 30px;
+	margin: 0 5px;
+}
+
+.kotak-profil .identitas-team .profil img{
+	width: 150px;
+	border-radius: 50%;
+	margin: 0 25px;
+}
+
+
+
+
+/* BANTUAN */
+.kotak-bantuan{
+	width: 1150px;
+	margin: 75px auto 10px;
+	box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+	background: white;
+	padding: 15px;
+	overflow: hidden;
+}
+
+.kotak-bantuan .bantuan{
+	width: 250px;
+	float: left;
+	margin-right: 15px;
+}
+
+
+/* PROFIL PENJUAL */
+.k-profil{
+	width: 250px;
+	height: 604px;
+	float: left;
+	margin-right: 15px;
+}
+
+#profil img{
+	width: 170px;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #f27935;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: red ;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:last-child{
+	border-top: 1px solid white;
+}
+
+.dropdown-content a:hover {background: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.detail-biodata{
+	width: 1150px;
+	background: white;
+	margin: 75px auto 0;
+	padding: 15px;
+	box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+	overflow: hidden;
+}
+
+.detail-biodata .satu, .detail-biodata .dua, .detail-biodata .tiga{
+	padding: 10px;
+}
+
+.detail-biodata .satu{
+	background: rgb(244, 246, 245);
+	width: 305px;
+	height: 445px;
+	float: left;
+}
+
+.detail-biodata .dua{
+	background: rgb(244, 246, 245);
+	width: 800px;
+	height: 445px;
+	float: right;
+	margin-bottom: 15px;
+}
+
+.detail-biodata .dua .nav li.active a{
+	background: none;
+	border: 1px solid #2c3e50;
+	color: #2c3e50;
+}
+
+.detail-biodata .tiga{
+	background: rgb(244, 246, 245);
+	width: 1120px;
+	/*height: 300px;*/
+	overflow: hidden;
+}
