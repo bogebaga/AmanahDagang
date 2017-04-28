@@ -1164,7 +1164,7 @@ tr:hover {
 	background-color: rgba(48, 165, 255, 0.17);
 }
 
-.dropdown-menu
+ul.dropdown-menu[role='menu']
 {
 	background-color: rgba(13, 26, 41, 0.82);
 	padding-left: 10px;

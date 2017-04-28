@@ -109,7 +109,7 @@
 								<div class="form-group">
 									<label>TAYANG IKLAN</label>
 									<div class="form-group has-success">
-										<select class="form-control">
+										<select name="tayang_iklan" class="form-control">
 											<option value="publish" <?php echo ($barang->tayang_barang == 'publish') ? 'selected' : ''; ?>>PUBLISH</option>
 											<option value="unpublish" <?php echo ($barang->tayang_barang == 'unpublish') ? 'selected' : ''; ?>>UN-PUBLISH</option>
 										</select>

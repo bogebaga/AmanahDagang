@@ -61,12 +61,35 @@ class User_model extends CI_Model
     return $this->db->insert('ad_user', $data);
   }
 
+
+  public function edit_user_save($data)
+  {
+      $this->load->helper('array');
+
+      $this->db->where('user_kode', element('user_kode', $data));
+      unset($data['user_kode']);
+
+      return $this->db->update('ad_user', $data);
+  }
+
   public function update_user($data)
   {
     $this->load->library('session');
 
     $this->db->where('user_kode', $this->session->userdata('user_kd'));
     return $this->db->update('ad_user', $data);
+  }
+
+  public function user_hapus($kode)
+  {
+    $this->db->where('user_kode', $kode);
+    return $this->db->delete('ad_user');
+  }
+
+  public function iklan_hapus($slug)
+  {
+    $this->db->where('slug_nama_barang', $slug);
+    return $this->db->delete('ad_barang');
   }
 
   public function parse_user()

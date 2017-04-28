@@ -18,9 +18,8 @@ $route['admin/user/hapus/(:any)'] = 'admin/user_hapus/$1';
 $route['admin/user/edit/(:any)'] = 'admin/user_edit/$1';
 
 $route['admin/save'] = 'admin/save';
-$route['admin/edit_user_save'] = 'admin/user_save';
+$route['admin/edit_user_save'] = 'admin/edit_user_save';
 $route['admin/edit_save'] = 'admin/edit_save';
-
 
 $route['iklanparse'] = 'admin/iklan_parse';
 $route['uparse'] = 'admin/user_parse';
@@ -28,7 +27,8 @@ $route['uparse'] = 'admin/user_parse';
 $route['kabkota'] = 'proses/load_kabkota'; //isi kabkota
 $route['tes'] = 'proses/tes_ilmu';
 
-$route['pasangiklan/masuk'] = 'proses/iklan_proses';
+$route['iklan/edit'] = 'proses/save_edit_iklan';
+$route['pasangiklan/masukki'] = 'proses/iklan_proses';
 
 $route['barang/edit/(:any)'] = 'proses/edit_iklan/$1';
 $route['barang/hapus/(:any)'] = 'proses/hapus_iklan/$1';

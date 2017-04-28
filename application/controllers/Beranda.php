@@ -28,8 +28,7 @@ class Beranda extends CI_Controller {
 		$this->load->view('modal/modal_login');
 			if ($halaman == 'beranda')
 			{
-				$data['all_iklan'] = $this->iklan_model->get_all_iklan();
-				$this->load->view('pages/beranda', $data);
+				$this->load->view('pages/beranda');
 			}
 			elseif($halaman == 'pasangiklan')
 			{

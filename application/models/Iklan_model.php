@@ -33,9 +33,13 @@ class Iklan_model extends CI_Model{
     return $query->result_array();
   }
 
-  public function get_all_iklan()
+  public function get_all_iklan($param)
   {
-    $query = $this->db->get('ad_barang');
+    $this->db->from('ad_barang ab');
+    $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
+    $this->db->where('ak.nama_kategori', $param);
+    $query = $this->db->get();
+
     return $query->result_array();
   }
 
@@ -75,12 +79,13 @@ class Iklan_model extends CI_Model{
     $this->db->select('*');
     $this->db->from('ad_barang adb');
     $this->db->join('ad_kategori adk','adb.id_kategori = adk.id_kategori');
+    $this->db->join('ad_user adu', 'adb.user_kode = adu.user_kode');
     $this->db->where('slug_nama_barang', $data);
     $query = $this->db->get();
 
     return $query->result_array();
   }
-  public function pasang_iklan($data = [])
+  public function pasang_iklan($data)
   {
       $store_db = [
         'nama_barang' => $data['nama_iklan'],
@@ -102,6 +107,16 @@ class Iklan_model extends CI_Model{
       return $this->db->insert('ad_barang', $store_db);
   }
 
+  public function simpan_iklan_by_kdbarang($data)
+  {
+    $this->load->helper('array');
+
+    $this->db->where('barang_kode', element('barang_kode', $data));
+    unset($data['barang_kode']);
+
+    return $this->db->update('ad_barang', $data);
+  }
+
   public function pasang_iklan_admin($data)
   {
     return $this->db->insert('ad_barang', $data);
@@ -115,6 +130,18 @@ class Iklan_model extends CI_Model{
     unset($data['slug_nama_barang']);
 
     return $this->db->update('ad_barang', $data);
+  }
+
+  public function add_viewer($slug, $data)
+  {
+    $this->db->set('view_barang', $data+1);
+    $this->db->where('slug_nama_barang', $slug);
+    $this->db->update('ad_barang');
+
+    $this->db->select('view_barang');
+    $this->db->where('slug_nama_barang', $slug);
+
+    return $this->db->get('ad_barang')->result_array();
   }
 
   public function tes_ilmu($data)

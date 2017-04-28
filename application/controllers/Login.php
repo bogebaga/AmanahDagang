@@ -22,9 +22,6 @@ class Login extends CI_Controller {
 		if($this->form_validation->run() == TRUE)
     {
 			$result = $this->user_model->get_user($data);
-			// echo "<pre>";
-			// 	var_export($result);
-			// echo "</pre>";
 			if(! empty($result))
 			{
 				$session_data = [
@@ -35,10 +32,9 @@ class Login extends CI_Controller {
 					'user_name' => $result->user_nama,
 					'user_login' => $result->user_login
 				];
-
 				$this->session->set_userdata($session_data);
-				redirect(base_url());
 			}
+			redirect(base_url());
 	  }
 	}
 
@@ -81,10 +77,9 @@ class Login extends CI_Controller {
 				'user_name_admin' => $result->user_nama,
 				'user_login_admin' => $result->user_login
 			];
-
 			$this->session->set_userdata($session_data);
-			redirect(base_url().'admin');
 		}
+		redirect(base_url().'admin');
 	}
 
 	public function signout_admin()

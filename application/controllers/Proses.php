@@ -32,9 +32,9 @@ class Proses extends CI_Controller {
 			$gambar_count = count($_FILES['image']['name']);
 			for ($i=0; $i < $gambar_count ; $i++)
 			{
-				if ($_FILES['image']['error'][$i] == 4)
+				if ($_FILES['image']['error'][$i] == '4')
 				{
-					$hasil_implode = '';
+					$uploaded[$i] = '';
 				}
 				else
 				{
@@ -79,7 +79,7 @@ class Proses extends CI_Controller {
 
 		$this->iklan_model->pasang_iklan($data);
 
-		redirect('profil');
+		redirect(base_url()."pasangiklan");
 	}
 
 	public function load_iklan($slug_iklan)
@@ -91,6 +91,7 @@ class Proses extends CI_Controller {
 		);
 
 		$isi_iklan['iklan'] = $this->iklan_model->load_isi_iklan($slug_iklan);
+		$isi_iklan['viewer'] = $this->iklan_model->add_viewer($slug_iklan, $isi_iklan['iklan'][0]['view_barang']);
 
 		$this->load->view('template/header', $link);
 		$this->load->view('modal/modal_login');
@@ -102,9 +103,6 @@ class Proses extends CI_Controller {
 	{
 		$id_provinsi = $this->input->post('id_provinsi');
 		$kab = $this->iklan_model->get_data_kabkota($id_provinsi);
-		// echo "<pre>";
-		// 	var_export($kab);
-		// echo "</pre>";
 		echo json_encode($kab);
 	}
 
@@ -127,6 +125,26 @@ class Proses extends CI_Controller {
 		$this->load->view('modal/modal_login');
 		$this->load->view('pages/editiklan', $data);
 		$this->load->view('template/footer');
+	}
+
+	public function save_edit_iklan()
+	{
+		$slug_nama = url_title($this->input->post('nama_iklan'),'-').'-'.$this->input->post('kd_barang');
+		$data=[
+			'barang_kode' => $this->input->post('kd_barang'),
+			'id_kategori' => $this->input->post('nama_kategori'),
+			'slug_nama_barang' => $slug_nama,
+			'nama_barang' => $this->input->post('nama_iklan'),
+			'alamat_barang' => $this->input->post('alamat'),
+			'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
+			'harga_barang' => $this->input->post('harga_iklan'),
+			'jenis_barang' => $this->input->post('jenis_barang'),
+			'jenis_iklan' => $this->input->post('jenis_iklan')
+		];
+
+		$this->iklan_model->simpan_iklan_by_kdbarang($data);
+
+		redirect(base_url().'barang/edit/'.$slug_nama);
 	}
 
 	public function hapus_iklan($slug)

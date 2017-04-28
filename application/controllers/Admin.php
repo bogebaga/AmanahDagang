@@ -98,7 +98,7 @@ class Admin extends CI_Controller{
         {
           if ($_FILES['foto_fitur']['error'][$i] == 4)
           {
-            $uploaded = [];
+            $uploaded[$i] = '';
           }
           else
           {
@@ -166,26 +166,67 @@ class Admin extends CI_Controller{
 
   public function edit_save()
   {
-    $barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
-
     $data = [
       'id_kategori' => $this->input->post('kategori'),
       'slug_nama_barang' => $this->input->post('slug_nama_barang'),
       'nama_barang' => $this->input->post('nama_barang'),
       'alamat_barang' => $this->input->post('alamat'),
       'deskripsi_barang' => $this->input->post('deskripsi'),
-      'gambar_fitur' => '1',
-      'gambar_barang' => '1',
       'harga_barang' => $this->input->post('harga'),
       'jenis_barang' => $this->input->post('jenis_barang'),
       'jenis_iklan' => $this->input->post('jenis_iklan'),
-      'tayang_barang' => 'publish',
-      'fitur_barang' => 'none'
+      'tayang_barang' => $this->input->post('tayang_iklan')
     ];
 
     $this->iklan_model->edit_iklan_admin($data);
 
     redirect(base_url()."admin/iklan");
+  }
+
+  public function edit_user_save()
+  {
+    $this->upload->initialize([
+      'upload_path' => './images/user_iklan/',
+      'allowed_types' => 'jpg|jpeg|png|gif',
+      'file_name' => strtolower($this->input->post('nama').'-'.$this->session->userdata('user_login_admin')),
+      'overwrite' => TRUE
+    ]);
+
+    if ($this->upload->do_upload('foto_upload'))
+    {
+      $foto = $this->upload->data('file_name');
+    }
+    else
+    {
+      $foto = '';
+    }
+
+    $data = [
+      'user_kode' => $this->input->post('kd_user'),
+      'user_provinsi' => $this->input->post('provinsi'),
+      'user_kota' => $this->input->post('kabupaten'),
+      'user_nama' => $this->input->post('nama'),
+      'user_telpon' => $this->input->post('telpon'),
+      'user_picture' => $foto,
+      'user_deskripsi' => $this->input->post('deskripsi'),
+      'user_type' => $this->input->post('hak_akses')
+    ];
+
+    $this->user_model->edit_user_save($data);
+
+    redirect(base_url().'admin/user/edit/'.$this->input->post('kd_user'));
+  }
+
+  public function user_hapus($kode_user)
+  {
+    $this->user_model->user_hapus($kode_user);
+    redirect(base_url().'admin/user');
+  }
+
+  public function iklan_hapus($slug)
+  {
+    $this->user_model->iklan_hapus($slug);
+    redirect(base_url().'admin/iklan');
   }
 
   public function user_parse()
@@ -195,12 +236,19 @@ class Admin extends CI_Controller{
     $panjang = count($data);
 
     for ($i=0; $i < $panjang ; $i++) {
-      # code...
       $user_hapus = "onclick=window.location='".base_url()."admin/user/hapus/".$data[$i]['user_kode']."'";
       $user_edit = "onclick=window.location='".base_url()."admin/user/edit/".$data[$i]['user_kode']."'";
 
+      $data[$i]['user_id'] = $i+1;
       $data[$i]['user_add'] = date('j M', strtotime($data[$i]['user_add']));
-      $data[$i]['action'] = "<button class='btn btn-default btn-circle margin' type='button' $user_hapus><span class='glyphicon glyphicon-trash'></span></button><button class='btn btn-default btn-circle margin' type='button' $user_edit><span class='glyphicon glyphicon-edit'></span></button>";
+      if ($data[$i]['user_type'] == 'admin')
+      {
+        $data[$i]['action'] = "<button class='btn btn-default btn-circle margin' type='button' $user_edit><span class='glyphicon glyphicon-edit'></span></button>";
+      }
+      else
+      {
+        $data[$i]['action'] = "<button class='btn btn-default btn-circle margin' type='button' $user_hapus><span class='glyphicon glyphicon-trash'></span></button><button class='btn btn-default btn-circle margin' type='button' $user_edit><span class='glyphicon glyphicon-edit'></span></button>";
+      }
     }
     echo json_encode($data);
   }
@@ -208,7 +256,6 @@ class Admin extends CI_Controller{
   public function iklan_parse()
   {
     $data = $this->user_model->iklan_parse();
-
     $panjang = count($data);
 
     for ($i=0; $i < $panjang ; $i++) {
@@ -216,20 +263,11 @@ class Admin extends CI_Controller{
       $iklan_hapus = "onclick=window.location='".base_url()."admin/iklan/hapus/".str_replace(' ','-',$data[$i]['nama_barang'])."-".$data[$i]['barang_kode']."'";
       $iklan_edit = "onclick=window.location='".base_url()."admin/iklan/edit/".str_replace(' ','-',$data[$i]['nama_barang'])."-".$data[$i]['barang_kode']."'";
 
+      $data[$i]['id_barang'] = $i+1;
       $data[$i]['barang_upload_tgl'] = date('j M', strtotime($data[$i]['barang_upload_tgl']));
       $data[$i]['jenis_iklan'] = ucwords(str_replace('_',' ', $data[$i]['jenis_iklan']));
       $data[$i]['action'] = "<button class='btn btn-default btn-circle margin' type='button' $iklan_hapus><span class='glyphicon glyphicon-trash'></span></button><button class='btn btn-default btn-circle margin' type='button' $iklan_edit><span class='glyphicon glyphicon-edit'></span></button>";
     }
     echo json_encode($data);
   }
-  // echo "<pre>";
-  //   var_export($data);
-  // echo "</pre>";
-  // echo "<pre>";
-  // var_export($data2);
-  // echo "</pre>";
-  //
-  // echo "<pre>";
-  // var_export($data3);
-  // echo "</pre>";
 }

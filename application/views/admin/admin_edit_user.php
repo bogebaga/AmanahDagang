@@ -32,7 +32,7 @@
 							</div>
 							<div class="form-group">
 								<label>Kabupaten/Kota</label>
-								<select class="form-control" name="" id="kabkota">
+								<select class="form-control" name="kabupaten" id="kabkota">
 									<?php $data_kabkota = $this->iklan_model->get_data_kabkota($data_user[0]['user_provinsi']) ?>
 									<?php foreach ($data_kabkota as $kota): ?>
 										<?php if ($data_user[0]['user_kota'] == $kota['id']): ?>
@@ -60,11 +60,15 @@
 								<input type="file" name='foto_upload'>
 								<p class="help-block">Example block-level help text here.</p>
 							</div>
-							<!-- <label>Validation</label>
+							<input type="hidden" name="kd_user" value="<?php echo $data_user[0]['user_kode'] ?>">
+							<label>HAK AKSES</label>
 							<div class="form-group has-success">
-								<input class="form-control" placeholder="Success">
+								<select class="form-control" name="hak_akses">
+									<option value="admin" <?php echo $data_user[0]['user_type'] == 'admin' ? 'selected' : '' ?>>ADMIN</option>
+									<option value="general" <?php echo $data_user[0]['user_type'] == 'general' ? 'selected' : '' ?>>GENERAL</option>
+								</select>
 							</div>
-							<div class="form-group has-warning">
+							<!-- <div class="form-group has-warning">
 								<input class="form-control" placeholder="Warning">
 							</div>
 							<div class="form-group has-error">

@@ -84,13 +84,13 @@
       </div> -->
 
       <ul class="foto-dagangan">
-        <?php foreach ($all_iklan as $iklan) { ?>
+        <?php foreach ($this->iklan_model->get_all_iklan('Mobil') as $mobil) { ?>
           <li>
-            <a href="<?php echo "barang/".$iklan['slug_nama_barang'] ?>">
-              <img src="images/post_foto_feature/<?php echo $iklan['gambar_fitur'] ?>" alt="fitur foto iklan amanah dagang">
+            <a href="<?php echo "barang/".$mobil['slug_nama_barang'] ?>">
+              <img src=<?php echo $mobil['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_fitur/'.$mobil['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
-                <h3><?php echo $iklan['nama_barang'] ?></h3>
-                <h4><?php echo $iklan['harga_barang'] ?></h4>
+                <h3><?php echo $mobil['nama_barang'] ?></h3>
+                <h4><?php echo $mobil['harga_barang'] ?></h4>
               </figcaption>
             </a>
           </li>
@@ -99,36 +99,108 @@
     </div>
     <div id="motor" class="tab-pane fade">
       <ul class="foto-dagangan">
-        <li>
-          <a href="#">
-            <img src="images/gambar.jpg" alt="">
-            <figcaption>
-              <h4>Rp 5.000.000</h4>
-              <h3>Satria FU 150 CC</h3>
-              <!-- <p>17 Jan 2017, 16:30</p> -->
-            </figcaption>
-          </a>
-        </li>
+        <?php foreach ($this->iklan_model->get_all_iklan('Motor') as $motor) { ?>
+          <li>
+            <a href="<?php echo "barang/".$motor['slug_nama_barang'] ?>">
+              <img src=<?php echo $motor['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_fitur/'.$motor['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
+              <figcaption>
+                <h3><?php echo $motor['nama_barang'] ?></h3>
+                <h4><?php echo $motor['harga_barang'] ?></h4>
+              </figcaption>
+            </a>
+          </li>
+          <?php } ?>
       </ul>
-
     </div>
     <div id="properti" class="tab-pane fade">
-
+      <ul class="foto-dagangan">
+        <?php foreach ($this->iklan_model->get_all_iklan('Properti') as $properti) { ?>
+          <li>
+            <a href="<?php echo "barang/".$properti['slug_nama_barang'] ?>">
+              <img src=<?php echo $properti['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_fitur/'.$properti['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
+              <figcaption>
+                <h3><?php echo $properti['nama_barang'] ?></h3>
+                <h4><?php echo $properti['harga_barang'] ?></h4>
+              </figcaption>
+            </a>
+          </li>
+        <?php } ?>
+      </ul>
     </div>
     <div id="fashion" class="tab-pane fade">
-
+      <ul class="foto-dagangan">
+        <?php foreach ($this->iklan_model->get_all_iklan('Fashion') as $fashion) { ?>
+          <li>
+            <a href="<?php echo "barang/".$fashion['slug_nama_barang'] ?>">
+              <img src=<?php echo $fashion['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_fitur/'.$fashion['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
+              <figcaption>
+                <h3><?php echo $fashion['nama_barang'] ?></h3>
+                <h4><?php echo $fashion['harga_barang'] ?></h4>
+              </figcaption>
+            </a>
+          </li>
+          <?php } ?>
+      </ul>
     </div>
     <div id="handphone" class="tab-pane fade">
-
+      <ul class="foto-dagangan">
+        <?php foreach ($this->iklan_model->get_all_iklan('Handphone') as $handphone) { ?>
+          <li>
+            <a href="<?php echo "barang/".$handphone['slug_nama_barang'] ?>">
+              <img src=<?php echo $handphone['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_fitur/'.$handphone['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
+              <figcaption>
+                <h3><?php echo $handphone['nama_barang'] ?></h3>
+                <h4><?php echo $handphone['harga_barang'] ?></h4>
+              </figcaption>
+            </a>
+          </li>
+          <?php } ?>
+      </ul>
     </div>
     <div id="komputer" class="tab-pane fade">
-
+      <ul class="foto-dagangan">
+        <?php foreach ($this->iklan_model->get_all_iklan('Komputer') as $komputer) { ?>
+          <li>
+            <a href="<?php echo "barang/".$komputer['slug_nama_barang'] ?>">
+              <img src=<?php echo $komputer['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_fitur/'.$komputer['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
+              <figcaption>
+                <h3><?php echo $komputer['nama_barang'] ?></h3>
+                <h4><?php echo $komputer['harga_barang'] ?></h4>
+              </figcaption>
+            </a>
+          </li>
+          <?php } ?>
+        </ul>
     </div>
     <div id="outdoor" class="tab-pane fade">
-
+      <ul class="foto-dagangan">
+        <?php foreach ($this->iklan_model->get_all_iklan('Travel') as $travel) { ?>
+          <li>
+            <a href="<?php echo "barang/".$travel['slug_nama_barang'] ?>">
+              <img src=<?php echo $travel['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_fitur/'.$travel['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
+              <figcaption>
+                <h3><?php echo $travel['nama_barang'] ?></h3>
+                <h4><?php echo $travel['harga_barang'] ?></h4>
+              </figcaption>
+            </a>
+          </li>
+          <?php } ?>
+        </ul>
     </div>
     <div id="dapur" class="tab-pane fade">
-
+      <ul class="foto-dagangan">
+        <?php foreach ($this->iklan_model->get_all_iklan('Kitchen') as $kitchen) { ?>
+          <li>
+            <a href="<?php echo "barang/".$kitchen['slug_nama_barang'] ?>">
+              <img src=<?php echo $kitchen['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_fitur/'.$kitchen['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
+              <figcaption>
+                <h3><?php echo $kitchen['nama_barang'] ?></h3>
+                <h4><?php echo $kitchen['harga_barang'] ?></h4>
+              </figcaption>
+            </a>
+          </li>
+          <?php } ?>
+        </ul>
     </div>
   </div>
   <div class="iklan-lebar">

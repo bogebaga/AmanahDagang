@@ -2,7 +2,7 @@
   <section class="detail-form">
     <h1>Pasang Iklan</h1>
 
-    <?php echo form_open_multipart('pasangiklan/masuk');?>
+    <?php echo form_open_multipart('pasangiklan/masukki');?>
       <div class="df">
         <h4>Judul Iklan</h4>
         <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." required>
@@ -39,7 +39,7 @@
       <div class="df" style="position:relative;">
         <h4 style="position:absolute;">Deskripsi</h4>
         <div style="width:500px;margin-left:205px;">
-          <textarea name="deskripsi_iklan" placeholder="Deskripsi" required></textarea>
+          <textarea name="deskripsi_iklan"></textarea>
         </div>
       </div>
       <!-- <div class="df">
@@ -91,26 +91,25 @@
           <input type="file" name="image[]" onchange="loadImage(this, 'image_6', 83, 83 )" style="display:none;">
         </label>
       </div>
-      <script>
-        function loadImage(i, addr, w, h)
-        {
-          if (i.files && i.files[0])
-          {
-              var reader = new FileReader();
-
-              reader.onload = function(e)
-              {
-                $('#'+addr).attr('src', e.target.result).width(w).height(h);
-              }
-
-              reader.readAsDataURL(i.files[0]);
-          }
-        }
-      </script>
       <br>
       <button type="submit" name="submit" class="simpan btn btn-primary btn-lg">Pasang Iklan</button>
       <?php echo form_close();?>
+      <script>
+      function loadImage(i, addr, w, h)
+      {
+        if (i.files && i.files[0])
+        {
+          var reader = new FileReader();
 
+          reader.onload = function(e)
+          {
+            $('#'+addr).attr('src', e.target.result).width(w).height(h);
+          }
+
+          reader.readAsDataURL(i.files[0]);
+        }
+      }
+      </script>
     <h1>Identitas Diri Anda | <a href="<?php echo base_url() ?>profil">Profil</a></h1>
     <form>
       <div class="df">
