@@ -2,11 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller{
-
   public function __construct()
   {
     parent::__construct();
-    $this->load->helper(['url','form']);
+    $this->load->helper(['url','form','file']);
     $this->load->library(['session', 'upload']);
     $this->load->model(['iklan_model','user_model']);
 
@@ -14,6 +13,7 @@ class Admin extends CI_Controller{
     {
       redirect(base_url().'admin/login');
     }
+
   }
 
   public function index()
@@ -137,7 +137,6 @@ class Admin extends CI_Controller{
       $data = ['upload_data' => $this->upload->data('file_name')];
     }
 
-
     $slug_nama_iklan = url_title($this->input->post('nama_barang'),'-');
     $barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
 
@@ -207,7 +206,7 @@ class Admin extends CI_Controller{
       'user_kota' => $this->input->post('kabupaten'),
       'user_nama' => $this->input->post('nama'),
       'user_telpon' => $this->input->post('telpon'),
-      'user_picture' => $foto,
+      // 'user_picture' => $foto,
       'user_deskripsi' => $this->input->post('deskripsi'),
       'user_type' => $this->input->post('hak_akses')
     ];
@@ -219,14 +218,28 @@ class Admin extends CI_Controller{
 
   public function user_hapus($kode_user)
   {
+    $valid_user_image = $this->user_model->get_user_profil($kode_user);
+    if ($valid_user_image[0]['user_picture'])
+    {
+      unlink(FCPATH.'images/user_iklan/'.$valid_user_image[0]['user_picture']);
+    }
+
     $this->user_model->user_hapus($kode_user);
     redirect(base_url().'admin/user');
   }
 
   public function iklan_hapus($slug)
   {
+    $file_hapus = $this->iklan_model->get_iklan_by_slug($slug);
+    if($file_hapus->gambar_barang)
+    {
+      $file_hapus_explode = explode(",",$file_hapus->gambar_barang);
+      foreach ($file_hapus_explode as $hapus) {
+        unlink(FCPATH.'images/post_foto_ikl/'.$hapus);
+      }
+    }
     $this->user_model->iklan_hapus($slug);
-    redirect(base_url().'admin/iklan');
+     redirect(base_url().'admin/iklan');
   }
 
   public function user_parse()
@@ -259,7 +272,6 @@ class Admin extends CI_Controller{
     $panjang = count($data);
 
     for ($i=0; $i < $panjang ; $i++) {
-      # code...
       $iklan_hapus = "onclick=window.location='".base_url()."admin/iklan/hapus/".str_replace(' ','-',$data[$i]['nama_barang'])."-".$data[$i]['barang_kode']."'";
       $iklan_edit = "onclick=window.location='".base_url()."admin/iklan/edit/".str_replace(' ','-',$data[$i]['nama_barang'])."-".$data[$i]['barang_kode']."'";
 

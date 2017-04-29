@@ -12,6 +12,9 @@ class Proses extends CI_Controller {
 
 	public function iklan_proses()
 	{
+		$slug_nama_iklan = url_title($this->input->post('nama_iklan'),'-');
+		$barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
+
 		$this->upload->initialize(
 			[
 				'upload_path' => './images/post_foto_feature/',
@@ -44,22 +47,25 @@ class Proses extends CI_Controller {
 					$_FILES['images']['error'] = $_FILES['image']['error'][$i];
 					$_FILES['images']['size'] = $_FILES['image']['size'][$i];
 
+					$After_explode = explode(".", $_FILES['images']['name']);
 					$this->upload->initialize([
 						'upload_path' => './images/post_foto_ikl/',
-						'allowed_types' => 'jpeg|jpg|png|gif'
+						'allowed_types' => 'jpeg|jpg|png|gif',
+						'file_name' => $After_explode[0].'_'.$slug_nama_iklan.'_'.$barang_kode.'_'.$i
 					]);
 
 					if($this->upload->do_upload('images'))
 					{
-						$uploaded[$i] = $this->upload->data('file_name');
+					$uploaded[$i] = $this->upload->data('file_name');
+					// echo "<pre>";
+					// echo var_export($this->upload->data('file_name'));
+					// echo "</pre>";
 					}
 				}
 			}
-			$hasil_implode = implode(",", $uploaded);
+			echo $hasil_implode = implode(",", $uploaded);
 		}
 
-		$slug_nama_iklan = url_title($this->input->post('nama_iklan'),'-');
-		$barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
 
 		$data = [
 			'nama_iklan' => $this->input->post('nama_iklan'),

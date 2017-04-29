@@ -65,10 +65,11 @@ class Iklan_model extends CI_Model{
       $this->db->delete('ad_barang');
   }
 
-  public function load_jenis_iklan($data)
+  public function load_jenis_iklan($data0, $data1)
   {
     $this->db->select('barang_upload_tgl, nama_barang, tayang_barang, harga_barang, slug_nama_barang');
-    $this->db->where('jenis_iklan', $data);
+    $this->db->where('jenis_iklan', $data0);
+    $this->db->where('user_kode', $data1);
     $result = $this->db->get('ad_barang');
 
     return $result->result_array();

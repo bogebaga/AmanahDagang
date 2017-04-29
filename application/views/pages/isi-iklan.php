@@ -2,9 +2,9 @@
   <section class="detail-barang">
     <ol class="breadcrumb">
       <li>
-        <a href="#">Home</a>
+        <a href="<?php echo base_url(); ?>">Home</a>
       </li>
-      <li class="active">Mobil</li>
+      <li class="active"><?php echo $iklan[0]['nama_kategori'] ?></li>
     </ol>
 
     <div class="judul-barang">
@@ -14,10 +14,12 @@
 
     <div class="slide-barang">
       <!-- <div class="gambar-gambar">
-        <img src="<?php echo base_url()?>images/post_foto_feature/<?php echo $iklan[0]['gambar_fitur'] ?>"  class="img-responsive" alt="foto">
+        <img src="<?php base_url()?>images/post_foto_feature/<?php echo $iklan[0]['gambar_fitur'] ?>"  class="img-responsive" alt="foto">
       </div> -->
     <?php
       $explode_string = explode(',',$iklan[0]['gambar_barang']);
+      rsort($explode_string);
+
       foreach ($explode_string as $slide_gambar) { ?>
         <div class="gambar-gambar">
           <img src="<?php echo $slide_gambar == '' ? base_url().'images/src_img_default/wide.jpg' : base_url().'images/post_foto_ikl/'.$slide_gambar ?>"  class="img-responsive" alt="foto">
@@ -26,7 +28,6 @@
       <a class="arah-kiri" onclick="plusDivs(-1)">&#10094;</a>
       <a class="arah-kanan" onclick="plusDivs(1)">&#10095;</a>
     </div>
-
     <div class="deskripsi-barang">
       <h3>Detail Barang</h3>
       <p><?php echo $iklan[0]['deskripsi_barang'] ?></p>

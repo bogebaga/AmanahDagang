@@ -25,7 +25,6 @@ $route['iklanparse'] = 'admin/iklan_parse';
 $route['uparse'] = 'admin/user_parse';
 
 $route['kabkota'] = 'proses/load_kabkota'; //isi kabkota
-$route['tes'] = 'proses/tes_ilmu';
 
 $route['iklan/edit'] = 'proses/save_edit_iklan';
 $route['pasangiklan/masukki'] = 'proses/iklan_proses';
@@ -36,6 +35,7 @@ $route['barang/(:any)'] = 'proses/load_iklan/$1';
 
 $route['default_controller'] = 'beranda/tampil_beranda'; //index
 $route['edit'] = 'beranda/edit';
+$route['tes'] = 'proses/tes_ilmu';
 $route['(:any)'] = 'beranda/tampil_beranda/$1';
 
 $route['404_override'] = '';

@@ -106,7 +106,7 @@ $(function() {
                 <tbody>
                 <?php
                   $i = 1;
-                  foreach ($this->iklan_model->load_jenis_iklan('iklan_baris') as $isi_iklan_baris):
+                  foreach ($this->iklan_model->load_jenis_iklan('iklan_baris', $this->session->userdata('user_kd')) as $isi_iklan_baris):
                 ?>
                       <tr>
                         <td><?php echo $i++ ?></td>
@@ -123,7 +123,7 @@ $(function() {
                           <button type="button" class="btn btn-danger btn-xs" onclick="window.location='barang/hapus/<?php echo $isi_iklan_baris['slug_nama_barang'] ?>'"><span class="fa fa-remove"></span>&nbsp;Hapus</button>
                           <button type="button" class="btn btn-info btn-xs" name="button" onclick="window.location ='barang/<?php echo $isi_iklan_baris['slug_nama_barang'] ?>'"><span class="fa fa-eye"></span>&nbsp;Lihat</button>
                         </td>
-                        <td><span style="font-size:14px;" class="label label-primary"><?php echo $isi_iklan_baris['tayang_barang'] ?></span></td>
+                        <td><span style="font-size:14px;" <?php echo $isi_iklan_baris['tayang_barang'] == 'unpublish' ? "class='label label-danger'" : "class = 'label label-primary'"?>><?php echo $isi_iklan_baris['tayang_barang'] ?></span></td>
                         <td><?php echo $isi_iklan_baris['harga_barang'] ?></td>
                         <td><button class="btn btn-success" type="button" name="button">Promosi</button></td>
                       </tr>
@@ -152,7 +152,7 @@ $(function() {
                 <tbody>
                 <?php
                   $i = 1;
-                  foreach ($this->iklan_model->load_jenis_iklan('iklan_foto') as $isi_iklan_foto):
+                  foreach ($this->iklan_model->load_jenis_iklan('iklan_foto', $this->session->userdata('user_kd')) as $isi_iklan_foto):
                 ?>
                       <tr>
                         <td><?php echo $i++ ?></td>
@@ -169,7 +169,7 @@ $(function() {
                           <button type="button" class="btn btn-danger btn-xs" onclick="window.location='barang/hapus/<?php echo $isi_iklan_foto['slug_nama_barang'] ?>'"><span class="fa fa-remove"></span>&nbsp;Hapus</button>
                           <button type="button" class="btn btn-info btn-xs" name="button" onclick="window.location = 'barang/<?php echo $isi_iklan_foto['slug_nama_barang'] ?>'"><span class="fa fa-eye"></span>&nbsp;Lihat</button>
                         </td>
-                        <td><span style="font-size:14px;" class="label label-primary"><?php echo $isi_iklan_foto['tayang_barang'] ?></span></td>
+                        <td><span style="font-size:14px;" <?php echo $isi_iklan_baris['tayang_barang'] == 'unpublish' ? "class='label label-danger'" : "class = 'label label-primary'"?>><?php echo $isi_iklan_foto['tayang_barang'] ?></span></td>
                         <td><?php echo $isi_iklan_foto['harga_barang'] ?></td>
                         <td><button class="btn btn-success" type="button" name="button">Promosi</button></td>
                       </tr>
