@@ -59,7 +59,7 @@
         <h4>Foto Fitur</h4>
         <label class="buf" style="position:relative;width:200px;height:100px;">
           <i class="fa fa-camera" aria-hidden="true" style="position:absolute;top:35px;left:80px;"></i>
-          <img id="fitur_foto_name">
+          <img id="fitur_foto_name" src="<?php echo base_url().'images/post_foto_feature/'.$slug_data->gambar_fitur?>" width="200" height="100">
           <input type="file" name="fitur_foto_name" onchange='loadImage(this, this.name, 200, 100)' style="display:none;">
         </label>
       </div>

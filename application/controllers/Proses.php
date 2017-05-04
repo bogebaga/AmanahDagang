@@ -136,7 +136,26 @@ class Proses extends CI_Controller {
 	public function save_edit_iklan()
 	{
 		$slug_nama = url_title($this->input->post('nama_iklan'),'-').'-'.$this->input->post('kd_barang');
-		$get_gambar_banyak = explode(",", $this->iklan_model->get_iklan_by_slug($slug_nama)); //array
+		$iklan_data_obj = $this->iklan_model->get_iklan_by_slug($slug_nama);
+		$get_gambar_banyak = explode(",", $iklan_data_obj->gambar_barang);
+
+		$this->upload->initialize(
+			[
+				'upload_path' => './images/post_foto_feature/',
+				'allowed_types' => 'jpg|png|gif|jpeg'
+			]);
+
+		if(! $this->upload->do_upload('fitur_foto_name'))
+		{
+			$hasil_data = ($iklan_data_obj->gambar_fitur) ?? '' ;
+			// var_dump($data = ['upload_data' => $hasil_data]);
+			$data = ['upload_data' => $hasil_data];
+		}
+		else
+		{
+			// var_dump($data = ['upload_data' => $this->upload->data('file_name')]);
+			$data = ['upload_data' => $this->upload->data('file_name')];
+		}
 
 		if (isset($_POST['submit']))
 		{
@@ -159,52 +178,48 @@ class Proses extends CI_Controller {
 					$this->upload->initialize([
 						'upload_path' => './images/post_foto_ikl/',
 						'allowed_types' => 'jpeg|jpg|png|gif',
-						'file_name' => $After_explode[0].'_'.$slug_nama_iklan.'_'.$barang_kode.'_'.$i
+						'file_name' => $After_explode[0].'_'.$slug_nama.'_'.$i
 					]);
 
 					if($this->upload->do_upload('images'))
 					{
-					$uploaded[$i] = $this->upload->data('file_name');
-					// echo "<pre>";
-					// echo var_export($this->upload->data('file_name'));
-					// echo "</pre>";
+						$uploaded[$i] = $this->upload->data('file_name');
 					}
 				}
 			}
-			echo $hasil_implode = implode(",", $uploaded);
+			$hasil_implode = implode(",", $uploaded);
 		}
 
-		// $data=[
-		// 	'barang_kode' => $this->input->post('kd_barang'),
-		// 	'id_kategori' => $this->input->post('nama_kategori'),
-		// 	'slug_nama_barang' => $slug_nama,
-		// 	'nama_barang' => $this->input->post('nama_iklan'),
-		// 	'alamat_barang' => $this->input->post('alamat'),
-		// 	'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
-		// 	'harga_barang' => $this->input->post('harga_iklan'),
-		// 	'jenis_barang' => $this->input->post('jenis_barang'),
-		// 	'jenis_iklan' => $this->input->post('jenis_iklan')
-		// ];
+		$data=[
+			'barang_kode' => $this->input->post('kd_barang'),
+			'id_kategori' => $this->input->post('nama_kategori'),
+			'slug_nama_barang' => $slug_nama,
+			'nama_barang' => $this->input->post('nama_iklan'),
+			'alamat_barang' => $this->input->post('alamat'),
+			'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
+			'harga_barang' => $this->input->post('harga_iklan'),
+			'jenis_barang' => $this->input->post('jenis_barang'),
+			'jenis_iklan' => $this->input->post('jenis_iklan'),
+			'gambar_fitur' => $data['upload_data'],
+			'gambar_barang' => $hasil_implode
+		];
 
-		// $this->iklan_model->simpan_iklan_by_kdbarang($data);
-
-		// redirect(base_url().'barang/edit/'.$slug_nama);
+		$this->iklan_model->simpan_iklan_by_kdbarang($data);
+		redirect(base_url().'barang/edit/'.$slug_nama);
 	}
 
 	public function hapus_iklan($slug)
 	{
+		$data = $this->iklan_model->get_iklan_by_slug($slug);
+
+		unlink(FCPATH.'images/post_foto_feature/'.$data->gambar_fitur);
+		foreach ($data->gambar_barang as $hapus_iklan)
+		{
+			unlink(FCPATH.'images/post_foto_ikl/'.$hapus_iklan);
+		}
+
 		$this->iklan_model->delete_iklan($slug);
 		redirect('profil');
-	}
-
-	public function image_onclick()
-	{
-		$this->input->post('kd_img');
-		$this->input->post('name');
-		$this->input->post('sl');
-
-		$gambar_muat = $this->iklan_model->get_iklan_by_slug($this->input->post('sl'));
-		$gambar_muat_explode = explode(',', $gambar_muat['gambar_barang']);
 	}
 
 	public function tes_ilmu()
