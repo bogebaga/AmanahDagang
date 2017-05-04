@@ -149,7 +149,6 @@ class Proses extends CI_Controller {
 		];
 
 		$this->iklan_model->simpan_iklan_by_kdbarang($data);
-
 		redirect(base_url().'barang/edit/'.$slug_nama);
 	}
 
@@ -157,6 +156,18 @@ class Proses extends CI_Controller {
 	{
 		$this->iklan_model->delete_iklan($slug);
 		redirect('profil');
+	}
+
+	public function image_onclick()
+	{
+		$this->input->post('kd_img');
+		$this->input->post('name');
+		$this->input->post('sl');
+
+		$gambar_muat = $this->iklan_model->get_iklan_by_slug($this->input->post('sl'));
+		$gambar_muat_explode = explode(',', $gambar_muat['gambar_barang']);
+
+
 	}
 
 	public function tes_ilmu()
@@ -169,4 +180,5 @@ class Proses extends CI_Controller {
 			echo "</pre>";
 		}
 	}
+
 }

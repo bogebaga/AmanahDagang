@@ -23,6 +23,7 @@ $route['admin/edit_save'] = 'admin/edit_save';
 
 $route['iklanparse'] = 'admin/iklan_parse';
 $route['uparse'] = 'admin/user_parse';
+$route['barang/edit/img_inline'] = 'proses/image_onclick';
 
 $route['kabkota'] = 'proses/load_kabkota'; //isi kabkota
 
