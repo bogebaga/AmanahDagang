@@ -59,51 +59,47 @@
         <h4>Foto Fitur</h4>
         <label class="buf" style="position:relative;width:200px;height:100px;">
           <i class="fa fa-camera" aria-hidden="true" style="position:absolute;top:35px;left:80px;"></i>
-          <img id="fitur_foto_name" src="<?php echo base_url().'images/post_foto_feature/'.$slug_data->gambar_fitur?>" width="200" height="100">
+          <img id="fitur_foto_name">
           <input type="file" name="fitur_foto_name" onchange='loadImage(this, this.name, 200, 100)' style="display:none;">
         </label>
       </div>
       <div class="df">
         <h4>Upload Foto</h4>
-        <?php $data_hasil_explode = explode(",", $slug_data->gambar_barang) ?>
-        <?php foreach ($data_hasil_explode as $key => $value): ?>
-          <label class="buf" style="position:relative">
-            <img id="image_<?php echo $key+1 ?>" <?php echo ($value == '') ? '' : "src='".base_url('images/post_foto_ikl/'.$value)."'" ?> width="85" height="85">
-            <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
-            <input type="file" name="image[]" onchange="loadImage(this,'image_<?php echo $key+1?>', 85, 85)" image-role="<?php echo $key ?>" style="display:none;">
-          </label>
-        <?php endforeach; ?>
-      <script>
-      function loadImage(i, addr, w, h)
-      {
-        if (i.files && i.files[0])
-        {
-          var reader = new FileReader();
-
-          reader.onload = function(e)
-          {
-            $('#'+addr).attr('src', e.target.result).width(w).height(h);
-          }
-
-          reader.readAsDataURL(i.files[0]);
-        }
-      }
-      // function saveImage(e)
-      // {
-      //   var kd_img = $(e).attr('image-role');
-      //   var nm_arr = $(e).val().split('\\');
-      //   var path_nama = window.location.pathname.split('/');
-      //   $.post('/path/to/file', {kd_img: kd_image, name : nm_arr, sl: path_nama});
-      //   // console.log(kd_img);
-      //   // console.log(nm_arr[2]);
-      //   // console.log(path_nama[4]);
-      // }
-      </script>
+        <label class="buf" style="position:relative">
+          <img id="image_1">
+          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <input type="file" name="image[]" onchange="loadImage(this, 'image_1', 83, 83 )" style="display:none;">
+        </label>
+        <label class="buf" style="position:relative">
+          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <img id="image_2">
+          <input type="file" name="image[]" onchange="loadImage(this, 'image_2', 83, 83 )" style="display:none;">
+        </label>
+        <label class="buf" style="position:relative">
+          <img id="image_3">
+          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <input type="file" name="image[]" onchange="loadImage(this, 'image_3', 83, 83 )" style="display:none;">
+        </label>
+        <label class="buf" style="position:relative">
+          <img id="image_4">
+          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <input type="file" name="image[]" onchange="loadImage(this, 'image_4', 83, 83 )" style="display:none;">
+        </label>
+        <label class="buf" style="position:relative">
+          <img id="image_5">
+          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <input type="file" name="image[]" onchange="loadImage(this, 'image_5', 83, 83 )" style="display:none;">
+        </label>
+        <label class="buf" style="position:relative">
+          <img id="image_6">
+          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <input type="file" name="image[]" onchange="loadImage(this, 'image_6', 83, 83 )" style="display:none;">
+        </label>
       </div>
       <br>
       <button type="submit" name="submit" class="simpan btn btn-primary btn-lg">Simpan Iklan</button>
       <?php echo form_close();?>
-      <br><br>
+
     <h1>Identitas Diri Anda | <a href="<?php echo base_url() ?>profil">Profil</a></h1>
     <form>
       <div class="df">

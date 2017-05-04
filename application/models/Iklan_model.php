@@ -86,7 +86,6 @@ class Iklan_model extends CI_Model{
 
     return $query->result_array();
   }
-
   public function pasang_iklan($data)
   {
       $store_db = [

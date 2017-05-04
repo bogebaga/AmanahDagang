@@ -166,8 +166,6 @@ class Proses extends CI_Controller {
 
 		$gambar_muat = $this->iklan_model->get_iklan_by_slug($this->input->post('sl'));
 		$gambar_muat_explode = explode(',', $gambar_muat['gambar_barang']);
-
-
 	}
 
 	public function tes_ilmu()
