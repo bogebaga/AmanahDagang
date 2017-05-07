@@ -1,0 +1,16 @@
+{
+  "transport": "scp",
+  "uploadOnSave": false,
+  "useAtomicWrites": false,
+  "deleteLocal": true,
+  "hostname": "ftp.harianamanah.id",
+  "port": "2223",
+  "target": "/home/harj8127/public_html/amanahdagang.com",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "harj8127",
+  "password": "bismillah17!",
+  "watch": []
+}

@@ -22,7 +22,6 @@
 									<label>Judul Iklan</label>
 									<input class="form-control" placeholder="example: Jual cepat mobil bmw" name="nama_barang" required>
 								</div>
-
 								<div class="form-group">
 									<label>Kategori</label>
 									<select class="form-control" name="kategori">
@@ -59,22 +58,66 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label>Foto Upload</label>
-									<input type="file" name='foto_upload'>
-									<p class="help-block">Example block-level help text here.</p>
+									<label style="display:block;">Foto Upload</label>
+									<label class="chs-img" style="width:255px;padding: 35px 0;">
+										<img id='foto_cover'>
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name='foto_upload' onchange="loadImage(this, 'foto_cover', 255, 114)" style="display:none;">
+									</label>
+									<p class="help-block" style="display:block;">Example block-level help text here.</p>
 								</div>
-								<div class="form-group">
-									<label>Foto Grup</label>
-									<input type="file" name="foto_fitur[]">
-									<input type="file" name="foto_fitur[]">
-									<input type="file" name="foto_fitur[]">
-									<input type="file" name="foto_fitur[]">
-									<input type="file" name="foto_fitur[]">
-									<input type="file" name="foto_fitur[]">
-									<p class="help-block">Example block-level help text here.</p>
-								</div>
-							</div>
 
+								<div class="form-group">
+									<label style="display:block;">Foto Grup</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img id="image_1">
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_1', 80, 53)" style="display:none;">
+									</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img id="image_2">
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_2', 80, 53)" style="display:none;">
+									</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img id="image_3">
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_3', 80, 53)" style="display:none;">
+									</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img id="image_4">
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_4', 80, 53)" style="display:none;">
+									</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img id="image_5">
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_5', 80, 53)" style="display:none;">
+									</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img id="image_6">
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_6', 80, 53)" style="display:none;">
+									</label>
+								</div>
+								<p class="help-block">Example block-level help text here.</p>
+							</div>
+							<script>
+							function loadImage(i, addr, w, h)
+							{
+								if (i.files && i.files[0])
+								{
+									var reader = new FileReader();
+
+									reader.onload = function(e)
+									{
+										$('#'+addr).attr('src', e.target.result).width(w).height(h);
+									}
+
+									reader.readAsDataURL(i.files[0]);
+								}
+							}
+							</script>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Deskripsi</label>
@@ -121,5 +164,4 @@
 				</div>
 			</div><!-- /.col-->
 		</div><!-- /.row -->
-
 	</div><!--/.main-->

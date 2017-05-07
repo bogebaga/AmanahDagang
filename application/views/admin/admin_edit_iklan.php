@@ -66,21 +66,49 @@
 								</div>
 
 								<div class="form-group">
-									<label>Foto Upload</label>
-									<input type="file" name='foto_upload'>
-									<p class="help-block">Example block-level help text here.</p>
+									<label style="display:block;">Foto Upload</label>
+									<label class="chs-img" style="width:255px;padding: 35px 0;">
+										<img>
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name='foto_upload' style="display:none;">
+									</label>
+									<p class="help-block" style="display:block;">Example block-level help text here.</p>
 								</div>
 
 								<div class="form-group">
-									<label>Foto Grup</label>
-									<input type="file" name="foto_fitur[]">
-									<input type="file" name="foto_fitur[]">
-									<input type="file" name="foto_fitur[]">
-									<input type="file" name="foto_fitur[]">
-									<input type="file" name="foto_fitur[]">
-									<input type="file" name="foto_fitur[]">
-									<p class="help-block">Example block-level help text here.</p>
+									<label style="display:block;">Foto Grup</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img>
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" style="display:none;">
+									</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img>
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" style="display:none;">
+									</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img>
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" style="display:none;">
+									</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img>
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" style="display:none;">
+									</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img>
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" style="display:none;">
+									</label>
+									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+										<img>
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<input type="file" name="foto_fitur[]" style="display:none;">
+									</label>
 								</div>
+								<p class="help-block">Example block-level help text here.</p>
 							</div>
 
 							<div class="col-md-6">

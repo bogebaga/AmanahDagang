@@ -127,7 +127,7 @@ class Iklan_model extends CI_Model{
   {
     $this->load->helper('array');
 
-    $this->db->where('slug_nama_barang', element('slug_nama_barang',$data));
+    $this->db->where('slug_nama_barang', element('slug_nama_barang', $data));
     unset($data['slug_nama_barang']);
 
     return $this->db->update('ad_barang', $data);

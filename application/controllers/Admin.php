@@ -93,6 +93,27 @@ class Admin extends CI_Controller{
   {
     if (isset($_POST['submit']))
     {
+      $slug_nama_iklan = url_title($this->input->post('nama_barang'),'-');
+      $barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
+      $nama_explode = explode(".", $_FILES['foto_upload']['name']);
+
+      $this->upload->initialize(
+        [
+          'upload_path' => './images/post_foto_feature/',
+          'allowed_types' => 'jpg|png|gif|jpeg',
+          'file_name' => $nama_explode[0]."_".$slug_nama_iklan."_Foto-Fitur",
+          'overwrite' => TRUE
+        ]);
+
+      if(! $this->upload->do_upload('foto_upload'))
+      {
+        $data = ['upload_data' => ''];
+      }
+      else
+      {
+        $data = ['upload_data' => $this->upload->data('file_name')];
+      }
+
       $gambar_count = count($_FILES['foto_fitur']['name']);
         for ($i=0; $i < $gambar_count ; $i++)
         {
@@ -108,9 +129,13 @@ class Admin extends CI_Controller{
             $_FILES['images']['error'] = $_FILES['foto_fitur']['error'][$i];
             $_FILES['images']['size'] = $_FILES['foto_fitur']['size'][$i];
 
+            $After_explode = explode(".", $_FILES['images']['name']);
+            
             $this->upload->initialize([
               'upload_path' => './images/post_foto_ikl/',
-              'allowed_types' => 'jpeg|jpg|png|gif'
+              'allowed_types' => 'jpeg|jpg|png|gif',
+              'file_name' => $After_explode[0]."_".$slug_nama_iklan."_".$barang_kode."_".$i,
+              'overwrite' => TRUE
             ]);
 
             if($this->upload->do_upload('images'))
@@ -122,27 +147,9 @@ class Admin extends CI_Controller{
         $hasil_implode = implode(",", $uploaded);
       }
 
-    $this->upload->initialize(
-      [
-        'upload_path' => './images/post_foto_feature/',
-        'allowed_types' => 'jpg|png|gif|jpeg'
-      ]);
-
-    if(! $this->upload->do_upload('foto_upload'))
-    {
-      $data = ['upload_data' => ''];
-    }
-    else
-    {
-      $data = ['upload_data' => $this->upload->data('file_name')];
-    }
-
-    $slug_nama_iklan = url_title($this->input->post('nama_barang'),'-');
-    $barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
-
     $data = [
       'barang_kode' => $barang_kode,
-      'user_kode' => 'adminAD001',
+      'user_kode' => $this->session->userdata('user_kd_admin'),
       'id_kategori' => $this->input->post('kategori'),
       'barang_upload_tgl' => date('Y-m-d H:i:s'),
       'nama_barang' => $this->input->post('nama_barang'),
@@ -165,6 +172,72 @@ class Admin extends CI_Controller{
 
   public function edit_save()
   {
+		$iklan_data_obj = $this->iklan_model->get_iklan_by_slug($this->input->post('slug_nama_barang'));
+    $get_gambar_banyak = explode(",", $iklan_data_obj->gambar_barang);
+    $slug_nama_iklan = url_title($this->input->post('nama_barang'),'-');
+    $After_explode = explode(".", $_FILES['fitur_foto_name']['name']);
+
+		$this->upload->initialize(
+			[
+				'upload_path' => './images/post_foto_feature/',
+				'allowed_types' => 'jpg|png|gif|jpeg',
+        'overwrite' => TRUE,
+				'file_name' => $After_explode[0]."_".$slug_nama_iklan."_Foto-Fitur"
+			]);
+
+		if(! $this->upload->do_upload('fitur_foto_name'))
+		{
+			$hasil_data = ($iklan_data_obj->gambar_fitur) ?: '' ;
+			// var_dump($data = ['upload_data' => $hasil_data]);
+			$data = ['upload_data' => $hasil_data];
+		}
+		else
+		{
+			// var_dump($data = ['upload_data' => $this->upload->data('file_name')]);
+			if ($iklan_data_obj->gambar_fitur)
+			{
+				unlink(FCPATH.'images/post_foto_feature/'.$iklan_data_obj->gambar_fitur);
+			}
+			$data = ['upload_data' => $this->upload->data('file_name')];
+		}
+
+		if (isset($_POST['submit']))
+		{
+			$gambar_count = count($_FILES['foto_fitur']['name']);
+			for ($i=0; $i < $gambar_count ; $i++)
+			{
+				if ($_FILES['image']['error'][$i] == '4')
+				{
+					($get_gambar_banyak[$i]) ? $uploaded[$i] = $get_gambar_banyak[$i] : $uploaded[$i] = '';
+				}
+				else
+				{
+					$_FILES['images']['name'] = $_FILES['foto_fitur']['name'][$i];
+					$_FILES['images']['type'] = $_FILES['foto_fitur']['type'][$i];
+					$_FILES['images']['tmp_name'] = $_FILES['foto_fitur']['tmp_name'][$i];
+					$_FILES['images']['error'] = $_FILES['foto_fitur']['error'][$i];
+					$_FILES['images']['size'] = $_FILES['foto_fitur']['size'][$i];
+
+					$After_explode = explode(".", $_FILES['images']['name']);
+					$this->upload->initialize([
+						'upload_path' => './images/post_foto_ikl/',
+						'allowed_types' => 'jpeg|jpg|png|gif',
+						'file_name' => $After_explode[0].'_'.$this->input->post('slug_nama_barang').'_'.$i
+					]);
+
+					if($this->upload->do_upload('images'))
+					{
+						if ($get_gambar_banyak[$i])
+						{
+							unlink(FCPATH.'images/post_foto_feature/'.$get_gambar_banyak[$i]);
+						}
+						$uploaded[$i] = $this->upload->data('file_name');
+					}
+				}
+			}
+			$hasil_implode = implode(",", $uploaded);
+		}
+
     $data = [
       'id_kategori' => $this->input->post('kategori'),
       'slug_nama_barang' => $this->input->post('slug_nama_barang'),
@@ -174,6 +247,8 @@ class Admin extends CI_Controller{
       'harga_barang' => $this->input->post('harga'),
       'jenis_barang' => $this->input->post('jenis_barang'),
       'jenis_iklan' => $this->input->post('jenis_iklan'),
+      'gambar_fitur' => $data['upload_data'],
+      'gambar_barang' => $hasil_implode,
       'tayang_barang' => $this->input->post('tayang_iklan')
     ];
 

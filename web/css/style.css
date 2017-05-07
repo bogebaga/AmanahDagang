@@ -525,7 +525,7 @@ footer{
 
 .detail-form form .df .buf i{
 	font-size: 35px;
-	color: #a9a9a9;
+	color: rgba(111, 106, 106, 0.32);
 	position: relative;
 	top: 23px;
 	left: 23px;
@@ -850,4 +850,9 @@ footer{
 	width: 1120px;
 	/*height: 300px;*/
 	overflow: hidden;
+}
+
+.deskripsi-barang ol
+{
+	margin-left: 20px;
 }
