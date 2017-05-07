@@ -56,9 +56,13 @@
 								<textarea class="form-control" name="deskripsi" rows="6" placeholder="Ciri-ciri kamu ..."><?php echo $data_user[0]['user_deskripsi'] ?></textarea>
 							</div>
 							<div class="form-group">
-								<label>Foto Upload</label>
-								<input type="file" name='foto_upload'>
-								<p class="help-block">Example block-level help text here.</p>
+								<label style="display:block;">Foto Upload</label>
+								<label class="chs-img" style="width:255px;padding: 35px 0;">
+									<img>
+									<span class="glyphicon glyphicon-eye-open"></span>
+									<input type="file" name='foto_upload' style="display:none;">
+								</label>
+								<p class="help-block" style="display:block;">Example block-level help text here.</p>
 							</div>
 							<input type="hidden" name="kd_user" value="<?php echo $data_user[0]['user_kode'] ?>">
 							<label>HAK AKSES</label>

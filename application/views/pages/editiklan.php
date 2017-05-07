@@ -58,8 +58,8 @@
       <div class="df">
         <h4>Foto Fitur</h4>
         <label class="buf" style="position:relative;width:200px;height:100px;">
-          <i class="fa fa-camera" aria-hidden="true" style="position:absolute;top:35px;left:80px;"></i>
-          <img id="fitur_foto_name" src="<?php echo base_url().'images/post_foto_feature/'.$slug_data->gambar_fitur?>" width="200" height="100">
+          <i class="fa fa-eye" aria-hidden="true" style="position:absolute;top:35px;left:80px;"></i>
+          <img id="fitur_foto_name" <?php echo ($slug_data->gambar_fitur == '' ? '' : "src='".base_url('images/post_foto_feature/'.$slug_data->gambar_fitur)."'");?> width="200" height="100">
           <input type="file" name="fitur_foto_name" onchange='loadImage(this, this.name, 200, 100)' style="display:none;">
         </label>
       </div>
@@ -69,7 +69,7 @@
         <?php foreach ($data_hasil_explode as $key => $value): ?>
           <label class="buf" style="position:relative">
             <img id="image_<?php echo $key+1 ?>" <?php echo ($value == '') ? '' : "src='".base_url('images/post_foto_ikl/'.$value)."'" ?> width="85" height="85">
-            <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+            <i class="fa fa-eye" aria-hidden="true" style="position:absolute"></i>
             <input type="file" name="image[]" onchange="loadImage(this,'image_<?php echo $key+1?>', 85, 85)" image-role="<?php echo $key ?>" style="display:none;">
           </label>
         <?php endforeach; ?>

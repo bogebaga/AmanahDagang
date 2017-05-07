@@ -53,7 +53,7 @@
       <div class="df">
         <h4>Foto Fitur</h4>
         <label class="buf" style="position:relative;width:200px;height:100px;">
-          <i class="fa fa-camera" aria-hidden="true" style="position:absolute;top:35px;left:80px;"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="position:absolute;top:35px;left:80px;"></i>
           <img id="fitur_foto_name">
           <input type="file" name="fitur_foto_name" onchange='loadImage(this, this.name, 200, 100)' style="display:none;">
         </label>
@@ -62,32 +62,32 @@
         <h4>Upload Foto</h4>
         <label class="buf" style="position:relative">
           <img id="image_1">
-          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="position:absolute"></i>
           <input type="file" name="image[]" onchange="loadImage(this, 'image_1', 83, 83 )" style="display:none;">
         </label>
         <label class="buf" style="position:relative">
-          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="position:absolute"></i>
           <img id="image_2">
           <input type="file" name="image[]" onchange="loadImage(this, 'image_2', 83, 83 )" style="display:none;">
         </label>
         <label class="buf" style="position:relative">
           <img id="image_3">
-          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="position:absolute"></i>
           <input type="file" name="image[]" onchange="loadImage(this, 'image_3', 83, 83 )" style="display:none;">
         </label>
         <label class="buf" style="position:relative">
           <img id="image_4">
-          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="position:absolute"></i>
           <input type="file" name="image[]" onchange="loadImage(this, 'image_4', 83, 83 )" style="display:none;">
         </label>
         <label class="buf" style="position:relative">
           <img id="image_5">
-          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="position:absolute"></i>
           <input type="file" name="image[]" onchange="loadImage(this, 'image_5', 83, 83 )" style="display:none;">
         </label>
         <label class="buf" style="position:relative">
           <img id="image_6">
-          <i class="fa fa-camera" aria-hidden="true" style="position:absolute"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="position:absolute"></i>
           <input type="file" name="image[]" onchange="loadImage(this, 'image_6', 83, 83 )" style="display:none;">
         </label>
       </div>

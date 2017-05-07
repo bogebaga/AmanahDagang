@@ -14,11 +14,14 @@ class Proses extends CI_Controller {
 	{
 		$slug_nama_iklan = url_title($this->input->post('nama_iklan'),'-');
 		$barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
+		$After_explode = explode(".", $_FILES['fitur_foto_name']['name']);
 
 		$this->upload->initialize(
 			[
 				'upload_path' => './images/post_foto_feature/',
-				'allowed_types' => 'jpg|png|gif|jpeg'
+				'allowed_types' => 'jpg|png|gif|jpeg',
+				'file_name' => $After_explode[0]."_".$slug_nama_iklan."_Foto-Fitur",
+				'overwrite' => TRUE
 			]);
 
 		if(! $this->upload->do_upload('fitur_foto_name'))
@@ -136,18 +139,22 @@ class Proses extends CI_Controller {
 	public function save_edit_iklan()
 	{
 		$slug_nama = url_title($this->input->post('nama_iklan'),'-').'-'.$this->input->post('kd_barang');
+		$slug_nama_iklan = url_title($this->input->post('nama_iklan'),'-');
+
 		$iklan_data_obj = $this->iklan_model->get_iklan_by_slug($slug_nama);
 		$get_gambar_banyak = explode(",", $iklan_data_obj->gambar_barang);
+		$After_explode = explode(".", $_FILES['fitur_foto_name']['name']);
 
 		$this->upload->initialize(
 			[
 				'upload_path' => './images/post_foto_feature/',
-				'allowed_types' => 'jpg|png|gif|jpeg'
+				'allowed_types' => 'jpg|png|gif|jpeg',
+				'file_name' => $After_explode[0]."_".$slug_nama_iklan."_Foto-Fitur"
 			]);
 
 		if(! $this->upload->do_upload('fitur_foto_name'))
 		{
-			$hasil_data = ($iklan_data_obj->gambar_fitur) ?? '' ;
+			$hasil_data = ($iklan_data_obj->gambar_fitur) ?: '' ;
 			// var_dump($data = ['upload_data' => $hasil_data]);
 			$data = ['upload_data' => $hasil_data];
 		}
@@ -161,59 +168,59 @@ class Proses extends CI_Controller {
 			$data = ['upload_data' => $this->upload->data('file_name')];
 		}
 
-		// if (isset($_POST['submit']))
-		// {
-		// 	$gambar_count = count($_FILES['image']['name']);
-		// 	for ($i=0; $i < $gambar_count ; $i++)
-		// 	{
-		// 		if ($_FILES['image']['error'][$i] == '4')
-		// 		{
-		// 			($get_gambar_banyak[$i]) ? $uploaded[$i] = $get_gambar_banyak[$i] : $uploaded[$i] = '';
-		// 		}
-		// 		else
-		// 		{
-		// 			$_FILES['images']['name'] = $_FILES['image']['name'][$i];
-		// 			$_FILES['images']['type'] = $_FILES['image']['type'][$i];
-		// 			$_FILES['images']['tmp_name'] = $_FILES['image']['tmp_name'][$i];
-		// 			$_FILES['images']['error'] = $_FILES['image']['error'][$i];
-		// 			$_FILES['images']['size'] = $_FILES['image']['size'][$i];
-		//
-		// 			$After_explode = explode(".", $_FILES['images']['name']);
-		// 			$this->upload->initialize([
-		// 				'upload_path' => './images/post_foto_ikl/',
-		// 				'allowed_types' => 'jpeg|jpg|png|gif',
-		// 				'file_name' => $After_explode[0].'_'.$slug_nama.'_'.$i
-		// 			]);
-		//
-		// 			if($this->upload->do_upload('images'))
-		// 			{
-		// 				if ($get_gambar_banyak[$i])
-		//				{
-		//					unlink(FCPATH.'images/post_foto_feature/'.$get_gambar_banyak[$i]);
-		//				}
-		// 				$uploaded[$i] = $this->upload->data('file_name');
-		// 			}
-		// 		}
-		// 	}
-		// 	$hasil_implode = implode(",", $uploaded);
-		// }
+		if (isset($_POST['submit']))
+		{
+			$gambar_count = count($_FILES['image']['name']);
+			for ($i=0; $i < $gambar_count ; $i++)
+			{
+				if ($_FILES['image']['error'][$i] == '4')
+				{
+					($get_gambar_banyak[$i]) ? $uploaded[$i] = $get_gambar_banyak[$i] : $uploaded[$i] = '';
+				}
+				else
+				{
+					$_FILES['images']['name'] = $_FILES['image']['name'][$i];
+					$_FILES['images']['type'] = $_FILES['image']['type'][$i];
+					$_FILES['images']['tmp_name'] = $_FILES['image']['tmp_name'][$i];
+					$_FILES['images']['error'] = $_FILES['image']['error'][$i];
+					$_FILES['images']['size'] = $_FILES['image']['size'][$i];
 
-		// $data=[
-			// 'barang_kode' => $this->input->post('kd_barang'),
-			// 'id_kategori' => $this->input->post('nama_kategori'),
-			// 'slug_nama_barang' => $slug_nama,
-			// 'nama_barang' => $this->input->post('nama_iklan'),
-			// 'alamat_barang' => $this->input->post('alamat'),
-			// 'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
-			// 'harga_barang' => $this->input->post('harga_iklan'),
-			// 'jenis_barang' => $this->input->post('jenis_barang'),
-			// 'jenis_iklan' => $this->input->post('jenis_iklan'),
-			// 'gambar_fitur' => $data['upload_data']
-			// 'gambar_barang' => $hasil_implode
-		// ];
+					$After_explode = explode(".", $_FILES['images']['name']);
+					$this->upload->initialize([
+						'upload_path' => './images/post_foto_ikl/',
+						'allowed_types' => 'jpeg|jpg|png|gif',
+						'file_name' => $After_explode[0].'_'.$slug_nama.'_'.$i
+					]);
 
-		// $this->iklan_model->simpan_iklan_by_kdbarang($data);
-		// redirect(base_url().'barang/edit/'.$slug_nama);
+					if($this->upload->do_upload('images'))
+					{
+						if ($get_gambar_banyak[$i])
+						{
+							unlink(FCPATH.'images/post_foto_feature/'.$get_gambar_banyak[$i]);
+						}
+						$uploaded[$i] = $this->upload->data('file_name');
+					}
+				}
+			}
+			$hasil_implode = implode(",", $uploaded);
+		}
+
+		$data=[
+			'barang_kode' => $this->input->post('kd_barang'),
+			'id_kategori' => $this->input->post('nama_kategori'),
+			'slug_nama_barang' => $slug_nama,
+			'nama_barang' => $this->input->post('nama_iklan'),
+			'alamat_barang' => $this->input->post('alamat'),
+			'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
+			'harga_barang' => $this->input->post('harga_iklan'),
+			'jenis_barang' => $this->input->post('jenis_barang'),
+			'jenis_iklan' => $this->input->post('jenis_iklan'),
+			'gambar_fitur' => $data['upload_data'],
+			'gambar_barang' => $hasil_implode
+		];
+
+		$this->iklan_model->simpan_iklan_by_kdbarang($data);
+		redirect(base_url().'barang/edit/'.$slug_nama);
 	}
 
 	public function hapus_iklan($slug)
