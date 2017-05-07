@@ -12,10 +12,10 @@
       <div class="form-pendaftaran">
         <?php echo validation_errors();?>
         <?php echo form_open('register')?>
-        <input type="text" name="nlengkap" placeholder="Nama Lengkap" maxlength="25" size="30" autofocus>
-        <input type="text" name="nama" placeholder="Username" maxlength="20" size="30">
-        <input type="email" name="email" placeholder="Alamat Email" maxlength="25" size="30">
-        <input type="password" name="sandi" placeholder="Kata Sandi" maxlength="20" size="30">
+        <input type="text" name="nlengkap" placeholder="Nama Lengkap" size="40" autofocus>
+        <input type="text" name="nama" placeholder="Username" size="40">
+        <input type="email" name="email" placeholder="Alamat Email" size="40">
+        <input type="password" name="sandi" placeholder="Kata Sandi" size="40">
 
         <button type="submit" name="submit" class="btn btn-primary">Mendaftar</button>
         <?php echo form_close();?>
