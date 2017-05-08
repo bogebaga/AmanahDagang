@@ -59,10 +59,10 @@
 								</div>
 								<div class="form-group">
 									<label style="display:block;">Foto Upload</label>
-									<label class="chs-img" style="width:255px;padding: 35px 0;">
+									<label class="chs-img" style="width:253px;padding: 35px 0;">
 										<img id='foto_cover'>
 										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name='foto_upload' onchange="loadImage(this, 'foto_cover', 255, 114)" style="display:none;">
+										<input type="file" name='foto_upload' onchange="loadImage(this, 'foto_cover', 251, 112)" style="display:none;">
 									</label>
 									<p class="help-block" style="display:block;">Example block-level help text here.</p>
 								</div>
@@ -72,32 +72,32 @@
 									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
 										<img id="image_1">
 										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_1', 80, 53)" style="display:none;">
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_1', 78, 51)" style="display:none;">
 									</label>
 									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
 										<img id="image_2">
 										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_2', 80, 53)" style="display:none;">
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_2', 78, 51)" style="display:none;">
 									</label>
 									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
 										<img id="image_3">
 										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_3', 80, 53)" style="display:none;">
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_3', 78, 51)" style="display:none;">
 									</label>
 									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
 										<img id="image_4">
 										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_4', 80, 53)" style="display:none;">
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_4', 78, 51)" style="display:none;">
 									</label>
 									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
 										<img id="image_5">
 										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_5', 80, 53)" style="display:none;">
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_5', 78, 51)" style="display:none;">
 									</label>
 									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
 										<img id="image_6">
 										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_6', 80, 53)" style="display:none;">
+										<input type="file" name="foto_fitur[]" onchange="loadImage(this, 'image_6', 78, 51)" style="display:none;">
 									</label>
 								</div>
 								<p class="help-block">Example block-level help text here.</p>

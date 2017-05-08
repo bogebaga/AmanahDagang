@@ -70,7 +70,7 @@
           <label class="buf" style="position:relative">
             <img id="image_<?php echo $key+1 ?>" <?php echo ($value == '') ? '' : "src='".base_url('images/post_foto_ikl/'.$value)."'" ?> width="85" height="85">
             <i class="fa fa-eye" aria-hidden="true" style="position:absolute"></i>
-            <input type="file" name="image[]" onchange="loadImage(this,'image_<?php echo $key+1?>', 85, 85)" image-role="<?php echo $key ?>" style="display:none;">
+            <input type="file" name="image[]" onchange="loadImage(this,'image_<?php echo $key+1?>', 85, 85)" style="display:none;">
           </label>
         <?php endforeach; ?>
       <script>

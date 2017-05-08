@@ -67,49 +67,53 @@
 
 								<div class="form-group">
 									<label style="display:block;">Foto Upload</label>
-									<label class="chs-img" style="width:255px;padding: 35px 0;">
-										<img>
+									<label class="chs-img" style="width:253px;padding: 35px 0;">
+										<img id="fitur_foto_name" <?php echo ($barang->gambar_fitur == '' ? '' : "src='".base_url('images/post_foto_feature/'.$barang->gambar_fitur)."'");?> width="253" height="112">
 										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name='foto_upload' style="display:none;">
+										<input type="file" name='foto_upload' onchange='loadImage(this, this.name, 251, 112)' style="display:none;">
 									</label>
 									<p class="help-block" style="display:block;">Example block-level help text here.</p>
 								</div>
 
 								<div class="form-group">
 									<label style="display:block;">Foto Grup</label>
-									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
-										<img>
-										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" style="display:none;">
-									</label>
-									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
-										<img>
-										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" style="display:none;">
-									</label>
-									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
-										<img>
-										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" style="display:none;">
-									</label>
-									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
-										<img>
-										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" style="display:none;">
-									</label>
-									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
-										<img>
-										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" style="display:none;">
-									</label>
-									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
-										<img>
-										<span class="glyphicon glyphicon-eye-open"></span>
-										<input type="file" name="foto_fitur[]" style="display:none;">
-									</label>
+									<?php $data_hasil_explode = explode(",", $barang->gambar_barang) ?>
+									<?php foreach ($data_hasil_explode as $key => $value): ?>
+										<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
+											<img id="image_<?php echo $key+1 ?>" <?php echo ($value == '') ? '' : "src='".base_url('images/post_foto_ikl/'.$value)."'" ?> width="78" height="51">
+											<span class="glyphicon glyphicon-eye-open"></span>
+											<input type="file" name="foto_fitur[]" onchange="loadImage(this,'image_<?php echo $key+1?>', 78, 51)" style="display:none;">
+										</label>
+									<?php endforeach; ?>
 								</div>
 								<p class="help-block">Example block-level help text here.</p>
 							</div>
+							<script>
+							function loadImage(i, addr, w, h)
+							{
+								if (i.files && i.files[0])
+								{
+									var reader = new FileReader();
+
+									reader.onload = function(e)
+									{
+										$('#'+addr).attr('src', e.target.result).width(w).height(h);
+									}
+
+									reader.readAsDataURL(i.files[0]);
+								}
+							}
+							// function saveImage(e)
+							// {
+							//   var kd_img = $(e).attr('image-role');
+							//   var nm_arr = $(e).val().split('\\');
+							//   var path_nama = window.location.pathname.split('/');
+							//   $.post('/path/to/file', {kd_img: kd_image, name : nm_arr, sl: path_nama});
+							//   // console.log(kd_img);
+							//   // console.log(nm_arr[2]);
+							//   // console.log(path_nama[4]);
+							// }
+							</script>
 
 							<div class="col-md-6">
 								<div class="form-group">
