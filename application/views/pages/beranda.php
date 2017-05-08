@@ -84,7 +84,7 @@
       </div> -->
 
       <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Mobil') as $mobil) { ?>
+        <?php foreach ($this->iklan_model->get_all_iklan('Mobil', 'publish') as $mobil) { ?>
           <li>
             <a href="<?php echo "barang/".$mobil['slug_nama_barang'] ?>">
               <img src=<?php echo $mobil['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_feature/'.$mobil['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
@@ -99,7 +99,7 @@
     </div>
     <div id="motor" class="tab-pane fade">
       <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Motor') as $motor) { ?>
+        <?php foreach ($this->iklan_model->get_all_iklan('Motor', 'publish') as $motor) { ?>
           <li>
             <a href="<?php echo "barang/".$motor['slug_nama_barang'] ?>">
               <img src=<?php echo $motor['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_feature/'.$motor['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
@@ -114,7 +114,7 @@
     </div>
     <div id="properti" class="tab-pane fade">
       <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Properti') as $properti) { ?>
+        <?php foreach ($this->iklan_model->get_all_iklan('Properti', 'publish') as $properti) { ?>
           <li>
             <a href="<?php echo "barang/".$properti['slug_nama_barang'] ?>">
               <img src=<?php echo $properti['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_feature/'.$properti['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
@@ -129,7 +129,7 @@
     </div>
     <div id="fashion" class="tab-pane fade">
       <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Fashion') as $fashion) { ?>
+        <?php foreach ($this->iklan_model->get_all_iklan('Fashion', 'publish') as $fashion) { ?>
           <li>
             <a href="<?php echo "barang/".$fashion['slug_nama_barang'] ?>">
               <img src=<?php echo $fashion['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_feature/'.$fashion['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
@@ -144,7 +144,7 @@
     </div>
     <div id="handphone" class="tab-pane fade">
       <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Handphone') as $handphone) { ?>
+        <?php foreach ($this->iklan_model->get_all_iklan('Handphone', 'publish') as $handphone) { ?>
           <li>
             <a href="<?php echo "barang/".$handphone['slug_nama_barang'] ?>">
               <img src=<?php echo $handphone['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_feature/'.$handphone['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
@@ -159,7 +159,7 @@
     </div>
     <div id="komputer" class="tab-pane fade">
       <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Komputer') as $komputer) { ?>
+        <?php foreach ($this->iklan_model->get_all_iklan('Komputer', 'publish') as $komputer) { ?>
           <li>
             <a href="<?php echo "barang/".$komputer['slug_nama_barang'] ?>">
               <img src=<?php echo $komputer['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_feature/'.$komputer['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
@@ -174,7 +174,7 @@
     </div>
     <div id="outdoor" class="tab-pane fade">
       <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Travel') as $travel) { ?>
+        <?php foreach ($this->iklan_model->get_all_iklan('Travel', 'publish') as $travel) { ?>
           <li>
             <a href="<?php echo "barang/".$travel['slug_nama_barang'] ?>">
               <img src=<?php echo $travel['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_feature/'.$travel['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
@@ -189,7 +189,7 @@
     </div>
     <div id="dapur" class="tab-pane fade">
       <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Kitchen') as $kitchen) { ?>
+        <?php foreach ($this->iklan_model->get_all_iklan('Kitchen', 'publish') as $kitchen) { ?>
           <li>
             <a href="<?php echo "barang/".$kitchen['slug_nama_barang'] ?>">
               <img src=<?php echo $kitchen['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : 'images/post_foto_feature/'.$kitchen['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
