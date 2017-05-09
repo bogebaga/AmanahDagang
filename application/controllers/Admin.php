@@ -130,7 +130,7 @@ class Admin extends CI_Controller{
             $_FILES['images']['size'] = $_FILES['foto_fitur']['size'][$i];
 
             $After_explode = explode(".", $_FILES['images']['name']);
-            
+
             $this->upload->initialize([
               'upload_path' => './images/post_foto_ikl/',
               'allowed_types' => 'jpeg|jpg|png|gif',
@@ -175,7 +175,7 @@ class Admin extends CI_Controller{
 		$iklan_data_obj = $this->iklan_model->get_iklan_by_slug($this->input->post('slug_nama_barang'));
     $get_gambar_banyak = explode(",", $iklan_data_obj->gambar_barang);
     $slug_nama_iklan = url_title($this->input->post('nama_barang'),'-');
-    $After_explode = explode(".", $_FILES['fitur_foto_name']['name']);
+    $After_explode = explode(".", $_FILES['foto_upload']['name']);
 
 		$this->upload->initialize(
 			[
@@ -185,7 +185,7 @@ class Admin extends CI_Controller{
 				'file_name' => $After_explode[0]."_".$slug_nama_iklan."_Foto-Fitur"
 			]);
 
-		if(! $this->upload->do_upload('fitur_foto_name'))
+		if(! $this->upload->do_upload('foto_upload'))
 		{
 			$hasil_data = ($iklan_data_obj->gambar_fitur) ?: '' ;
 			// var_dump($data = ['upload_data' => $hasil_data]);
@@ -206,7 +206,7 @@ class Admin extends CI_Controller{
 			$gambar_count = count($_FILES['foto_fitur']['name']);
 			for ($i=0; $i < $gambar_count ; $i++)
 			{
-				if ($_FILES['image']['error'][$i] == '4')
+				if ($_FILES['foto_fitur']['error'][$i] == '4')
 				{
 					($get_gambar_banyak[$i]) ? $uploaded[$i] = $get_gambar_banyak[$i] : $uploaded[$i] = '';
 				}

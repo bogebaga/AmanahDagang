@@ -852,7 +852,7 @@ footer{
 	overflow: hidden;
 }
 
-.deskripsi-barang ol
+.deskripsi-barang ol, .deskripsi-barang ul
 {
 	margin-left: 20px;
 }
