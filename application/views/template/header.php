@@ -52,14 +52,12 @@
 									<a data-toggle="modal" data-target="#masuk">Pasang Iklan</a>
 								<?php endif; ?>
 							</li>
-							<li>
+							<!-- <li>
 								<a href="<?php echo $bantuan;?>">Bantuan</a>
 							</li>
-
 							<li>
 								<a href="<?php echo $network;?>">Network</a>
-							</li>
-
+							</li> -->
 							<?php if (! empty($this->session->userdata('user_login'))): ?>
 								<li class="dropdown">
 									<a>

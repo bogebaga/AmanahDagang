@@ -227,7 +227,9 @@ class Proses extends CI_Controller {
 	{
 		$data = $this->iklan_model->get_iklan_by_slug($slug);
 		unlink(FCPATH.'images/post_foto_feature/'.$data->gambar_fitur);
-		foreach ($data->gambar_barang as $hapus_iklan)
+
+		$explode = explode(",", $data->gambar_barang);
+		foreach ($explode as $hapus_iklan)
 		{
 			unlink(FCPATH.'images/post_foto_ikl/'.$hapus_iklan);
 		}

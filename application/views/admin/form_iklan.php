@@ -142,7 +142,7 @@
 								<label>Harga</label>
 								<div class="input-group">
 									<span class="input-group-addon">Rp.</span>
-									<input type="text" class="form-control" name="harga" id="harga" placeholder="example: 5.000.000" required>
+									<input type="text" class="form-control" name="harga" id="harga" placeholder="example: 5.000.000">
 									<span class="input-group-addon">, 00</span>
 								</div>
 								<!-- <label>Validation</label>

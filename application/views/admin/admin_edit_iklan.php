@@ -68,7 +68,7 @@
 								<div class="form-group">
 									<label style="display:block;">Foto Upload</label>
 									<label class="chs-img" style="width:253px;padding: 35px 0;">
-										<img id="fitur_foto_name" <?php echo ($barang->gambar_fitur == '' ? '' : "src='".base_url('images/post_foto_feature/'.$barang->gambar_fitur)."'");?> width="253" height="112">
+										<img id="foto_upload" <?php echo ($barang->gambar_fitur == '' ? '' : "src='".base_url('images/post_foto_feature/'.$barang->gambar_fitur)."'");?> width="251" height="112">
 										<span class="glyphicon glyphicon-eye-open"></span>
 										<input type="file" name='foto_upload' onchange='loadImage(this, this.name, 251, 112)' style="display:none;">
 									</label>

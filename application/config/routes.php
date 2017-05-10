@@ -31,6 +31,7 @@ $route['pasangiklan/masukki'] = 'proses/iklan_proses';
 
 $route['barang/edit/(:any)'] = 'proses/edit_iklan/$1';
 $route['barang/hapus/(:any)'] = 'proses/hapus_iklan/$1';
+$route['barang/iklanbaris'] ='iklanbaris';
 $route['barang/(:any)'] = 'proses/load_iklan/$1';
 
 $route['default_controller'] = 'beranda/tampil_beranda'; //index

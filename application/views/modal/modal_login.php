@@ -10,7 +10,7 @@
           <div class="modal-body">
             <?php echo form_open('login'); ?>
               <input type="text" name="email" placeholder="Email" required>
-              <input type="text" name="password" placeholder="Password" required>
+              <input type="password" name="password" placeholder="Password" required>
               <button type="submit" name="submit" class="btn btn-primary">Masuk</button>
             <?php echo form_close();?>
           </div>

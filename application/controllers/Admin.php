@@ -101,7 +101,7 @@ class Admin extends CI_Controller{
         [
           'upload_path' => './images/post_foto_feature/',
           'allowed_types' => 'jpg|png|gif|jpeg',
-          'file_name' => $nama_explode[0]."_".$slug_nama_iklan."_Foto-Fitur",
+          'file_name' => $nama_explode[0]."_".$slug_nama_iklan."_".$barang_kode."_Fitur",
           'overwrite' => TRUE
         ]);
 
@@ -306,6 +306,8 @@ class Admin extends CI_Controller{
   public function iklan_hapus($slug)
   {
     $file_hapus = $this->iklan_model->get_iklan_by_slug($slug);
+    unlink(FCPATH.'images/post_foto_feature/'.$file_hapus->gambar_fitur);
+
     if($file_hapus->gambar_barang)
     {
       $file_hapus_explode = explode(",",$file_hapus->gambar_barang);
