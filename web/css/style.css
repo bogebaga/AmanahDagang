@@ -5,7 +5,7 @@
 
 html, body
 {
-	width:100% !important;	
+	width:100% !important;
 }
 
 body{
@@ -466,7 +466,7 @@ footer{
 }
 
 .detail-barang, .detail-form{
-	width: 100%;
+	width: 800px;
 	background: white;
 	margin-right: 10px;
 	float: left;
