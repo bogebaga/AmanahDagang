@@ -101,7 +101,7 @@ class Admin extends CI_Controller{
         [
           'upload_path' => './images/post_foto_feature/',
           'allowed_types' => 'jpg|png|gif|jpeg',
-          'file_name' => $nama_explode[0]."_".$slug_nama_iklan."_".$barang_kode."_Fitur",
+          'file_name' => $nama_explode[0]."_".$slug_nama_iklan."-".$barang_kode."_Fitur",
           'overwrite' => TRUE
         ]);
 
@@ -182,7 +182,7 @@ class Admin extends CI_Controller{
 				'upload_path' => './images/post_foto_feature/',
 				'allowed_types' => 'jpg|png|gif|jpeg',
         'overwrite' => TRUE,
-				'file_name' => $After_explode[0]."_".$slug_nama_iklan."_Foto-Fitur"
+				'file_name' => $After_explode[0]."_".$this->input->post('slug_nama_barang')."_Fitur"
 			]);
 
 		if(! $this->upload->do_upload('foto_upload'))
