@@ -20,7 +20,7 @@ class Proses extends CI_Controller {
 			[
 				'upload_path' => './images/post_foto_feature/',
 				'allowed_types' => 'jpg|png|gif|jpeg',
-				'file_name' => $After_explode[0]."_".$slug_nama_iklan."_Foto-Fitur",
+				'file_name' => $After_explode[0]."_".$slug_nama_iklan."-".$barang_kode."_Fitur",
 				'overwrite' => TRUE
 			]);
 
@@ -54,7 +54,7 @@ class Proses extends CI_Controller {
 					$this->upload->initialize([
 						'upload_path' => './images/post_foto_ikl/',
 						'allowed_types' => 'jpeg|jpg|png|gif',
-						'file_name' => $After_explode[0].'_'.$slug_nama_iklan.'_'.$barang_kode.'_'.$i
+						'file_name' => $After_explode[0].'_'.$slug_nama_iklan.'-'.$barang_kode.'_'.$i
 					]);
 
 					if($this->upload->do_upload('images'))
@@ -139,7 +139,6 @@ class Proses extends CI_Controller {
 	public function save_edit_iklan()
 	{
 		$slug_nama = url_title($this->input->post('nama_iklan'),'-').'-'.$this->input->post('kd_barang');
-		$slug_nama_iklan = url_title($this->input->post('nama_iklan'),'-');
 
 		$iklan_data_obj = $this->iklan_model->get_iklan_by_slug($slug_nama);
 		$get_gambar_banyak = explode(",", $iklan_data_obj->gambar_barang);
@@ -149,7 +148,7 @@ class Proses extends CI_Controller {
 			[
 				'upload_path' => './images/post_foto_feature/',
 				'allowed_types' => 'jpg|png|gif|jpeg',
-				'file_name' => $After_explode[0]."_".$slug_nama_iklan."_Foto-Fitur"
+				'file_name' => $After_explode[0]."_".$slug_nama."_Fitur"
 			]);
 
 		if(! $this->upload->do_upload('fitur_foto_name'))
