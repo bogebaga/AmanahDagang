@@ -24,6 +24,7 @@ class Register extends CI_Controller {
 			);
 
 			$data['all_iklan'] = $this->iklan_model->get_all_iklan();
+			$data['kategori'] = $this->iklan_model->get_kategori();
 
 			$this->load->view('template/header', $link);
 			$this->load->view('modal/modal_login');

@@ -349,8 +349,8 @@ class Admin extends CI_Controller{
     $panjang = count($data);
 
     for ($i=0; $i < $panjang ; $i++) {
-      $iklan_hapus = "onclick=window.location='".base_url()."admin/iklan/hapus/".str_replace(' ','-',$data[$i]['nama_barang'])."-".$data[$i]['barang_kode']."'";
-      $iklan_edit = "onclick=window.location='".base_url()."admin/iklan/edit/".str_replace(' ','-',$data[$i]['nama_barang'])."-".$data[$i]['barang_kode']."'";
+      $iklan_hapus = "onclick=window.location='".base_url("admin/iklan/hapus/".$data[$i]['slug_nama_barang'])."'";
+      $iklan_edit = "onclick=window.location='".base_url("admin/iklan/edit/".$data[$i]['slug_nama_barang'])."'";
 
       $data[$i]['id_barang'] = $i+1;
       $data[$i]['barang_upload_tgl'] = date('j M', strtotime($data[$i]['barang_upload_tgl']));

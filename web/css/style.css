@@ -2,10 +2,9 @@
 	margin: 0;
 	padding: 0;
 }
-
 html, body
 {
-	width:100% !important;
+	min-width: 1150px;
 }
 
 body{
@@ -345,7 +344,8 @@ a, p, h1, h2, h3, h4, label{
 	list-style: none;
 	float: left;
 	width: 150px;
-	height: 270px;
+	height: auto;
+	min-height: 280px;
 	border: 1px solid #ddd;
 	margin: 7px;
 	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.1);
@@ -366,7 +366,7 @@ a, p, h1, h2, h3, h4, label{
 }
 
 .foto-dagangan figcaption{
-	padding: 12px;
+	padding: 12px 12px 30px;
 }
 
 .foto-dagangan h4{
@@ -377,9 +377,8 @@ a, p, h1, h2, h3, h4, label{
 
 .foto-dagangan h3{
 	font-size: 15px;
-	height: 65px;
 	text-align: center;
-	margin: 0;
+	margin: 0 0 20px;
 }
 
 .iklan-lebar{

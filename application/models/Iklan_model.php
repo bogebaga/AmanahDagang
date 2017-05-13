@@ -33,12 +33,16 @@ class Iklan_model extends CI_Model{
     return $query->result_array();
   }
 
-  public function get_all_iklan($param, $param1)
+  public function get_all_iklan($param = '', $param1 = '')
   {
     $this->db->from('ad_barang ab');
     $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
-    $this->db->where('ak.nama_kategori', $param);
-    $this->db->where('ab.tayang_barang', $param1);
+    if ($param)
+    {
+      $this->db->where('ak.nama_kategori', $param);
+    }elseif ($param1) {
+      $this->db->where('ab.tayang_barang', $param1);
+    }
 
     $query = $this->db->get();
     return $query->result_array();
