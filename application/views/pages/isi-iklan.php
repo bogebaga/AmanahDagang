@@ -9,7 +9,7 @@
 
     <div class="judul-barang">
       <h2><?php echo $iklan[0]['nama_barang'] ?></h2>
-      <h2 style="color:#ce6161;">Rp. <?php echo $iklan[0]['harga_barang'] ?></h2>
+      <h2 style="color:#ce6161;"><?php echo ($iklan[0]['harga_barang']) ? "Rp. ".$iklan[0]['harga_barang'] : ucwords(str_replace("_"," ", $iklan[0]['jenis_iklan']))  ?></h2>
     </div>
 
     <div class="slide-barang">
@@ -17,12 +17,13 @@
         <img src="<?php base_url()?>images/post_foto_feature/<?php echo $iklan[0]['gambar_fitur'] ?>"  class="img-responsive" alt="foto">
       </div> -->
     <?php
+      $path_bd = base_url().'images/post_foto_ikl/';
       $explode_string = explode(',',$iklan[0]['gambar_barang']);
       rsort($explode_string);
 
       foreach ($explode_string as $slide_gambar) { ?>
         <div class="gambar-gambar">
-          <img src="<?php echo $slide_gambar == '' ? base_url().'images/src_img_default/wide.jpg' : base_url().'images/post_foto_ikl/'.$slide_gambar ?>"  class="img-responsive" alt="foto">
+          <img src="<?php echo (file_exists($path_bd.$slide_gambar) ?: base_url().'images/src_img_default/wide.jpg');?>"  class="img-responsive" alt="foto">
         </div>
       <?php } ?>
       <a class="arah-kiri" onclick="plusDivs(-1)">&#10094;</a>
@@ -121,7 +122,7 @@
       </div> -->
     </div>
     <div class="bungkus-iklan">
-      <img src="<?php echo base_url() ?>images/gambar.jpg" class="img-responsive" alt="iklan">
+      <img src="<?php echo base_url("images/gambar.jpg")?>" class="img-responsive" alt="iklan">
     </div>
   </aside>
 </div>
