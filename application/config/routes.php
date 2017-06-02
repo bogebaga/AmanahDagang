@@ -37,6 +37,7 @@ $route['barang/(:any)'] = 'proses/load_iklan/$1';
 $route['default_controller'] = 'beranda/tampil_beranda'; //index
 $route['edit'] = 'beranda/edit';
 $route['tes'] = 'proses/tes_ilmu';
+$route['tron'] = 'tron';
 $route['(:any)'] = 'beranda/tampil_beranda/$1';
 
 $route['404_override'] = '';

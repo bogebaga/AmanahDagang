@@ -1,0 +1,47 @@
+.ads
+{
+  position: relative;
+}
+
+.ads span
+{
+  position: absolute;
+  bottom: 0;
+}
+
+.n_p
+{
+  padding: 0;
+}
+
+.n_pr
+{
+  padding-right: 0;
+}
+.n_pl
+{
+  padding-left: 0;
+}
+
+._k, ._b
+{
+ margin-top: 10px;
+}
+
+._k > img,
+._b > img
+{
+  width: 100%;
+}
+
+.slide_2_1
+{
+  background: rgba(1,101,154,1);
+  background: -moz-linear-gradient(left, rgba(1,101,154,1) 34%, rgba(1,101,154,0.81) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(34%, rgba(1,101,154,1)), color-stop(100%, rgba(1,101,154,0.81)));
+  background: -webkit-linear-gradient(left, rgba(1,101,154,1) 34%, rgba(1,101,154,0.81) 100%);
+  background: -o-linear-gradient(left, rgba(1,101,154,1) 34%, rgba(1,101,154,0.81) 100%);
+  background: -ms-linear-gradient(left, rgba(1,101,154,1) 34%, rgba(1,101,154,0.81) 100%);
+  background: linear-gradient(to right, rgba(1,101,154,1) 34%, rgba(1,101,154,0.81) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01659a', endColorstr='#01659a', GradientType=1 );
+}
