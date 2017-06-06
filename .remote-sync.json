@@ -2,7 +2,7 @@
   "transport": "scp",
   "uploadOnSave": false,
   "useAtomicWrites": false,
-  "deleteLocal": true,
+  "deleteLocal": false,
   "hostname": "ftp.harianamanah.id",
   "port": "2223",
   "target": "/home/harj8127/public_html/amanahdagang.com",

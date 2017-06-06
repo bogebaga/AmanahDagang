@@ -1,12 +1,98 @@
 .ads
 {
   position: relative;
+
+  margin-top: 10px;
+  /*border:1px solid red;*/
+}
+
+.ads > .__filter_img
+{
+  position: absolute;
+  top:0;
+  height: 100%;
+  width: 100%;
+
+  background: rgba(147,206,222,0.41);
+  background: -moz-linear-gradient(top, rgba(147,206,222,0.41) 0%, rgba(73,165,191,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(147,206,222,0.41)), color-stop(100%, rgba(73,165,191,1)));
+  background: -webkit-linear-gradient(top, rgba(147,206,222,0.41) 0%, rgba(73,165,191,1) 100%);
+  background: -o-linear-gradient(top, rgba(147,206,222,0.41) 0%, rgba(73,165,191,1) 100%);
+  background: -ms-linear-gradient(top, rgba(147,206,222,0.41) 0%, rgba(73,165,191,1) 100%);
+  background: linear-gradient(to bottom, rgba(147,206,222,0.41) 0%, rgba(73,165,191,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 );
+}
+
+.ads > .__filter_img_black
+{
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+  top:0;
+  line-height: 22;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+.ads._2_col_slide
+{
+  min-width: 183px;
+  min-height: 183px;
+}
+
+.ads._2_col_isi_slide
+{
+  min-width: 130px;
+  min-height: 130px;
+}
+
+.ads._3_col
+{
+  min-width: 268px;
+  min-height: 150px;
+}
+
+.ads._3_col_main_kat
+{
+  min-width: 291px;
+  min-height: 291px;
+}
+
+.ads._4_col
+{
+  min-width: 368px;
+  min-height: 207px;
+}
+
+.ads._4_col_mini
+{
+  min-width: 122px;
+  min-height: 95px;
+}
+
+.ads._5_col
+{
+  min-width: 498px;
+  min-height: 315px;
+}
+
+.ads img
+{
+  width: 100%;
 }
 
 .ads span
 {
   position: absolute;
   bottom: 0;
+  width:100%;
+  padding-bottom: 10px;
+
+  text-align: center;
+  line-height: 2;
+  text-transform: uppercase;
+  color: lightgoldenrodyellow;
 }
 
 .n_p
@@ -18,20 +104,10 @@
 {
   padding-right: 0;
 }
+
 .n_pl
 {
   padding-left: 0;
-}
-
-._k, ._b
-{
- margin-top: 10px;
-}
-
-._k > img,
-._b > img
-{
-  width: 100%;
 }
 
 .slide_2_1
@@ -43,5 +119,6 @@
   background: -o-linear-gradient(left, rgba(1,101,154,1) 34%, rgba(1,101,154,0.81) 100%);
   background: -ms-linear-gradient(left, rgba(1,101,154,1) 34%, rgba(1,101,154,0.81) 100%);
   background: linear-gradient(to right, rgba(1,101,154,1) 34%, rgba(1,101,154,0.81) 100%);
+
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01659a', endColorstr='#01659a', GradientType=1 );
 }

@@ -11,43 +11,47 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping structure for table harj8127_amanahdagang.ad_barang
-CREATE TABLE IF NOT EXISTS `ad_barang` (
-  `id_barang` int(10) NOT NULL AUTO_INCREMENT,
-  `barang_kode` varchar(15) NOT NULL,
-  `user_kode` varchar(10) NOT NULL,
-  `id_kategori` varchar(10) NOT NULL,
-  `barang_upload_tgl` datetime NOT NULL,
-  `nama_barang` char(150) NOT NULL,
-  `slug_nama_barang` varchar(255) NOT NULL,
-  `alamat_barang` varchar(50) NOT NULL,
-  `deskripsi_barang` text NOT NULL,
-  `gambar_fitur` varchar(200) NOT NULL,
-  `gambar_barang` text NOT NULL,
-  `harga_barang` varchar(40) NOT NULL,
-  `jenis_barang` enum('baru','bekas') NOT NULL,
-  `jenis_iklan` enum('iklan_baris','iklan_foto') NOT NULL,
-  `tayang_barang` enum('publish','unpublish') NOT NULL,
-  `fitur_barang` enum('none','premiun') NOT NULL,
-  `view_barang` int(10) NOT NULL,
-  `action` varchar(3) NOT NULL DEFAULT 'add',
-  PRIMARY KEY (`id_barang`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
--- Dumping data for table harj8127_amanahdagang.ad_barang: ~2 rows (approximately)
+-- Dumping data for table harj8127_amanahdagang.ad_barang: ~21 rows (approximately)
 /*!40000 ALTER TABLE `ad_barang` DISABLE KEYS */;
 INSERT INTO `ad_barang` (`id_barang`, `barang_kode`, `user_kode`, `id_kategori`, `barang_upload_tgl`, `nama_barang`, `slug_nama_barang`, `alamat_barang`, `deskripsi_barang`, `gambar_fitur`, `gambar_barang`, `harga_barang`, `jenis_barang`, `jenis_iklan`, `tayang_barang`, `fitur_barang`, `view_barang`, `action`) VALUES
-	(1, 'i8TVj5', 'adminAD001', 'K0001', '2017-04-27 17:17:31', 'Jual Cepat Mobil Avansa tahun', 'Jual-Cepat-Mobil-Avansa-tahun-i8TVj5', 'Makassar', '<ol>\r\n<li>Bekas 2 tahun&nbsp;</li>\r\n<li>Cat diko</li>\r\n<li>surat-surat lengkap</li>\r\n<li>tahun 2010</li>\r\n</ol>', '', ',,,,,', '51.000.000', 'bekas', 'iklan_foto', 'unpublish', 'none', 19, 'add'),
-	(2, '8bcL02', 'adminAD001', 'K0002', '2017-04-28 20:55:37', 'Arkansas 2', 'Arkansas-2-8bcL02', 'Makassar', '<p>Bisa saja</p>', 'Tulips.jpg', ',,Koala.jpg,,,', '3.000', 'bekas', 'iklan_baris', 'unpublish', 'none', 35, 'add');
+	(4, '7q3vIn', 'adminAD004', 'K0003', '2017-05-09 11:42:54', 'dikontrakkan rumah', 'dikontrakkan-rumah-7q3vIn', 'Kota Makassar', '<p>mau dikontrakkan dua buah rumah, letakknya di jalan abdullah daeng sirua makassar kompleks pannakukang indah ( cv. dewi ) blok e1/5 dan e2/15. hub 085 299 959 999.</p>', '', ',,,,,', '', 'bekas', 'iklan_baris', 'publish', 'none', 17, 'add'),
+	(5, 'IB0nt6', 'adminAD004', 'K0003', '2017-05-09 15:17:10', 'JUAL RUMAH', 'JUAL-RUMAH-IB0nt6', 'Kota Makassar', '<p>JUAL CEPAT RUMAH KOST/ PONDOKAN ( 9 KAMAR 4 WC ) LOKASI DALAM KAMPUS UNHAS TAMALANREA ( PINTU II DEPAN FAK HUKUM BELAKANG RAMSIS ) JL DAMAI HUB HP/WA 081 343 993 402 (TANPA PERANTARA )</p>', 'rmh_2_JUAL-RUMAH_Foto-Fitur.jpg', ',,,,,', '', 'bekas', 'iklan_foto', 'publish', 'none', 2, 'add'),
+	(6, 'X6Ihr0', 'adminAD004', 'K0003', '2017-05-09 15:21:45', 'JUAL RUMAH', 'JUAL-RUMAH-X6Ihr0', 'Kota Makassar', '<p>LOKASI LANDAK BARU, HERTASNING, TODDOPULI, ANTANG PERINTIS, SUDIANG DAN GOWA HUB : ARDIAN IMB PROPERTY 081 354 855 531</p>', 'rmh_JUAL-RUMAH_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 5, 'add'),
+	(7, 'AdFrBJ', 'adminAD004', 'K0003', '2017-05-09 15:26:21', 'JUAL TANAH', 'JUAL-TANAH-AdFrBJ', 'Kota Makassar', '<p>TANAH KOOSNG KAVLING ( BAGUS UNTUK PEMBANGUNAN PONDOKAN/ RUMAH KOST ) LOKASI DALAM KAMPUS UNHAS ( PINTU II, DEPAN FKG BELAKANG RAMSIS ) LUAS 342M2. SERTIFIKAT ( HAK MILIK ). HUB HP/WA 081 343 993 402 (TANPA PERANTARA)</p>', 'tnh_JUAL-TANAH_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 2, 'add'),
+	(8, 'XfU0u3', 'adminAD004', 'K0003', '2017-05-09 15:31:34', 'JUAL RUMAH', 'JUAL-RUMAH-XfU0u3', 'JL SULTAN ALAUDDIN 2 MAKASSAR', '<p>LUAS TANAH 350 M2 LEBAR 200 M2 . 2 LT SHM HUB 082 349 930 028 CCK U / USAHA KOSAN JLN SULTAN ALAUDDIN 2 MAKASSAR HARGA 2, 7 M</p>', '3_JUAL-RUMAH_Foto-Fitur.jpg', ',,,,,', '', 'bekas', 'iklan_foto', 'publish', 'none', 9, 'add'),
+	(9, 'q38Ois', 'adminAD004', 'K0003', '2017-05-09 15:57:56', 'JUAL RUMAH', 'JUAL-RUMAH-q38Ois', 'Kota Makassar', '<p>JUAL CEPAT RMH DI JLN DAWAH NO 66. JL POROS DEKAT JL TOL. LUAS 11 X 17. 2 LT. LB : 167 M2. BISA DIPETAK JADI 3 RUMAH. ADA GARASI. HARGA 1, 4 MILYAR. BISA NEGO. HUB. 082 271 173 707 ( H. NAWIR), 081 141 778 11</p>', '4_JUAL-RUMAH_Foto-Fitur.jpg', ',,,,,', '', 'bekas', 'iklan_foto', 'publish', 'none', 4, 'add'),
+	(10, '6pZEVG', 'adminAD004', 'K0010', '2017-05-09 16:01:48', 'BERAS MERAH', 'BERAS-MERAH-6pZEVG', 'Kota Makassar', '<p>BERAS MERAH, JENIS INPARI 24 MUTU TERJAMIN, PULEN DAN SEHAT MINAT HUB : 082 194 390 852 ATAU 081 342 311 868</p>', 'beras_BERAS-MERAH_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 1, 'add'),
+	(11, 'Wdojng', 'adminAD004', 'K0010', '2017-05-09 16:06:48', 'INDAH SARI CATERING', 'INDAH-SARI-CATERING-Wdojng', 'Kota Makassar', '<p>MENERIMA RANTANGAN RUMAH TANGGA MURAH, ENAK, DAN HALAL... MULAI DARI 25 RB, MENERIMA NASI DOS MULAI 12 RB, SNACK DOS MULAI 10 RB HUB 081 244 948 68</p>', 'indah_sari_INDAH-SARI-CATERING_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_baris', 'publish', 'none', 1, 'add'),
+	(12, '7J01DE', 'adminAD004', 'K0010', '2017-05-09 16:12:35', 'CATERING UKHUWAH', 'CATERING-UKHUWAH-7J01DE', 'Kota Makassar', '<p>MENYEDIAKAN PRASMANAN MULAI HARGA RP. 27.000 - 43.000, NASI KOTAK MULAI HARGA RP. 15.000 - RP. 25.000 DAN SPESIAL RAMADHAN MENERIMA PESANAN BUKA PUASA ALAMAT JL PERINTIS KEMERDEKAAN KM. 14 HUB : 0823-9427-4442 / 0852-9944-3273</p>', 'uk_CATERING-UKHUWAH_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_baris', 'publish', 'none', 3, 'add'),
+	(13, 'ktaFyK', 'adminAD004', 'K0009', '2017-05-09 16:16:47', 'BIONUTRIC', 'BIONUTRIC-ktaFyK', 'Kota Makassar', '<p>BIOSPRAY MEMBANTU PENYEMBUHAN : DIABET, JANTUNG, STROKE,PARKINSON, KANKER, LEUKEMIA, LIVER, BRONCHITIS, ALERGI, GAGAL GINJAL, DLL. HUB UNTUK KONSULTASI 0813-5469-6366</p>', 'bio_BIONUTRIC_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 1, 'add'),
+	(14, 'VO3D9v', 'adminAD004', 'K0010', '2017-05-09 16:22:10', 'CATERING NURUL', 'CATERING-NURUL-VO3D9v', 'Kota Makassar', '<p>MELAYANI BERBAGAI SNACK BOX, PRASMANAN, NASI BOX, DLL ALAMAT KOMP ANGGREK MINASA UPA TM 1 NO 3A, MAKASSAR HUB 0853- 4365-2843</p>', 'cat_nurul_CATERING-NURUL_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 1, 'add'),
+	(16, 'O3i8sv', 'adminAD004', 'K0003', '2017-05-09 16:29:21', 'JUAL TANAH', 'JUAL-TANAH-O3i8sv', 'Kota Makassar', '<p>TANAH KAVLING LOKASI PATTALASANG GOWA DP &nbsp;5 JUTA HUB 0823-6295-0009</p>', 'vila_JUAL-TANAH_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 1, 'add'),
+	(17, 'wYr40L', 'adminAD004', 'K0009', '2017-05-09 16:33:25', 'FIFORLIF', 'FIFORLIF-wYr40L', 'Kota Palopo', '<p>MINUMAN BERNUTRISI TINGGI. UNTUK DETOX, DIET DAN ATASI MASALAH PENCERNAAN. RESMI BPOM. 100 % DARI BUAH DAN SAYURAN INFO LEBIH LANJUT DPT DILIHAT DIWEB HTTP : WWW. PRODUKABE.COM/ WONDERWOMAN HUB 082 346 049 558</p>', 'fi_FIFORLIF_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 4, 'add'),
+	(18, 'uPMAqn', 'adminAD004', 'K0009', '2017-05-09 16:37:11', 'SEED PERAPAT', 'SEED-PERAPAT-uPMAqn', 'Kota Makassar', '<p>STOP PENYAKIT KEWANITAAN BEBAS KENKER SERVIKS, KEPUTIHAN DAN KISTA &nbsp;MENYEDIAKAN PRODAK KESEHATAN DAN KECANTIKAN LAINNYA HUB 082-339-258-721</p>', 'kec_SEED-PERAPAT_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 1, 'add'),
+	(19, 'GFrd1M', 'adminAD004', 'K0001', '2017-05-09 17:04:38', 'SUZUKI', 'SUZUKI-GFrd1M', 'Kota Makassar', '<p>DP MULAI 12 JUTAAN HUBUNGI : IVAN 0853 4147 5288</p>', 'SUZUKI_SUZUKI_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 11, 'add'),
+	(20, 'FdkzPh', 'adminAD004', 'K0001', '2017-05-09 17:09:02', 'DAIHATSU', 'DAIHATSU-FdkzPh', 'Kota Makassar', '<p>READY STOCK CASH @ KREDIT HUB : HERMAN 081 3555 13703</p>', 'DAI_DAIHATSU_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 5, 'add'),
+	(21, 'MIqoFt', 'adminAD004', 'K0001', '2017-05-09 17:11:20', 'DAIHATSU', 'DAIHATSU-MIqoFt', 'Kota Makassar', '<p>HUB UMAIR 085 299 383 567</p>', 'DAI_7_DAIHATSU_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 28, 'add'),
+	(22, 'LTXh8r', 'adminAD004', 'K0001', '2017-05-09 17:12:44', 'TOYOTA', 'TOYOTA-LTXh8r', 'Kota Makassar', '<p>HUB ASRIL 085 242 576 367</p>', 'TOY_TOYOTA_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 6, 'add'),
+	(23, 'lCFM3v', 'adminAD004', 'K0001', '2017-05-09 17:14:07', 'DAIHATSU', 'DAIHATSU-lCFM3v', 'Kota Makassar', '<p>HUB HERI 085 214 133 099</p>', 'DAI_3_DAIHATSU_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 3, 'add'),
+	(24, 'dg856L', 'adminAD004', 'K0001', '2017-05-09 17:20:40', 'DAIHATSU', 'DAIHATSU-dg856L', 'Kota Makassar', '<p>HUB FEBRI 0823-1110-4171 WEB : WWW.DATSUNMKS.COM</p>', 'DAI_4_DAIHATSU_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 3, 'add'),
+	(25, 'qwWx3S', 'adminAD004', 'K0001', '2017-05-09 17:22:36', 'DAIHATSU', 'DAIHATSU-qwWx3S', 'Kota Makassar', '<p>GRANMAX DP 9 JT, AYLA DP 11 JT, DAN XENIA DP 15 JT HUB ZUL : 085 299 876 725&nbsp;</p>', 'DAI_5_DAIHATSU_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 3, 'add'),
+	(26, 'lr2wnp', 'adminAD004', 'K0001', '2017-05-09 17:24:17', 'VELG MOBIL', 'VELG-MOBIL-lr2wnp', 'Kota Makassar', '<p>TOKO MENARA MOTOR HUB 0411-852837-0813-4266-4411</p>', 'VELG_VELG-MOBIL_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 2, 'add'),
+	(27, 'yczEkX', 'adminAD004', 'K0001', '2017-05-09 17:27:14', 'MAZDA', 'MAZDA-yczEkX', 'Kota Makassar', '<p>READY STOCK ANGSURAN RINGAN PROSES CEPAT FREE ACCESORIES BERKAS DIJEMPUT HUB AHMAD 085 395 680 754</p>', 'MAZDA_MAZDA_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 6, 'add'),
+	(28, 'RFAzyI', 'adminAD004', 'K0001', '2017-05-09 17:30:00', 'TOYOTA  KALLA ALAUDDIN', 'TOYOTA-RFAzyI', 'Kota Makassar', '<p>PAKET DP MURAH &nbsp;DAN FREE SELAMA 2 BLN ANGSURAN HUB PAK ANTO WA /TLP : 0853 4292 0062&nbsp;</p>', '18485556_1317519088369551_6530194251420744842_n_TOYOTA-RFAzyI_Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 3, 'add'),
+	(29, 'rl83Nx', 'adminAD004', 'K0001', '2017-05-09 17:32:50', 'DAIHATSU', 'DAIHATSU-rl83Nx', 'Kota Makassar', '<p>HUB ISRA 085 341 580 878</p>', 'DAI_6_DAIHATSU_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 5, 'add'),
+	(30, 't6To8n', 'adminAD004', 'K0001', '2017-05-09 17:35:06', 'DAIHATSU', 'DAIHATSU-t6To8n', 'Kota Makassar', '<p>DP MULAI 9 JT, 11 JT, SAMPAI DGN 15 JT HUB ANTO 0853 9649 1313</p>', 'DAI_7_DAIHATSU_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 2, 'add'),
+	(31, 'bTcM1w', 'adminAD004', 'K0001', '2017-05-09 17:37:01', 'TOYOTA', 'TOYOTA-bTcM1w', 'Kota Makassar', '<p>DP MULAI 13 JT SAMPAI 16 JT HUB 085 242 926 884</p>', 'TOY_3_TOYOTA_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 1, 'add'),
+	(32, 'W2avS4', 'adminAD004', 'K0001', '2017-05-09 17:38:14', 'TOYOTA', 'TOYOTA-W2avS4', 'Kota Makassar', '<p>HUB ZAKARIA 0852 5549 5779</p>', 'OTO_TOYOTA_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 5, 'add'),
+	(33, 'l4AjV2', 'adminAD004', 'K0001', '2017-05-09 17:40:31', 'TOYOTA', 'TOYOTA-l4AjV2', 'Kota Makassar', '<p>AGYA DP 13 JT, AVANZA DP 15 JT, RUSH DP 19 JT, SIENTA DP 17 JT DAN CALYA DP 15 JT HUB ADY 0812 4478 5544</p>', 'TOY_8_TOYOTA_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 6, 'add'),
+	(34, 'su8Lcz', 'adminAD004', 'K0011', '2017-05-09 17:44:02', 'IKHLAS TEKNIK', 'IKHLAS-TEKNIK-su8Lcz', 'Kota Makassar', '<p>SERVICE PANGGIL KULKAS, TV, AC, MESIN CUCI, DISP, KRJ DITEMPAT DAN BERGARANSI HUB : 081 355 133 366</p>', 'service_IKHLAS-TEKNIK_Foto-Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 0, 'add'),
+	(35, '5EtHhF', 'adminAD004', 'K0003', '2017-05-13 16:05:23', 'JUAL TANAH KAVLING ( NO RIBA ,BUNGA NOL PERSEN )', 'JUAL-TANAH-KAVLING-NO-RIBA-BUNGA-NOL-PERSEN-5EtHhF', 'MAKASSAR', '<p>JUAL TANAH KAVLING SYARIAH &nbsp;DP CMA 5 JUTA .. MAU INVESTASI TANAH LANGSUNG HUB SUGIONO HP/WA : 082 362 950 009</p>', 'NO_RIBA_JUAL-TANAH-KAVLING-NO-RIBA-BUNGA-NOL-PERSEN-5EtHhF_Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 10, 'add'),
+	(36, 'n4o7lt', 'adminAD004', 'K0011', '2017-05-16 13:48:43', 'IKHLAS TEKNIK SERVICE', 'IKHLAS-TEKNIK-SERVICE-n4o7lt', 'KOTA MAKASSAR', '<p>IKHLAS TEKNIK SERVICE PANGGIL KULKAS, TV, AC, MESIN CUCI, DISPENSER, KERJA DITEMPAT DAN BERGARANSI HUB : 081 355 133 366</p>', 'service_IKHLAS-TEKNIK-SERVICE-n4o7lt_Fitur.jpg', ',,,,,', '', 'baru', 'iklan_baris', 'publish', 'none', 0, 'add'),
+	(37, 'ESoKJb', 'adminAD004', 'K0009', '2017-05-16 14:03:46', 'RUMAH HERBAL AFIAH', 'RUMAH-HERBAL-AFIAH-ESoKJb', 'KOTA MAKASSAR', '<p>IQ LAKU NUTRISI TUMBUH KEMBANG ANAK DAN BAYI UNTUK MENINGKATKAN KECERDASAN ANAK DALAM BENTUK HERBAL HUB : 081 342 525 367/ 081 341 137 547</p>', 'RUMAH_HERBAL_AFIAH_RUMAH-HERBAL-AFIAH-ESoKJb_Fitur.jpg', ',,,,,', '', 'baru', 'iklan_baris', 'publish', 'none', 2, 'add'),
+	(38, 'MghjVB', 'adminAD004', 'K0009', '2017-05-16 14:09:13', 'FIRMAX3', 'FIRMAX3-MghjVB', 'KOTA MAKASSAR', '<p>FIRMAX3 DAPAT MEMBANTU TERAPI PENGOBATAN DIANTARAX PENYAKIT STRUK, DIABETES, KANKER, JANTUNG, ASAM URAT, HIPERTENSI, MATA MINUS/ JULING, PENYAKIT KULIT, DEMAM / DBD, GINJAL , OBESITAS, DLL HUB 085 255 558 345/ 082 345 677 701</p>', 'fmax_FIRMAX3-MghjVB_Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 5, 'add'),
+	(39, 'Y6z1Z7', 'adminAD004', 'K0012', '2017-05-16 14:20:49', 'CLEAN LAUNDRY', 'CLEAN-LAUNDRY-Y6z1Z7', 'KOTA MAKASSAR', '<p>CLEAN LAUDRY &nbsp;1 HARI SELESAI, PROSES PENCUCIAN 1 MESIN 1 PELANGGAN, SIAP ANTAR JEMPUT HUB 085 242 832 400/ 085 255 995 652&nbsp;</p>', 'LAUDRY_CLEAN-LAUNDRY-Y6z1Z7_Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 1, 'add'),
+	(40, '0miWgq', 'adminAD004', 'K0012', '2017-05-16 14:23:37', 'NASA', 'NASA-0miWgq', 'KOTA MAKASSAR', '<p>SEDIA PRODAK NASA PERTANIAN, PERKEBUNAN, PETERNAKAN, PERIKANAN, KESEHATAN, RUMAH TANGGA, TEKNOLOGI INOVATIF</p>', 'nasa_NASA-0miWgq_Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 1, 'add'),
+	(41, 'qsxRWy', 'adminAD004', 'K0012', '2017-05-16 14:26:14', 'DEPOT AIR CV AQUALIN', 'DEPOT-AIR-CV-AQUALIN-qsxRWy', 'KOTA MAKASSAR', '<p>CV AQUALIN TERJAMIN HRG MURAH DI MAKASSAR MELAYANI PEMASANGAN ANTAR PROVINSI HRG MULAI 19 JT HUB 085 321 241 111</p>', 'DEPOT_AIR_DEPOT-AIR-CV-AQUALIN-qsxRWy_Fitur.jpg', ',,,,,', '', 'baru', 'iklan_foto', 'publish', 'none', 1, 'add');
 /*!40000 ALTER TABLE `ad_barang` ENABLE KEYS */;
-
--- Dumping structure for table harj8127_amanahdagang.ad_kabkota
-CREATE TABLE IF NOT EXISTS `ad_kabkota` (
-  `id` varchar(4) NOT NULL,
-  `id_provinsi` varchar(4) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table harj8127_amanahdagang.ad_kabkota: ~499 rows (approximately)
 /*!40000 ALTER TABLE `ad_kabkota` DISABLE KEYS */;
@@ -553,14 +557,7 @@ INSERT INTO `ad_kabkota` (`id`, `id_provinsi`, `nama`) VALUES
 	('9471', '94', 'Kota Jayapura');
 /*!40000 ALTER TABLE `ad_kabkota` ENABLE KEYS */;
 
--- Dumping structure for table harj8127_amanahdagang.ad_kategori
-CREATE TABLE IF NOT EXISTS `ad_kategori` (
-  `id_kategori` varchar(10) NOT NULL,
-  `nama_kategori` varchar(10) NOT NULL,
-  PRIMARY KEY (`id_kategori`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Dumping data for table harj8127_amanahdagang.ad_kategori: ~8 rows (approximately)
+-- Dumping data for table harj8127_amanahdagang.ad_kategori: ~11 rows (approximately)
 /*!40000 ALTER TABLE `ad_kategori` DISABLE KEYS */;
 INSERT INTO `ad_kategori` (`id_kategori`, `nama_kategori`) VALUES
 	('K0001', 'Mobil'),
@@ -570,17 +567,14 @@ INSERT INTO `ad_kategori` (`id_kategori`, `nama_kategori`) VALUES
 	('K0005', 'Handphone'),
 	('K0006', 'Komputer'),
 	('K0007', 'Travel'),
-	('K0008', 'Kitchen');
+	('K0008', 'Kitchen'),
+	('K0009', 'Kesehatan'),
+	('K0010', 'Makanan'),
+	('K0011', 'Service'),
+	('K0012', 'Lainnya');
 /*!40000 ALTER TABLE `ad_kategori` ENABLE KEYS */;
 
--- Dumping structure for table harj8127_amanahdagang.ad_kecamatan
-CREATE TABLE IF NOT EXISTS `ad_kecamatan` (
-  `id` varchar(7) NOT NULL,
-  `id_kabkota` varchar(4) NOT NULL,
-  `nama` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Dumping data for table harj8127_amanahdagang.ad_kecamatan: ~6,903 rows (approximately)
+-- Dumping data for table harj8127_amanahdagang.ad_kecamatan: ~7,069 rows (approximately)
 /*!40000 ALTER TABLE `ad_kecamatan` DISABLE KEYS */;
 INSERT INTO `ad_kecamatan` (`id`, `id_kabkota`, `nama`) VALUES
 	('1101010', '1101', 'Teupah Selatan'),
@@ -7488,13 +7482,6 @@ INSERT INTO `ad_kecamatan` (`id`, `id_kabkota`, `nama`) VALUES
 	('9471040', '9471', 'Jayapura Utara');
 /*!40000 ALTER TABLE `ad_kecamatan` ENABLE KEYS */;
 
--- Dumping structure for table harj8127_amanahdagang.ad_provinsi
-CREATE TABLE IF NOT EXISTS `ad_provinsi` (
-  `id` varchar(4) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 -- Dumping data for table harj8127_amanahdagang.ad_provinsi: ~34 rows (approximately)
 /*!40000 ALTER TABLE `ad_provinsi` DISABLE KEYS */;
 INSERT INTO `ad_provinsi` (`id`, `nama`) VALUES
@@ -7534,31 +7521,13 @@ INSERT INTO `ad_provinsi` (`id`, `nama`) VALUES
 	('94', 'Papua');
 /*!40000 ALTER TABLE `ad_provinsi` ENABLE KEYS */;
 
--- Dumping structure for table harj8127_amanahdagang.ad_user
-CREATE TABLE IF NOT EXISTS `ad_user` (
-  `user_id` int(10) NOT NULL AUTO_INCREMENT,
-  `user_kode` varchar(15) NOT NULL,
-  `user_add` datetime NOT NULL,
-  `user_login` varchar(50) NOT NULL,
-  `user_nama` varchar(50) NOT NULL,
-  `user_pass` varchar(32) NOT NULL,
-  `user_email` varchar(60) NOT NULL,
-  `user_telpon` varchar(13) NOT NULL,
-  `user_provinsi` varchar(20) NOT NULL,
-  `user_kota` varchar(20) NOT NULL,
-  `user_deskripsi` text NOT NULL,
-  `user_type` enum('admin','general') NOT NULL,
-  `user_picture` varchar(50) NOT NULL,
-  `action` varchar(3) NOT NULL DEFAULT 'add',
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-
 -- Dumping data for table harj8127_amanahdagang.ad_user: ~3 rows (approximately)
 /*!40000 ALTER TABLE `ad_user` DISABLE KEYS */;
 INSERT INTO `ad_user` (`user_id`, `user_kode`, `user_add`, `user_login`, `user_nama`, `user_pass`, `user_email`, `user_telpon`, `user_provinsi`, `user_kota`, `user_deskripsi`, `user_type`, `user_picture`, `action`) VALUES
 	(1, 'adminAD001', '2017-04-27 11:49:27', 'callmeboge', 'Sulfikar', '1dfd17797393d69564ea6ccb391b3f00', 'bogebaga@gmail.com', '085256938822', '73', '7313', '<p style="padding-left: 60px;">Bisa Diandalkan</p>\r\n<ol>\r\n<li>asdfa</li>\r\n<li>Bisa</li>\r\n<li>Juga</li>\r\n</ol>', 'admin', 'sulfikar-callmeboge.jpg', 'add'),
 	(2, 'adminAD002', '2017-05-04 18:42:32', 'Nened', 'Nanik Hariyati', '28baa1c0647b4f9628b346f7e52520c0', 'nanik.infoalharam@gmail.com', '', '', '', '', 'admin', '', 'add'),
-	(3, 'adminAD003', '2017-05-04 18:52:30', 'burhan', 'Burhan', '537c0f515ce8e2f3a1e5538de5f3f3c1', 'burhan.infoalharam@gmail.com', '', '', '', '', 'admin', '', 'add');
+	(3, 'adminAD003', '2017-05-04 18:52:30', 'burhan', 'Burhan', '537c0f515ce8e2f3a1e5538de5f3f3c1', 'burhan.infoalharam@gmail.com', '', '', '', '', 'admin', '', 'add'),
+	(8, 'adminAD004', '2017-05-09 11:26:08', 'aziza.djihad', 'nur aziza djihad', 'e10adc3949ba59abbe56e057f20f883e', 'azizadjihad_n@yahoo.com', '', '', '', '', 'admin', '', 'add');
 /*!40000 ALTER TABLE `ad_user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
