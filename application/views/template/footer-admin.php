@@ -1,14 +1,14 @@
-<script src="<?php echo base_url(); ?>web/js-admin/jquery-1.11.1.min.js"></script>
-<script src="<?php echo base_url(); ?>web/js-admin/bootstrap.min.js"></script>
-<script src="<?php echo base_url(); ?>web/js-admin/chart.min.js"></script>
-<script src="<?php echo base_url(); ?>web/js-admin/chart-data.js"></script>
-<script src="<?php echo base_url(); ?>web/js-admin/easypiechart.js"></script>
-<script src="<?php echo base_url(); ?>web/js-admin/easypiechart-data.js"></script>
-<script src="<?php echo base_url(); ?>web/js-admin/bootstrap-datepicker.js"></script>
-<script src="<?php echo base_url(); ?>web/js-admin/custom.js"></script>
-<script src="<?php echo base_url(); ?>web/js-admin/bootstrap-table.js"></script>
-<script src="<?php echo base_url(); ?>web/js/tinymce/tinymce.min.js"></script>
-<script src="<?php echo base_url(); ?>web/js/jquery.maskMoney.min.js"></script>
+<script src="<?php echo base_url("web/js-admin/jquery-1.11.1.min.js"); ?>"></script>
+<script src="<?php echo base_url("web/js-admin/bootstrap.min.js"); ?>"></script>
+<script src="<?php echo base_url("web/js-admin/chart.min.js"); ?>"></script>
+<script src="<?php echo base_url("web/js-admin/chart-data.js"); ?>"></script>
+<script src="<?php echo base_url("web/js-admin/easypiechart.js"); ?>"></script>
+<script src="<?php echo base_url("web/js-admin/easypiechart-data.js"); ?>"></script>
+<script src="<?php echo base_url("web/js-admin/bootstrap-datepicker.js"); ?>"></script>
+<script src="<?php echo base_url("web/js-admin/custom.js"); ?>"></script>
+<script src="<?php echo base_url("web/js-admin/bootstrap-table.js"); ?>"></script>
+<script src="<?php echo base_url("web/js/tinymce/tinymce.min.js"); ?>"></script>
+<script src="<?php echo base_url("web/js/jquery.maskMoney.min.js"); ?>"></script>
 <script>
 $(function() {
   $('#provinsi').change(function() {

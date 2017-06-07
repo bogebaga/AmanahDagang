@@ -12,7 +12,14 @@
   top:0;
   height: 100%;
   width: 100%;
+  text-align: center;
+  line-height: 7.2;
+  color:#fff;
+  font-size: 3em ;
+}
 
+.ads > .__filter_img._blue
+{
   background: rgba(147,206,222,0.41);
   background: -moz-linear-gradient(top, rgba(147,206,222,0.41) 0%, rgba(73,165,191,1) 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(147,206,222,0.41)), color-stop(100%, rgba(73,165,191,1)));
@@ -23,16 +30,19 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 );
 }
 
-.ads > .__filter_img_black
+.ads > .__filter_img._violet
 {
-  position: absolute;
-  text-align: center;
-  display: inline-block;
-  top:0;
-  line-height: 22;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.55);
+  background: linear-gradient(10deg, rgba(218, 23, 250, 1), rgba(123, 0, 143, 0));
+}
+
+.ads > .__filter_img._yellowbright
+{
+  background: linear-gradient(7deg, rgba(240, 148, 41, 1), rgba(123, 0, 143, 0));
+}
+
+.ads > .__filter_img._black
+{
+  background: rgba(0, 0, 0, 0.62);
 }
 
 .ads._2_col_slide

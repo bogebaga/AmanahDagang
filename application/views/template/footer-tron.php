@@ -1,3 +1,8 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#test_carousel').carousel()
+  });
+</script>
 <script>
   tinymce.init({
     selector: 'textarea',

@@ -18,7 +18,7 @@ class Tron extends CI_Controller{
       'network' => base_url('tentang')
     );
 
-    
+
     $this->load->view('template/header-tron', $link);
     $this->load->view('pages/tron-page');
     $this->load->view('template/footer-tron');
