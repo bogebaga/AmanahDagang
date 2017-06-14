@@ -1,6 +1,6 @@
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#test_carousel').carousel()
+    $('#test_carousel, #test_carousel_indicator_show_indicator').carousel()
   });
 </script>
 <script>
@@ -15,8 +15,7 @@
     toolbar:[
       'undo redo | bold italic | alignleft aligncenter alignjustify | bullist numlist outdent indent',
       'forecolor backcolor | fontselect fontsizeselect'
-    ],
-    image_advtab: true
+    ]
   });
 </script>
 <script>
