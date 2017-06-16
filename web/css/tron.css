@@ -2,22 +2,14 @@ html,body
 {
   margin: 0;
   padding: 0;
-  overflow-y: auto ;
-}
-body
-{
+  /*overflow-y: auto ;*/
   width: 100%;
   height: 100%;
-}
-.container
-{
-  z-index:0;
 }
 
 .ads
 {
   position: relative;
-
   margin-top: 10px;
   /*border:1px solid red;*/
 }
@@ -165,8 +157,8 @@ body
   position: absolute;
   background-color: rgba(9, 9, 3, 0.80);
   top:0;
-  min-width: inherit;
-  min-height: inherit;
+  min-width: 100%;
+  /*min-height: inherit;*/
   text-align: center;
   z-index: 16;
 }
@@ -174,6 +166,6 @@ body
 .yt_black_bg > iframe
 {
   padding:40px 40px;
-  margin: 70% 0;
+  margin: 80% 0;
   background-color: #fff;
 }

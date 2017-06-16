@@ -1,4 +1,4 @@
-<div class="container n_p">
+<div class="container-fluid n_p">
 <div id="test_carousel_indicator_show_indicator" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#test_carousel_show_indicator" data-slide-to="0" class="active"></li>
@@ -12,7 +12,7 @@
       <div class="row">
     <div class="col-xs-12">
       <div class="ads">
-        <img src="images\src_img_default\wide.jpg" height=480px alt="">
+        <img src="images\src_img_default\wide.jpg" height=100% alt="">
         <div class="__filter_img _blue">
 
         </div>
@@ -25,7 +25,7 @@
       <div class="row">
     <div class="col-xs-12">
       <div class="ads">
-        <img src="images\src_img_default\wide.jpg" height=480px alt="">
+        <img src="images\src_img_default\wide.jpg" height=100% alt="">
         <div class="__filter_img _blue">
 
         </div>
@@ -38,7 +38,7 @@
       <div class="row">
     <div class="col-xs-12">
       <div class="ads">
-        <img src="images\src_img_default\wide.jpg" height=480px alt="">
+        <img src="images\src_img_default\wide.jpg" height=100% alt="">
         <div class="__filter_img _blue">
 
         </div>
@@ -51,7 +51,7 @@
       <div class="row">
     <div class="col-xs-12">
       <div class="ads">
-        <img src="images\src_img_default\wide.jpg" height=480px alt="">
+        <img src="images\src_img_default\wide.jpg" height=100% alt="">
         <div class="__filter_img _blue">
 
         </div>
@@ -64,7 +64,7 @@
       <div class="row">
     <div class="col-xs-12">
       <div class="ads">
-        <img src="images\src_img_default\wide.jpg" height=480px alt="">
+        <img src="images\src_img_default\wide.jpg" height=100% alt="">
         <div class="__filter_img _blue">
 
         </div>
@@ -744,5 +744,5 @@
   </div>
 </div>
 <div class="yt_black_bg">
-  <iframe width="720px" height="520px" src="https://www.youtube.com/embed/HAX3X-Jvdog?autoplay=1&controls=0" frameborder="0" allowfullscreen></iframe>
+  <iframe width="60%" height="1400px" src="https://www.youtube.com/embed/HAX3X-Jvdog?autoplay=1&controls=0" frameborder="0" allowfullscreen></iframe>
 </div>
