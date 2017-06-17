@@ -2,16 +2,21 @@ html,body
 {
   margin: 0;
   padding: 0;
-  /*overflow-y: auto ;*/
   width: 100%;
   height: 100%;
+  /*overflow-y: auto ;*/
 }
 
 .ads
 {
   position: relative;
   margin-top: 10px;
+  font-size: 70px;
   /*border:1px solid red;*/
+}
+.ads.font_100
+{
+  font-size: 200px;
 }
 
 .ads > .__filter_img
@@ -139,7 +144,7 @@ html,body
   padding-left: 0;
 }
 
-.slide_2_1
+.slide_blue
 {
   background: rgba(1,101,154,1);
   background: -moz-linear-gradient(left, rgba(1,101,154,1) 34%, rgba(1,101,154,0.81) 100%);
@@ -150,6 +155,11 @@ html,body
   background: linear-gradient(to right, rgba(1,101,154,1) 34%, rgba(1,101,154,0.81) 100%);
 
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01659a', endColorstr='#01659a', GradientType=1 );
+}
+
+.slide_green
+{
+  background: linear-gradient(0deg, #386622, #196113);
 }
 
 .yt_black_bg
