@@ -24,6 +24,13 @@ class Admin extends CI_Controller{
     $this->load->view('template/footer-admin');
   }
 
+  public function youtube_embed()
+  {
+    $this->load->view('template/header-admin');
+    $this->load->view('template/navbar-admin');
+    $this->load->view('admin/youtube_embed');
+    $this->load->view('template/footer-admin');
+  }
 
   public function iklan()
   {

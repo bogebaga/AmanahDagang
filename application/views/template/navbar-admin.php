@@ -98,37 +98,50 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="active"><a href="<?php echo base_url() ?>admin"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-			<li class="parent ">
+			<li class=''><a href="<?php echo base_url("admin") ?>"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+			<li class="parent">
 				<a href="#">
-					<span class="glyphicon glyphicon-list"></span> forms user <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+					<span class="glyphicon glyphicon-list"></span> user information <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-1">
 					<li>
-						<a class="" href="<?php echo base_url() ?>admin/iklan">
+						<a class="" href="<?php echo base_url('admin/iklan') ?>">
 							<span class="glyphicon glyphicon-share-alt"></span> Iklan
 						</a>
 					</li>
 					<li>
-						<a class="" href="<?php echo base_url() ?>admin/user">
+						<a class="" href="<?php echo base_url("admin/user") ?>">
 							<span class="glyphicon glyphicon-share-alt"></span> Profil
 						</a>
 					</li>
 				</ul>
 			</li>
-			<li class="parent ">
+			<li class="parent">
 				<a href="#">
-					<span class="glyphicon glyphicon-pencil"></span> forms admin <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+					<span class="glyphicon glyphicon-pencil"></span> admin forms<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-2">
 					<li>
-						<a class="" href="<?php echo base_url() ?>admin/add_iklan">
+						<a class="" href="<?php echo base_url('admin/add_iklan') ?>">
 							<span class="glyphicon glyphicon-share-alt"></span>Iklan
 						</a>
 					</li>
 				</ul>
 			</li>
+			<!-- <li><a href="<?php echo base_url("admin/youtube_embed") ?>"><span class="glyphicon glyphicon-facetime-video"></span> Youtube Embed</a></li> -->
+			<li class="parent">
+				<a href="<?php echo base_url('admin/iklan')?>">
+					<span class="glyphicon glyphicon-facetime-video"></span> youtube embed<span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+				</a>
+				<ul class="children collapse" id="sub-item-3">
+					<li>
+						<a class="" href="<?php echo base_url('admin/youtube_embed') ?>">
+							<span class="glyphicon glyphicon-share-alt"></span> Tambah
+						</a>
+					</li>
+				</ul>
+			</li>
 			<li role="presentation" class="divider"></li>
-			<li><a href="<?php echo base_url() ?>signout_admin"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+			<li><a href="<?php echo base_url('signout_admin')?>"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->

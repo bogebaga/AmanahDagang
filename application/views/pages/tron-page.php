@@ -221,7 +221,7 @@
                 <div class="ads _2_col_isi_slide">
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _violet"></div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -230,7 +230,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -239,7 +239,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -248,7 +248,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -257,7 +257,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -266,7 +266,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -275,7 +275,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -284,7 +284,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -293,7 +293,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -302,7 +302,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -311,7 +311,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -320,7 +320,7 @@
             <div class="__filter_img _violet">
 
             </div>
-            <span>Nama Iklan</span>
+            <span class="__font_iklan_kat">Nama Iklan</span>
           </div>
         </div>
             </div>
@@ -331,7 +331,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -340,7 +340,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -349,7 +349,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -358,7 +358,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -367,7 +367,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -376,7 +376,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -385,7 +385,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -394,7 +394,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -403,7 +403,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -412,7 +412,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -421,7 +421,7 @@
                   <div class="__filter_img _violet">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pr">
@@ -430,7 +430,7 @@
                 <div class="__filter_img _violet">
 
                 </div>
-                <span>Nama Iklan</span>
+                <span class="__font_iklan_kat">Nama Iklan</span>
               </div>
             </div>
             </div>
@@ -451,7 +451,7 @@
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _yellowbright">
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -459,32 +459,7 @@
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _yellowbright">
                   </div>
-                  <span>Nama Iklan</span>
-                </div>
-              </div>
-              <div class="col-xs-2 n_pl">
-                <div class="ads _2_col_isi_slide">
-                  <img src="images\src_img_default\center.jpg" alt="">
-                  <div class="__filter_img _yellowbright">
-
-                  </div>
-                  <span>Nama Iklan</span>
-                </div>
-              </div>
-              <div class="col-xs-2 n_pl">
-                <div class="ads _2_col_isi_slide">
-                  <img src="images\src_img_default\center.jpg" alt="">
-                  <div class="__filter_img _yellowbright">
-                  </div>
-                  <span>Nama Iklan</span>
-                </div>
-              </div>
-              <div class="col-xs-2 n_pl">
-                <div class="ads _2_col_isi_slide">
-                  <img src="images\src_img_default\center.jpg" alt="">
-                  <div class="__filter_img _yellowbright">
-                  </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -493,7 +468,7 @@
                   <div class="__filter_img _yellowbright">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -501,7 +476,7 @@
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _yellowbright">
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -509,32 +484,7 @@
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _yellowbright">
                   </div>
-                  <span>Nama Iklan</span>
-                </div>
-              </div>
-              <div class="col-xs-2 n_pl">
-                <div class="ads _2_col_isi_slide">
-                  <img src="images\src_img_default\center.jpg" alt="">
-                  <div class="__filter_img _yellowbright">
-
-                  </div>
-                  <span>Nama Iklan</span>
-                </div>
-              </div>
-              <div class="col-xs-2 n_pl">
-                <div class="ads _2_col_isi_slide">
-                  <img src="images\src_img_default\center.jpg" alt="">
-                  <div class="__filter_img _yellowbright">
-                  </div>
-                  <span>Nama Iklan</span>
-                </div>
-              </div>
-              <div class="col-xs-2 n_pl">
-                <div class="ads _2_col_isi_slide">
-                  <img src="images\src_img_default\center.jpg" alt="">
-                  <div class="__filter_img _yellowbright">
-                  </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -543,7 +493,57 @@
                   <div class="__filter_img _yellowbright">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
+                </div>
+              </div>
+              <div class="col-xs-2 n_pl">
+                <div class="ads _2_col_isi_slide">
+                  <img src="images\src_img_default\center.jpg" alt="">
+                  <div class="__filter_img _yellowbright">
+                  </div>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
+                </div>
+              </div>
+              <div class="col-xs-2 n_pl">
+                <div class="ads _2_col_isi_slide">
+                  <img src="images\src_img_default\center.jpg" alt="">
+                  <div class="__filter_img _yellowbright">
+                  </div>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
+                </div>
+              </div>
+              <div class="col-xs-2 n_pl">
+                <div class="ads _2_col_isi_slide">
+                  <img src="images\src_img_default\center.jpg" alt="">
+                  <div class="__filter_img _yellowbright">
+
+                  </div>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
+                </div>
+              </div>
+              <div class="col-xs-2 n_pl">
+                <div class="ads _2_col_isi_slide">
+                  <img src="images\src_img_default\center.jpg" alt="">
+                  <div class="__filter_img _yellowbright">
+                  </div>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
+                </div>
+              </div>
+              <div class="col-xs-2 n_pl">
+                <div class="ads _2_col_isi_slide">
+                  <img src="images\src_img_default\center.jpg" alt="">
+                  <div class="__filter_img _yellowbright">
+                  </div>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
+                </div>
+              </div>
+              <div class="col-xs-2 n_pl">
+                <div class="ads _2_col_isi_slide">
+                  <img src="images\src_img_default\center.jpg" alt="">
+                  <div class="__filter_img _yellowbright">
+
+                  </div>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
             </div>
@@ -553,7 +553,7 @@
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _yellowbright">
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -561,32 +561,7 @@
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _yellowbright">
                   </div>
-                  <span>Nama Iklan</span>
-                </div>
-              </div>
-              <div class="col-xs-2 n_pl">
-                <div class="ads _2_col_isi_slide">
-                  <img src="images\src_img_default\center.jpg" alt="">
-                  <div class="__filter_img _yellowbright">
-
-                  </div>
-                  <span>Nama Iklan</span>
-                </div>
-              </div>
-              <div class="col-xs-2 n_pl">
-                <div class="ads _2_col_isi_slide">
-                  <img src="images\src_img_default\center.jpg" alt="">
-                  <div class="__filter_img _yellowbright">
-                  </div>
-                  <span>Nama Iklan</span>
-                </div>
-              </div>
-              <div class="col-xs-2 n_pl">
-                <div class="ads _2_col_isi_slide">
-                  <img src="images\src_img_default\center.jpg" alt="">
-                  <div class="__filter_img _yellowbright">
-                  </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -595,7 +570,7 @@
                   <div class="__filter_img _yellowbright">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -603,7 +578,7 @@
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _yellowbright">
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -611,7 +586,31 @@
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _yellowbright">
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
+                </div>
+              </div>
+              <div class="col-xs-2 n_pl">
+                <div class="ads _2_col_isi_slide">
+                  <img src="images\src_img_default\center.jpg" alt="">
+                  <div class="__filter_img _yellowbright">
+                  </div>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
+                </div>
+              </div>
+              <div class="col-xs-2 n_pl">
+                <div class="ads _2_col_isi_slide">
+                  <img src="images\src_img_default\center.jpg" alt="">
+                  <div class="__filter_img _yellowbright">
+                  </div>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
+                </div>
+              </div>
+              <div class="col-xs-2 n_pl">
+                <div class="ads _2_col_isi_slide">
+                  <img src="images\src_img_default\center.jpg" alt="">
+                  <div class="__filter_img _yellowbright">
+                  </div>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -620,7 +619,7 @@
                   <div class="__filter_img _yellowbright">
 
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -628,7 +627,7 @@
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _yellowbright">
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
@@ -636,16 +635,15 @@
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _yellowbright">
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
               <div class="col-xs-2 n_pl">
                 <div class="ads _2_col_isi_slide">
                   <img src="images\src_img_default\center.jpg" alt="">
                   <div class="__filter_img _yellowbright">
-
                   </div>
-                  <span>Nama Iklan</span>
+                  <span class="__font_iklan_kat">Nama Iklan</span>
                 </div>
               </div>
             </div>
@@ -673,19 +671,47 @@
     </div>
   </div>
       </div>
-      <div class="item">
-        <div class="row">
-    <div class="col-xs-12">
-      <div class="ads" style="margin-bottom:30px">
-        <img src="images/src_img_default/iklan-2.jpg" alt="">
-        <div class="__filter_img"></div>
-      </div>
-    </div>
-  </div>
-      </div>
     </div>
   </div>
 </div>
-<!-- <div class="yt_black_bg">
-  <iframe width="60%" height="1400px" src="https://www.youtube.com/embed/HAX3X-Jvdog?autoplay=1&controls=0" frameborder="0" allowfullscreen></iframe>
-</div> -->
+<script>
+    var tag = document.createElement('script');
+    // tag.src = "https://www.youtube.com/player_api";
+    tag.src = "https://www.youtube.com/iframe_api";
+
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    // function onYouTubePlayerAPIReady()
+    setTimeout(function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height:'1400',
+        width: '60%',
+        videoId: 'HAX3X-Jvdog',
+        playerVars:{'autoplay': 1, 'control': 0, 'html5':1},
+        events:{
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      })
+    }, 6000);
+
+    function onPlayerReady(event)
+    {
+      event.target.playVideo();
+    }
+
+    var done = false;
+    function onPlayerStateChange(event)
+    {
+      if (event.data == YT.PlayerState.ENDED && !done) {
+        setTimeout(location.reload(), 6000);
+        done = true;
+      }
+    }
+</script>
+<div class="yt_black_bg">
+  <div id="player"></div>
+  <!-- <iframe width="60%" height="1400px" src="https://www.youtube.com/embed/HAX3X-Jvdog?autoplay=1&controls=0" frameborder="0" allowfullscreen></iframe> -->
+</div>

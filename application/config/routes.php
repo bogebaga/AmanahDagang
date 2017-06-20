@@ -11,6 +11,7 @@ $route['admin/login'] = 'login/login';
 $route['admin/login/masuk'] = 'login/masuk';
 $route['admin/add_iklan'] = 'admin/add_iklan';
 $route['admin/iklan'] = 'admin/iklan';
+$route['admin/youtube_embed'] = 'admin/youtube_embed';
 $route['admin/user'] = 'admin/user';
 $route['admin/iklan/hapus/(:any)'] = 'admin/iklan_hapus/$1';
 $route['admin/iklan/edit/(:any)'] = 'admin/iklan_edit/$1';
