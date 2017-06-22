@@ -20,7 +20,7 @@ class Tron extends CI_Controller{
 
 
     $this->load->view('template/header-tron', $link);
-    $this->load->view('pages/tron-page');
+    $this->load->view('pages/tron-page-all');
     $this->load->view('template/footer-tron');
   }
 

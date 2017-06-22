@@ -181,12 +181,12 @@ html,body
 .yt_black_bg::before
 {
   content: '';
-  background: url(../../images/frame_video_tron/c54df5b0fca31e19fc533bfbf8e78641.jpg) no-repeat;
+  background: url(../../images/frame_video_tron/c54df5b0fca31e19fc533bfbf8e78641.jpg) repeat;
   position: absolute;
-  height: 1500px;
+  height: 1600px;
   width: 80%;
   z-index: -1;
-  margin: 70% 0;
+  margin: 75% 0;
 
 }
 

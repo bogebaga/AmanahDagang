@@ -1,9 +1,9 @@
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#test_carousel, #test_carousel_indicator_show_indicator').carousel()
+    $('#test_carousel_indicator_show_indicator').carousel()
   });
-</script>
-<script>
+
+
   tinymce.init({
     selector: 'textarea',
     height: 200,
