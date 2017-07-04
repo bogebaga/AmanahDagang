@@ -28,7 +28,7 @@
 	<header>
 		<nav id="menu" class="navbar-fixed-top">
 			<div class="row">
-				<div class="tengah">
+				<div class="wrapper tengah">
 					<div class="navbar-header">
 						<a class="navbar-brand" href="<?php echo $home?>">
 							<div class="logo">
