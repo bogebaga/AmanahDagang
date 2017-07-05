@@ -38,39 +38,39 @@
       <div class="col-xs-6">
           <div class="kategori-dagang">
             <ul>
-              <li><a href="mobil/kategori">
+              <li><a href="#">
                 <span class="fa fa-car material-red" aria-hidden="true"></span>
                 Mobil
               </a></li>
-              <li><a href="motor/kategori">
+              <li><a href="#">
                 <span class="fa fa-motorcycle material-violet" aria-hidden="true"></span>
                 Motor
               </a></li>
-              <li><a href="handphone/kategori">
+              <li><a href="#">
                 <span class="fa fa-mobile material-green-grass" aria-hidden="true"></span>
                 Mobile
               </a></li>
-              <li><a href="komputer/kategori">
+              <li><a href="#">
                 <span class="fa fa-laptop material-blue" aria-hidden="true"></span>
                 Komputer
               </a></li>
-              <li><a href="travel/kategori">
+              <li><a href="#">
                 <span class="fa fa-suitcase material-orange" aria-hidden="true"></span>
                 Travel
               </a></li>
-              <li><a href="kitchen/kategori">
+              <li><a href="#">
                 <span class="fa fa-cutlery material-grey" aria-hidden="true"></span>
                 Kitchen
               </a></li>
-              <li><a href="kesehatan/kategori">
+              <li><a href="#">
                 <span class="fa fa-heart material-pink" aria-hidden="true"></span>
                 Kesehatan
               </a></li>
-              <li><a href="service/kategori">
+              <li><a href="#">
                 <span class="fa fa-handshake-o material-tea" aria-hidden="true"></span>
                 Services
               </a></li>
-              <li><a href="lowongan-kerja/kategori">
+              <li><a href="#">
                 <span class="fa fa-user material-green-old" aria-hidden="true"></span>
                 Lowongan Kerja
               </a></li>

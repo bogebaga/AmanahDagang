@@ -10,9 +10,10 @@
 	<title>Amanah Dagang</title>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="<?php echo base_url('web/css/style.css'); ?>">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo base_url("web/css/font-awesome/css/font-awesome.min.css"); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('web/css/style.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('web/css/color.css'); ?>">
 
 	<!-- FONT -->
 	<link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">
@@ -23,7 +24,6 @@
 	<script src="<?php echo base_url("web/js/jquery.maskMoney.min.js") ?>"></script>
 	<script src="<?php echo base_url("web/js/tinymce/tinymce.min.js"); ?>"></script>
 </head>
-
 <body>
 	<header>
 		<nav id="menu" class="navbar-fixed-top">
@@ -40,10 +40,10 @@
 					<div class="menu-header">
 						<ul class="nav navbar-nav">
 							<li>
-								<form>
+								<!-- <form>
 									<input type="text" name="" placeholder="Cari" maxlength="20" size="35">
 									<button type="button">Cari</button>
-								</form>
+								</form> -->
 							</li>
 
 							<li>

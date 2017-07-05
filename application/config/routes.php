@@ -41,5 +41,8 @@ $route['tes'] = 'proses/tes_ilmu';
 $route['tron'] = 'tron';
 $route['(:any)'] = 'beranda/tampil_beranda/$1';
 
+// kategori
+$route['(:any)/kategori'] = 'proses/kategori/$1';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

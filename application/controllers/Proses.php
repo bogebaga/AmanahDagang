@@ -10,6 +10,24 @@ class Proses extends CI_Controller {
 		$this->load->model('iklan_model');
 	}
 
+	public function kategori($param)
+	{
+		$link = array(
+			'home' => base_url(),
+			'bantuan' => base_url().'bantuan',
+			'network' => base_url().'tentang'
+		);
+
+		$tampil_iklan['iklan'] = $this->iklan_model->get_all_iklan_by_kategori($param);
+		$tampil_iklan['kategori'] = $this->iklan_model->get_kategori();
+		$tampil_iklan['active_kategori'] = $param;
+
+		$this->load->view('template/header', $link);
+		$this->load->view('modal/modal_login');
+		$this->load->view('pages/beranda-car', $tampil_iklan);
+		$this->load->view('template/footer');
+	}
+
 	public function iklan_proses()
 	{
 		$slug_nama_iklan = url_title($this->input->post('nama_iklan'),'-');

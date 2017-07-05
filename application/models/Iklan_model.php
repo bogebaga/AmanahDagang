@@ -48,6 +48,26 @@ class Iklan_model extends CI_Model{
     return $query->result_array();
   }
 
+  public function get_all_iklan_by_kategori($param)
+  {
+    $this->db->from('ad_barang ab');
+    $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
+
+    $this->db->where('ak.nama_kategori', $param);
+    $result = $this->db->get();
+
+    return $result->result_array();
+  }
+
+  public function get_all_iklan_limit($limit='')
+  {
+    $this->db->order_by('barang_upload_tgl', 'DESC');
+    $this->db->limit($limit);
+    $result = $this->db->get('ad_barang');
+
+    return $result->result_array();
+  }
+
   public function get_iklan_by_slug($data)
   {
     $this->db->where('slug_nama_barang', $data);

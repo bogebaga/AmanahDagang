@@ -13,9 +13,9 @@
     </div>
 
     <div class="slide-barang">
-      <!-- <div class="gambar-gambar">
-        <img src="<?php base_url()?>images/post_foto_feature/<?php echo $iklan[0]['gambar_fitur'] ?>"  class="img-responsive" alt="foto">
-      </div> -->
+      <div class="gambar-gambar" align="center">
+        <img src="<?php echo base_url()?>images/post_foto_feature/<?php echo $iklan[0]['gambar_fitur'] ?>"  class="img-responsive" alt="foto">
+      </div>
     <?php
       $path_bd = base_url().'images/post_foto_ikl/';
       $explode_string = explode(',',$iklan[0]['gambar_barang']);
@@ -23,7 +23,7 @@
 
       foreach ($explode_string as $slide_gambar) { ?>
         <div class="gambar-gambar">
-          <img src="<?php echo (file_exists($path_bd.$slide_gambar) ?: base_url().'images/src_img_default/wide.jpg');?>"  class="img-responsive" alt="foto">
+          <img src="<?php echo (file_exists($path_bd.$slide_gambar) ?: base_url('images/src_img_default/wide.jpg'));?>"  class="img-responsive" alt="foto">
         </div>
       <?php } ?>
       <a class="arah-kiri" onclick="plusDivs(-1)">&#10094;</a>

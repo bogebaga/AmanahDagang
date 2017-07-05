@@ -260,13 +260,18 @@ a, p, h1, h2, h3, h4, label{
 
 .menu-bawah ul{
 	width: 100%;
-	margin-top: 30px;
+	/*margin-top: 30px;*/
 	margin-bottom: 10px;
-	background: linear-gradient(to right, #2c3e50, #679da5);
+	background: #009688;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 
 .menu-bawah ul li{
 /* 	background: #6498a3;  */
+	display: inline-block;
+	float:none;
 }
 
 .menu-bawah ul li a{
@@ -333,6 +338,7 @@ a, p, h1, h2, h3, h4, label{
 }
 
 .foto-dagangan{
+	padding-top:10px;
 	text-align: center;
 	float: left;
 	background: white;
@@ -864,7 +870,8 @@ footer{
 
 .search-container
 {
-	text-align: left;
+	text-align: center;
+	border-radius: 50px;
 	margin: 10px 0;
 	width: 100%;
 	background: linear-gradient(to right, #2c3e50, #679da5);
@@ -872,10 +879,30 @@ footer{
 
 .search-container > form
 {
-	padding: 10px;
+	padding: 30px 20px;
 }
 
 .search-container form > input[type="text"]
 {
 	margin-right: 6px;
+}
+
+.kategori-dagang ul li
+{
+	list-style: none;
+	width: 25%;
+	display: inline-block;
+	padding: 20px 10px;
+}
+
+.kategori-dagang ul li a
+{
+	text-decoration: none;
+}
+
+.kategori-dagang ul li span
+{
+	padding-bottom: 10px;
+	font-size: 50px;
+	display: block;
 }
