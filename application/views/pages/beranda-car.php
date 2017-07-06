@@ -28,9 +28,9 @@
 <section class="wrapper">
   <div class="search-container">
     <form class="" action="index.html" method="post">
-      <input class="form-control" type="text" name="" placeholder="Lokasi"  style="width:40%;display:inline-block;">
+      <input class="form-control" type="text" name="" placeholder="Lokasi"  style="width:40%;display:inline-block;" required>
       <input class="form-control" type="text" name="" placeholder="Iklan yang sedang dicari" style="width:50%;display:inline-block;">
-      <button class="btn btn-success" type="button" name="button">Cari</button>
+      <button class="btn btn-success" type="button" name="button"><span class="fa fa-search"></span></button>
     </form>
   </div>
   <div class="menu-bawah">

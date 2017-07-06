@@ -94,22 +94,6 @@
       <br>
       <button type="submit" name="submit" class="simpan btn btn-primary btn-lg">Pasang Iklan</button>
       <?php echo form_close();?>
-      <script>
-      function loadImage(i, addr, w, h)
-      {
-        if (i.files && i.files[0])
-        {
-          var reader = new FileReader();
-
-          reader.onload = function(e)
-          {
-            $('#'+addr).attr('src', e.target.result).width(w).height(h);
-          }
-
-          reader.readAsDataURL(i.files[0]);
-        }
-      }
-      </script>
     <h1>Identitas Diri Anda | <a href="<?php echo base_url() ?>profil">Profil</a></h1>
     <form>
       <div class="df">

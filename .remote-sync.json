@@ -1,10 +1,10 @@
 {
-  "transport": "scp",
+  "transport": "ftp",
   "uploadOnSave": false,
   "useAtomicWrites": false,
   "deleteLocal": false,
   "hostname": "ftp.harianamanah.id",
-  "port": "2223",
+  "port": "21",
   "target": "/home/harj8127/public_html/amanahdagang.com",
   "ignore": [
     ".remote-sync.json",

@@ -259,6 +259,7 @@ a, p, h1, h2, h3, h4, label{
 }
 
 .menu-bawah ul{
+	display: flex;
 	width: 100%;
 	/*margin-top: 30px;*/
 	margin-bottom: 10px;
@@ -879,7 +880,7 @@ footer{
 
 .search-container > form
 {
-	padding: 25px 5px;
+	padding: 25px 3px;
 }
 
 .search-container form > input[type="text"]
