@@ -11,7 +11,6 @@
           <input type="text" name="nama" placeholder="Username" size="35">
           <input type="email" name="email" placeholder="Alamat Email" size="35">
           <input type="password" name="sandi" placeholder="Kata Sandi" size="35">
-
           <button type="submit" name="submit" class="btn btn-primary">Mendaftar</button>
           <?php echo form_close();?>
         </div>
@@ -28,9 +27,9 @@
 <section class="wrapper">
   <div class="search-container">
     <form class="" action="index.html" method="post">
-      <input class="form-control" type="text" name="" placeholder="Lokasi"  style="width:40%;display:inline-block;">
-      <input class="form-control" type="text" name="" placeholder="Iklan yang sedang dicari" style="width:50%;display:inline-block;">
-      <button class="btn btn-success" type="button" name="button">Cari</button>
+      <input class="form-control" type="text" placeholder="Lokasi"  style="width:40%;display:inline-block;font-size:20px;height:40px;">
+      <input class="form-control" type="text" placeholder="Iklan yang sedang dicari" style="width:50%;display:inline-block;font-size:20px;height:40px;">
+      <button class="btn btn-success" type="button" name="button" style="font-size:20px;"><span class="fa fa-search"></span></button>
     </form>
   </div>
   <div class="row">
@@ -38,13 +37,21 @@
       <div class="col-xs-6">
           <div class="kategori-dagang">
             <ul>
+              <li><a href="properti/kategori">
+                <span class="fa fa-home material-red" aria-hidden="true"></span>
+                Properti
+              </a></li>
               <li><a href="mobil/kategori">
-                <span class="fa fa-car material-red" aria-hidden="true"></span>
+                <span class="fa fa-car material-blue" aria-hidden="true"></span>
                 Mobil
               </a></li>
               <li><a href="motor/kategori">
                 <span class="fa fa-motorcycle material-violet" aria-hidden="true"></span>
                 Motor
+              </a></li>
+              <li><a href="fashion/kategori">
+                <span class="fa fa-shopping-bag material-blue" aria-hidden="true"></span>
+                Fashion
               </a></li>
               <li><a href="handphone/kategori">
                 <span class="fa fa-mobile material-green-grass" aria-hidden="true"></span>
@@ -59,7 +66,7 @@
                 Travel
               </a></li>
               <li><a href="kitchen/kategori">
-                <span class="fa fa-cutlery material-grey" aria-hidden="true"></span>
+                <span class="fa fa-cutlery material-blue" aria-hidden="true"></span>
                 Kitchen
               </a></li>
               <li><a href="kesehatan/kategori">
@@ -73,6 +80,10 @@
               <li><a href="lowongan-kerja/kategori">
                 <span class="fa fa-user material-green-old" aria-hidden="true"></span>
                 Lowongan Kerja
+              </a></li>
+              <li><a href="lainnya/kategori">
+                <span class="fa fa-ellipsis-h material-grey" aria-hidden="true"></span>
+                Lainnya
               </a></li>
             </ul>
           </div>
@@ -111,10 +122,10 @@
         <?php foreach ($this->iklan_model->get_all_iklan_limit('7') as $new_ads) { ?>
           <li style="background:white;">
             <a href="<?php echo "barang/".$new_ads['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$new_ads['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$new_ads['gambar_fitur']) ? $path_fitur.$new_ads['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$new_ads['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $new_ads['nama_barang'] ?></h3>
-                <h4><?php echo ($new_ads['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $new_ads['jenis_iklan'])) : $new_ads['harga_barang'])?></h4>
+                <h4><?php echo (empty($new_ads['harga_barang']) ? ucwords(str_replace('_', ' ', $new_ads['jenis_iklan'])) : $new_ads['harga_barang'])?></h4>
               </figcaption>
             </a>
           </li>

@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width;initial-scale=1.0">
 
 	<!-- TITLE -->
-	<title>Amanah Dagang</title>
+	<title>amanahdagang.com - Semua ada disini!</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="<?php echo base_url('web/css/style.css'); ?>">
 	<link rel="stylesheet" href="<?php echo base_url('web/css/color.css'); ?>">
 
+	<!-- FAV -->
+	<link rel="shortcut icon" type="image/x-image" href="<?php echo base_url('images/fav.ico'); ?>">
 	<!-- FONT -->
 	<link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">
 
@@ -32,7 +34,7 @@
 					<div class="navbar-header">
 						<a class="navbar-brand" href="<?php echo $home?>">
 							<div class="logo">
-								<img src="<?php echo base_url(); ?>images/AMANAH.png">
+								<img src="<?php echo base_url('images/ad.png'); ?>">
 							</div>
 						</a>
 					</div>

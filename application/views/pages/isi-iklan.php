@@ -14,7 +14,8 @@
 
     <div class="slide-barang">
       <div class="gambar-gambar" align="center">
-        <img src="<?php echo base_url()?>images/post_foto_feature/<?php echo $iklan[0]['gambar_fitur'] ?>"  class="img-responsive" alt="foto">
+        <?php $path_ff = base_url('images/post_foto_feature/'); ?>
+        <img src="<?php echo (empty($iklan[0]['gambar_fitur'])) ? base_url('images/src_img_default/wide.jpg') : $path_ff.$iklan[0]['gambar_fitur']; ?>" class="img-responsive" alt="foto">
       </div>
     <?php
       $path_bd = base_url().'images/post_foto_ikl/';
@@ -23,7 +24,7 @@
 
       foreach ($explode_string as $slide_gambar) { ?>
         <div class="gambar-gambar">
-          <img src="<?php echo (file_exists($path_bd.$slide_gambar) ?: base_url('images/src_img_default/wide.jpg'));?>"  class="img-responsive" alt="foto">
+          <img src="<?php echo (file_exists($path_bd.$slide_gambar) ?: base_url('images/src_img_default/wide.jpg') );?>"  class="img-responsive" alt="foto">
         </div>
       <?php } ?>
       <a class="arah-kiri" onclick="plusDivs(-1)">&#10094;</a>

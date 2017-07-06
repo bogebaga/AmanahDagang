@@ -105,8 +105,8 @@ a, p, h1, h2, h3, h4, label{
 
 
 .logo img{
-	width: 165px;
-	height: 35px;
+	width: 250px;
+	/*height: 35px;*/
 	float: left;
 	vertical-align: middle;
 }
@@ -871,7 +871,7 @@ footer{
 .search-container
 {
 	text-align: center;
-	border-radius: 50px;
+	border-radius: 20px;
 	margin: 10px 0;
 	width: 100%;
 	background: linear-gradient(to right, #2c3e50, #679da5);
@@ -879,7 +879,7 @@ footer{
 
 .search-container > form
 {
-	padding: 30px 20px;
+	padding: 25px 5px;
 }
 
 .search-container form > input[type="text"]

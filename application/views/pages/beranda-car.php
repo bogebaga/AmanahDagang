@@ -69,11 +69,12 @@
       </div> -->
     <div id="load-first" class="tab-pane fade active in">
       <ul class="foto-dagangan">
-        <?php $path_fitur = "images/post_foto_feature/"; ?>
+        <?php $path_fitur = base_url('images/post_foto_feature/'); ?>
+        <?php //$path_fitur = FCPATH.'images/post_foto_feature/'; ?>
         <?php foreach ($iklan as $loadfirst) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$loadfirst['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$loadfirst['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$loadfirst['gambar_fitur']) ? $path_fitur.$loadfirst['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($loadfirst['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$loadfirst['gambar_fitur'] ;?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $loadfirst['nama_barang'] ?></h3>
                 <h4><?php echo ($loadfirst['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $loadfirst['jenis_iklan'])) : $loadfirst['harga_barang'])?></h4>
@@ -85,11 +86,10 @@
     </div>
     <div id="mobil" class="tab-pane fade">
       <ul class="foto-dagangan">
-        <?php $path_fitur = "images/post_foto_feature/"; ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Mobil', 'publish') as $mobil) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$mobil['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$mobil['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$mobil['gambar_fitur']) ? $path_fitur.$mobil['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($mobil['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$mobil['gambar_fitur'] ;?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $mobil['nama_barang'] ?></h3>
                 <h4><?php echo ($mobil['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $mobil['jenis_iklan'])) : $mobil['harga_barang'])?></h4>
@@ -104,7 +104,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan('Motor', 'publish') as $motor) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$motor['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$motor['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$motor['gambar_fitur']) ? $path_fitur.$motor['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($motor['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$motor['gambar_fitur']; ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $motor['nama_barang'] ?></h3>
                 <h4><?php echo ($motor['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $motor['jenis_iklan'])) : $motor['harga_barang'])?></h4>
@@ -119,7 +119,9 @@
         <?php foreach ($this->iklan_model->get_all_iklan('Properti', 'publish') as $properti) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$properti['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$properti['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$properti['gambar_fitur']) ? $path_fitur.$properti['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($properti['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$properti['gambar_fitur']; ?> alt="fitur foto iklan amanah dagang">
+              <?php //echo $properti['gambar_fitur']; ?>
+              <!-- echo  if(is_null($properti['gambar_fitur']))  -->
               <figcaption>
                 <h3><?php echo $properti['nama_barang'] ?></h3>
                 <h4><?php echo ($properti['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $properti['jenis_iklan'])) : $properti['harga_barang']) ?></h4>
@@ -134,7 +136,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan('Fashion', 'publish') as $fashion) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$fashion['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$fashion['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$fashion['gambar_fitur']) ? $path_fitur.$fashion['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($fashion['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$fashion['gambar_fitur']; ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $fashion['nama_barang'] ?></h3>
                 <h4><?php echo ($fashion['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $fashion['jenis_iklan'])) : $fashion['harga_barang']) ?></h4>
@@ -149,7 +151,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan('Handphone', 'publish') as $handphone) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$handphone['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$handphone['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$handphone['gambar_fitur']) ? $path_fitur.$handphone['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($handphone['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$handphone['gambar_fitur']; ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $handphone['nama_barang'] ?></h3>
                 <h4><?php echo ($handphone['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $handphone['jenis_iklan'])) : $handphone['harga_barang']) ?></h4>
@@ -164,7 +166,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan('Komputer', 'publish') as $komputer) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$komputer['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$komputer['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$komputer['gambar_fitur']) ? $path_fitur.$komputer['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($komputer['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$komputer['gambar_fitur']; ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $komputer['nama_barang'] ?></h3>
                 <h4><?php echo ($komputer['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $komputer['jenis_iklan'])) : $komputer['harga_barang']) ?></h4>
@@ -179,7 +181,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan('Travel', 'publish') as $travel) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$travel['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$travel['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$travel['gambar_fitur']) ? $path_fitur.$travel['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($travel['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$travel['gambar_fitur']; ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $travel['nama_barang'] ?></h3>
                 <h4><?php echo ($travel['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $travel['jenis_iklan'])) : $travel['harga_barang'])?></h4>
@@ -194,7 +196,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan('Kitchen', 'publish') as $kitchen) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$kitchen['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$kitchen['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$handphone['gambar_fitur']) ? $path_fitur.$handphone['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($kitchen['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$handphone['gambar_fitur']; ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $kitchen['nama_barang'] ?></h3>
                 <h4><?php echo ($kitchen['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $kitchen['jenis_iklan'])) : $kitchen['harga_barang']) ?></h4>
@@ -209,7 +211,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan('Kesehatan', 'publish') as $kesehatan) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$kesehatan['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$kesehatan['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$kesehatan['gambar_fitur']) ? $path_fitur.$kesehatan['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($kesehatan['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$kesehatan['gambar_fitur']; ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $kesehatan['nama_barang'] ?></h3>
                 <h4><?php echo ($kesehatan['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $kesehatan['jenis_iklan'])) : $kesehatan['harga_barang']) ?></h4>
@@ -224,7 +226,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan('Makanan', 'publish') as $makanan) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$makanan['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$makanan['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$makanan['gambar_fitur']) ? $path_fitur.$makanan['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($makanan['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$makanan['gambar_fitur']; ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $makanan['nama_barang'] ?></h3>
                 <h4><?php echo ($makanan['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $makanan['jenis_iklan'])) : $makanan['harga_barang']) ?></h4>
@@ -239,7 +241,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan('Lainnya', 'publish') as $lainnya) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$lainnya['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$lainnya['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$lainnya['gambar_fitur']) ? $path_fitur.$lainnya['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($lainnya['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$lainnya['gambar_fitur']; ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $lainnya['nama_barang'] ?></h3>
                 <h4><?php echo ($lainnya['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $lainnya['jenis_iklan'])) : $lainnya['harga_barang']) ?></h4>
@@ -254,7 +256,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan('Lowongan-Kerja', 'publish') as $lowongan_kerja) { ?>
           <li>
             <a href="<?php echo base_url()."barang/".$lowongan_kerja['slug_nama_barang'] ?>">
-              <img src=<?php echo base_url().($path_fitur.$lowongan_kerja['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$lowongan_kerja['gambar_fitur']) ? $path_fitur.$lowongan_kerja['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($lowongan_kerja['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$lowongan_kerja['gambar_fitur']; ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $lowongan_kerja['nama_barang'] ?></h3>
                 <h4><?php echo ($lowongan_kerja['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $lowongan_kerja['jenis_iklan'])) : $lowongan_kerja['harga_barang']) ?></h4>
