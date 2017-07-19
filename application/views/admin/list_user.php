@@ -17,7 +17,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Tabel User</div>
 					<div class="panel-body">
-						<table data-toggle="table" data-url="<?php echo base_url()?>uparse"  data-show-refresh="true" data-show-columns="true" data-search="true" data-select-item-name="state" data-pagination="true" data-sort-name="nama" data-sort-order="desc">
+						<table data-toggle="table" data-url="<?php echo base_url("uparse")?>"  data-show-refresh="true" data-show-columns="true" data-search="true" data-pagination="true" data-sort-name="nama" data-sort-order="desc">
 						    <thead>
 						    <tr>
 						        <!-- <th data-field="state" data-checkbox="true" ></th> -->

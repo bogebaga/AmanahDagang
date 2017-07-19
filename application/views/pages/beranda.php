@@ -26,15 +26,26 @@
 </section>
 <section class="wrapper">
   <div class="search-container">
-    <form class="" action="index.html" method="post">
-      <input class="form-control" type="text" placeholder="Lokasi"  style="width:40%;display:inline-block;font-size:20px;height:40px;">
-      <input class="form-control" type="text" placeholder="Iklan yang sedang dicari" style="width:50%;display:inline-block;font-size:20px;height:40px;">
+    <form action="index.html" method="post">
+      <div class="form-control" style="width:40%;display:inline-block;font-size:20px;height:40px;text-align:left;">
+        <span class="fa fa-location-arrow"></span>
+        <input name="lokasi" type="text" placeholder="Lokasi" style="border:none;width:90%;margin-left:10px;">
+      </div>
+      <div class="form-control" style="width:50%;display:inline-block;font-size:20px;height:40px;text-align:left;">
+        <span class="fa fa-file-text-o"></span>
+        <input type="text" placeholder="Iklan yang sedang dicari" style="border:none;width:90%;margin-left:10px;">
+      </div>
       <button class="btn btn-success" type="button" name="button" style="font-size:20px;"><span class="fa fa-search"></span></button>
     </form>
+    <div class="dropdown" style="display:none;">
+      <ul>
+      </ul>
+        bera 
+    </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <div class="col-xs-6">
+      <div class="col-xs-5">
           <div class="kategori-dagang">
             <ul>
               <li><a href="properti/kategori">
@@ -88,10 +99,13 @@
             </ul>
           </div>
       </div>
+      <div class="col-xs-7">
+        <img src="<?php echo base_url("images/banner 640x510 amanahdagang.jpg"); ?>" alt="banner amanahdagang.com samping">
+      </div>
     </div>
   </div>
   <hr style="border-color:rgba(44, 62, 80, 0.27);">
-  <h3 style="color:#ff9800;">Barang dagangan baru #BekasJadiDuit</h3>
+  <h3 style="color:#ff9800;">Barang dagangan #BekasJadiDuit</h3>
   <br>
   <div class="barang-dagang tab-content">
     <div id="mobil" class="tab-pane fade in active">
@@ -116,16 +130,21 @@
         </select>
         <p>Atur Berdasarkan :</p>
       </div> -->
-      <ul class="foto-dagangan" style="background:rgba(255,255,255,0);border:none;">
+      <ul class="foto-dagangan" style="padding-top:0;background:rgba(255,255,255,0);border:none;">
         <?php $path_fitur = "images/post_foto_feature/"; ?>
-
-        <?php foreach ($this->iklan_model->get_all_iklan_limit('7') as $new_ads) { ?>
+        <?php foreach ($this->iklan_model->get_all_iklan_limit('5') as $new_ads) { ?>
           <li style="background:white;">
             <a href="<?php echo "barang/".$new_ads['slug_nama_barang'] ?>">
               <img src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$new_ads['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $new_ads['nama_barang'] ?></h3>
-                <h4><?php echo (empty($new_ads['harga_barang']) ? ucwords(str_replace('_', ' ', $new_ads['jenis_iklan'])) : $new_ads['harga_barang'])?></h4>
+                <h4><?php echo (empty($new_ads['harga_barang']) ? '<div></div>' : "Rp. ".$new_ads['harga_barang'])?></h4>
+                <div class="icon-btm-left" style="color:#2c3e50;">
+                  <span class="fa fa-archive"></span> <?php echo ucwords($new_ads['jenis_barang']); ?>
+                </div>
+                <div class="icon-btm-right" style="color:#757575;">
+                  <span class="fa fa-eye"></span> <?php echo ucwords($new_ads['view_barang']); ?>
+                </div>
               </figcaption>
             </a>
           </li>
@@ -134,6 +153,6 @@
     </div>
   </div>
   <div class="iklan-lebar">
-    <img src="images/iklan.jpg" alt="">
+    <img src="<?php echo base_url("images/footer-banner.jpg") ?>" width="1150px" height="200px"  alt="amanahdagang pasang iklan">
   </div>
 </section>

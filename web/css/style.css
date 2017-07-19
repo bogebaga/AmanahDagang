@@ -39,7 +39,7 @@ a, p, h1, h2, h3, h4, label{
 }
 
 .menu-header .navbar-nav{
-	float: right
+	float: right;
 }
 
 .menu-header .navbar-nav li form{
@@ -90,7 +90,7 @@ a, p, h1, h2, h3, h4, label{
 	font-size: 15px;
 	font-weight: 100;
 	color: #ffffff !important;
-	padding-top: 21px;
+	padding: 22px;
 }
 
 .menu-header ul li a:hover{
@@ -339,23 +339,39 @@ a, p, h1, h2, h3, h4, label{
 }
 
 .foto-dagangan{
-	padding-top:10px;
-	text-align: center;
-	float: left;
+	width: 100%;
+	padding:30px 40px;
+	display: inline-flex;
+	flex-wrap: wrap;
+	text-align: left;
 	background: white;
 	border: 1px solid #ddd;
 	border-top: transparent;
 }
 
 .foto-dagangan li{
-	list-style: none;
-	float: left;
-	width: 150px;
+	list-style-type: none;
+	/*display: inline-block;*/
+	position: relative;
+	width: 200px;
 	height: auto;
-	min-height: 280px;
+	min-height: 310px;
 	border: 1px solid #ddd;
-	margin: 7px;
+	margin: 4px 3px;
 	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.1);
+}
+
+.foto-dagangan li.line::after
+{
+	content: '';
+	position: absolute;
+	border-bottom: 1px solid black;
+	width: 90%;
+	right: 0;
+	left:0;
+	bottom: 0;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .foto-dagangan li:hover{
@@ -368,13 +384,33 @@ a, p, h1, h2, h3, h4, label{
 }
 
 .foto-dagangan li img{
-	width: 148px;
-	height: 150px;
+	width: 195px;
+	height: 170px;
 }
 
 .foto-dagangan figcaption{
 	padding: 12px 12px 30px;
+	min-height: 113px;
 }
+
+/* NB: tambahan style */
+.foto-dagangan figcaption div
+{
+	font-size: 13px;
+}
+
+.foto-dagangan figcaption div.icon-btm-left{
+	position: absolute;
+	bottom: 10px;
+	left:10px;
+}
+
+.foto-dagangan figcaption div.icon-btm-right{
+	position: absolute;
+	bottom: 10px;
+	right:10px;
+}
+
 
 .foto-dagangan h4{
 	color: #f44336;
@@ -606,20 +642,33 @@ footer{
 	margin-top: 75px;
 }
 
+.identitas-penjual
+{
+	margin-top: 15px;
+	text-align: center;
+	padding:5px 0;
+}
+
 .bungkus-penjual{
 	background: white;
 	padding: 15px;
 	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
+	display: table;
+	min-width: 340px;
 }
 
 .foto-penjual{
-	float: left;
+	/*float: left;*/
+	text-align: center;
 }
 
 .foto-penjual img{
-	width: 100px;
-	height: 100px;
-	margin-right: 10px;
+	width: 150px;
+	height: 150px;
+	border-radius: 200px;
+	margin:10px auto 20px;
+	/*margin-right: 10px;
+	margin-bottom:10px;*/
 }
 
 .identitas-penjual h3{
@@ -629,7 +678,7 @@ footer{
 }
 
 .identitas-penjual h4{
-	margin: 0;
+	margin: 5px 0;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -883,9 +932,17 @@ footer{
 	padding: 25px 3px;
 }
 
-.search-container form > input[type="text"]
+.search-container form > .form-control
 {
 	margin-right: 6px;
+	vertical-align: middle;
+	position: relative;
+	padding:6px 12px;
+}
+
+.search-container form > .form-control input
+{
+	outline: none;
 }
 
 .kategori-dagang ul li
@@ -906,4 +963,16 @@ footer{
 	padding-bottom: 10px;
 	font-size: 50px;
 	display: block;
+}
+
+.container-iklan-baris
+{
+	background: white;
+	width: 100%;
+	margin: 10px 0;
+}
+
+.none
+{
+	display: none;
 }

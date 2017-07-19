@@ -20,7 +20,7 @@
 						<div class="col-md-6">
 								<div class="form-group">
 									<label>Judul Iklan</label>
-									<input class="form-control" placeholder="example: Jual cepat mobil bmw" name="nama_barang" required>
+									<input class="form-control" placeholder="example: Jual cepat mobil bmw" name="nama_barang" minlength="30" required>
 								</div>
 								<div class="form-group">
 									<label>Kategori</label>
@@ -35,7 +35,12 @@
 									<label>Jenis Iklan</label>
 									<div class="radio">
 										<label>
-											<input type="radio" name="jenis_iklan" value="iklan_baris" checked>Iklan Baris
+											<input type="radio" name="jenis_iklan" value="iklan" checked>Iklan
+										</label>
+									</div>
+									<div class="radio">
+										<label>
+											<input type="radio" name="jenis_iklan" value="iklan_baris">Iklan Baris
 										</label>
 									</div>
 									<div class="radio">

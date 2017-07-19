@@ -1,5 +1,5 @@
 <!-- ALL SLIDE -->
-<div id="test_carousel_indicator_show_indicator" class="carousel slide" data-ride="carousel">
+<div id="test_carousel_indicator_show_indicator" class="carousel slide" data-ride="carousel" >
   <div class="carousel-inner" role="listbox">
     <div class="item active">
       <div class="container-fluid n_p">
@@ -71,6 +71,35 @@
       <!-- END -->
       </div>
     </div>
+    <div class="item">
+      <!-- START QUAD -->
+      <div class="container-fluid n_p">
+        <div class="row">
+          <div class="col-xs-12">
+            <div id="player"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="ads font_100">
+              <img src="images/iklan_tron/three.jpg" alt="">
+              <div class="__filter_img _blue"></div>
+              <span>Nama Iklan</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="ads font_100">
+              <img src="images/iklan_tron/three.jpg" alt="">
+              <div class="__filter_img _blue"></div>
+              <span>Nama Iklan</span>
+            </div>
+          </div>
+        </div>
+      <!-- END -->
+      </div>
+    </div>
   </div>
 </div>
 <!-- END -->
@@ -87,8 +116,8 @@
     // function onYouTubePlayerAPIReady()
     setTimeout(function onYouTubeIframeAPIReady() {
       player = new YT.Player('player', {
-        height:'1400',
-        width: '60%',
+        height:'33.33%',
+        width: '100%',
         videoId: 'HAX3X-Jvdog',
         playerVars:{'autoplay': 1, 'control': 0, 'html5':1},
         events:{
@@ -107,7 +136,7 @@
     function onPlayerStateChange(event)
     {
       if (event.data == YT.PlayerState.ENDED && !done) {
-        setTimeout(location.reload(), 6000);
+        // setTimeout(location.reload(), 6000);
         done = true;
       }
     }

@@ -39,6 +39,7 @@ $route['default_controller'] = 'beranda/tampil_beranda'; //index
 $route['edit'] = 'beranda/edit';
 $route['tes'] = 'proses/tes_ilmu';
 $route['tron'] = 'tron';
+$route['iklanbaris'] = 'tron/iklanbaris';
 $route['(:any)'] = 'beranda/tampil_beranda/$1';
 
 // kategori

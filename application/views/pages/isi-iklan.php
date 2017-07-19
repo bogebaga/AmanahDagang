@@ -22,11 +22,9 @@
       $explode_string = explode(',',$iklan[0]['gambar_barang']);
       rsort($explode_string);
 
-      foreach ($explode_string as $slide_gambar) { ?>
-        <div class="gambar-gambar">
-          <img src="<?php echo (file_exists($path_bd.$slide_gambar) ?: base_url('images/src_img_default/wide.jpg') );?>"  class="img-responsive" alt="foto">
-        </div>
-      <?php } ?>
+      foreach ($explode_string as $slide_gambar): ?>
+          <?php echo ($slide_gambar == '') ? '' : '<div class="gambar-gambar"><img src="'.$path_bd.$slide_gambar.'"  class="img-responsive" alt="foto"></div>' ?>
+      <?php endforeach; ?>
       <a class="arah-kiri" onclick="plusDivs(-1)">&#10094;</a>
       <a class="arah-kanan" onclick="plusDivs(1)">&#10095;</a>
     </div>
@@ -44,7 +42,7 @@
         <img src="<?php echo $iklan[0]['user_picture'] == '' ? base_url().'images/gambar.jpg' : base_url().'images/user_iklan/'.$iklan[0]['user_picture'] ?>" class="img-responsive" alt="foto">
       </div>
       <div class="identitas-penjual">
-        <h3>IDENTITAS DIRI : </h3>
+        <!-- <h3>IDENTITAS DIRI : </h3> -->
         <h4><?php echo $iklan[0]['user_nama']; ?></h4>
         <h4><?php echo $iklan[0]['alamat_barang'] ?></h4>
         <h4><?php echo $iklan[0]['user_telpon'] ?></h4>
@@ -73,7 +71,7 @@
         </div>
       </div>
       <div class="sosmed-penjual">
-        <p>Bagikan :</p>
+        <!-- <p>Bagikan :</p>
         <a href="#" title="Twitter">
           <img src="<?php echo base_url() ?>images/twitter.svg" alt="">
         </a>
@@ -82,7 +80,8 @@
         </a>
         <a href="#" title="Google+">
           <img src="<?php echo base_url() ?>images/google-plus.svg" alt="">
-        </a>
+        </a> -->
+        <p>Lihat Iklan lainnya <a href="#">disini</a></p>
       </div>
     </div>
     <div class="bungkus-detail">
@@ -90,7 +89,7 @@
         <i class="fa fa-tags" aria-hidden="true"></i>
         <div class="kata">
           <p>Kategori</p>
-          <p><?php echo $iklan[0]['nama_kategori'] ?></p>
+          <p><a href="#"><?php echo $iklan[0]['nama_kategori'] ?></a></p>
         </div>
       </div>
       <div class="detail-waktu">
@@ -122,8 +121,8 @@
         </div>
       </div> -->
     </div>
-    <div class="bungkus-iklan">
+    <!-- <div class="bungkus-iklan">
       <img src="<?php echo base_url("images/gambar.jpg")?>" class="img-responsive" alt="iklan">
-    </div>
+    </div> -->
   </aside>
 </div>

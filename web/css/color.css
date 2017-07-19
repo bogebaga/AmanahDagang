@@ -34,3 +34,12 @@
 {
   color: #2e7d32;
 }
+
+.style-iklan-baris
+{
+  border: 2px solid #FFC107;
+}
+.style-iklan-fav
+{
+  border: 2px solid #4CAF50 !important;
+}

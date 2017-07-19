@@ -253,7 +253,7 @@ class Admin extends CI_Controller{
       'deskripsi_barang' => $this->input->post('deskripsi'),
       'harga_barang' => $this->input->post('harga'),
       'jenis_barang' => $this->input->post('jenis_barang'),
-      'jenis_iklan' => $this->input->post('jenis_iklan'),
+      // 'jenis_iklan' => $this->input->post('jenis_iklan'),
       'gambar_fitur' => $data['upload_data'],
       'gambar_barang' => $hasil_implode,
       'tayang_barang' => $this->input->post('tayang_iklan')

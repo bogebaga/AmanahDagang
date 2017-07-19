@@ -178,7 +178,7 @@ html,body
   z-index: 16;
 }
 
-.yt_black_bg::before
+/*.yt_black_bg::before
 {
   content: '';
   background: url(../../images/frame_video_tron/c54df5b0fca31e19fc533bfbf8e78641.jpg) repeat;
@@ -187,12 +187,11 @@ html,body
   width: 80%;
   z-index: -1;
   margin: 75% 0;
+}*/
 
-}
-
-.yt_black_bg > iframe
+/*.yt_black_bg > iframe
 {
   padding:40px 40px;
   margin: 80% 0;
   background-color: #fff;
-}
+}*/

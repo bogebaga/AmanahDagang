@@ -6,7 +6,7 @@
     <input type="hidden" name="kd_barang" value="<?php echo $slug_data->barang_kode; ?>">
       <div class="df">
         <h4>Judul Iklan</h4>
-        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." value="<?php echo $slug_data->nama_barang ?>" required>
+        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." value="<?php echo $slug_data->nama_barang ?>" required minlength="30">
       </div>
       <div class="df">
         <h4>Kategori</h4>
@@ -20,13 +20,13 @@
         <?php endforeach; ?>
         </select>
       </div>
-      <div class="df">
+      <!-- <div class="df">
         <h4>Jenis Iklan</h4>
         <input type="radio" name="jenis_iklan" id="ji" value="iklan_baris" <?php echo ($slug_data->jenis_iklan == 'iklan_baris') ? 'checked' : '' ?>>
         <label for="ji">Iklan Baris</label>
         <input type="radio" name="jenis_iklan" id="ji1" value="iklan_foto" <?php echo ($slug_data->jenis_iklan == 'iklan_foto') ? 'checked' : '' ?>>
         <label for="ji1">Iklan Favorit</label>
-      </div>
+      </div> -->
       <div class="df">
         <h4>Jenis Barang</h4>
         <input type="radio" name="jenis_barang" id="jb" value="baru" <?php echo ($slug_data->jenis_barang == 'baru') ? 'checked' : '' ?>>
@@ -124,17 +124,17 @@
 
   </section>
   <aside class="iklan-barang">
-    <div class="bungkus-info">
+    <!-- <div class="bungkus-info">
       <h3>Tips Pasang Iklan</h3>
       <ol>
         <li>Buka <a href="#">AmanahDagang</a></li>
         <li>Pasang Iklannya</li>
         <li>Tunggu pembelinya</li>
       </ol>
-    </div>
+    </div> -->
 
-    <div class="bungkus-iklan">
-      <img src="<?php echo base_url(); ?>images/gambar.jpg" class="img-responsive" alt="iklan">
+    <div class="bungkus-iklan" style="margin:0;">
+      <img src="<?php echo base_url("images/gambar.jpg"); ?>" class="img-responsive" alt="iklan">
     </div>
   </aside>
 </div>

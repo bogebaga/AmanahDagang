@@ -110,3 +110,34 @@
     <span>Nama Iklan</span>
   </div>
 </div>
+
+---------------------------------------------------------------------------------
+<li style="background:#d8d8d8;">
+  <!-- <a href=""> -->
+    <img src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$new_ads['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
+    <figcaption>
+      <?php echo $new_ads['deskripsi_barang'] ?>
+    </figcaption>
+    <div class="label label-success" style="bottom:5px;left:5px;position:absolute;" ><?php echo str_replace('_', ' ', $new_ads['jenis_iklan']) ?></div>
+  <!-- </a> -->
+</li>
+<?php else: ?>
+
+------------------------------------------------------------------------------------------
+<?php if ($loadfirst['jenis_iklan'] == 'iklan_foto'): ?>
+  <li style="background:#d8d8d8;">
+    <img src=<?php echo (empty($loadfirst['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$loadfirst['gambar_fitur'] ;?> alt="fitur foto iklan amanah dagang">
+    <figcaption>
+      <?php echo $loadfirst['deskripsi_barang'] ?>
+    </figcaption>
+    <div class="label label-success" style="bottom:5px;left:5px;position:absolute;" ><?php echo str_replace('_', ' ', $loadfirst['jenis_iklan']) ?></div>
+  </li>
+<?php elseif($loadfirst['jenis_iklan'] == 'iklan_baris'): ?>
+  <li style="background:#d8d8d8;">
+    <figcaption>
+      <?php echo $loadfirst['deskripsi_barang'] ?>
+    </figcaption>
+    <div class="label label-warning" style="bottom:5px;left:5px;position:absolute;" ><?php echo str_replace('_', ' ', $loadfirst['jenis_iklan']) ?></div>
+  </li>
+<?php //elseif($loadfirst['jenis_iklan'] == 'iklan'): ?>
+<?php else: ?>

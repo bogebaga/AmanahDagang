@@ -20,7 +20,7 @@
 						<div class="col-md-6">
 								<div class="form-group">
 									<label>Judul Iklan</label>
-									<input class="form-control" placeholder="example: Jual cepat mobil bmw" name="nama_barang" value="<?php echo $barang->nama_barang ?>">
+									<input class="form-control" placeholder="example: Jual cepat apa saja" name="nama_barang" value="<?php echo $barang->nama_barang ?>" required minlength="30">
 								</div>
 								<input type="hidden" name="slug_nama_barang" value="<?php echo $barang->slug_nama_barang ?>">
 
@@ -37,7 +37,7 @@
 									</select>
 								</div>
 
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label>Jenis Iklan</label>
 									<div class="radio">
 										<label>
@@ -49,7 +49,7 @@
 											<input type="radio" name="jenis_iklan" value="iklan_foto" <?php echo ($barang->jenis_iklan == 'iklan_foto') ? 'checked' : '' ; ?>>Iklan Foto
 										</label>
 									</div>
-								</div>
+								</div> -->
 
 								<div class="form-group">
 									<label>Jenis Barang</label>

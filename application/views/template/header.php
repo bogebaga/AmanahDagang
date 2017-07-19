@@ -10,10 +10,10 @@
 	<title>amanahdagang.com - Semua ada disini!</title>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo base_url("web/css/bootstrap.min.css") ?>">
 	<link rel="stylesheet" href="<?php echo base_url("web/css/font-awesome/css/font-awesome.min.css"); ?>">
-	<link rel="stylesheet" href="<?php echo base_url('web/css/style.css'); ?>">
-	<link rel="stylesheet" href="<?php echo base_url('web/css/color.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url("web/css/style.css"); ?>">
+	<link rel="stylesheet" href="<?php echo base_url("web/css/color.css"); ?>">
 
 	<!-- FAV -->
 	<link rel="shortcut icon" type="image/x-image" href="<?php echo base_url('images/fav.ico'); ?>">
@@ -21,8 +21,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">
 
 	<!-- JS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="<?php echo base_url("web/bower_components/jquery/dist/jquery.min.js") ?>"></script>
+	<script src="<?php echo base_url("web/js-admin/bootstrap.min.js") ?>"></script>
 	<script src="<?php echo base_url("web/js/jquery.maskMoney.min.js") ?>"></script>
 	<script src="<?php echo base_url("web/js/tinymce/tinymce.min.js"); ?>"></script>
 </head>

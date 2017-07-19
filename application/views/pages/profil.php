@@ -80,6 +80,9 @@ $(function() {
     <div class="tiga">
       <ul class="nav nav-pills">
         <li class="active">
+          <a href="#iklan" data-toggle="pill">Iklan General</a>
+        </li>
+        <li>
           <a href="#iklanBaris" data-toggle="pill">Iklan Baris</a>
         </li>
         <li>
@@ -87,7 +90,53 @@ $(function() {
         </li>
       </ul>
       <div class="tab-content">
-        <div id="iklanBaris" class="tab-pane fade in active">
+        <div id="iklan" class="tab-pane fade active in">
+          <br>
+          <div class="panel panel-primary">
+            <div class="panel-heading">IKLAN GENERAL</div>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Tanggal</th>
+                    <th>Judul Iklan</th>
+                    <th>Status</th>
+                    <th>Harga</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                <?php
+                  $i = 1;
+                  foreach ($this->iklan_model->load_jenis_iklan('iklan', $this->session->userdata('user_kd')) as $isi_iklan):
+                ?>
+                      <tr>
+                        <td><?php echo $i++ ?></td>
+                        <td>
+                          Dari :
+                          <?php
+                            echo date('j M  H:i', strtotime($isi_iklan['barang_upload_tgl'])) ;
+                          ?>
+                        </td>
+                        <td>
+                          <?php echo $isi_iklan['nama_barang'] ?>
+                          <br>
+                          <button type="button" class="btn btn-primary btn-xs" onclick="window.location = 'barang/edit/<?php echo $isi_iklan['slug_nama_barang'] ?>'"><span class="fa fa-pencil-square-o"></span>&nbsp;Edit</button>
+                          <button type="button" class="btn btn-danger btn-xs" onclick="window.location='barang/hapus/<?php echo $isi_iklan['slug_nama_barang'] ?>'"><span class="fa fa-remove"></span>&nbsp;Hapus</button>
+                          <button type="button" class="btn btn-info btn-xs" name="button" onclick="window.location ='barang/<?php echo $isi_iklan['slug_nama_barang'] ?>'"><span class="fa fa-eye"></span>&nbsp;Lihat</button>
+                        </td>
+                        <td><span style="font-size:14px;" <?php echo $isi_iklan['tayang_barang'] == 'unpublish' ? "class='label label-danger'" : "class = 'label label-primary'"?>><?php echo $isi_iklan['tayang_barang'] ?></span></td>
+                        <td><?php echo $isi_iklan['harga_barang'] ?></td>
+                        <td><button class="btn btn-success" type="button" name="button">Promosi</button></td>
+                      </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div id="iklanBaris" class="tab-pane fade">
           <br>
           <div class="panel panel-primary">
             <div class="panel-heading">IKLAN BARIS</div>

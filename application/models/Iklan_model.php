@@ -33,34 +33,68 @@ class Iklan_model extends CI_Model{
     return $query->result_array();
   }
 
-  public function get_all_iklan($param = '', $param1 = '')
+  public function get_all_iklan($kategori = '', $tayang_barang = '', $jenis_iklan = '', $urutan = 'DESC' )
   {
     $this->db->from('ad_barang ab');
     $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
-    if ($param)
+    if ($kategori)
     {
-      $this->db->where('ak.nama_kategori', $param);
-    }elseif ($param1) {
-      $this->db->where('ab.tayang_barang', $param1);
+      $this->db->where('ak.nama_kategori', $kategori);
     }
-
+    if ($tayang_barang)
+    {
+      $this->db->where('ab.tayang_barang', $tayang_barang);
+    }
+    if ($jenis_iklan)
+    {
+      $this->db->where('ab.jenis_iklan !=', $jenis_iklan);
+    }
+    if ($urutan)
+    {
+      $this->db->order_by('barang_upload_tgl', $urutan);
+    }
     $query = $this->db->get();
     return $query->result_array();
   }
 
-  public function get_all_iklan_by_kategori($param)
+  public function get_all_iklan_by_kategori($kategori = '', $jenis_iklan = 'iklan_baris', $urutan = 'DESC')
+  {
+    $this->db->from('ad_barang ab');
+    $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
+    if ($kategori)
+    {
+      $this->db->where('ak.nama_kategori', $kategori);
+    }
+    if ($jenis_iklan)
+    {
+      $this->db->where('ab.jenis_iklan !=', $jenis_iklan);
+    }
+    if ($urutan)
+    {
+      $this->db->order_by('ab.barang_upload_tgl', $urutan);
+    }
+
+    $result = $this->db->get();
+    return $result->result_array();
+  }
+
+  public function get_all_iklan_baris($kategori='', $jenis_iklan = 'iklan_baris')
   {
     $this->db->from('ad_barang ab');
     $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
 
-    $this->db->where('ak.nama_kategori', $param);
-    $result = $this->db->get();
+    if($jenis_iklan)
+      $this->db->where('ab.jenis_iklan', $jenis_iklan);
+    if($kategori)
+      $this->db->where('ak.nama_kategori', $kategori);
 
+    $result = $this->db->get();
     return $result->result_array();
   }
 
-  public function get_all_iklan_limit($limit='')
+  public function get_all_iklan_limit($limit='', $jenis_iklan = 'iklan_baris')
   {
+    $this->db->where('jenis_iklan != ', $jenis_iklan);
     $this->db->order_by('barang_upload_tgl', 'DESC');
     $this->db->limit($limit);
     $result = $this->db->get('ad_barang');
