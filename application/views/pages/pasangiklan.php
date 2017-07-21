@@ -22,7 +22,7 @@
       </div>
       <div class="df">
         <h4>Judul Iklan</h4>
-        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." minlength="30" required>
+        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." minlenght="20" required>
       </div>
       <div class="df">
         <h4>Kategori</h4>
@@ -52,10 +52,10 @@
           <textarea name="deskripsi_iklan"></textarea>
         </div>
       </div>
-      <!-- <div class="df">
+      <div class="df">
         <h4>No Telp/HP</h4>
         <input type="tel" name="telpon" placeholder="08xxxxxxx">
-      </div> -->
+      </div>
       <div class="df">
         <h4>Alamat</h4>
         <input type="text" name="alamat" placeholder="Tinggal dimana....." required>

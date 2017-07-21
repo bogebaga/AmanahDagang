@@ -20,7 +20,7 @@
 						<div class="col-md-6">
 								<div class="form-group">
 									<label>Judul Iklan</label>
-									<input class="form-control" placeholder="example: Jual cepat mobil bmw" name="nama_barang" minlength="30" required>
+									<input class="form-control" placeholder="example: Jual cepat mobil bmw" name="nama_barang" minlength="20" required>
 								</div>
 								<div class="form-group">
 									<label>Kategori</label>
@@ -128,10 +128,10 @@
 									<label>Deskripsi</label>
 									<textarea class="form-control" name="deskripsi" id="deskripsi"></textarea>
 								</div>
-								<!-- <div class="form-group">
+								<div class="form-group">
 									<label>Telepon/HP</label>
 									<input type="text" class="form-control" name="telpon" placeholder="example: 085xxx">
-								</div> -->
+								</div>
 								<div class="form-group">
 									<label>Alamat</label>
 									<input type="text" class="form-control" list="alamatta" name="alamat" placeholder="example: Kamu tinggal dimana?" required>

@@ -163,6 +163,7 @@ class Admin extends CI_Controller{
       'slug_nama_barang' => $slug_nama_iklan."-".$barang_kode,
       'alamat_barang' => $this->input->post('alamat'),
       'deskripsi_barang' => $this->input->post('deskripsi'),
+      'telpon' => $this->input->post('telpon')
       'gambar_fitur' => $data['upload_data'],
       'gambar_barang' => $hasil_implode,
       'harga_barang' => $this->input->post('harga'),
@@ -250,6 +251,7 @@ class Admin extends CI_Controller{
       'slug_nama_barang' => $this->input->post('slug_nama_barang'),
       'nama_barang' => $this->input->post('nama_barang'),
       'alamat_barang' => $this->input->post('alamat'),
+      'telpon' => $this->input->post('telpon'),
       'deskripsi_barang' => $this->input->post('deskripsi'),
       'harga_barang' => $this->input->post('harga'),
       'jenis_barang' => $this->input->post('jenis_barang'),

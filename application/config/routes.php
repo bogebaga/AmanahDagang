@@ -2,7 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['login'] = 'login';
+$route['login/mobile'] = 'login/index/mobile';
 $route['signout'] = 'login/signout';
+$route['signout/mobile'] = 'login/signout/mobile';
 $route['signout_admin'] = 'login/signout_admin';
 $route['register']= 'register';
 

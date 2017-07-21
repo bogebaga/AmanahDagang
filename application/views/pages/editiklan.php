@@ -6,7 +6,7 @@
     <input type="hidden" name="kd_barang" value="<?php echo $slug_data->barang_kode; ?>">
       <div class="df">
         <h4>Judul Iklan</h4>
-        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." value="<?php echo $slug_data->nama_barang ?>" required minlength="30">
+        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." value="<?php echo $slug_data->nama_barang ?>" required minlenght="20">
       </div>
       <div class="df">
         <h4>Kategori</h4>
@@ -47,10 +47,10 @@
           <textarea name="deskripsi_iklan" placeholder="Deskripsi" data-mintext="10" data-maxtext="4000" required><?php echo $slug_data->deskripsi_barang ?></textarea>
         </div>
       </div>
-      <!-- <div class="df">
+      <div class="df">
         <h4>No Telp/HP</h4>
-        <input type="tel" name="telpon" placeholder="08xxxxxxx">
-      </div> -->
+        <input type="tel" name="telpon" placeholder="08xxxxxxx" value="<?php echo $slug_data->telpon ?>" />
+      </div>
       <div class="df">
         <h4>Alamat</h4>
         <input type="text" name="alamat" placeholder="Tinggal dimana....." value="<?php echo $slug_data->alamat_barang ?>" required>

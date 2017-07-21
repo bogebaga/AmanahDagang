@@ -37,10 +37,49 @@
       </div>
       <button class="btn btn-success" type="button" name="button" style="font-size:20px;"><span class="fa fa-search"></span></button>
     </form>
-    <div class="dropdown" style="display:none;">
-      <ul>
+  </div>
+  <div class="dropdown" data-style="triangle" style="width:95%;display:none;">
+    <div class="kabkota-container">
+      <ul class="text-left width25 colom list-unstyled">
+        <li><a href="#">menu-1</a></li>
+        <li><a href="#">menu-2</a></li>
+        <li><a href="#">menu-3</a></li>
+        <li><a href="#">menu-4</a></li>
+        <li><a href="#">menu-5</a></li>
+        <li><a href="#">menu-6</a></li>
+        <li><a href="#">menu-7</a></li>
+        <li><a href="#">menu-8</a></li>
       </ul>
-        bera 
+      <ul class="text-left width25 colom list-unstyled">
+        <li><a href="#">menu-1</a></li>
+        <li><a href="#">menu-2</a></li>
+        <li><a href="#">menu-3</a></li>
+        <li><a href="#">menu-4</a></li>
+        <li><a href="#">menu-5</a></li>
+        <li><a href="#">menu-6</a></li>
+        <li><a href="#">menu-7</a></li>
+        <li><a href="#">menu-8</a></li>
+      </ul>
+      <ul class="text-left width25 colom list-unstyled">
+        <li><a href="#">menu-1</a></li>
+        <li><a href="#">menu-2</a></li>
+        <li><a href="#">menu-3</a></li>
+        <li><a href="#">menu-4</a></li>
+        <li><a href="#">menu-5</a></li>
+        <li><a href="#">menu-6</a></li>
+        <li><a href="#">menu-7</a></li>
+        <li><a href="#">menu-8</a></li>
+      </ul>
+      <ul class="text-left width25 colom list-unstyled">
+        <li><a href="#">menu-1</a></li>
+        <li><a href="#">menu-2</a></li>
+        <li><a href="#">menu-3</a></li>
+        <li><a href="#">menu-4</a></li>
+        <li><a href="#">menu-5</a></li>
+        <li><a href="#">menu-6</a></li>
+        <li><a href="#">menu-7</a></li>
+        <li><a href="#">menu-8</a></li>
+      </ul>
     </div>
   </div>
   <div class="row">

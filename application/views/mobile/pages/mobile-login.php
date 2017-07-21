@@ -13,11 +13,11 @@
     </nav>
     <section class="container-fluid" style="background-color:white;padding:20px 10px;">
       <div class="container-login">
-        <form class="" action="index.html" method="post">
+        <?php echo form_open(base_url('login/mobile')) ?>
           <label for="">Email<em class="required">*</em></label>
-          <input type="email" class="form-control" name="" placeholder="email"  required>
+          <input type="email" class="form-control" name="email" placeholder="email"  required>
           <label for="">Password<em class="required">*</em></label>
-          <input type="password" class="form-control" name=""  placeholder="password" required>
+          <input type="password" class="form-control" name="password"  placeholder="password" required>
 
           <!-- <input type="checkbox" name="" > -->
           <br>

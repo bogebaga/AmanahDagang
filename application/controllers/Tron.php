@@ -70,24 +70,34 @@ class Tron extends CI_Controller{
     $this->load->view('template/footer');
   }
 
+  // XXX: MOBILE AKSES (TRON CONTROLLER)
   public function home($param ='')
   {
     $this->load->view('mobile/head/m_head');
     if ($param == 'mobile-pasang-iklan'):
-      (! empty($this->session->userdata('user_email'))) ? $this->load->view('mobile/pages/'.$param) : redirect(base_url('tron/home/mobile-login'));
+      $data['kategori'] = $this->iklan_model->get_kategori();
+      (! empty($this->session->userdata('user_email'))) ? $this->load->view('mobile/pages/'.$param, $data) : redirect(base_url('tron/home/mobile-login'));
     elseif ($param == 'mobile-akun-saya'):
       (! empty($this->session->userdata('user_email'))) ? $this->load->view('mobile/pages/'.$param) : redirect(base_url('tron/home/mobile-login'));
     else:
       $this->load->view('mobile/pages/'.$param);
     endif;
     $this->load->view('mobile/foot/footer');
+  }
+  public function meditiklan($slug)
+  {
+      $data['kategori'] = $this->iklan_model->get_kategori();
+      $data['isi-iklan'] = $this->iklan_model->get_iklan_by_slug($slug);
 
+      $this->load->view('mobile/head/m_head');
+      $this->load->view('mobile/pages/'.$param, $data);
+      $this->load->view('mobile/foot/footer');
   }
 
   public function mkategori($param = '')
   {
     $mobile_iklan['iklan'] = $this->iklan_model->get_all_iklan_by_kategori($param);
-
+//
     $this->load->view('mobile/head/m_head');
     $this->load->view('mobile/pages/mobile-list-iklan', $mobile_iklan);
     $this->load->view('mobile/foot/footer');

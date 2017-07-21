@@ -20,7 +20,7 @@
 						<div class="col-md-6">
 								<div class="form-group">
 									<label>Judul Iklan</label>
-									<input class="form-control" placeholder="example: Jual cepat apa saja" name="nama_barang" value="<?php echo $barang->nama_barang ?>" required minlength="30">
+									<input class="form-control" placeholder="example: Jual cepat apa saja" name="nama_barang" value="<?php echo $barang->nama_barang ?>" required minlength="20">
 								</div>
 								<input type="hidden" name="slug_nama_barang" value="<?php echo $barang->slug_nama_barang ?>">
 
@@ -120,10 +120,10 @@
 									<label>Deskripsi</label>
 									<textarea class="form-control" name="deskripsi" rows="5"><?php echo $barang->deskripsi_barang ?></textarea>
 								</div>
-								<!-- <div class="form-group">
+								<div class="form-group">
 									<label>Telepon/HP</label>
-									<input type="text" class="form-control" name="telpon" placeholder="example: 085xxx" >
-								</div> -->
+									<input type="text" class="form-control" name="telpon" placeholder="example: 085xxx" value="<?php echo $barang->telpon ?>">
+								</div>
 								<div class="form-group">
 									<label>Alamat</label>
 									<input type="text" class="form-control" name="alamat" placeholder="example: Alamat barang ..." value="<?php echo $barang->alamat_barang ?>">

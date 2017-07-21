@@ -157,6 +157,7 @@ class Iklan_model extends CI_Model{
         'jenis_iklan' => $data['jenis_iklan'],
         'jenis_barang' => $data['jenis_barang'],
         'harga_barang' => $data['harga_iklan'],
+        'telpon' => $data['telpon'],
         'deskripsi_barang' => $data['deskripsi_iklan'],
         'gambar_barang' => $data['gambar_barang'],
         'gambar_fitur' => $data['gambar_fitur'],
@@ -202,14 +203,5 @@ class Iklan_model extends CI_Model{
     $this->db->where('slug_nama_barang', $slug);
 
     return $this->db->get('ad_barang')->result_array();
-  }
-
-  public function tes_ilmu($data)
-  {
-    $this->db->where('id', $data);
-    $result = $this->db->get('tes');
-    $array[$data] = $result->result_array();
-
-    return $array;
   }
 }

@@ -10,9 +10,9 @@ class Login extends CI_Controller {
     $this->load->model('user_model');
 	}
 
-	public function index()
+	public function index($param)
 	{
-    $data = [
+		$data = [
       'email' => $this->input->post('email'),
       'password' => md5($this->input->post('password'))
     ];
@@ -34,17 +34,24 @@ class Login extends CI_Controller {
 				];
 				$this->session->set_userdata($session_data);
 			}
-			redirect(base_url());
 	  }
+		if ($param == 'mobile')
+		{
+			redirect(base_url('tron/home/mobile-home'));
+		}
+		else
+		{
+			redirect(base_url());
+		}
 	}
 
-	public function signout()
+	public function signout($param)
 	{
 		$session_data = ['user_email','user_pass','user_name','user_login', 'user_kd', 'user_telpon'];
 
 		if($this->session->has_userdata('user_login')):
 			$this->session->unset_userdata($session_data);
-			redirect(base_url());
+			($param == 'mobile') ? redirect(base_url('tron/home/mobile-home')) : redirect(base_url());
 		else:
 			redirect(base_url());
 		endif;
