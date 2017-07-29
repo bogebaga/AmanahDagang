@@ -140,7 +140,7 @@
       <br>
       <button type="submit" name="submit" class="simpan btn btn-primary btn-lg">Pasang Iklan</button>
       <?php echo form_close();?>
-    <h1>Identitas Diri Anda | <a href="<?php echo base_url() ?>profil">Profil</a></h1>
+    <!-- <h1>Identitas Diri Anda | <a href="<?php echo base_url() ?>profil">Profil</a></h1>
     <form>
       <div class="df">
         <h4>Nama</h4>
@@ -154,9 +154,9 @@
         <h4>No. Handphone/Telp</h4>
         <input type="text" name="nomor" placeholder="08xxxx" value="<?php echo $this->session->userdata('user_telpon') ?>">
       </div>
-    </form>
+    </form> -->
   </section>
-  <aside class="iklan-barang">
+  <!-- <aside class="iklan-barang">
     <div class="bungkus-info" style="display:none;">
       <h3>Tips Pasang Iklan</h3>
       <ol>
@@ -168,5 +168,5 @@
     <div class="bungkus-iklan1">
       <img src="<?php echo base_url("images/gambar.jpg");?>" class="img-responsive" alt="iklan">
     </div>
-  </aside>
+  </aside> -->
 </div>

@@ -1,42 +1,44 @@
+<script type="text/javascript">
+  $('#slider-home-1').carousel();
+</script>
 <section class="wrapper">
   <div class="iklan">
-    <img src="images/tes.jpeg" class="img-responsive">
-    <div class="login-background">
-      <div class="kotak-daftar">
-        <h3>Buat Akun Anda</h3>
-        <div class="form-pendaftaran">
-          <?php echo validation_errors();?>
-          <?php echo form_open('register')?>
-          <input type="text" name="nlengkap" placeholder="Nama Lengkap" size="35" autofocus>
-          <input type="text" name="nama" placeholder="Username" size="35">
-          <input type="email" name="email" placeholder="Alamat Email" size="35">
-          <input type="password" name="sandi" placeholder="Kata Sandi" size="35">
-          <button type="submit" name="submit" class="btn btn-primary">Mendaftar</button>
-          <?php echo form_close();?>
+    <div id="slider-home-1" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#slider-home-1" data-slide-to="0" class="active"></li>
+        <li data-target="#slider-home-1" data-slide-to="1"></li>
+        <li data-target="#slider-home-1" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="<?php echo base_url("images/slider/baru.jpg") ?>" class="img-responsive">
+        </div>
+        <div class="item">
+          <img src="<?php echo base_url("images/slider/sudah.jpg") ?>" class="img-responsive">
+        </div>
+        <div class="item">
+          <img src="<?php echo base_url("images/aset/3.jpg") ?>" class="img-responsive">
         </div>
       </div>
     </div>
-    <div class="fanpage">
-      <h3>Semua Ada disini</h3>
-      <h1>AMANAH DAGANG</h1>
-      <button type="button" onclick="window.location='https://www.facebook.com/harianamanah/?hc_ref=NEWSFEED'" class="sosmed-1">Facebook</button>
-      <button type="button" onclick="window.location='https://twitter.com/harianamanah'" class="sosmed-2">Twitter</button>
-    </div>
   </div>
 </section>
+<!-- <a class="sosmed-1" href="https://www.facebook.com/harianamanah/?hc_ref=NEWSFEED" target="_blank">Facebook</a> -->
+<!-- <a class="sosmed-2" href="https://twitter.com/harianamanah" target="_blank">Twitter</a> -->
 <section class="wrapper">
   <div class="search-container">
-    <form action="index.html" method="post">
-      <div class="form-control" style="width:40%;display:inline-block;font-size:20px;height:40px;text-align:left;">
+    <!-- <?php echo form_open(base_url("all-result")); ?> -->
+    <form action="<?php echo base_url("all-result") ?>" method="get">
+      <div class="form-control" style="width:43%;display:inline-block;font-size:20px;height:40px;text-align:left;">
         <span class="fa fa-location-arrow"></span>
         <input name="lokasi" type="text" placeholder="Lokasi" style="border:none;width:90%;margin-left:10px;">
       </div>
       <div class="form-control" style="width:50%;display:inline-block;font-size:20px;height:40px;text-align:left;">
         <span class="fa fa-file-text-o"></span>
-        <input type="text" placeholder="Iklan yang sedang dicari" style="border:none;width:90%;margin-left:10px;">
+        <input name="iklan" type="text" placeholder="Iklan yang sedang dicari" style="border:none;width:90%;margin-left:10px;">
       </div>
-      <button class="btn btn-success" type="button" name="button" style="font-size:20px;"><span class="fa fa-search"></span></button>
-    </form>
+      <button class="btn btn-success" type="submit" style="font-size:20px;"><span class="fa fa-search"></span></button>
+    <?php echo form_close(); ?>
   </div>
   <div class="dropdown" data-style="triangle" style="width:95%;display:none;">
     <div class="kabkota-container">
@@ -144,7 +146,7 @@
     </div>
   </div>
   <hr style="border-color:rgba(44, 62, 80, 0.27);">
-  <h3 style="color:#ff9800;">Barang dagangan #BekasJadiDuit</h3>
+  <h3 style="color:#ff9800;">#JualBekasBisaJadiDuit</h3>
   <br>
   <div class="barang-dagang tab-content">
     <div id="mobil" class="tab-pane fade in active">
@@ -192,6 +194,6 @@
     </div>
   </div>
   <div class="iklan-lebar">
-    <img src="<?php echo base_url("images/footer-banner.jpg") ?>" width="1150px" height="200px"  alt="amanahdagang pasang iklan">
+    <img src="<?php echo base_url("images/footer-banner.jpg") ?>" alt="amanahdagang pasang iklan">
   </div>
 </section>

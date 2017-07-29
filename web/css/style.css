@@ -130,7 +130,7 @@ a, p, h1, h2, h3, h4, label{
 	height: -moz-fit-content;
 	height: fit-content;
 	/* background: black; */
-	/* margin-top: 65px; */
+	 margin-top: 75px;
 }
 
 .iklan .login-background{
@@ -443,6 +443,19 @@ footer{
 	width: 100%;
 	background: #2c3e50;
 	border-top: solid 4px #6498a3;
+	margin-top: 215px;
+	position: relative;
+}
+footer::before
+{
+	content: "";
+	background: url("../../images/file_sky.png") repeat-x 0 0 / 865px 200px;
+	position: absolute;
+	width: 100%;
+	height:135%;
+	bottom: 100%;
+	left:0;
+	right:0;
 }
 
 .footer1{
@@ -481,7 +494,7 @@ footer{
 }
 
 .footer1 .footer-law{
-	margin-top: 7px;
+	margin-top: 5px;
 }
 
 
@@ -916,11 +929,6 @@ footer{
 }
 
 .detail-biodata .dua{
-	background: rgb(244, 246, 245);
-	width: 800px;
-	height: 445px;
-	float: right;
-	margin-bottom: 15px;
 }
 
 .detail-biodata .dua .nav li.active a{
@@ -934,6 +942,7 @@ footer{
 	width: 1120px;
 	/*height: 300px;*/
 	overflow: hidden;
+	margin-top: 45px;
 }
 
 .deskripsi-barang ol, .deskripsi-barang ul
@@ -947,13 +956,14 @@ footer{
 	border-radius: 20px;
 	margin: 10px 0;
 	width: 100%;
-	background: -webkit-gradient(linear, left top, right top, from(#2c3e50), to(#679da5));
-	background: linear-gradient(to right, #2c3e50, #679da5);
+	background: -webkit-gradient(linear, left top, right top, from(rgba(44, 62, 80, 0.38)), to(rgba(103, 157, 165, 0.5)));
+	background: linear-gradient(to right, rgba(44, 62, 80, 0.38), rgba(103, 157, 165, 0.5));
 }
 
 .search-container > form
 {
-	padding: 25px 3px;
+	padding: 25px;
+	text-align: left;
 }
 
 .search-container form > .form-control
@@ -1039,4 +1049,59 @@ footer{
 .none
 {
 	display: none;
+}
+
+.social-media
+{
+	margin-top: 10px;
+	text-align: center;
+}
+.sprite-media
+{
+  background: url("../../images/social_media/4794x72.png") no-repeat;
+  width:100px;
+  height:101px;
+  zoom:0.5;
+  display: inline-block;
+}
+.sprite-media:hover
+{
+  transition: background .2s linear;
+  background: url("../../images/social_media/4794x72_color.png") no-repeat;
+}
+
+.sprite-media.facebook
+{
+  background-position: -35px -42px ;
+}
+
+.sprite-media.twitter
+{
+  background-position: -665px -165px ;
+}
+.sprite-media.linkedin
+{
+  background-position: -665px -288px ;
+}
+.sprite-media.googleplus
+{
+  background-position: -539px -42px ;
+}
+.sprite-media.youtube
+{
+  background-position: -539px -165px ;
+}
+
+table.table-search
+{
+	margin: 0 auto;
+}
+table.table-search table
+{
+	border: 1px solid #e0e0e0;
+}
+
+table.table-search table td
+{
+	padding:0;
 }

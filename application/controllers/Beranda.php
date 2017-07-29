@@ -25,7 +25,6 @@ class Beranda extends CI_Controller {
 		);
 
 		$this->load->view('template/header', $link);
-		$this->load->view('modal/modal_login');
 			if ($halaman == 'beranda')
 			{
 				$data['kategori'] = $this->iklan_model->get_kategori();
@@ -91,5 +90,52 @@ class Beranda extends CI_Controller {
 
 		$this->user_model->update_user($data);
 		redirect('profil');
+	}
+
+	public function allresult()
+	{
+		$link = array(
+			'home' => base_url(),
+			'bantuan' => base_url().'bantuan',
+			'network' => base_url().'tentang'
+		);
+
+		$this->load->view('template/header', $link);
+		$this->load->view('pages/beranda-allresult');
+		$this->load->view('template/footer');
+	}
+
+	public function login()
+	{
+		$link = array(
+			'home' => base_url(),
+			'bantuan' => base_url().'bantuan',
+			'network' => base_url().'tentang'
+		);
+
+		# code...
+		if (! empty($this->session->userdata('user_email'))) {
+			redirect(base_url());
+		}
+
+		$this->load->view('template/header', $link);
+		$this->load->view('pages/login_halaman');
+		$this->load->view('template/footer');
+	}
+
+	public function daftar()
+	{
+		$link = array(
+			'home' => base_url(),
+			'bantuan' => base_url().'bantuan',
+			'network' => base_url().'tentang'
+		);
+		if (! empty($this->session->userdata('user_email'))) {
+			redirect(base_url());
+		}
+
+		$this->load->view('template/header', $link);
+		$this->load->view('pages/daftar');
+		$this->load->view('template/footer');
 	}
 }

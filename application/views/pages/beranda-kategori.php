@@ -1,4 +1,4 @@
-<section class="wrapper">
+<!-- <section class="wrapper">
   <div class="iklan">
     <img src="images/tes.jpeg" class="img-responsive">
     <div class="login-background">
@@ -24,7 +24,7 @@
       <button type="button" onclick="window.location='https://twitter.com/harianamanah'" class="sosmed-2">Twitter</button>
     </div>
   </div>
-</section>
+</section> -->
 <section class="wrapper">
   <div class="search-container">
     <form class="" action="index.html" method="post">

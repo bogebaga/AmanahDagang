@@ -47,12 +47,11 @@
 									<button type="button">Cari</button>
 								</form> -->
 							</li>
-
 							<li>
 								<?php if (! empty($this->session->userdata('user_login'))):?>
-									<a href="<?php echo base_url() ?>pasangiklan" >Pasang Iklan</a>
+									<a href="<?php echo base_url("pasangiklan") ?>" >Pasang Iklan</a>
 								<?php else: ?>
-									<a data-toggle="modal" data-target="#masuk">Pasang Iklan</a>
+									<a href="<?php echo base_url("beranda/login") ?>">Pasang Iklan</a>
 								<?php endif; ?>
 							</li>
 							<!-- <li>
@@ -76,7 +75,7 @@
 								</li>
 							<?php else: ?>
 								<li>
-									<a data-toggle="modal" data-target="#masuk">Login</a>
+									<a href="<?php echo base_url("beranda/login") ?>">Login</a>
 								</li>
 							<?php endif; ?>
 						</ul>

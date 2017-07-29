@@ -1,31 +1,5 @@
-<section class="wrapper">
-  <div class="iklan">
-    <img src="<?php echo base_url('images/tes.jpeg'); ?>" class="img-responsive">
-    <div class="login-background">
-      <div class="kotak-daftar">
-        <h3>Buat Akun Anda</h3>
-        <div class="form-pendaftaran">
-          <?php echo validation_errors();?>
-          <?php echo form_open('register')?>
-          <input type="text" name="nlengkap" placeholder="Nama Lengkap" size="35" autofocus>
-          <input type="text" name="nama" placeholder="Username" size="35">
-          <input type="email" name="email" placeholder="Alamat Email" size="35">
-          <input type="password" name="sandi" placeholder="Kata Sandi" size="35">
 
-          <button type="submit" name="submit" class="btn btn-primary">Mendaftar</button>
-          <?php echo form_close();?>
-        </div>
-      </div>
-    </div>
-    <div class="fanpage">
-      <h3>Semua Ada disini</h3>
-      <h1>AMANAH DAGANG</h1>
-      <button type="button" onclick="window.location='https://www.facebook.com/harianamanah/?hc_ref=NEWSFEED'" class="sosmed-1">Facebook</button>
-      <button type="button" onclick="window.location='https://twitter.com/harianamanah'" class="sosmed-2">Twitter</button>
-    </div>
-  </div>
-</section>
-<section class="wrapper">
+<section class="wrapper" style="margin-top:80px;">
   <div class="search-container">
     <form action="index.html" method="post">
       <div class="form-control" style="width:40%;display:inline-block;font-size:20px;height:40px;text-align:left;">
@@ -74,10 +48,9 @@
       <ul class="foto-dagangan">
         <?php $path_fitur = base_url('images/post_foto_feature/'); ?>
         <?php //$path_fitur = FCPATH.'images/post_foto_feature/'; ?>
-        <?php if ($iklan == NULL)
-        {
+        <?php if ($iklan == NULL) {
           echo '<div style="width:100%;text-align:center">
-            <img width="250px" src="'.base_url("images/not_found.png").'" alt="">
+            <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         } ?>
         <?php foreach ($iklan as $loadfirst) { ?>
@@ -102,6 +75,11 @@
 
     <div id="mobil" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan('Mobil', 'publish', 'iklan_baris') == NULL) {
+        echo '<div style="width:100%;text-align:center">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+        </div>';
+      } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Mobil', 'publish', 'iklan_baris') as $mobil) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$mobil['slug_nama_barang']) ?>">
@@ -124,6 +102,11 @@
 
     <div id="motor" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan('Motor', 'publish', 'iklan_baris') == NULL) {
+      echo '<div style="width:100%;text-align:center">
+        <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+      </div>';
+      } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Motor', 'publish', 'iklan_baris') as $motor) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$motor['slug_nama_barang']) ?>">
@@ -145,6 +128,11 @@
     </div>
     <div id="properti" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan('Properti', 'publish', 'iklan_baris') == NULL) {
+          echo '<div style="width:100%;text-align:center">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+          </div>';
+        } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Properti', 'publish', 'iklan_baris') as $properti) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$properti['slug_nama_barang']) ?>">
@@ -166,6 +154,11 @@
     </div>
     <div id="fashion" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan('Fashion', 'publish', 'iklan_baris') == NULL) {
+        echo '<div style="width:100%;text-align:center">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+        </div>';
+        } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Fashion', 'publish', 'iklan_baris') as $fashion) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$fashion['slug_nama_barang']) ?>">
@@ -187,6 +180,11 @@
     </div>
     <div id="handphone" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan('Handphone', 'publish', 'iklan_baris') == NULL) {
+          echo '<div style="width:100%;text-align:center">
+            <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+          </div>';
+          } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Handphone', 'publish', 'iklan_baris') as $handphone) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$handphone['slug_nama_barang']) ?>">
@@ -208,6 +206,11 @@
     </div>
     <div id="komputer" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan('Komputer', 'publish', 'iklan_baris') == NULL) {
+        echo '<div style="width:100%;text-align:center">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+        </div>';
+        } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Komputer', 'publish', 'iklan_baris') as $komputer) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$komputer['slug_nama_barang']) ?>">
@@ -229,6 +232,11 @@
     </div>
     <div id="travel" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan('Travel', 'publish', 'iklan_baris') == NULL) {
+          echo '<div style="width:100%;text-align:center">
+            <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+          </div>';
+          } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Travel', 'publish', 'iklan_baris') as $travel) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$travel['slug_nama_barang']) ?>">
@@ -250,6 +258,11 @@
     </div>
     <div id="kitchen" class="tab-pane fade">
       <ul class="foto-dagangan">
+    <?php if ($this->iklan_model->get_all_iklan('Kitchen', 'publish', 'iklan_baris') == NULL) {
+        echo '<div style="width:100%;text-align:center">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+        </div>';
+        } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Kitchen', 'publish', 'iklan_baris') as $kitchen) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$kitchen['slug_nama_barang']) ?>">
@@ -271,6 +284,11 @@
     </div>
     <div id="kesehatan" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan('Kesehatan', 'publish', 'iklan_baris') == NULL) {
+          echo '<div style="width:100%;text-align:center">
+            <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+          </div>';
+          } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Kesehatan', 'publish', 'iklan_baris') as $kesehatan) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$kesehatan['slug_nama_barang']) ?>">
@@ -292,6 +310,11 @@
     </div>
     <div id="makanan" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan('Makanan', 'publish', 'iklan_baris') == NULL) {
+          echo '<div style="width:100%;text-align:center">
+            <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+          </div>';
+          } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Makanan', 'publish', 'iklan_baris') as $makanan) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$makanan['slug_nama_barang']) ?>">
@@ -313,6 +336,11 @@
     </div>
     <div id="lainnya" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan('Lainnya', 'publish', 'iklan_baris') == NULL) {
+          echo '<div style="width:100%;text-align:center">
+            <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+          </div>';
+          } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Lainnya', 'publish', 'iklan_baris') as $lainnya) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$lainnya['slug_nama_barang']) ?>">
@@ -334,6 +362,11 @@
     </div>
     <div id="lowongan-kerja" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan('Lowongan-Kerja', 'publish', 'iklan_baris') == NULL) {
+        echo '<div style="width:100%;text-align:center">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
+        </div>';
+        } ?>
         <?php foreach ($this->iklan_model->get_all_iklan('Lowongan-Kerja', 'publish', 'iklan_baris') as $lowongan_kerja) { ?>
           <li style="background:white;">
             <a href="<?php echo base_url("barang/".$lowongan_kerja['slug_nama_barang']) ?>">
@@ -356,6 +389,6 @@
   </div>
   <div class="iklan-lebar">
     <!-- <img src="<?php echo base_url('images/iklan.jpg'); ?>" alt=""> -->
-    <img src="<?php echo base_url("images/footer-banner.jpg") ?>" width="1150px" height="200px"  alt="amanahdagang pasang iklan">
+    <img src="<?php echo base_url("images/footer-banner.jpg") ?>" alt="amanahdagang pasang iklan">
   </div>
 </section>

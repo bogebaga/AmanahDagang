@@ -23,7 +23,6 @@ class Proses extends CI_Controller {
 		$tampil_iklan['active_kategori'] = $param;
 
 		$this->load->view('template/header', $link);
-		$this->load->view('modal/modal_login');
 		$this->load->view('pages/beranda-car', $tampil_iklan);
 		$this->load->view('template/footer');
 	}
@@ -122,7 +121,6 @@ echo		$hasil_implode = implode(",", $uploaded);
 		$isi_iklan['viewer'] = $this->iklan_model->add_viewer($slug_iklan, $isi_iklan['iklan'][0]['view_barang']);
 
 		$this->load->view('template/header', $link);
-		$this->load->view('modal/modal_login');
 		$this->load->view('pages/isi-iklan', $isi_iklan);
 		$this->load->view('template/footer');
 	}
@@ -150,7 +148,6 @@ echo		$hasil_implode = implode(",", $uploaded);
 		// 	var_export($data['slug_data']);
 		// echo "</pre>";
 		$this->load->view('template/header', $link);
-		$this->load->view('modal/modal_login');
 		$this->load->view('pages/editiklan', $data);
 		$this->load->view('template/footer');
 	}

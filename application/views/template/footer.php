@@ -8,9 +8,24 @@
       <li><a href="#">Disclaimer</a></li>
       <li><a href="#">Tips Belanja</a></li>
     </ul>
-
     <div class="garis-footer"></div>
-
+    <div class="social-media">
+      <a href="#">
+        <div class="sprite-media facebook"></div>
+      </a>
+      <a href="#">
+        <div class="sprite-media googleplus"></div>
+      </a>
+      <a href="#">
+        <div class="sprite-media twitter"></div>
+      </a>
+      <a href="#">
+        <div class="sprite-media youtube"></div>
+      </a>
+      <a href="#">
+        <div class="sprite-media linkedin"></div>
+      </a>
+    </div>
     <div class="footer-law">
       <p>
         2017 HarianAmanah.com All Right Reserved
@@ -21,7 +36,7 @@
 <script>
   tinymce.init({
     selector: 'textarea',
-    height: 200,
+    height: 110,
     image_advtab:true,
     menubar:false,
     plugins:

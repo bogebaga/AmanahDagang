@@ -10,48 +10,37 @@ class Login extends CI_Controller {
     $this->load->model('user_model');
 	}
 
-	public function index($param)
+	public function index()
 	{
 		$data = [
       'email' => $this->input->post('email'),
       'password' => md5($this->input->post('password'))
     ];
-    $this->form_validation->set_rules('email', 'Email', 'required');
-    $this->form_validation->set_rules('password', 'Password', 'required');
 
-		if($this->form_validation->run() == TRUE)
-    {
-			$result = $this->user_model->get_user($data);
-			if(! empty($result))
-			{
-				$session_data = [
-					'user_email' => $result->user_email,
-					'user_kd' => $result->user_kode,
-					'user_telpon' => $result->user_telpon,
-					'user_pass' => $result->user_pass,
-					'user_name' => $result->user_nama,
-					'user_login' => $result->user_login
-				];
-				$this->session->set_userdata($session_data);
-			}
-	  }
-		if ($param == 'mobile')
+		$result = $this->user_model->get_user($data);
+		if(! empty($result))
 		{
-			redirect(base_url('tron/home/mobile-home'));
+			$session_data = [
+				'user_email' => $result->user_email,
+				'user_kd' => $result->user_kode,
+				'user_telpon' => $result->user_telpon,
+				'user_pass' => $result->user_pass,
+				'user_name' => $result->user_nama,
+				'user_login' => $result->user_login
+			];
+
+			$this->session->set_userdata($session_data);
 		}
-		else
-		{
-			redirect(base_url());
-		}
+		redirect(base_url());
 	}
 
-	public function signout($param)
+	public function signout()
 	{
 		$session_data = ['user_email','user_pass','user_name','user_login', 'user_kd', 'user_telpon'];
 
 		if($this->session->has_userdata('user_login')):
 			$this->session->unset_userdata($session_data);
-			($param == 'mobile') ? redirect(base_url('tron/home/mobile-home')) : redirect(base_url());
+			redirect(base_url());
 		else:
 			redirect(base_url());
 		endif;

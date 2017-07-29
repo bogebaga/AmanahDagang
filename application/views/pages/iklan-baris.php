@@ -1,6 +1,6 @@
-<section class="wrapper" style="margin-top:90px;">
+<section class="wrapper" style="margin-top:80px;">
   <!-- <h2 style="color:#ff9800;">IKLAN BARIS</h2> -->
-  <img width="500px" src="<?php echo base_url('images/iklan_baris.png'); ?>" alt="">
+  <img width="100%" src="<?php echo base_url('images/iklan baris fix.jpg'); ?>" alt="">
   <div class="menu-bawah" style="margin-top:15px;">
     <ul class="nav nav-tabs">
       <?php foreach ($kategori as $data_kategori): ?>
@@ -15,6 +15,13 @@
     <div id="load-first" class="tab-pane fade active in">
       <ul class="foto-dagangan">
         <?php $path_fitur = base_url('images/post_foto_feature/'); ?>
+        <?php if ($iklan == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+                  <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+                </div>';
+              endif;
+        ?>
         <?php //$path_fitur = FCPATH.'images/post_foto_feature/'; ?>
         <?php foreach ($iklan as $iklan_baris) : ?>
             <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
@@ -29,6 +36,13 @@
 
     <div id="mobil" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Mobil') == NULL):
+      # code...
+          echo '<div style="width:100%;text-align:center">
+              <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+            </div>';
+          endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Mobil') as $mobil) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>
@@ -42,6 +56,13 @@
 
     <div id="motor" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Motor') == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          </div>';
+        endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Motor') as $motor) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>
@@ -54,6 +75,13 @@
     </div>
     <div id="properti" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Properti') == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          </div>';
+        endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Properti') as $properti) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>
@@ -66,6 +94,13 @@
     </div>
     <div id="fashion" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Fashion') == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          </div>';
+        endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Fashion') as $fashion) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>
@@ -78,6 +113,13 @@
     </div>
     <div id="handphone" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Handphone') == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          </div>';
+        endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Handphone') as $handphone) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>
@@ -90,6 +132,13 @@
     </div>
     <div id="komputer" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Komputer') == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          </div>';
+        endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Komputer') as $komputer) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>
@@ -102,6 +151,13 @@
     </div>
     <div id="travel" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Travel') == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          </div>';
+        endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Travel') as $travel) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>
@@ -114,6 +170,13 @@
     </div>
     <div id="kitchen" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Kitchen') == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          </div>';
+        endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Kitchen') as $kitchen) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>
@@ -126,6 +189,13 @@
     </div>
     <div id="kesehatan" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Kesehatan') == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          </div>';
+        endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Kesehatan') as $kesehatan) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>
@@ -138,6 +208,13 @@
     </div>
     <div id="makanan" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Makanan') == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          </div>';
+        endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Makanan') as $makanan) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>
@@ -150,6 +227,13 @@
     </div>
     <div id="lainnya" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Lainnya') == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          </div>';
+        endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Lainnya') as $lainnya) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>
@@ -162,6 +246,13 @@
     </div>
     <div id="lowongan-kerja" class="tab-pane fade">
       <ul class="foto-dagangan">
+        <?php if ($this->iklan_model->get_all_iklan_baris('Lowongan-Kerja') == NULL):
+          # code...
+          echo '<div style="width:100%;text-align:center">
+          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          </div>';
+        endif;
+        ?>
         <?php foreach ($this->iklan_model->get_all_iklan_baris('Lowongan-Kerja') as $lowongan_kerja) { ?>
           <li class="line" style="margin:0;margin-left:-1px;border-right:1px solid black;border-left:1px solid black;background:#d8d8d8;">
             <figcaption>

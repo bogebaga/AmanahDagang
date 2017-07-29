@@ -2,9 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['login'] = 'login';
-$route['login/mobile'] = 'login/index/mobile';
 $route['signout'] = 'login/signout';
-$route['signout/mobile'] = 'login/signout/mobile';
 $route['signout_admin'] = 'login/signout_admin';
 $route['register']= 'register';
 
@@ -39,7 +37,7 @@ $route['barang/(:any)'] = 'proses/load_iklan/$1';
 
 $route['default_controller'] = 'beranda/tampil_beranda'; //index
 $route['edit'] = 'beranda/edit';
-$route['tes'] = 'proses/tes_ilmu';
+$route['all-result'] = 'beranda/allresult';
 $route['tron'] = 'tron';
 $route['iklanbaris'] = 'tron/iklanbaris';
 $route['(:any)'] = 'beranda/tampil_beranda/$1';
