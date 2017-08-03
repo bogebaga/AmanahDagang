@@ -15,7 +15,7 @@
       <h4>Pasang Iklan</h4>
       <?php echo form_open_multipart(base_url('iklan')); ?>
         <label for="">Judul iklan<em class="required">*</em></label>
-        <input class="form-control" type="text" name="nama_iklan" placeholder="Iklan apa yang kamu input" required minlenght="20">
+        <input class="form-control" type="text" name="nama_iklan" placeholder="Iklan apa yang kamu input" minlength="20" required>
         <label for="">Kategori iklan<em class="required">*</em></label>
         <select class="form-control" name="nama_kategori" required>
           <?php foreach ($kategori as $key => $kategori_iklan): ?>

@@ -208,6 +208,7 @@ class Admin extends CI_Controller{
 		if(! $this->upload->do_upload('foto_upload'))
 		{
 			$hasil_data = ($iklan_data_obj->gambar_fitur) ?: '' ;
+
       if(file_exists('./images/post_foto_feature/'.$iklan_data_obj->gambar_fitur)):
         rename('./images/post_foto_feature/'.$iklan_data_obj->gambar_fitur, './images/post_foto_feature/'.$this->tanggal_indonesia($tanggal_data).$iklan_data_obj->gambar_fitur);
       endif;
@@ -227,11 +228,26 @@ class Admin extends CI_Controller{
 		if (isset($_POST['submit']))
 		{
 			$gambar_count = count($_FILES['foto_fitur']['name']);
+
+      if(! file_exists('./images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data)).$this->input->post('slug_nama_barang')):
+        mkdir('./images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data).$this->input->post('slug_nama_barang'), 0777, true);
+      endif;
+
 			for ($i=0; $i < $gambar_count ; $i++)
 			{
 				if ($_FILES['foto_fitur']['error'][$i] == '4')
 				{
-					($get_gambar_banyak[$i]) ? $uploaded[$i] = $get_gambar_banyak[$i] : $uploaded[$i] = '';
+					// ($get_gambar_banyak[$i]) ? $uploaded[$i] = $get_gambar_banyak[$i] : $uploaded[$i] = '';
+					if ($get_gambar_banyak[$i])
+          {
+            if(file_exists('./images/post_foto_ikl/'.$get_gambar_banyak[$i])):
+              rename('./images/post_foto_ikl/'.$get_gambar_banyak[$i], './images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data).$this->input->post('slug_nama_barang').'/'.$get_gambar_banyak[$i]);
+            endif;
+            $uploaded[$i] = $get_gambar_banyak[$i];
+					}
+          else{
+            $uploaded[$i] = '';
+          }
 				}
 				else
 				{
@@ -241,10 +257,6 @@ class Admin extends CI_Controller{
 					$_FILES['images']['error'] = $_FILES['foto_fitur']['error'][$i];
 					$_FILES['images']['size'] = $_FILES['foto_fitur']['size'][$i];
 					$After_explode = explode(".", $_FILES['images']['name']);
-
-          if(! file_exists('./images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data)).$this->input->post('slug_nama_barang')."/"):
-            mkdir('./images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data).$this->input->post('slug_nama_barang')."/", 0777, true);
-          endif;
 
 					$this->upload->initialize([
 						'upload_path' => './images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data).$this->input->post('slug_nama_barang')."/",
@@ -298,7 +310,7 @@ class Admin extends CI_Controller{
       foreach ($file_hapus_explode as $hapus) {
         unlink(FCPATH.'images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal).$slug."/".$hapus);
       }
-      rmdir(FCPATH.'images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal).$slug)
+      rmdir(FCPATH.'images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal).$slug);
     }
 
     // $this->user_model->iklan_hapus($slug);
