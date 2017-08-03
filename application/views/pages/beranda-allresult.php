@@ -48,31 +48,34 @@
       <ul class="foto-dagangan" style="padding:20px 10px">
         <table class="table-search">
           <tbody>
-            <tr>
-              <td>
-                <table width="100%" cellspacing="0" cellpadding="0">
-                  <td width="100" align="center">
-                    <p>20 Juni</p>
-                  </td>
-                  <td width="170" style="padding:5px 0;">
-                    <div class="">
-                      <a href="#">
-                        <img width="85px" src="<?php echo base_url("images/base.png"); ?>" alt="">
-                      </a>
-                    </div>
-                  </td>
-                  <td width="600">
-                    <h4 style="text-align:left;margin-top:10px"><a href="#">Dijual Motor Kawasak</a></h4>
-                    <small>Bekas</small>
-                    <p> Kota Makassar </p>
-                  </td>
-                  <td align="right" width="170" style="padding-right:10px;">
-                    <p>Rp. 17.000.000</p>
-                    <small><b>Nego</b></small>
-                  </td>
-                </table>
-              </td>
-            </tr>
+            <?php $path_fitur = "images/post_foto_feature/"; ?>
+            <?php foreach ($this->iklan_model->get_all_iklan('','','iklan_baris') as $value): ?>
+              <tr>
+                <td>
+                  <table width="100%" cellspacing="0" cellpadding="0">
+                    <td width="100" align="center">
+                      <p><?php echo date('j M', strtotime($value['barang_upload_tgl'])) ?></p>
+                    </td>
+                    <td width="170" style="padding:5px 0;">
+                      <div class="">
+                        <a href="<?php echo base_url("barang/".$value['slug_nama_barang']) ?>">
+                          <img width="85px" src="<?php echo (empty($value['gambar_fitur'])) ? base_url('images/base.png') : $path_fitur.$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($value['barang_upload_tgl']))).$value['gambar_fitur'] ?>" alt="">
+                        </a>
+                      </div>
+                    </td>
+                    <td width="600">
+                      <h4 style="text-align:left;margin-top:10px"><a href="<?php echo base_url("barang/".$value['slug_nama_barang']) ?>"><?php echo $value['nama_barang'] ?></a></h4>
+                      <small><?php echo $value['jenis_barang'] ?></small>
+                      <p> Kota Makassar </p>
+                    </td>
+                    <td align="right" width="170" style="padding-right:10px;">
+                      <p><?php echo (empty($value['harga_barang']) ? '<div></div>' : "Rp. ".$value['harga_barang'])?></p>
+                      <small><b>Nego</b></small>
+                    </td>
+                  </table>
+                </td>
+              </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </ul>

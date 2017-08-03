@@ -16,14 +16,15 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Form Edit Iklan</div>
 					<div class="panel-body">
-						<?php echo form_open_multipart('admin/edit_save'); ?>
+						<?php echo form_open_multipart('admin/edit_save', '', [
+							'upload_tgl' => $barang->barang_upload_tgl,
+							'slug_nama_barang' => $barang->slug_nama_barang
+						]); ?>
 						<div class="col-md-6">
 								<div class="form-group">
 									<label>Judul Iklan</label>
 									<input class="form-control" placeholder="example: Jual cepat apa saja" name="nama_barang" value="<?php echo $barang->nama_barang ?>" required minlength="20">
 								</div>
-								<input type="hidden" name="slug_nama_barang" value="<?php echo $barang->slug_nama_barang ?>">
-
 								<div class="form-group">
 									<label>Kategori</label>
 									<select class="form-control" name="kategori">

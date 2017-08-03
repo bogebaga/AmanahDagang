@@ -36,15 +36,20 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<form class="wrapper-daftar">
+					<form class="wrapper-daftar" action="<?php echo base_url("register") ?>" method="post">
 						<h4>DAFTAR</h4>
+						<div class="row">
+							<div class="col-xs-8" style="float:none;margin:0 auto;">
+								<?php echo $this->session->flashdata('pesan_akun') ?>
+							</div>
+						</div>
 						<div class="col-lg-7">
 							<div class="bkiri">
 								<div class="form-horizontal">
 									<div class="form-group">
 										<label for="rpsw" class="col-sm-3 control-label">Username</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" required name="re-pass" id="rpsw" placeholder="Nama anda">
+											<input type="text" class="form-control" required name="user_nama" id="rpsw" placeholder="Username anda">
 										</div>
 									</div>
 									<div class="form-group">

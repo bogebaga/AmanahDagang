@@ -2,7 +2,7 @@
   <section class="detail-form">
     <h1>Pasang Iklan</h1>
     <?php echo form_open_multipart('pasangiklan/masukki');?>
-      <div class="df" style="background-color:rgba(44, 62, 80, 0.39);" ?>
+      <div class="df" style="background-color: #eceff1;" ?>
         <h4 style="visibility:hidden;">Jenis Iklan</h4>
         <input type="radio" name="jenis_iklan" id="ji2" value="iklan" style="color:#F44336;" checked>
         <label for="ji2">IKLAN</label>
@@ -33,6 +33,19 @@
         </select>
       </div>
       <div class="df">
+        <h4>Provinsi / Kota</h4>
+        <select name="provinsi" id="provinsi" required>
+          <option value="">Pilih Provinsi</option>
+          <?php foreach ($this->iklan_model->get_data_provinsi() as $provinsi): ?>
+            <option value="<?php echo $provinsi['id'] ?>"><?php echo $provinsi['nama'] ?></option>
+          <?php endforeach; ?>
+        </select>
+        <h4 style="visibility:hidden;">Kategori</h4>
+        <select name="kota" id="kabkota" required>
+          <option>Pilih Kabupaten/Kota</option>
+        </select>
+      </div>
+      <div class="df">
         <h4>Jenis Barang</h4>
         <input type="radio" name="jenis_barang" id="jb" value="baru" checked>
         <label for="jb">Baru</label>
@@ -43,9 +56,6 @@
         <h4>Harga</h4>
         <input type="text" name="harga_iklan" id="harga_barang" placeholder="Harga Rupiah" required>
       </div>
-      <script>
-      $('#harga_barang').maskMoney({thousands:'.', decimal:',', precision:0});
-      </script>
       <div class="df" style="position:relative;">
         <h4 style="position:absolute;">Deskripsi</h4>
         <div rule="deskripsi-iklan" style="width:500px;margin-left:205px;">
@@ -54,7 +64,7 @@
       </div>
       <div class="df">
         <h4>No Telp/HP</h4>
-        <input type="tel" name="telpon" placeholder="08xxxxxxx">
+        <input type="text" name="telpon" placeholder="08xxxxxxx">
       </div>
       <div class="df">
         <h4>Alamat</h4>
@@ -116,6 +126,8 @@
           }
         }
 
+        $('#harga_barang').maskMoney({thousands:'.', decimal:',', precision:0});
+
         $("#ji").click(function(){
           $("#ads-iklan-baris").removeClass("none");
           $("#ads-iklan, #ads-iklan-fav").addClass("none");
@@ -136,9 +148,39 @@
           $("[name='nama_iklan'], [name='harga_iklan'], [name='nama_kategori'], [name='alamat'], [rule='deskripsi-iklan'], #gmbr-ftr1").removeClass();
           $("#gmbr-ftr1").addClass("buf");
         });
+
+        $("#provinsi").change(function(){
+          var provinsi = $("#provinsi").val();
+          $("#kabkota").empty();
+          data_kabkota (provinsi);
+        });
+
+        // function data_provinsi()
+        // {
+        //   $.post('provinsi', function(data0) {
+        //     var provinsi_data = JSON.parse(data0);
+        //
+        //     for (var i = 0; i < provinsi_data.length; i++) {
+        //       var select_pro = "<option value='"+provinsi_data[i]['id']+"'>"+provinsi_data[i]['nama']+"</option>";
+        //       $('#provinsi').append(select_pro);
+        //     }
+        //   });
+        // }
+
+        function data_kabkota (a)
+        {
+          $.post('kabkota',{id_provinsi : a}, function(data1)
+          {
+            var data_arr = JSON.parse(data1);
+            for (var i = 0; i < data_arr.length; i++) {
+              var select = "<option value='"+data_arr[i]['id']+"'>"+data_arr[i]['nama']+"</option>";
+              $('#kabkota').append(select);
+            }
+          });
+        }
       </script>
       <br>
-      <button type="submit" name="submit" class="simpan btn btn-primary btn-lg">Pasang Iklan</button>
+      <button type="submit" name="submit" class="simpan btn btn-success btn-lg">Pasang Iklan</button>
       <?php echo form_close();?>
     <!-- <h1>Identitas Diri Anda | <a href="<?php echo base_url() ?>profil">Profil</a></h1>
     <form>

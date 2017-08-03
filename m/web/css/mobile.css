@@ -197,6 +197,11 @@ ul.list-iklan > li.item-iklan,
           box-shadow: 0px 5px 3px 0px rgba(43, 43, 43, 0.25);
 }
 
+.container-isi-iklan > .contact-item.same-size > a
+{
+  width: 19%;
+}
+
 .container-isi-iklan > .informasi-iklan li:last-child,
 .container-isi-iklan > .informasi-pemasang li:last-child
 {

@@ -23,7 +23,7 @@ $(function() {
   <?php echo form_open_multipart('edit'); ?>
   <div  class="detail-biodata">
     <div class="dua">
-      <div class="" style="margin-bottom:30px;">
+      <div class="user-container" style="margin-bottom:30px;text-align:center;">
         <label for="foto_user">
           <?php if (empty($data_user[0]['user_picture'])): ?>
             <img src="images/gambar.jpg" width="200px">

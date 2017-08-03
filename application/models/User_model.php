@@ -24,6 +24,14 @@ class User_model extends CI_Model
     return $result->result_array();
   }
 
+  public function validate_user_exist($param)
+  {
+    $this->db->where('user_email', $param);
+    $result = $this->db->get('ad_user');
+
+    return $result->row_array();
+  }
+
   public function get_user($data)
   {
     $this->db->where('user_email', $data['email']);
@@ -51,8 +59,7 @@ class User_model extends CI_Model
     $data = [
       'user_kode' => $user_kode,
       'user_add' => date('Y-m-d H:i:s'),
-      'user_login' => $this->input->post('nama'),
-      'user_nama' => $this->input->post('nlengkap'),
+      'user_login' => $this->input->post('user_nama'),
       'user_pass' => md5($this->input->post('sandi')),
       'user_email' => $this->input->post('email'),
       'user_type' => 'general'
@@ -92,6 +99,7 @@ class User_model extends CI_Model
     return $this->db->delete('ad_barang');
   }
 
+  // IDEA: Parse user & parse iklan untuk table admin frontend
   public function parse_user()
   {
       $this->db->select('user_id, user_add, user_kode, user_nama, user_email, user_type, action');

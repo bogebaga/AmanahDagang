@@ -8,6 +8,7 @@ class Proses extends CI_Controller {
 		$this->load->helper(['form', 'url']);
 		$this->load->library(['session', 'upload']);
 		$this->load->model('iklan_model');
+		$this->proses =& get_instance();
 	}
 
 	public function kategori($param)
@@ -132,6 +133,12 @@ echo		$hasil_implode = implode(",", $uploaded);
 		echo json_encode($kab);
 	}
 
+	public function load_provinsi()
+	{
+		$provinsi = $this->iklan_model->get_data_provinsi();
+		echo json_encode($provinsi);
+	}
+
 	public function edit_iklan($slug)
 	{
 		$link = array(
@@ -252,5 +259,15 @@ echo		$hasil_implode = implode(",", $uploaded);
 
 		$this->iklan_model->delete_iklan($slug);
 		redirect('profil');
+	}
+
+	public function tanggal_indonesia_convert($tanggal)
+	{
+		$nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
+		$nama_hari = [1 => 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+		$tanggal_split = explode('-', $tanggal);
+		$tanggal_output = $tanggal_split[0]."/".$nama_bulan[(int)$tanggal_split[1]]."/".$nama_hari[(int)$tanggal_split[3]]."-".$tanggal_split[2]."/";
+
+		return $tanggal_output;
 	}
 }

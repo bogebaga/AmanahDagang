@@ -9,6 +9,7 @@ class Beranda extends CI_Controller {
 		$this->load->library(['session', 'form_validation','upload']);
 		$this->load->model('iklan_model');
 		$this->load->model('user_model');
+		$this->beranda =& get_instance();
 	}
 
 	public function tampil_beranda($halaman = 'beranda')
@@ -137,5 +138,15 @@ class Beranda extends CI_Controller {
 		$this->load->view('template/header', $link);
 		$this->load->view('pages/daftar');
 		$this->load->view('template/footer');
+	}
+
+	public function tanggal_indonesia_convert($tanggal)
+	{
+		$nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
+		$nama_hari = [1 => 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+		$tanggal_split = explode('-', $tanggal);
+		$tanggal_output = $tanggal_split[0]."/".$nama_bulan[(int)$tanggal_split[1]]."/".$nama_hari[(int)$tanggal_split[3]]."-".$tanggal_split[2]."/";
+
+		return $tanggal_output;
 	}
 }

@@ -14,12 +14,17 @@
     <section class="container-fluid" style="background-color:white;padding:20px 10px;">
       <div class="container-login">
         <form action="<?php echo base_url("daftar") ?>" method="post">
+          <div class="row">
+            <div class="col-xs-12">
+              <?php echo $this->session->flashdata('mobile_info_akun'); ?>
+            </div>
+          </div>
           <label for="">Nama<em class="required">*</em></label>
-          <input type="password" class="form-control" name="" placeholder="Masukkan Nama" required>
+          <input type="text" class="form-control" name="user_nama" placeholder="Username" required>
           <label for="">Email<em class="required">*</em></label>
-          <input type="email" class="form-control" name="" placeholder="email" required>
+          <input type="email" class="form-control" name="email" placeholder="email" required>
           <label for="">Password<em class="required">*</em></label>
-          <input type="password" class="form-control" name="" placeholder="password" required>
+          <input type="password" class="form-control" name="sandi" placeholder="password" required>
           <input type="checkbox" required>Dengan mendaftar di AmanahStores.com, saya menyetujui <a href="#" title=""> Syarat & Ketentuan</a> AmanahStores.com.
           <br>
           <br>

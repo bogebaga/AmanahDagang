@@ -25,52 +25,52 @@
       <ul class="container-sidenav">
         <li>
           <ul class="left-navigation">
-            <li><a href="mkategori/">Semua Kategori</a></li>
-            <li><a href="mkategori/properti">
+            <li><a href="<?php echo base_url() ?>mkategori/">Semua Kategori</a></li>
+            <li><a href="<?php echo base_url() ?>mkategori/properti">
               <span class="fa fa-home material-red" aria-hidden="true"></span>
               Properti
             </a></li>
-            <li><a href="mkategori/mobil">
+            <li><a href="<?php echo base_url() ?>mkategori/mobil">
               <span class="fa fa-car material-blue" aria-hidden="true"></span>
               Mobil
             </a></li>
-            <li><a href="mkategori/motor">
+            <li><a href="<?php echo base_url() ?>mkategori/motor">
               <span class="fa fa-motorcycle material-violet" aria-hidden="true"></span>
               Motor
             </a></li>
-            <li><a href="mkategori/fashion">
+            <li><a href="<?php echo base_url() ?>mkategori/fashion">
               <span class="fa fa-shopping-bag material-blue" aria-hidden="true"></span>
               Fashion
             </a></li>
-            <li><a href="mkategori/handphone">
+            <li><a href="<?php echo base_url() ?>mkategori/handphone">
               <span class="fa fa-mobile material-green-grass" aria-hidden="true"></span>
               Mobile
             </a></li>
-            <li><a href="mkategori/komputer">
+            <li><a href="<?php echo base_url() ?>mkategori/komputer">
               <span class="fa fa-laptop material-blue" aria-hidden="true"></span>
               Komputer
             </a></li>
-            <li><a href="mkategori/travel">
+            <li><a href="<?php echo base_url() ?>mkategori/travel">
               <span class="fa fa-suitcase material-orange" aria-hidden="true"></span>
               Travel
             </a></li>
-            <li><a href="mkategori/kitchen">
+            <li><a href="<?php echo base_url() ?>mkategori/kitchen">
               <span class="fa fa-cutlery material-blue" aria-hidden="true"></span>
               Kitchen
             </a></li>
-            <li><a href="mkategori/kesehatan">
+            <li><a href="<?php echo base_url() ?>mkategori/kesehatan">
               <span class="fa fa-heart material-pink" aria-hidden="true"></span>
               Kesehatan
             </a></li>
-            <li><a href="mkategori/service">
+            <li><a href="<?php echo base_url() ?>mkategori/service">
               <span class="fa fa-handshake-o material-tea" aria-hidden="true"></span>
               Services
             </a></li>
-            <li><a href="mkategori/lowongan-kerja">
+            <li><a href="<?php echo base_url() ?>mkategori/lowongan-kerja">
               <span class="fa fa-user material-green-old" aria-hidden="true"></span>
               Lowongan Kerja
             </a></li>
-            <li><a href="mkategori/lainnya">
+            <li><a href="<?php echo base_url() ?>mkategori/lainnya">
               <span class="fa fa-ellipsis-h material-grey" aria-hidden="true"></span>
               Lainnya
             </a></li>
@@ -81,11 +81,11 @@
     <section class="container-fluid">
       <h3 style="color:#f57c00;">#JualBekasBisaJadiDuit</h3>
       <ul class="iklanku">
-        <?php $path_fitur = base_url("images/post_foto_feature/"); ?>
+        <?php $path_fitur = base_url("../images/post_foto_feature/"); ?>
         <?php foreach ($this->iklan_model->get_all_iklan_limit('6') as $new_ads) : ?>
           <li>
             <a href="<?php echo base_url("isiiklan/".$new_ads['slug_nama_barang']) ?>">
-              <img src="<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$new_ads['gambar_fitur'] ?>" alt="">
+              <img src="<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->welcome_mob->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?>" alt="">
               <div style="padding:12px;">
                 <div class="judul-iklan" style="font-weight:bold;">
                   <?php echo $new_ads['nama_barang'] ?>

@@ -4,7 +4,7 @@
 	<!-- META -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width;initial-scale=1.0">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 	<!-- TITLE -->
 	<title>amanahdagang.com - Semua ada disini!</title>
@@ -34,7 +34,7 @@
 					<div class="navbar-header">
 						<a class="navbar-brand" href="<?php echo $home?>">
 							<div class="logo">
-								<img src="<?php echo base_url('images/ad.png'); ?>">
+								<img width="100px" src="<?php echo base_url('images/AMANAH.png'); ?>">
 							</div>
 						</a>
 					</div>

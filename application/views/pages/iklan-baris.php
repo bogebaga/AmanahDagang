@@ -18,7 +18,7 @@
         <?php if ($iklan == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-                  <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+                  <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
                 </div>';
               endif;
         ?>
@@ -39,7 +39,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Mobil') == NULL):
       # code...
           echo '<div style="width:100%;text-align:center">
-              <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+              <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
             </div>';
           endif;
         ?>
@@ -59,7 +59,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Motor') == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         endif;
         ?>
@@ -78,7 +78,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Properti') == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         endif;
         ?>
@@ -97,7 +97,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Fashion') == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         endif;
         ?>
@@ -116,7 +116,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Handphone') == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         endif;
         ?>
@@ -135,7 +135,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Komputer') == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         endif;
         ?>
@@ -154,7 +154,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Travel') == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         endif;
         ?>
@@ -173,7 +173,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Kitchen') == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         endif;
         ?>
@@ -192,7 +192,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Kesehatan') == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         endif;
         ?>
@@ -211,7 +211,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Makanan') == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         endif;
         ?>
@@ -230,7 +230,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Lainnya') == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         endif;
         ?>
@@ -249,7 +249,7 @@
         <?php if ($this->iklan_model->get_all_iklan_baris('Lowongan-Kerja') == NULL):
           # code...
           echo '<div style="width:100%;text-align:center">
-          <img width="300px" src="'.base_url("images/not_found_iklan_baris.png").'" alt="">
+          <img width="480px" src="'.base_url("images/not_found.png").'" alt="">
           </div>';
         endif;
         ?>
@@ -265,6 +265,6 @@
     </div>
   </div>
   <div class="iklan-lebar">
-    <img src="images/iklan.jpg" alt="">
+    <img src="<?php echo base_url('images/footer-banner.jpg') ?>" alt="">
   </div>
 </section>

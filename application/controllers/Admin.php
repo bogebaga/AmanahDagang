@@ -5,7 +5,7 @@ class Admin extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
-    $this->load->helper(['url','form','file']);
+    $this->load->helper(['url','form']);
     $this->load->library(['session', 'upload']);
     $this->load->model(['iklan_model','user_model']);
 
@@ -100,13 +100,17 @@ class Admin extends CI_Controller{
   {
     if (isset($_POST['submit']))
     {
-      $slug_nama_iklan = url_title($this->input->post('nama_barang'),'-');
+      $slug_nama_iklan = url_title($this->input->post('nama_barang'));
       $barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
       $nama_explode = explode(".", $_FILES['foto_upload']['name']);
 
+      if(! file_exists('./images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')))):
+        mkdir('./images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')), 0777, true);
+      endif;
+
       $this->upload->initialize(
         [
-          'upload_path' => './images/post_foto_feature/',
+          'upload_path' => './images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')),
           'allowed_types' => 'jpg|png|gif|jpeg',
           'file_name' => $nama_explode[0]."_".$slug_nama_iklan."-".$barang_kode."_Fitur",
           'overwrite' => TRUE
@@ -135,11 +139,13 @@ class Admin extends CI_Controller{
             $_FILES['images']['tmp_name'] = $_FILES['foto_fitur']['tmp_name'][$i];
             $_FILES['images']['error'] = $_FILES['foto_fitur']['error'][$i];
             $_FILES['images']['size'] = $_FILES['foto_fitur']['size'][$i];
-
             $After_explode = explode(".", $_FILES['images']['name']);
 
+            if(! file_exists('./images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan."-".$barang_kode)):
+              mkdir('./images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan."-".$barang_kode, 0777, true);
+            endif;
             $this->upload->initialize([
-              'upload_path' => './images/post_foto_ikl/',
+              'upload_path' => './images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan."-".$barang_kode,
               'allowed_types' => 'jpeg|jpg|png|gif',
               'file_name' => $After_explode[0]."_".$slug_nama_iklan."_".$barang_kode."_".$i,
               'overwrite' => TRUE
@@ -154,40 +160,46 @@ class Admin extends CI_Controller{
         $hasil_implode = implode(",", $uploaded);
       }
 
-    $data = [
-      'barang_kode' => $barang_kode,
-      'user_kode' => $this->session->userdata('user_kd_admin'),
-      'id_kategori' => $this->input->post('kategori'),
-      'barang_upload_tgl' => date('Y-m-d H:i:s'),
-      'nama_barang' => $this->input->post('nama_barang'),
-      'slug_nama_barang' => $slug_nama_iklan."-".$barang_kode,
-      'alamat_barang' => $this->input->post('alamat'),
-      'deskripsi_barang' => $this->input->post('deskripsi'),
-      'telpon' => $this->input->post('telpon'),
-      'gambar_fitur' => $data['upload_data'],
-      'gambar_barang' => $hasil_implode,
-      'harga_barang' => $this->input->post('harga'),
-      'jenis_barang' => $this->input->post('jenis_barang'),
-      'jenis_iklan' => $this->input->post('jenis_iklan'),
-      'tayang_barang' => 'publish',
-      'fitur_barang' => 'none'
-    ];
-
-    $this->iklan_model->pasang_iklan_admin($data);
-
-    redirect(base_url()."admin/add_iklan");
+    // $data = [
+    //   'barang_kode' => $barang_kode,
+    //   'user_kode' => $this->session->userdata('user_kd_admin'),
+    //   'id_kategori' => $this->input->post('kategori'),
+    //   'barang_upload_tgl' => date('Y-m-d H:i:s'),
+    //   'nama_barang' => $this->input->post('nama_barang'),
+    //   'slug_nama_barang' => $slug_nama_iklan."-".$barang_kode,
+    //   'alamat_barang' => $this->input->post('alamat'),
+    //   'deskripsi_barang' => $this->input->post('deskripsi'),
+    //   'telpon' => $this->input->post('telpon'),
+    //   'gambar_fitur' => $data['upload_data'],
+    //   'gambar_barang' => $hasil_implode,
+    //   'harga_barang' => $this->input->post('harga'),
+    //   'jenis_barang' => $this->input->post('jenis_barang'),
+    //   'jenis_iklan' => $this->input->post('jenis_iklan'),
+    //   'tayang_barang' => 'publish',
+    //   'fitur_barang' => 'none'
+    // ];
+    //
+    // $this->iklan_model->pasang_iklan_admin($data);
+    //
+    // redirect(base_url()."admin/add_iklan");
   }
 
   public function edit_save()
   {
 		$iklan_data_obj = $this->iklan_model->get_iklan_by_slug($this->input->post('slug_nama_barang'));
     $get_gambar_banyak = explode(",", $iklan_data_obj->gambar_barang);
-    $slug_nama_iklan = url_title($this->input->post('nama_barang'),'-');
+    // $slug_nama_iklan = url_title($this->input->post('nama_barang'));
     $After_explode = explode(".", $_FILES['foto_upload']['name']);
+
+    $tanggal_data = date('Y-m-d-N', strtotime($this->input->post('upload_tgl')));
+
+    if(! file_exists('./images/post_foto_feature/'.$this->tanggal_indonesia($tanggal_data))):
+      mkdir('./images/post_foto_feature/'.$this->tanggal_indonesia($tanggal_data), 0777, true);
+    endif;
 
 		$this->upload->initialize(
 			[
-				'upload_path' => './images/post_foto_feature/',
+				'upload_path' => './images/post_foto_feature/'.$this->tanggal_indonesia($tanggal_data),
 				'allowed_types' => 'jpg|png|gif|jpeg',
         'overwrite' => TRUE,
 				'file_name' => $After_explode[0]."_".$this->input->post('slug_nama_barang')."_Fitur"
@@ -196,6 +208,9 @@ class Admin extends CI_Controller{
 		if(! $this->upload->do_upload('foto_upload'))
 		{
 			$hasil_data = ($iklan_data_obj->gambar_fitur) ?: '' ;
+      if(file_exists('./images/post_foto_feature/'.$iklan_data_obj->gambar_fitur)):
+        rename('./images/post_foto_feature/'.$iklan_data_obj->gambar_fitur, './images/post_foto_feature/'.$this->tanggal_indonesia($tanggal_data).$iklan_data_obj->gambar_fitur);
+      endif;
 			// var_dump($data = ['upload_data' => $hasil_data]);
 			$data = ['upload_data' => $hasil_data];
 		}
@@ -204,7 +219,7 @@ class Admin extends CI_Controller{
 			// var_dump($data = ['upload_data' => $this->upload->data('file_name')]);
 			if ($iklan_data_obj->gambar_fitur)
 			{
-				unlink(FCPATH.'images/post_foto_feature/'.$iklan_data_obj->gambar_fitur);
+				unlink(FCPATH.'images/post_foto_feature/'.$this->tanggal_indonesia($tanggal_data).$iklan_data_obj->gambar_fitur);
 			}
 			$data = ['upload_data' => $this->upload->data('file_name')];
 		}
@@ -225,10 +240,14 @@ class Admin extends CI_Controller{
 					$_FILES['images']['tmp_name'] = $_FILES['foto_fitur']['tmp_name'][$i];
 					$_FILES['images']['error'] = $_FILES['foto_fitur']['error'][$i];
 					$_FILES['images']['size'] = $_FILES['foto_fitur']['size'][$i];
-
 					$After_explode = explode(".", $_FILES['images']['name']);
+
+          if(! file_exists('./images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data)).$this->input->post('slug_nama_barang')."/"):
+            mkdir('./images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data).$this->input->post('slug_nama_barang')."/", 0777, true);
+          endif;
+
 					$this->upload->initialize([
-						'upload_path' => './images/post_foto_ikl/',
+						'upload_path' => './images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data).$this->input->post('slug_nama_barang')."/",
 						'allowed_types' => 'jpeg|jpg|png|gif',
 						'file_name' => $After_explode[0].'_'.$this->input->post('slug_nama_barang').'_'.$i
 					]);
@@ -237,7 +256,7 @@ class Admin extends CI_Controller{
 					{
 						if ($get_gambar_banyak[$i])
 						{
-							unlink(FCPATH.'images/post_foto_feature/'.$get_gambar_banyak[$i]);
+							unlink(FCPATH.'images/post_foto_ikl/'.$this->input->post('slug_nama_barang')."/".$get_gambar_banyak[$i]);
 						}
 						$uploaded[$i] = $this->upload->data('file_name');
 					}
@@ -246,24 +265,44 @@ class Admin extends CI_Controller{
 			$hasil_implode = implode(",", $uploaded);
 		}
 
-    $data = [
-      'id_kategori' => $this->input->post('kategori'),
-      'slug_nama_barang' => $this->input->post('slug_nama_barang'),
-      'nama_barang' => $this->input->post('nama_barang'),
-      'alamat_barang' => $this->input->post('alamat'),
-      'telpon' => $this->input->post('telpon'),
-      'deskripsi_barang' => $this->input->post('deskripsi'),
-      'harga_barang' => $this->input->post('harga'),
-      'jenis_barang' => $this->input->post('jenis_barang'),
-      // 'jenis_iklan' => $this->input->post('jenis_iklan'),
-      'gambar_fitur' => $data['upload_data'],
-      'gambar_barang' => $hasil_implode,
-      'tayang_barang' => $this->input->post('tayang_iklan')
-    ];
+    // $data = [
+    //   'id_kategori' => $this->input->post('kategori'),
+    //   'slug_nama_barang' => $this->input->post('slug_nama_barang'),
+    //   'nama_barang' => $this->input->post('nama_barang'),
+    //   'alamat_barang' => $this->input->post('alamat'),
+    //   'telpon' => $this->input->post('telpon'),
+    //   'deskripsi_barang' => $this->input->post('deskripsi'),
+    //   'harga_barang' => $this->input->post('harga'),
+    //   'jenis_barang' => $this->input->post('jenis_barang'),
+    //   // 'jenis_iklan' => $this->input->post('jenis_iklan'),
+    //   'gambar_fitur' => $data['upload_data'],
+    //   'gambar_barang' => $hasil_implode,
+    //   'tayang_barang' => $this->input->post('tayang_iklan')
+    // ];
 
-    $this->iklan_model->edit_iklan_admin($data);
+    // $this->iklan_model->edit_iklan_admin($data);
 
-    redirect(base_url()."admin/iklan");
+    // redirect(base_url()."admin/iklan");
+  }
+
+  public function iklan_hapus($slug)
+  {
+    $file_hapus = $this->iklan_model->get_iklan_by_slug($slug);
+
+    $tanggal = date('Y-m-d-N', strtotime($file_hapus->barang_upload_tgl));
+    unlink(FCPATH.'images/post_foto_feature/'.$this->tanggal_indonesia($tanggal).$file_hapus->gambar_fitur);
+
+    if($file_hapus->gambar_barang)
+    {
+      $file_hapus_explode = explode(",",$file_hapus->gambar_barang);
+      foreach ($file_hapus_explode as $hapus) {
+        unlink(FCPATH.'images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal).$slug."/".$hapus);
+      }
+      rmdir(FCPATH.'images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal).$slug)
+    }
+
+    // $this->user_model->iklan_hapus($slug);
+    // redirect(base_url().'admin/iklan');
   }
 
   public function edit_user_save()
@@ -312,22 +351,7 @@ class Admin extends CI_Controller{
     redirect(base_url().'admin/user');
   }
 
-  public function iklan_hapus($slug)
-  {
-    $file_hapus = $this->iklan_model->get_iklan_by_slug($slug);
-    unlink(FCPATH.'images/post_foto_feature/'.$file_hapus->gambar_fitur);
-
-    if($file_hapus->gambar_barang)
-    {
-      $file_hapus_explode = explode(",",$file_hapus->gambar_barang);
-      foreach ($file_hapus_explode as $hapus) {
-        unlink(FCPATH.'images/post_foto_ikl/'.$hapus);
-      }
-    }
-    $this->user_model->iklan_hapus($slug);
-     redirect(base_url().'admin/iklan');
-  }
-
+  // NOTE: User parse and iklan parse to JSON data
   public function user_parse()
   {
     $data = $this->user_model->parse_user();
@@ -367,5 +391,16 @@ class Admin extends CI_Controller{
       $data[$i]['action'] = "<button class='btn btn-default btn-circle margin' type='button' $iklan_hapus><span class='glyphicon glyphicon-trash'></span></button><button class='btn btn-default btn-circle margin' type='button' $iklan_edit><span class='glyphicon glyphicon-edit'></span></button>";
     }
     echo json_encode($data);
+  }
+
+  // NOTE: Tanggal Indonesia Admin
+  private function tanggal_indonesia($tanggal)
+  {
+    $nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
+    $nama_hari = [1 => 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+    $tanggal_split = explode('-', $tanggal);
+    $tanggal_output = $tanggal_split[0]."/".$nama_bulan[(int)$tanggal_split[1]]."/".$nama_hari[(int)$tanggal_split[3]]."-".$tanggal_split[2]."/";
+
+    return $tanggal_output;
   }
 }

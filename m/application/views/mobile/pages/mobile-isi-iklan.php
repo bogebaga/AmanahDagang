@@ -17,7 +17,7 @@
           <span><?php echo $iklan[0]['nama_barang'] ?></span>
         </div>
         <div class="gambar-iklan" style="padding-top:10px">
-          <?php $path_ff = base_url('images/post_foto_feature/'); ?>
+          <?php $path_ff = base_url('../images/post_foto_feature/'.$this->welcome_mob->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($iklan[0]['barang_upload_tgl'])))); ?>
           <img src="<?php echo (empty($iklan[0]['gambar_fitur'])) ? base_url('images/base.png') : $path_ff.$iklan[0]['gambar_fitur']; ?>" alt="">
           <span><a href="#">Sebelumnya</a> | <a href="#">Selanjutnya</a></span>
           <div style="padding:10px;font-size:25px;background-color:#ede7f6;display:inline-block;margin-bottom:5px;border-radius:5px;">
@@ -50,10 +50,12 @@
             </li>
           </ul>
         </div>
-        <div class="contact-item">
-          <a href="#">
-            <button class="btn btn-lg btn-success" type="button" name="button"><span class="fa fa-2x fa-phone"></span></button>
-          </a>
+        <div class="contact-item same-size">
+          <a href="#" class="btn btn-success btn-lg" title="handphone"><span class="fa fa-2x fa-phone"></span></a>
+          <a href="#" class="btn btn-primary btn-lg" title="Twitter"><span class="fa fa-2x fa-twitter"></span></a>
+          <a href="#" class="btn btn-primary btn-lg" title="Facebook"><span class="fa fa-2x fa-facebook"></span></a>
+          <a href="#" class="btn btn-danger btn-lg" title="Google+"><span class="fa fa-2x fa-google-plus"></span></a>
+          <a href="#" class="btn btn-default btn-lg" title="shared"><span class="fa fa-2x fa-share-alt"></span></a>
         </div>
         <div class="informasi-pemasang">
           <ul style="margin-bottom:0px;">

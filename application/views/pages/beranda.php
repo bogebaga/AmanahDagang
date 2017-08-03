@@ -141,7 +141,7 @@
           </div>
       </div>
       <div class="col-xs-7">
-        <img src="<?php echo base_url("images/banner 640x510 amanahdagang.jpg"); ?>" alt="banner amanahdagang.com samping">
+        <img width="80%" src="<?php echo base_url("images/apa save me.jpg"); ?>" alt="banner amanahdagang.com samping">
       </div>
     </div>
   </div>
@@ -176,7 +176,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan_limit('5') as $new_ads) { ?>
           <li style="background:white;">
             <a href="<?php echo "barang/".$new_ads['slug_nama_barang'] ?>">
-              <img src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$new_ads['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $new_ads['nama_barang'] ?></h3>
                 <h4><?php echo (empty($new_ads['harga_barang']) ? '<div></div>' : "Rp. ".$new_ads['harga_barang'])?></h4>

@@ -13,7 +13,7 @@
     </nav>
     <section class="container-fluid" style="background-color:white;padding:20px 10px;">
       <h4>Pasang Iklan</h4>
-      <?php echo form_open('pasangiklan/masukki'); ?>
+      <?php echo form_open_multipart(base_url('iklan')); ?>
         <label for="">Judul iklan<em class="required">*</em></label>
         <input class="form-control" type="text" name="nama_iklan" placeholder="Iklan apa yang kamu input" required minlenght="20">
         <label for="">Kategori iklan<em class="required">*</em></label>
@@ -24,9 +24,9 @@
         </select>
         <br>
         <label for="baru">Jenis Barang</label>
-        <input id="baru" type="radio" name="ji" value="Baru" checked>
+        <input id="baru" type="radio" name="ji" value="baru" checked>
         <label for="baru"> Baru</label>
-        <input id="bekas" type="radio" name="ji" value="Bekas">
+        <input id="bekas" type="radio" name="ji" value="bekas">
         <label for="bekas" >Bekas</label>
         <!-- <label for="" style="display:block;"><input type="checkbox" name="nego" value="Nego"> Nego</label> -->
         <br>
@@ -36,9 +36,11 @@
         <input class="form-control" type="text" name="alamat" placeholder="Alamat barang yang di iklan">
         <label>Telepon</label>
         <input class="form-control" type="tel" name="telpon" placeholder="08xxxxxxxxx">
+        <label for="">Harga</label>
+        <input class="form-control" type="text" name="harga_iklan" placeholder="Harga iklan">
 
         <label>Foto iklan 1<em class="required">*</em></label>
-        <input type="file" name="fitur_foto_name" required>
+        <input type="file" name="foto_fitur_name" required>
         <label>Foto iklan 2</label>
         <input type="file" name="image[]">
         <label>Foto iklan 3</label>
@@ -52,10 +54,8 @@
         <label>Foto iklan 7</label>
         <input type="file" name="image[]">
 
-        <label for="">Harga</label>
-        <input class="form-control" type="text" name="harga_iklan" placeholder="Harga iklan">
         <br>
-        <button class="btn btn-sm btn-primary" type="submit" name="button">Pasang</button>
-      </form>
+        <button class="btn btn-success" type="submit" name="submit">Pasang</button>
+        <?php echo form_close() ?>
     </section>
     <br>

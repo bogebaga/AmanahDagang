@@ -10,6 +10,7 @@ class Welcome extends CI_Controller{
     $this->load->helper(['url','form']);
     $this->load->library('session');
     $this->load->model('iklan_model');
+    $this->welcome_mob =& get_instance();
   }
 
   public function index ()
@@ -78,5 +79,15 @@ class Welcome extends CI_Controller{
     $this->load->view('mobile/head/m_head');
     $this->load->view('mobile/pages/mobile-provinsi', $mobile_provinsi);
     $this->load->view('mobile/foot/footer');
+  }
+
+  public function tanggal_indonesia_convert($tanggal)
+  {
+    $nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
+    $nama_hari = [1 => 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+    $tanggal_split = explode('-', $tanggal);
+    $tanggal_output = $tanggal_split[0]."/".$nama_bulan[(int)$tanggal_split[1]]."/".$nama_hari[(int)$tanggal_split[3]]."-".$tanggal_split[2]."/";
+
+    return $tanggal_output;
   }
 }

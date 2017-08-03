@@ -35,7 +35,23 @@ class Login extends CI_Controller{
 
   public function signup()
   {
-    
+    $data = $this->input->post('email');
+    if (! empty($this->user_model->validate_user_exist($data))) {
+      $this->session->set_flashdata('mobile_info_akun',
+      '<div class="alert alert-danger alert-dismissable show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Email sudah terpakai</strong> Coba dengan email yang lain.
+      </div>
+      ');
+
+      redirect(base_url("home/mobile-signup"));
+    }
+
+    echo "string";
+    // $this->user_model->insert_user();
+    // redirect(base_url());
   }
 
   public function signout()

@@ -14,7 +14,7 @@
 
     <div class="slide-barang">
       <div class="gambar-gambar" align="center">
-        <?php $path_ff = base_url('images/post_foto_feature/'); ?>
+        <?php $path_ff = base_url('images/post_foto_feature/'.$this->proses->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($iklan[0]['barang_upload_tgl'])))); ?>
         <img src="<?php echo (empty($iklan[0]['gambar_fitur'])) ? base_url('images/src_img_default/wide.jpg') : $path_ff.$iklan[0]['gambar_fitur']; ?>" class="img-responsive" alt="foto">
       </div>
     <?php
@@ -51,17 +51,11 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pesan">Kirim Pesan</button>
       </div> -->
       <div class="sosmed-penjual">
-        <!-- <p>Bagikan :</p>
-        <a href="#" title="Twitter">
-          <img src="<?php echo base_url() ?>images/twitter.svg" alt="">
-        </a>
-        <a href="#" title="Facebook">
-          <img src="<?php echo base_url() ?>images/facebook.svg" alt="">
-        </a>
-        <a href="#" title="Google+">
-          <img src="<?php echo base_url() ?>images/google-plus.svg" alt="">
-        </a> -->
-        <p>Lihat Iklan lainnya <a href="#">disini</a></p>
+        <a href="#" class="btn btn-success btn-lg" title="handphone"><span class="fa fa-phone"></span></a>
+        <a href="#" class="btn btn-primary btn-lg" title="Twitter"><span class="fa fa-twitter"></span></a>
+        <a href="#" class="btn btn-primary btn-lg" title="Facebook"><span class="fa fa-facebook"></span></a>
+        <a href="#" class="btn btn-danger btn-lg" title="Google+"><span class="fa fa-google-plus"></span></a>
+        <a href="#" class="btn btn-default btn-lg" title="shared"><span class="fa fa-share-alt"></span></a>
       </div>
     </div>
     <div class="bungkus-detail">

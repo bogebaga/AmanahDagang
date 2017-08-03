@@ -24,6 +24,14 @@ class User_model extends CI_Model
     return $result->result_array();
   }
 
+  public function validate_user_exist($param)
+  {
+    $this->db->where('user_email', $param);
+    $result = $this->db->get('ad_user');
+
+    return $result->row_array();
+  }
+
   public function get_user($data)
   {
     $this->db->where('user_email', $data['email']);

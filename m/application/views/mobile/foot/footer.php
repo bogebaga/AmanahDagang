@@ -29,5 +29,8 @@
     </a>
   </div>
 </footer>
+<script type="text/javascript">
+  $(".alert").alert();
+</script>
 </body>
 </html>

@@ -2,8 +2,9 @@
   <section class="detail-form">
     <h1>Edit Iklan</h1>
 
-    <?php echo form_open_multipart('iklan/edit');?>
-    <input type="hidden" name="kd_barang" value="<?php echo $slug_data->barang_kode; ?>">
+    <?php echo form_open_multipart('iklan/edit', '', [
+      'kd_barang' => $slug_data->barang_kode
+    ]);?>
       <div class="df">
         <h4>Judul Iklan</h4>
         <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." value="<?php echo $slug_data->nama_barang ?>" required minlenght="20">
@@ -19,6 +20,12 @@
           <?php endif; ?>
         <?php endforeach; ?>
         </select>
+      </div>
+      <div class="df">
+        <h4>Provinsi / Kota</h4>
+        <select name="provinsi" id="provinsi"></select>
+        <h4 style="visibility:hidden;">Provinsi / Kota</h4>
+        <select name="kabkota" id="kabkota"></select>
       </div>
       <!-- <div class="df">
         <h4>Jenis Iklan</h4>

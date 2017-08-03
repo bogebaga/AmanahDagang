@@ -48,8 +48,8 @@
     ],
     image_advtab: true
   });
-</script>
-<script>
+
+  $(".alert").alert();
   // FormatCurrency
   function FormatCurrency(objNum)
   {
