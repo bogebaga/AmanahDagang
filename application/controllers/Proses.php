@@ -11,6 +11,42 @@ class Proses extends CI_Controller {
 		$this->proses =& get_instance();
 	}
 
+	public function load_iklan($slug_iklan)
+	{
+		$link = array(
+			'home' => base_url(),
+			'bantuan' => base_url().'bantuan',
+			'network' => base_url().'tentang'
+		);
+
+		$isi_iklan['iklan'] = $this->iklan_model->load_isi_iklan($slug_iklan);
+		$isi_iklan['viewer'] = $this->iklan_model->add_viewer($slug_iklan, $isi_iklan['iklan'][0]['view_barang']);
+
+		$this->load->view('template/header', $link);
+		$this->load->view('pages/isi-iklan', $isi_iklan);
+		$this->load->view('template/footer');
+	}
+
+	public function edit_iklan($slug)
+	{
+		$link = array(
+			'home' => base_url(),
+			'bantuan' => base_url().'bantuan',
+			'network' => base_url().'tentang'
+		);
+
+		$data = [
+			'kategori' => $this->iklan_model->get_kategori(),
+			'slug_data' => $this->iklan_model->get_iklan_by_slug($slug)
+		];
+		// echo "<pre>";
+		// 	var_export($data['slug_data']);
+		// echo "</pre>";
+		$this->load->view('template/header', $link);
+		$this->load->view('pages/editiklan', $data);
+		$this->load->view('template/footer');
+	}
+
 	public function kategori($param)
 	{
 		$link = array(
@@ -32,7 +68,7 @@ class Proses extends CI_Controller {
 	{
 		if (isset($_POST['submit']))
 		{
-		$slug_nama_iklan = url_title($this->input->post('nama_iklan'),'-');
+		$slug_nama_iklan = url_title($this->input->post('nama_iklan'));
 		$barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
 		$After_explode = explode(".", $_FILES['fitur_foto_name']['name']);
 
@@ -85,78 +121,28 @@ class Proses extends CI_Controller {
 				}
 			}
 		}
-echo		$hasil_implode = implode(",", $uploaded);
+		$hasil_implode = implode(",", $uploaded);
 	}
 
-		$data = [
-			'nama_iklan' => $this->input->post('nama_iklan'),
-			'slug_nama_iklan' => $slug_nama_iklan."-".$barang_kode,
-			'barang_kode' => $barang_kode,
-			'barang_upload_tgl' => date('Y-m-d H:i:s'),
-			'user_kode' => $this->session->userdata('user_kd'),
-			'nama_kategori' => $this->input->post('nama_kategori'),
-			'jenis_iklan' => $this->input->post('jenis_iklan'),
-			'jenis_barang' => $this->input->post('jenis_barang'),
-			'harga_iklan' => $this->input->post('harga_iklan'),
-			'telpon' => $this->input->post('telpon'),
-			'deskripsi_iklan' => $this->input->post('deskripsi_iklan'),
-			'gambar_barang' => $hasil_implode,
-			'gambar_fitur' => $data['upload_data'],
-			'alamat' => $this->input->post('alamat')
-		];
-
-		$this->iklan_model->pasang_iklan($data);
-
-		redirect(base_url()."pasangiklan");
-	}
-
-	public function load_iklan($slug_iklan)
-	{
-		$link = array(
-			'home' => base_url(),
-			'bantuan' => base_url().'bantuan',
-			'network' => base_url().'tentang'
-		);
-
-		$isi_iklan['iklan'] = $this->iklan_model->load_isi_iklan($slug_iklan);
-		$isi_iklan['viewer'] = $this->iklan_model->add_viewer($slug_iklan, $isi_iklan['iklan'][0]['view_barang']);
-
-		$this->load->view('template/header', $link);
-		$this->load->view('pages/isi-iklan', $isi_iklan);
-		$this->load->view('template/footer');
-	}
-
-	public function load_kabkota()
-	{
-		$id_provinsi = $this->input->post('id_provinsi');
-		$kab = $this->iklan_model->get_data_kabkota($id_provinsi);
-		echo json_encode($kab);
-	}
-
-	public function load_provinsi()
-	{
-		$provinsi = $this->iklan_model->get_data_provinsi();
-		echo json_encode($provinsi);
-	}
-
-	public function edit_iklan($slug)
-	{
-		$link = array(
-			'home' => base_url(),
-			'bantuan' => base_url().'bantuan',
-			'network' => base_url().'tentang'
-		);
-
-		$data = [
-			'kategori' => $this->iklan_model->get_kategori(),
-			'slug_data' => $this->iklan_model->get_iklan_by_slug($slug)
-		];
-		// echo "<pre>";
-		// 	var_export($data['slug_data']);
-		// echo "</pre>";
-		$this->load->view('template/header', $link);
-		$this->load->view('pages/editiklan', $data);
-		$this->load->view('template/footer');
+		// $data = [
+		// 	'nama_iklan' => $this->input->post('nama_iklan'),
+		// 	'slug_nama_iklan' => $slug_nama_iklan."-".$barang_kode,
+		// 	'barang_kode' => $barang_kode,
+		// 	'barang_upload_tgl' => date('Y-m-d H:i:s'),
+		// 	'user_kode' => $this->session->userdata('user_kd'),
+		// 	'nama_kategori' => $this->input->post('nama_kategori'),
+		// 	'jenis_iklan' => $this->input->post('jenis_iklan'),
+		// 	'jenis_barang' => $this->input->post('jenis_barang'),
+		// 	'harga_iklan' => $this->input->post('harga_iklan'),
+		// 	'telpon' => $this->input->post('telpon'),
+		// 	'deskripsi_iklan' => $this->input->post('deskripsi_iklan'),
+		// 	'gambar_barang' => $hasil_implode,
+		// 	'gambar_fitur' => $data['upload_data'],
+		// 	'alamat' => $this->input->post('alamat')
+		// ];
+		//
+		// $this->iklan_model->pasang_iklan($data);
+		// redirect(base_url()."pasangiklan");
 	}
 
 	public function save_edit_iklan()
@@ -226,24 +212,24 @@ echo		$hasil_implode = implode(",", $uploaded);
 			}
 			$hasil_implode = implode(",", $uploaded);
 		}
-
-		$data=[
-			'barang_kode' => $this->input->post('kd_barang'),
-			'id_kategori' => $this->input->post('nama_kategori'),
-			'slug_nama_barang' => $slug_nama,
-			'nama_barang' => $this->input->post('nama_iklan'),
-			'alamat_barang' => $this->input->post('alamat'),
-			'telpon' => $this->input->post('telpon'),
-			'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
-			'harga_barang' => $this->input->post('harga_iklan'),
-			'jenis_barang' => $this->input->post('jenis_barang'),
-			'jenis_iklan' => $this->input->post('jenis_iklan'),
-			'gambar_fitur' => $data['upload_data'],
-			'gambar_barang' => $hasil_implode
-		];
-
-		$this->iklan_model->simpan_iklan_by_kdbarang($data);
-		redirect(base_url().'barang/edit/'.$slug_nama);
+		//
+		// $data=[
+		// 	'barang_kode' => $this->input->post('kd_barang'),
+		// 	'id_kategori' => $this->input->post('nama_kategori'),
+		// 	'slug_nama_barang' => $slug_nama,
+		// 	'nama_barang' => $this->input->post('nama_iklan'),
+		// 	'alamat_barang' => $this->input->post('alamat'),
+		// 	'telpon' => $this->input->post('telpon'),
+		// 	'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
+		// 	'harga_barang' => $this->input->post('harga_iklan'),
+		// 	'jenis_barang' => $this->input->post('jenis_barang'),
+		// 	'jenis_iklan' => $this->input->post('jenis_iklan'),
+		// 	'gambar_fitur' => $data['upload_data'],
+		// 	'gambar_barang' => $hasil_implode
+		// ];
+		//
+		// $this->iklan_model->simpan_iklan_by_kdbarang($data);
+		// redirect(base_url().'barang/edit/'.$slug_nama);
 	}
 
 	public function hapus_iklan($slug)
@@ -259,6 +245,19 @@ echo		$hasil_implode = implode(",", $uploaded);
 
 		$this->iklan_model->delete_iklan($slug);
 		redirect('profil');
+	}
+
+	public function load_kabkota()
+	{
+		$id_provinsi = $this->input->post('id_provinsi');
+		$kab = $this->iklan_model->get_data_kabkota($id_provinsi);
+		echo json_encode($kab);
+	}
+
+	public function load_provinsi()
+	{
+		$provinsi = $this->iklan_model->get_data_provinsi();
+		echo json_encode($provinsi);
 	}
 
 	public function tanggal_indonesia_convert($tanggal)

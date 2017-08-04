@@ -37,7 +37,7 @@
 										<?php endforeach; ?>
 									</select>
 								</div>
-
+								
 								<!-- <div class="form-group">
 									<label>Jenis Iklan</label>
 									<div class="radio">
@@ -56,12 +56,12 @@
 									<label>Jenis Barang</label>
 									<div class="radio">
 										<label>
-											<input type="radio" name="jenis_barang" value="baru" <?php echo ($barang->jenis_barang == 'baru') ? 'checked' : '' ; ?>>Baru
+											<input type="radio" name="jenis_barang" value="baru" <?php echo ($barang->jenis_barang == 'baru') ? 'checked' : '' ; ?> >Baru
 										</label>
 									</div>
 									<div class="radio">
 										<label>
-											<input type="radio" name="jenis_barang" value="bekas" <?php echo ($barang->jenis_barang == 'bekas') ? 'checked' : '' ; ?>>Bekas
+											<input type="radio" name="jenis_barang" value="bekas" <?php echo ($barang->jenis_barang == 'bekas') ? 'checked' : '' ; ?> >Bekas
 										</label>
 									</div>
 								</div>
@@ -69,7 +69,8 @@
 								<div class="form-group">
 									<label style="display:block;">Foto Upload</label>
 									<label class="chs-img" style="width:253px;padding: 35px 0;">
-										<img id="foto_upload" <?php echo ($barang->gambar_fitur == '' ? '' : "src='".base_url('images/post_foto_feature/'.$barang->gambar_fitur)."'");?> width="251" height="112">
+										<?php $tanggal = date('Y-m-d-N', strtotime($barang->barang_upload_tgl)); ?>
+										<img id="foto_upload" <?php echo ($barang->gambar_fitur == '' ? '' : "src='".base_url('images/post_foto_feature/'.$this->admin->tanggal_indonesia($tanggal).$barang->gambar_fitur)."'");?> width="251" height="112">
 										<span class="glyphicon glyphicon-eye-open"></span>
 										<input type="file" name='foto_upload' onchange='loadImage(this, this.name, 251, 112)' style="display:none;">
 									</label>
@@ -81,7 +82,7 @@
 									<?php $data_hasil_explode = explode(",", $barang->gambar_barang) ?>
 									<?php foreach ($data_hasil_explode as $key => $value): ?>
 										<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
-											<img id="image_<?php echo $key+1 ?>" <?php echo ($value == '') ? '' : "src='".base_url('images/post_foto_ikl/'.$value)."'" ?> width="78" height="51">
+											<img id="image_<?php echo $key+1 ?>" <?php echo ($value == '') ? '' : "src='".base_url('images/post_foto_ikl/'.$this->admin->tanggal_indonesia($tanggal).$barang->slug_nama_barang.'/'.$value)."'" ?> width="78" height="51">
 											<span class="glyphicon glyphicon-eye-open"></span>
 											<input type="file" name="foto_fitur[]" onchange="loadImage(this,'image_<?php echo $key+1?>', 78, 51)" style="display:none;">
 										</label>
@@ -115,7 +116,6 @@
 							//   // console.log(path_nama[4]);
 							// }
 							</script>
-
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Deskripsi</label>

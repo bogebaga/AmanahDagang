@@ -8,6 +8,7 @@ class Admin extends CI_Controller{
     $this->load->helper(['url','form']);
     $this->load->library(['session', 'upload']);
     $this->load->model(['iklan_model','user_model']);
+    $this->admin =& get_instance();
 
     if (empty($this->session->userdata('user_login_admin')))
     {
@@ -229,7 +230,7 @@ class Admin extends CI_Controller{
 		{
 			$gambar_count = count($_FILES['foto_fitur']['name']);
 
-      if(! file_exists('./images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data)).$this->input->post('slug_nama_barang')):
+      if(! file_exists('./images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data).$this->input->post('slug_nama_barang'))):
         mkdir('./images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal_data).$this->input->post('slug_nama_barang'), 0777, true);
       endif;
 
@@ -406,7 +407,7 @@ class Admin extends CI_Controller{
   }
 
   // NOTE: Tanggal Indonesia Admin
-  private function tanggal_indonesia($tanggal)
+  public function tanggal_indonesia($tanggal)
   {
     $nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
     $nama_hari = [1 => 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];

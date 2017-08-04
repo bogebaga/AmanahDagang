@@ -38,7 +38,6 @@
         <input class="form-control" type="tel" name="telpon" placeholder="08xxxxxxxxx">
         <label for="">Harga</label>
         <input class="form-control" type="text" name="harga_iklan" placeholder="Harga iklan">
-
         <label>Foto iklan 1<em class="required">*</em></label>
         <input type="file" name="foto_fitur_name" required>
         <label>Foto iklan 2</label>
@@ -53,7 +52,6 @@
         <input type="file" name="image[]">
         <label>Foto iklan 7</label>
         <input type="file" name="image[]">
-
         <br>
         <button class="btn btn-success" type="submit" name="submit">Pasang</button>
         <?php echo form_close() ?>
