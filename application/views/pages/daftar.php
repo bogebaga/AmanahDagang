@@ -49,19 +49,19 @@
 									<div class="form-group">
 										<label for="rpsw" class="col-sm-3 control-label">Username</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" required name="user_nama" id="rpsw" placeholder="Username anda">
+											<input type="text" class="form-control" required name="user_nama" id="rpsw" placeholder="Username">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="eml" class="col-sm-3 control-label">E-mail</label>
 										<div class="col-sm-9">
-											<input type="email" class="form-control" required name="email" id="eml" placeholder="Masukkan Email Anda">
+											<input type="email" class="form-control" required name="email" id="eml" placeholder="example@email.com">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="psw" class="col-sm-3 control-label">Password</label>
 										<div class="col-sm-9">
-											<input type="password" class="form-control" required name="password" id="psw" placeholder="Masukkan Password Anda">
+											<input type="password" class="form-control" required name="password" id="psw" placeholder="******">
 										</div>
 									</div>
 								</div>

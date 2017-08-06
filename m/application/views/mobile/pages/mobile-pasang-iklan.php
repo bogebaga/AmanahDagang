@@ -4,7 +4,7 @@
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid" style="padding-left:0;margin-left:-10px;">
         <div class="navbar-header">
-          <a class="navbar-brand" href="<?php echo base_url('tron/home/mobile-home'); ?>">
+          <a class="navbar-brand" href="<?php echo base_url('home/mobile-home'); ?>">
             <img src="<?php echo base_url("images/logodepanamanah_crop.png") ?>" alt="amanahdagang.com website logo depan">
             <img src="<?php echo base_url("images/logoamanah.png") ?>" alt="amanahdagang.com website logo belakang">
           </a>

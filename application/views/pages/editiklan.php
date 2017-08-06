@@ -3,7 +3,7 @@
     <h1>Edit Iklan</h1>
 
     <?php echo form_open_multipart('iklan/edit', '', [
-      'kd_barang' => $slug_data->barang_kode
+      'slug_iklan' => $slug_data->slug_nama_barang
     ]);?>
       <div class="df">
         <h4>Judul Iklan</h4>

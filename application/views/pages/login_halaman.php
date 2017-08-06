@@ -36,19 +36,22 @@
 				<div class="col-lg-12">
 					<form action="<?php echo base_url("login") ?>" class="wrapper-daftar" style="min-height:calc(100vh - 400px)" method="post">
 						<h4>Login</h4>
+            <div class="row">
+                <?php echo $this->session->flashdata('login_term') ?>
+            </div>
 						<div class="col-lg-7">
 							<div class="bkiri">
 								<div class="form-horizontal">
 									<div class="form-group">
 										<label for="eml" class="col-sm-3 control-label">E-mail</label>
 										<div class="col-sm-9">
-											<input type="email" class="form-control" required name="email" id="eml" placeholder="Masukkan Email Anda">
+											<input type="email" class="form-control" required name="email" id="eml" placeholder="example@email.com">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="psw" class="col-sm-3 control-label">Password</label>
 										<div class="col-sm-9">
-											<input type="password" class="form-control" required name="password" id="psw" placeholder="Masukkan Password Anda">
+											<input type="password" class="form-control" required name="password" id="psw" placeholder="******">
 										</div>
 									</div>
 								</div>

@@ -44,6 +44,10 @@
         <select name="kota" id="kabkota" required>
           <option>Pilih Kabupaten/Kota</option>
         </select>
+        <h4 style="visibility:hidden;">Kategori</h4>
+        <select id="kecamatan" name="kecamatan" required>
+          <option>Pilih Kecamatan</option>
+        </select>
       </div>
       <div class="df">
         <h4>Jenis Barang</h4>
@@ -155,6 +159,12 @@
           data_kabkota (provinsi);
         });
 
+        $("#kabkota").change(function() {
+          var kabkota = $("#kabkota").val();
+          $("#kecamatan").empty();
+          data_kecamatan(kabkota);
+        });
+
         // function data_provinsi()
         // {
         //   $.post('provinsi', function(data0) {
@@ -166,6 +176,17 @@
         //     }
         //   });
         // }
+        function data_kecamatan(a)
+        {
+          $.post('kecamatan',{id_kecamatan : a}, function(data) {
+            var data = JSON.parse(data);
+
+            for (var i = 0; i < data.length; i++) {
+              var select = "<option value='"+data[i]['id']+"'>"+data[i]['nama']+"</option>";
+              $("#kecamatan").append(select);
+            }
+          });
+        }
 
         function data_kabkota (a)
         {

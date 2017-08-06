@@ -8,10 +8,10 @@
 					<!-- <form role="form"> -->
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus required>
+								<input class="form-control" placeholder="example@email.com" name="email" type="email" autofocus required>
 							</div>
 							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="password" type="password" required>
+								<input class="form-control" placeholder="*******" name="password" type="password" required>
 							</div>
 							<!-- <div class="checkbox">
 								<label>

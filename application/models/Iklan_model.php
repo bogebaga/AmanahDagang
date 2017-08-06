@@ -25,12 +25,20 @@ class Iklan_model extends CI_Model{
   {
     if($data):
       $this->db->where('id_provinsi', $data);
-      $query = $this->db->get('ad_kabkota');
-    else:
-      $query = $this->db->get('ad_kabkota');
     endif;
 
+    $query = $this->db->get('ad_kabkota');
     return $query->result_array();
+  }
+
+  public function get_data_kecamatan($data = '')
+  {
+    if($data):
+      $this->db->where('id_kabkota', $data);
+    endif;
+
+    $result = $this->db->get('ad_kecamatan');
+    return $result->result_array();
   }
 
   public function get_all_iklan($kategori = '', $tayang_barang = '', $jenis_iklan = '', $urutan = 'DESC' )

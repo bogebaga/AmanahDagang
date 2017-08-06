@@ -26,6 +26,7 @@ $route['iklanparse'] = 'admin/iklan_parse';
 $route['uparse'] = 'admin/user_parse';
 
 $route['kabkota'] = 'proses/load_kabkota'; //isi kabkota
+$route['kecamatan'] = 'proses/load_kecamatan'; //isi kabkota
 $route['provinsi'] = 'proses/load_provinsi'; //isi provinsi
 
 $route['iklan/edit'] = 'proses/save_edit_iklan';

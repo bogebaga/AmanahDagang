@@ -16,7 +16,8 @@
 	<link rel="stylesheet" href="<?php echo base_url("web/css/color.css"); ?>">
 
 	<!-- FAV -->
-	<link rel="shortcut icon" type="image/x-image" href="<?php echo base_url('images/fav.ico'); ?>">
+	<link rel="shortcut icon" type="image/x-image" href="<?php echo base_url('images/favicon_amanahstores.ico'); ?>">
+	<!-- <link rel="shortcut icon" type="image/x-image" href="<?php echo base_url('images/fav.ico'); ?>"> -->
 	<!-- FONT -->
 	<link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">
 
@@ -34,7 +35,8 @@
 					<div class="navbar-header">
 						<a class="navbar-brand" href="<?php echo $home?>">
 							<div class="logo">
-								<img width="100px" src="<?php echo base_url('images/AMANAH.png'); ?>">
+								<!-- <img width="100px" src="<?php echo base_url('images/AMANAH.png'); ?>"> -->
+								<img width="100px" src="<?php echo base_url('images/amanahstores logo FULL.png'); ?>">
 							</div>
 						</a>
 					</div>

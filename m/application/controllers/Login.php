@@ -29,8 +29,15 @@ class Login extends CI_Controller{
 				'user_login' => $result->user_login
 			];
 			$this->session->set_userdata($session_data);
+      redirect(base_url());
 		}
-		redirect(base_url());
+    else
+    {
+      $this->session->set_flashdata('login-term', '<div class="alert alert-danger alert-dismissable show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span> </button> <strong>Email belum terdaftar.</strong> <a href="'.base_url('home/mobile-signup').'">Daftar</a> sebelum kamu memulai berdagang dan memasang iklan </div>');
+
+      redirect(base_url('home/mobile-login'));
+    }
   }
 
   public function signup()
@@ -42,14 +49,12 @@ class Login extends CI_Controller{
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <strong>Email sudah terpakai</strong> Coba dengan email yang lain.
-      </div>
-      ');
+        <strong>Email sudah terpakai.</strong> Coba daftar dengan email yang lain.
+      </div>');
 
       redirect(base_url("home/mobile-signup"));
     }
 
-    echo "string";
     // $this->user_model->insert_user();
     // redirect(base_url());
   }

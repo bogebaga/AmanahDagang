@@ -14,10 +14,15 @@
     <section class="container-fluid" style="background-color:white;padding:20px 10px;min-height:calc(100vh - 280px)">
       <div class="container-login">
         <?php echo form_open(base_url('masuk')) ?>
+        <div class="row">
+          <div class="col-xs-12">
+            <?php echo $this->session->flashdata('login-term') ?>
+          </div>
+        </div>
           <label for="">Email<em class="required">*</em></label>
-          <input type="email" class="form-control" name="email" placeholder="email"  required>
+          <input type="email" class="form-control" name="email" placeholder="example@email.com"  required>
           <label for="">Password<em class="required">*</em></label>
-          <input type="password" class="form-control" name="password"  placeholder="password" required>
+          <input type="password" class="form-control" name="password"  placeholder="********" required>
           <input type="checkbox" required> Biarkan saya tetap masuk
 
           <!-- <input type="checkbox" name="" > -->

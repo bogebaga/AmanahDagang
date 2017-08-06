@@ -22,9 +22,9 @@
           <label for="">Nama<em class="required">*</em></label>
           <input type="text" class="form-control" name="user_nama" placeholder="Username" required>
           <label for="">Email<em class="required">*</em></label>
-          <input type="email" class="form-control" name="email" placeholder="email" required>
+          <input type="email" class="form-control" name="email" placeholder="example@email.com" required>
           <label for="">Password<em class="required">*</em></label>
-          <input type="password" class="form-control" name="sandi" placeholder="password" required>
+          <input type="password" class="form-control" name="sandi" placeholder="********" required>
           <input type="checkbox" required>Dengan mendaftar di AmanahStores.com, saya menyetujui <a href="#" title=""> Syarat & Ketentuan</a> AmanahStores.com.
           <br>
           <br>
