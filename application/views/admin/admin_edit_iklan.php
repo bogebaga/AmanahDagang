@@ -37,7 +37,39 @@
 										<?php endforeach; ?>
 									</select>
 								</div>
-								
+								<div class="form-group">
+									<label>Regional</label>
+									<select class="form-control" name="provinsi" id="provinsi" style="margin-bottom:5px">
+										<option>Pilih Provinsi</option>
+										<?php foreach ($this->iklan_model->get_data_provinsi() as $provinsi): ?>
+											<?php if($provinsi['id'] == $barang->barang_provinsi): ?>
+												<option value="<?php echo $provinsi['id'] ?>" selected><?php echo $provinsi['nama'] ?></option>
+											<?php else: ?>
+												<option value="<?php echo $provinsi['id'] ?>"><?php echo $provinsi['nama'] ?></option>
+											<?php endif; ?>
+										<?php endforeach; ?>
+									</select>
+									<select class="form-control" name="kabkota" id="kabkota" style="margin-bottom:5px">
+										<option>Pilih Kabupaten/Kota</option>
+										<?php foreach ($this->iklan_model->get_data_kabkota() as $kabkota): ?>
+											<?php if ($kabkota['id'] == $barang->barang_kota): ?>
+												<option value="<?php echo $kabkota['id'] ?>" selected><?php echo $kabkota['nama'] ?></option>
+											<?php else: ?>
+												<option value="<?php echo $kabkota['id'] ?>"><?php echo $kabkota['nama'] ?></option>
+											<?php endif; ?>
+										<?php endforeach; ?>
+									</select>
+									<select class="form-control" name="kecamatan" id="kecamatan">
+										<option>Pilih Kecamatan</option>
+										<?php foreach ($this->iklan_model->get_data_kecamatan() as $kecamatan): ?>
+											<?php if ($kecamatan['id'] == $barang->barang_kecamatan): ?>
+												<option value="<?php echo $kecamatan['id'] ?>" selected><?php echo $kecamatan['nama'] ?></option>
+											<?php else: ?>
+												<option value="<?php echo $kecamatan['id'] ?>"><?php echo $kecamatan['nama'] ?></option>
+											<?php endif; ?>
+										<?php endforeach; ?>
+									</select>
+								</div>
 								<!-- <div class="form-group">
 									<label>Jenis Iklan</label>
 									<div class="radio">
@@ -51,7 +83,6 @@
 										</label>
 									</div>
 								</div> -->
-
 								<div class="form-group">
 									<label>Jenis Barang</label>
 									<div class="radio">
@@ -96,12 +127,10 @@
 								if (i.files && i.files[0])
 								{
 									var reader = new FileReader();
-
 									reader.onload = function(e)
 									{
 										$('#'+addr).attr('src', e.target.result).width(w).height(h);
 									}
-
 									reader.readAsDataURL(i.files[0]);
 								}
 							}
@@ -129,22 +158,20 @@
 									<label>Alamat</label>
 									<input type="text" class="form-control" name="alamat" placeholder="example: Alamat barang ..." value="<?php echo $barang->alamat_barang ?>">
 								</div>
-
-								<div class="form-group">
-									<label>Harga</label>
+							<div class="form-group">
+								 <label>Harga</label>
 									<div class="input-group">
 										<span class="input-group-addon">Rp.</span>
 										<input type="text" class="form-control" name="harga" id="harga" placeholder="example: 5.000.000" value="<?php echo $barang->harga_barang ?>">
 										<span class="input-group-addon">, 00</span>
 									</div>
 								</div>
-
 								<div class="form-group">
 									<label>TAYANG IKLAN</label>
 									<div class="form-group has-success">
 										<select name="tayang_iklan" class="form-control">
-											<option value="publish" <?php echo ($barang->tayang_barang == 'publish') ? 'selected' : ''; ?>>PUBLISH</option>
-											<option value="unpublish" <?php echo ($barang->tayang_barang == 'unpublish') ? 'selected' : ''; ?>>UN-PUBLISH</option>
+											<option value="publish" <?php echo ($barang->tayang_barang == 'publish') ? 'selected' : ''; ?>>Publish</option>
+											<option value="unpublish" <?php echo ($barang->tayang_barang == 'unpublish') ? 'selected' : ''; ?>>Unpublish</option>
 										</select>
 									</div>
 								</div>
@@ -164,5 +191,4 @@
 				</div>
 			</div><!-- /.col-->
 		</div><!-- /.row -->
-
 	</div><!--/.main-->

@@ -20,8 +20,11 @@ class Welcome extends CI_Controller{
     $this->load->view('mobile/foot/footer');
   }
 
-  public function home($param)
+  public function home($param ='')
   {
+    if(! file_exists(APPPATH."views/mobile/pages/".$param.".php")):
+      show_404();
+    endif;
     $this->load->view('mobile/head/m_head');
     if ($param == 'mobile-pasang-iklan'):
       $data['kategori'] = $this->iklan_model->get_kategori();
@@ -53,11 +56,15 @@ class Welcome extends CI_Controller{
     $this->load->view('mobile/foot/footer');
   }
 
-  public function isiiklan($slug)
+  public function isiiklan($slug = '')
   {
     $isi_iklan['iklan'] = $this->iklan_model->load_isi_iklan($slug);
-		$isi_iklan['viewer'] = $this->iklan_model->add_viewer($slug, $isi_iklan['iklan'][0]['view_barang']);
+    if(count($isi_iklan['iklan']['slug_nama_barang']) <= 0)
+    {
+        show_404();
+    }
 
+    $isi_iklan['viewer'] = $this->iklan_model->add_viewer($slug, $isi_iklan['iklan']['view_barang']);
     $this->load->view("mobile/head/m_head");
     $this->load->view("mobile/pages/mobile-isi-iklan", $isi_iklan);
     $this->load->view("mobile/foot/footer");

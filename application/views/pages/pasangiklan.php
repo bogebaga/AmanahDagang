@@ -22,7 +22,7 @@
       </div>
       <div class="df">
         <h4>Judul Iklan</h4>
-        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." minlenght="20" required>
+        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." minlenght="20" maxlength="70" required>
       </div>
       <div class="df">
         <h4>Kategori</h4>
@@ -33,7 +33,7 @@
         </select>
       </div>
       <div class="df">
-        <h4>Provinsi / Kota</h4>
+        <h4>Regional</h4>
         <select name="provinsi" id="provinsi" required>
           <option value="">Pilih Provinsi</option>
           <?php foreach ($this->iklan_model->get_data_provinsi() as $provinsi): ?>
@@ -58,7 +58,7 @@
       </div>
       <div class="df">
         <h4>Harga</h4>
-        <input type="text" name="harga_iklan" id="harga_barang" placeholder="Harga Rupiah" required>
+        <input type="text" name="harga_iklan" id="harga_barang" placeholder="Harga Rupiah">
       </div>
       <div class="df" style="position:relative;">
         <h4 style="position:absolute;">Deskripsi</h4>

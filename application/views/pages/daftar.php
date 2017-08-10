@@ -86,7 +86,7 @@
 							</label>
 						</div>
 						<div style="margin:0 auto; text-align:center;">
-							<button type="submit" class="btn btn-primary">Daftar</button>
+							<button type="submit" class="btn btn-success">Daftar</button>
 						</div>
 					</form>
 				</div>

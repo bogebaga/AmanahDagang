@@ -16,7 +16,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Form Edit User</div>
 					<div class="panel-body">
-						<?php echo form_open_multipart('admin/edit_user_save'); ?>
+						<?php echo form_open_multipart('admin/edit_user_save', '', ['uplusr' => $data_user[0]['user_add']]); ?>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Provinsi</label>
@@ -68,8 +68,8 @@
 							<label>HAK AKSES</label>
 							<div class="form-group has-success">
 								<select class="form-control" name="hak_akses">
-									<option value="admin" <?php echo $data_user[0]['user_type'] == 'admin' ? 'selected' : '' ?>>ADMIN</option>
-									<option value="general" <?php echo $data_user[0]['user_type'] == 'general' ? 'selected' : '' ?>>GENERAL</option>
+									<option value="admin" <?php echo $data_user[0]['user_type'] == 'admin' ? 'selected' : '' ?>>Admin</option>
+									<option value="general" <?php echo $data_user[0]['user_type'] == 'general' ? 'selected' : '' ?>>General</option>
 								</select>
 							</div>
 							<!-- <div class="form-group has-warning">

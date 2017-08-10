@@ -73,7 +73,7 @@ ul.container-sidenav > li
 {
   padding:15px 10px;
 
-  background-color:#2d3e50
+  background-color:#263238
 }
 
 .container-fluid.search-clr > span
@@ -199,7 +199,19 @@ ul.list-iklan > li.item-iklan,
 
 .container-isi-iklan > .contact-item.same-size > a
 {
-  width: 19%;
+  width: 100%;
+}
+
+.container-isi-iklan > .contact-item.same-size.width15.circle > a
+{
+  width: 13%;
+  border-radius: 50px;
+  height: 45px;
+}
+
+.container-isi-iklan > .contact-item.same-size.width15 > a
+{
+  width: 15%;
 }
 
 .container-isi-iklan > .informasi-iklan li:last-child,
@@ -413,7 +425,7 @@ footer
   /*position: absolute;*/
   padding: 10px 0;
 
-  background-color: #2d3e50;
+  background-color: #263238;
 }
 footer img
 {
@@ -471,4 +483,27 @@ footer img
 .sprite-media.youtube
 {
   background-position: -539px -165px ;
+}
+
+.bgc-black
+{
+  background-color: #263238;
+}
+.border-none
+{
+  margin-bottom:0px;border:none;
+}
+._btn_std
+{
+  background-color:#30e1cf;
+  border:none;
+}
+._btn_std:active:hover, ._btn_std:hover
+{
+  background-color:#30e1cf;
+}
+
+.pasang_iklan
+{
+  font-size:23px;margin-top:10px;width:100%;
 }

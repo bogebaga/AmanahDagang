@@ -22,10 +22,39 @@
         </select>
       </div>
       <div class="df">
-        <h4>Provinsi / Kota</h4>
-        <select name="provinsi" id="provinsi"></select>
-        <h4 style="visibility:hidden;">Provinsi / Kota</h4>
-        <select name="kabkota" id="kabkota"></select>
+        <h4>Regional</h4>
+          <select name="provinsi" id="provinsi">
+            <option>Pilih Provinsi</option>
+            <?php foreach ($this->iklan_model->get_data_provinsi() as $provinsi): ?>
+              <?php if ($slug_data->barang_provinsi == $provinsi['id']): ?>
+                <option value="<?php echo $provinsi['id'] ?>" selected><?php echo $provinsi['nama'] ?></option>
+                <?php else: ?>
+                  <option value="<?php echo $provinsi['id'] ?>"><?php echo $provinsi['nama'] ?></option>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </select>
+        <h4 style="visibility:hidden;">A</h4>
+          <select name="kabkota" id="kabkota">
+            <option>Pilih Kabupaten</option>
+            <?php foreach ($this->iklan_model->get_data_kabkota($slug_data->barang_provinsi) as $kabkota): ?>
+              <?php if ($slug_data->barang_kota == $kabkota['id']): ?>
+                <option value="<?php echo $kabkota['id'] ?>" selected><?php echo $kabkota['nama'] ?></option>
+                <?php else: ?>
+                  <option value="<?php echo $kabkota['id'] ?>" ><?php echo $kabkota['nama'] ?></option>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </select>
+          <h4 style="visibility:hidden;">A</h4>
+          <select name="kecamatan" id="kecamatan">
+            <option>Pilih Kecamatan</option>
+            <?php foreach ($this->iklan_model->get_data_kecamatan($slug_data->barang_kota) as $kecamatan): ?>
+              <?php if ($slug_data->barang_kecamatan == $kecamatan['id']): ?>
+                <option value="<?php echo $kecamatan['id'] ?>" selected><?php echo $kecamatan['nama'] ?></option>
+                <?php else: ?>
+                  <option value="<?php echo $kecamatan['id'] ?>" ><?php echo $kecamatan['nama'] ?></option>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </select>
       </div>
       <!-- <div class="df">
         <h4>Jenis Iklan</h4>
@@ -43,7 +72,7 @@
       </div>
       <div class="df">
         <h4>Harga</h4>
-        <input type="text" name="harga_iklan" id="harga_barang" placeholder="Harga Rupiah" value="<?php echo $slug_data->harga_barang ?>" required>
+        <input type="text" name="harga_iklan" id="harga_barang" placeholder="Harga Rupiah" value="<?php echo $slug_data->harga_barang ?>">
       </div>
       <script>
         $('#harga_barang').maskMoney({thousands:'.', decimal: ',', precision:0});
@@ -66,7 +95,7 @@
         <h4>Foto Fitur</h4>
         <label class="buf" style="position:relative;width:200px;height:100px;">
           <i class="fa fa-eye" aria-hidden="true" style="position:absolute;top:35px;left:80px;"></i>
-          <img id="fitur_foto_name" <?php echo ($slug_data->gambar_fitur == '' ? '' : "src='".base_url('images/post_foto_feature/'.$slug_data->gambar_fitur)."'");?> width="200" height="100">
+          <img id="fitur_foto_name" <?php echo ($slug_data->gambar_fitur == '' ? '' : "src='".base_url('images/post_foto_feature/'.$this->proses->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($slug_data->barang_upload_tgl))).$slug_data->gambar_fitur)."'");?> width="200" height="100">
           <input type="file" name="fitur_foto_name" onchange='loadImage(this, this.name, 200, 100)' style="display:none;">
         </label>
       </div>
@@ -75,7 +104,7 @@
         <?php $data_hasil_explode = explode(",", $slug_data->gambar_barang) ?>
         <?php foreach ($data_hasil_explode as $key => $value): ?>
           <label class="buf" style="position:relative">
-            <img id="image_<?php echo $key+1 ?>" <?php echo ($value == '') ? '' : "src='".base_url('images/post_foto_ikl/'.$value)."'" ?> width="85" height="85">
+            <img id="image_<?php echo $key+1 ?>" <?php echo ($value == '') ? '' : "src='".base_url('images/post_foto_ikl/'.$this->proses->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($slug_data->barang_upload_tgl))).$slug_data->slug_nama_barang.'/'.$value)."'" ?> width="85" height="85">
             <i class="fa fa-eye" aria-hidden="true" style="position:absolute"></i>
             <input type="file" name="image[]" onchange="loadImage(this,'image_<?php echo $key+1?>', 85, 85)" style="display:none;">
           </label>
@@ -108,10 +137,9 @@
       </script>
       </div>
       <br>
-      <button type="submit" name="submit" class="simpan btn btn-primary btn-lg">Simpan Iklan</button>
+      <button type="submit" name="submit" class="simpan btn btn-success btn-lg">Simpan</button>
       <?php echo form_close();?>
-      <br><br>
-    <h1>Identitas Diri Anda | <a href="<?php echo base_url() ?>profil">Profil</a></h1>
+    <!-- <h1>Identitas Diri Anda | <a href="<?php echo base_url() ?>profil">Profil</a></h1>
     <form>
       <div class="df">
         <h4>Nama</h4>
@@ -127,7 +155,7 @@
         <h4>No. Handphone/Telp</h4>
         <input type="text" name="nomor" placeholder="08xxxx" value="<?php echo $this->session->userdata('user_telpon') ?>">
       </div>
-    </form>
+    </form> -->
 
   </section>
   <aside class="iklan-barang">

@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 	<!-- TITLE -->
-	<title>amanahdagang.com - Semua ada disini!</title>
+	<title>amanahstores.com - Semua ada disini</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="<?php echo base_url("web/css/bootstrap.min.css") ?>">
@@ -36,7 +36,7 @@
 						<a class="navbar-brand" href="<?php echo $home?>">
 							<div class="logo">
 								<!-- <img width="100px" src="<?php echo base_url('images/AMANAH.png'); ?>"> -->
-								<img width="100px" src="<?php echo base_url('images/amanahstores logo FULL.png'); ?>">
+								<img src="<?php echo base_url('images/amanahstores logo FULL.png'); ?>">
 							</div>
 						</a>
 					</div>

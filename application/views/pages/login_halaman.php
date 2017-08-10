@@ -62,7 +62,7 @@
                   <a href="<?php echo base_url("beranda/daftar") ?>" style="float:right;">Daftar</a>
 								</div>
 								<div style="margin:0 auto; text-align:center;">
-									<button type="submit" class="btn btn-primary">Masuk</button>
+									<button type="submit" class="btn btn-success">Masuk</button>
 								</div>
 							</div>
 						</div>

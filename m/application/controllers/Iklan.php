@@ -7,7 +7,7 @@ class Iklan extends CI_Controller{
   {
     parent::__construct();
     $this->load->helper(['url','form']);
-    $this->load->library(['upload','session']);
+    $this->load->library(['upload','session', 'image_lib']);
     $this->load->model(['iklan_model','user_model']);
   }
 
@@ -30,8 +30,10 @@ class Iklan extends CI_Controller{
   				'upload_path' => '../images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')),
   				'allowed_types' => 'jpg|png|gif|jpeg',
   				'file_name' => $After_explode[0]."_".$slug_nama_iklan."-".$barang_kode."_Fitur",
-  				'overwrite' => TRUE
+  				'overwrite' => TRUE,
+          'max_size' => '6048',
   			]);
+
   		if(! $this->upload->do_upload('foto_fitur_name'))
   		{
   			$data = ['upload_data' => ''];
@@ -39,6 +41,21 @@ class Iklan extends CI_Controller{
   		else
   		{
   			$data = ['upload_data' => $this->upload->data('file_name')];
+        // IDEA: Ini untuk make thumb folder
+        // $this->image_lib->initialize(
+        //   [
+        //     'image_library' => 'gd2',
+        //     'source_image' =>  '../images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')).$this->upload->data('file_name'),
+        //     'create_thumb' => TRUE,
+        //     'maintain_ratio' => TRUE,
+        //     'width' => 85,
+        //     'new_image' => '../images/post_foto_feature/thumb'
+        //   ]);
+        //
+        // if (! $this->image_lib->resize()) {
+        //   echo $this->upload->data('file_name');
+        //   echo $this->image_lib->display_errors();
+        // };
   		}
 
       // NOTE: Ini untuk upload file jamak
@@ -80,7 +97,11 @@ class Iklan extends CI_Controller{
   		}
       $hasil_implode = implode(",", $uploaded);
   	}
-    // 
+    else
+    {
+      show_404();
+    }
+
 		// $data = [
 		// 	'nama_iklan' => $this->input->post('nama_iklan'),
 		// 	'slug_nama_iklan' => $slug_nama_iklan."-".$barang_kode,

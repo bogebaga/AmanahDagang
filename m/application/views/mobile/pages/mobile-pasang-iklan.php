@@ -1,12 +1,13 @@
-    <header>
+
+    <!-- <header>
       <img src="<?php echo base_url("images/footer-banner.jpg"); ?>" alt="banner iklan header">
-    </header>
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid" style="padding-left:0;margin-left:-10px;">
+    </header> -->
+    <nav class="navbar navbar-default bgc-black border-none" role="navigation">
+      <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="<?php echo base_url('home/mobile-home'); ?>">
-            <img src="<?php echo base_url("images/logodepanamanah_crop.png") ?>" alt="amanahdagang.com website logo depan">
-            <img src="<?php echo base_url("images/logoamanah.png") ?>" alt="amanahdagang.com website logo belakang">
+          <a class="navbar-brand" href="<?php echo base_url('home/mobile-home'); ?>" style="display:table;">
+            <!-- <img src="<?php echo base_url("images/logodepanamanah_crop.png") ?>" alt="amanahdagang.com website logo depan"> -->
+            <img width="160px" src="<?php echo base_url("images/amanahstores logo FULL.png") ?>" alt="amanahstores.com website logo belakang">
           </a>
         </div>
       </div>
@@ -32,6 +33,18 @@
         <br>
         <label>Deskripsi <em class="required">*</em></label>
         <textarea class="form-control" name="deskripsi_iklan" rows="7" cols="80" required></textarea>
+        <div class="form-group">
+  				<label class="pull-left">Regional <em class="required">*</em></label>
+  				<select class="form-control" name="provinsi" id="provinsi" style="margin-bottom:5px">
+  					<option>Pilih Provinsi</option>
+  				</select>
+  				<select class="form-control" name="kabkota" id="kabkota" style="margin-bottom:5px">
+  					<option>Pilih Kabupaten/Kota</option>
+  				</select>
+  				<select class="form-control" name="kecamatan" id="kecamatan">
+  					<option>Pilih Kecamatan</option>
+					</select>
+				</div>
         <label>Alamat</label>
         <input class="form-control" type="text" name="alamat" placeholder="Alamat barang yang di iklan">
         <label>Telepon</label>

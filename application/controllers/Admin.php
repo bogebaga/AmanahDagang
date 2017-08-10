@@ -14,7 +14,6 @@ class Admin extends CI_Controller{
     {
       redirect(base_url().'admin/login');
     }
-
   }
 
   public function index()
@@ -57,8 +56,6 @@ class Admin extends CI_Controller{
     $this->load->view('template/navbar-admin');
     $this->load->view('admin/admin_edit_iklan', $data);
     $this->load->view('template/footer-admin');
-
-    // redirect(base_url().'admin/iklan');
   }
 
   public function user_edit($val_1)
@@ -73,7 +70,7 @@ class Admin extends CI_Controller{
     $this->load->view('admin/admin_edit_user', $data);
     $this->load->view('template/footer-admin');
 
-    // redirect(base_url().'admin/iklan');
+    redirect(base_url().'admin/iklan');
   }
 
   public function user()
@@ -82,7 +79,6 @@ class Admin extends CI_Controller{
     $this->load->view('template/navbar-admin');
     $this->load->view('admin/list_user');
     $this->load->view('template/footer-admin');
-
   }
 
   public function add_iklan()
@@ -161,28 +157,30 @@ class Admin extends CI_Controller{
         $hasil_implode = implode(",", $uploaded);
       }
 
-    // $data = [
-    //   'barang_kode' => $barang_kode,
-    //   'user_kode' => $this->session->userdata('user_kd_admin'),
-    //   'id_kategori' => $this->input->post('kategori'),
-    //   'barang_upload_tgl' => date('Y-m-d H:i:s'),
-    //   'nama_barang' => $this->input->post('nama_barang'),
-    //   'slug_nama_barang' => $slug_nama_iklan."-".$barang_kode,
-    //   'alamat_barang' => $this->input->post('alamat'),
-    //   'deskripsi_barang' => $this->input->post('deskripsi'),
-    //   'telpon' => $this->input->post('telpon'),
-    //   'gambar_fitur' => $data['upload_data'],
-    //   'gambar_barang' => $hasil_implode,
-    //   'harga_barang' => $this->input->post('harga'),
-    //   'jenis_barang' => $this->input->post('jenis_barang'),
-    //   'jenis_iklan' => $this->input->post('jenis_iklan'),
-    //   'tayang_barang' => 'publish',
-    //   'fitur_barang' => 'none'
-    // ];
-    //
-    // $this->iklan_model->pasang_iklan_admin($data);
-    //
-    // redirect(base_url()."admin/add_iklan");
+    $data = [
+      'barang_kode' => $barang_kode,
+      'user_kode' => $this->session->userdata('user_kd_admin'),
+      'id_kategori' => $this->input->post('kategori'),
+      'barang_upload_tgl' => date('Y-m-d H:i:s'),
+      'nama_barang' => $this->input->post('nama_barang'),
+      'slug_nama_barang' => $slug_nama_iklan."-".$barang_kode,
+      'alamat_barang' => $this->input->post('alamat'),
+      'barang_provinsi' => $this->input->post('provinsi'),
+      'barang_kota' => $this->input->post('kabkota'),
+      'barang_kecamatan' => $this->input->post('kecamatan'),
+      'deskripsi_barang' => $this->input->post('deskripsi'),
+      'telpon' => $this->input->post('telpon'),
+      'gambar_fitur' => $data['upload_data'],
+      'gambar_barang' => $hasil_implode,
+      'harga_barang' => $this->input->post('harga'),
+      'jenis_barang' => $this->input->post('jenis_barang'),
+      'jenis_iklan' => $this->input->post('jenis_iklan'),
+      'tayang_barang' => 'publish',
+      'fitur_barang' => 'none'
+    ];
+
+    $this->iklan_model->pasang_iklan_admin($data);
+    redirect(base_url()."admin/add_iklan");
   }
 
   public function edit_save()
@@ -278,30 +276,31 @@ class Admin extends CI_Controller{
 			$hasil_implode = implode(",", $uploaded);
 		}
 
-    // $data = [
-    //   'id_kategori' => $this->input->post('kategori'),
-    //   'slug_nama_barang' => $this->input->post('slug_nama_barang'),
-    //   'nama_barang' => $this->input->post('nama_barang'),
-    //   'alamat_barang' => $this->input->post('alamat'),
-    //   'telpon' => $this->input->post('telpon'),
-    //   'deskripsi_barang' => $this->input->post('deskripsi'),
-    //   'harga_barang' => $this->input->post('harga'),
-    //   'jenis_barang' => $this->input->post('jenis_barang'),
-    //   // 'jenis_iklan' => $this->input->post('jenis_iklan'),
-    //   'gambar_fitur' => $data['upload_data'],
-    //   'gambar_barang' => $hasil_implode,
-    //   'tayang_barang' => $this->input->post('tayang_iklan')
-    // ];
+    $data = [
+      'id_kategori' => $this->input->post('kategori'),
+      'slug_nama_barang' => $this->input->post('slug_nama_barang'),
+      'nama_barang' => $this->input->post('nama_barang'),
+      'alamat_barang' => $this->input->post('alamat'),
+      'barang_provinsi' => $this->input->post('provinsi'),
+      'barang_kota' => $this->input->post('kabkota'),
+      'barang_kecamatan' => $this->input->post('kecamatan'),
+      'telpon' => $this->input->post('telpon'),
+      'deskripsi_barang' => $this->input->post('deskripsi'),
+      'harga_barang' => $this->input->post('harga'),
+      'jenis_barang' => $this->input->post('jenis_barang'),
+      'jenis_iklan' => $this->input->post('jenis_iklan'),
+      'gambar_fitur' => $data['upload_data'],
+      'gambar_barang' => $hasil_implode,
+      'tayang_barang' => $this->input->post('tayang_iklan')
+    ];
 
-    // $this->iklan_model->edit_iklan_admin($data);
-
-    // redirect(base_url()."admin/iklan");
+    $this->iklan_model->edit_iklan_admin($data);
+    redirect(base_url()."admin/iklan");
   }
 
   public function iklan_hapus($slug)
   {
     $file_hapus = $this->iklan_model->get_iklan_by_slug($slug);
-
     $tanggal = date('Y-m-d-N', strtotime($file_hapus->barang_upload_tgl));
     unlink(FCPATH.'images/post_foto_feature/'.$this->tanggal_indonesia($tanggal).$file_hapus->gambar_fitur);
 
@@ -309,19 +308,26 @@ class Admin extends CI_Controller{
     {
       $file_hapus_explode = explode(",",$file_hapus->gambar_barang);
       foreach ($file_hapus_explode as $hapus) {
-        unlink(FCPATH.'images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal).$slug."/".$hapus);
+        if ($hapus) {
+          unlink(FCPATH.'images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal).$slug."/".$hapus);
+        }
       }
       rmdir(FCPATH.'images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal).$slug);
     }
-
-    // $this->user_model->iklan_hapus($slug);
-    // redirect(base_url().'admin/iklan');
+    $this->user_model->iklan_hapus($slug);
+    redirect(base_url().'admin/iklan');
   }
 
   public function edit_user_save()
   {
+    // if (! file_exists('./images/user_iklan/'.$this->tanggal_indonesia(date('Y-m-d-N', strtotime($this->input->post('uplusr')))).$this->input->post('nama').'-'.$this->session->post('kd_user')))
+    // {
+    //   mkdir('./images/user_iklan/'.$this->tanggal_indonesia(date('Y-m-d-N', strtotime($this->input->post('uplusr')))).$this->input->post('nama').'-'.$this->session->post('kd_user'), 0777, TRUE);
+    // }
+
     $this->upload->initialize([
-      'upload_path' => './images/user_iklan/',
+      // 'upload_path' => './images/user_iklan/'.$tanggal_indonesia(date('Y-m-d-N', strtotime($this->input->post('uplusr')))).$this->input->post('nama').'-'.$this->input->post('kd_user'),
+      'upload_path' => './images/user_iklan/'.$tanggal_indonesia(date('Y-m-d-N', strtotime($this->input->post('uplusr')))),
       'allowed_types' => 'jpg|jpeg|png|gif',
       'file_name' => strtolower($this->input->post('nama').'-'.$this->session->userdata('user_login_admin')),
       'overwrite' => TRUE
@@ -330,10 +336,6 @@ class Admin extends CI_Controller{
     if ($this->upload->do_upload('foto_upload'))
     {
       $foto = $this->upload->data('file_name');
-    }
-    else
-    {
-      $foto = '';
     }
 
     $data = [
@@ -348,7 +350,6 @@ class Admin extends CI_Controller{
     ];
 
     $this->user_model->edit_user_save($data);
-
     redirect(base_url().'admin/user/edit/'.$this->input->post('kd_user'));
   }
 
@@ -357,7 +358,7 @@ class Admin extends CI_Controller{
     $valid_user_image = $this->user_model->get_user_profil($kode_user);
     if ($valid_user_image[0]['user_picture'])
     {
-      unlink(FCPATH.'images/user_iklan/'.$valid_user_image[0]['user_picture']);
+      unlink(FCPATH.'images/user_iklan/'.$this->tanggal_indonesia(date('Y-m-d-N', strtotime($valid_user_image[0]['user_add']))).$valid_user_image[0]['user_picture']);
     }
 
     $this->user_model->user_hapus($kode_user);

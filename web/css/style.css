@@ -16,9 +16,9 @@ a, p, h1, h2, h3, h4, label{
 }
 
 #menu {
-    background-color: #2c3e50;
+    background-color: #263238;
     border-radius: 0;
-    border-bottom: solid 3px #6498a3;
+    /*border-bottom: solid 3px #6498a3;*/
 }
 
 #menu .navbar-brand {
@@ -63,13 +63,23 @@ a, p, h1, h2, h3, h4, label{
 	color: white;
 }
 
-.menu-header .navbar-nav li:last-child{
+/*.menu-header .navbar-nav li:last-child{
 	background: #F27935;
+	cursor: pointer;
+}*/
+
+/*.menu-header .navbar-nav li:last-child a:hover{
+	background: rgba(255,255,255,.1) !important;
+	text-decoration: none;
+}*/
+
+.menu-header .navbar-nav li{
+	/*background: #F27935;*/
 	cursor: pointer;
 }
 
-.menu-header .navbar-nav li:last-child a:hover{
-	background: #d65811 !important;
+.menu-header .navbar-nav li a:hover{
+	background: rgba(255,255,255,.1) !important;
 	text-decoration: none;
 }
 
@@ -90,7 +100,7 @@ a, p, h1, h2, h3, h4, label{
 	font-size: 15px;
 	font-weight: 100;
 	color: #ffffff !important;
-	padding: 22px;
+	padding: 25px;
 }
 
 .menu-header ul li a:hover{
@@ -109,7 +119,7 @@ a, p, h1, h2, h3, h4, label{
 	float: left;
 	vertical-align: middle;
 	/*height: 35px;*/
-	width: 180px;
+	width: 160px;
 }
 
 #bagian-atas ul li{
@@ -184,8 +194,6 @@ a, p, h1, h2, h3, h4, label{
 	margin-top: 15px;
 	width: 100%;
 }
-
-
 /* .iklan .arah-kiri, .iklan .arah-kanan{
 	font-size: 50px;
 	position: absolute;
@@ -442,8 +450,8 @@ a, p, h1, h2, h3, h4, label{
 
 footer{
 	width: 100%;
-	background: #2c3e50;
-	border-top: solid 4px #6498a3;
+	background: #263238;
+	/*border-top: solid 4px #6498a3;*/
 	margin-top: 215px;
 	position: relative;
 }
@@ -454,7 +462,7 @@ footer::before
 	position: absolute;
 	width: 100%;
 	height:135%;
-	bottom: 100%;
+	bottom: 95%;
 	left:0;
 	right:0;
 }
@@ -722,10 +730,21 @@ footer::before
 }
 
 .sosmed-penjual{
-	/* text-align: center; */
+	text-align: center;
 	margin-top: 15px;
 	padding-top: 8px;
 	border-top: 1px solid #dcdcdc;
+}
+
+.sosmed-penjual.dashed
+{
+	border-top-style: dashed;
+	text-align: right;
+}
+
+.sosmed-penjual.dashed > a
+{
+	width: 10%;
 }
 
 .sosmed-penjual > a
@@ -1064,6 +1083,7 @@ footer::before
 	margin-top: 10px;
 	text-align: center;
 }
+
 .sprite-media
 {
   background: url("../../images/social_media/4794x72.png") no-repeat;

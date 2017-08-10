@@ -143,7 +143,7 @@ class Iklan_model extends CI_Model{
     $this->db->where('slug_nama_barang', $data);
     $query = $this->db->get();
 
-    return $query->result_array();
+    return $query->row_array();
   }
   public function pasang_iklan($data)
   {
@@ -202,6 +202,6 @@ class Iklan_model extends CI_Model{
     $this->db->select('view_barang');
     $this->db->where('slug_nama_barang', $slug);
 
-    return $this->db->get('ad_barang')->result_array();
+    return $this->db->get('ad_barang')->row_array();
   }
 }

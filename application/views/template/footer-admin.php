@@ -17,9 +17,15 @@ $(function() {
     data_kabkota (provinsi);
   });
 
+  $('#kabkota').change(function(){
+    var kabkota = $('#kabkota').val();
+    $('#kecamatan').empty();
+    data_kecamatan(kabkota);
+  })
+
   function data_kabkota (a)
   {
-    $.post('<?php echo base_url(); ?>kabkota',{id_provinsi : a}, function(data1)
+    $.post('<?php echo base_url('kabkota') ?>',{id_provinsi : a}, function(data1)
     {
       var data_arr = JSON.parse(data1);
       for (var i = 0; i < data_arr.length; i++) {
@@ -28,9 +34,18 @@ $(function() {
       }
     });
   }
+
+  function data_kecamatan(b)
+  {
+    $.post('<?php echo base_url('kecamatan') ?>', {id_kecamatan: b}, function(data) {
+      var data_arr = JSON.parse(data);
+      for (var i = 0; i < data_arr.length; i++) {
+        var select = "<option value='"+data_arr[i]['id']+"'>"+data_arr[i]['nama']+"</option>";
+        $('#kecamatan').append(select);
+      }
+    });
+  }
 });
-</script>
-<script>
   $('#harga').maskMoney({thousands: '.', decimal: ',', precision:0});
 
   tinymce.init({
@@ -47,8 +62,7 @@ $(function() {
     ],
     image_advtab: true
   });
-</script>
-<script>
+
 window.onload = function(){
   var chart1 = document.getElementById("line-chart").getContext("2d");
   window.myLine = new Chart(chart1).Line(lineChartData, {
@@ -70,10 +84,7 @@ window.onload = function(){
     scaleLineColor: "rgba(255,255,255,.05)",
     angleLineColor : "rgba(255,255,255,.2)"
   });
-
 };
-</script>
-<script>
   !function ($) {
     $(document).on("click","ul.nav li.parent > a > span.icon", function(){
       $(this).find('em:first').toggleClass("glyphicon-minus");
@@ -89,5 +100,4 @@ window.onload = function(){
   })
 </script>
 </body>
-
 </html>

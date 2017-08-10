@@ -1,12 +1,12 @@
-    <header>
+    <!-- <header>
       <img src="<?php echo base_url("images/footer-banner.jpg"); ?>" alt="banner iklan header">
-    </header>
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid" style="padding-left:0;margin-left:-10px;">
+    </header> -->
+    <nav class="navbar navbar-default border-none bgc-black" role="navigation">
+      <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="<?php echo base_url('tron/home/mobile-home'); ?>">
-            <img src="<?php echo base_url("images/logodepanamanah_crop.png") ?>" alt="amanahdagang.com website logo depan">
-            <img src="<?php echo base_url("images/logoamanah.png") ?>" alt="amanahdagang.com website logo belakang">
+          <a class="navbar-brand" href="<?php echo base_url('tron/home/mobile-home'); ?>" style="display:table;">
+            <!-- <img src="<?php echo base_url("images/logodepanamanah_crop.png") ?>" alt="amanahdagang.com website logo depan"> -->
+            <img width="160px" src="<?php echo base_url("images/amanahstores logo FULL.png") ?>" alt="amanahstores.com website logo belakang">
           </a>
         </div>
       </div>

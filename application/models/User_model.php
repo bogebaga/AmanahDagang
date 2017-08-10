@@ -8,16 +8,9 @@ class User_model extends CI_Model
 
   public function get_user_profil($val = '')
   {
-    $this->load->library('session');
     if ($val)
     {
       $this->db->where('user_kode', $val);
-      // echo "1";
-    }
-    else
-    {
-      $this->db->where('user_kode', $this->session->userdata('user_kd'));
-      // echo "2";
     }
 
     $result = $this->db->get('ad_user');

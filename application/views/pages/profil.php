@@ -5,7 +5,6 @@ $(function() {
     $('#kabkota').empty();
     data_kabkota (provinsi);
   });
-
   function data_kabkota (a)
   {
     $.post('kabkota',{id_provinsi : a}, function(data1)
@@ -20,15 +19,15 @@ $(function() {
 });
 </script>
 <section>
-  <?php echo form_open_multipart('edit'); ?>
+  <?php echo form_open_multipart('edit', '', ['uplusr' => $data_user[0]['user_add']]); ?>
   <div  class="detail-biodata">
     <div class="dua">
       <div class="user-container" style="margin-bottom:30px;text-align:center;">
         <label for="foto_user">
           <?php if (empty($data_user[0]['user_picture'])): ?>
-            <img src="images/gambar.jpg" width="200px">
+            <img id="user_picture_0" src="images/gambar.jpg" width="200px">
           <?php else: ?>
-            <img src="<?php echo base_url()."images/user_iklan/".$data_user[0]['user_picture'] ?>" width="200px">
+            <img id="user_picture_0" src="<?php echo base_url()."images/user_iklan/".$data_user[0]['user_picture'] ?>">
           <?php endif; ?>
         </label>
         <h4><?php echo $data_user[0]['user_nama'] ?></h4>
@@ -57,18 +56,32 @@ $(function() {
         <?php endforeach; ?>
         </select>
         <label class="label-control">Nama</label>
-        <input type="text" class="form-control" name="nama" placeholder="Fulan..." value="<?php echo $data_user[0]['user_nama'] ?>" required>
+        <input type="text" class="form-control" name="nama" placeholder="Nama lengkap" value="<?php echo $data_user[0]['user_nama'] ?>" required>
         <label class="label-control">Telepon</label>
         <input type="text" class="form-control" name="telpon" placeholder="08xxxxx" value="<?php echo $data_user[0]['user_telpon'] ?>">
       </div>
       <div class="col-xs-6">
-        <input type="file" name="foto_user" id="foto_user" style="display:none;">
         <label class="label-control">Deskripsi</label>
         <textarea name="deskripsi" class="form-control" rows="7"><?php echo $data_user[0]['user_deskripsi'] ?></textarea>
         <br>
+        <input type="file" onchange="load_image(this, 'user_picture_0', '200')" name="foto_user" id="foto_user" style="display:none;">
         <button type="submit" name="submit" class="btn btn-lg btn-success pull-right">Simpan</button>
       </div>
     </div>
+    <script type="text/javascript">
+    function load_image(file, element, w)
+    {
+      if (file.files && file.files[0])
+      {
+        var reader = new FileReader();
+        reader.onload = function(e){
+          $('#'+element).attr('src', e.target.result).width(w);
+        }
+
+        reader.readAsDataURL(file.files[0])
+      }
+    }
+    </script>
     <div class="clearfix"></div>
     <div class="tiga"> <ul class="nav nav-pills">
         <li class="active">

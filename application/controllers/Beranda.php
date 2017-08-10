@@ -47,7 +47,7 @@ class Beranda extends CI_Controller {
 				}
 				$data = [
 					'data_provinsi' => $this->iklan_model->get_data_provinsi(),
-					'data_user' => $this->user_model->get_user_profil()
+					'data_user' => $this->user_model->get_user_profil($this->session->userdata('user_kd'))
 				];
 				$this->load->view('pages/'.$halaman, $data);
 			}
@@ -64,17 +64,22 @@ class Beranda extends CI_Controller {
 
 	public function edit()
 	{
-		if (empty($this->session->userdata('user_login'))) {
+		if (empty($this->session->userdata('user_login')) OR ! isset($_POST['submit'])) {
 			redirect(base_url());
 		}
-
+		// if(! file_exists('./images/user_iklan/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($this->input->post('uplusr')))).'/'.$this->input->post('nama').'-'.$this->session->userdata('user_kd')))
+		// {
+		// 	mkdir('./images/user_iklan/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($this->input->post('uplusr')))).'/'.$this->input->post('nama').'-'.$this->session->userdata('user_kd'), 0777, TRUE);
+		// }
 		$config = [
 			'file_name' => strtolower($this->input->post('nama')."-".$this->session->userdata('user_login')),
-			'upload_path' => './images/user_iklan/',
+			// 'upload_path' => './images/user_iklan/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($this->input->post('uplusr')))).'/'.$this->input->post('nama').'-'.$this->session->userdata('user_kd'),
+			'upload_path' => './images/user_iklan/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($this->input->post('uplusr')))),
 			'allowed_types' => 'jpg|png|gif|jpeg',
 			'overwrite' => TRUE
 		];
 		$this->upload->initialize($config);
+
 		if($this->upload->do_upload('foto_user'))
 		{
 			$data['upload_data'] = $this->upload->data();
@@ -89,6 +94,7 @@ class Beranda extends CI_Controller {
 			'user_deskripsi' => $this->input->post('deskripsi')
 		];
 
+		// echo 'test';
 		$this->user_model->update_user($data);
 		redirect('profil');
 	}

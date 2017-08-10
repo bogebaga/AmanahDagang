@@ -30,7 +30,18 @@
 										<?php endforeach; ?>
 									</select>
 								</div>
-
+								<div class="form-group">
+									<label>Regional</label>
+									<select class="form-control" name="provinsi" id="provinsi" style="margin-bottom:5px">
+										<option>Pilih Provinsi</option>
+									</select>
+									<select class="form-control" name="kabkota" id="kabkota" style="margin-bottom:5px">
+										<option>Pilih Kabupaten/Kota</option>
+									</select>
+									<select class="form-control" name="kecamatan" id="kecamatan">
+										<option>Pilih Kecamatan</option>
+									</select>
+								</div>
 								<div class="form-group">
 									<label>Jenis Iklan</label>
 									<div class="radio">

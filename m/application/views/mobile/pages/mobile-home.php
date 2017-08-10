@@ -1,12 +1,12 @@
-    <header>
+    <!-- <header>
       <img src="<?php echo base_url("images/footer-banner.jpg"); ?>" alt="banner iklan header">
-    </header>
-    <nav class="navbar navbar-default" role="navigation" style="margin:0;">
-      <div class="container-fluid" style="padding-left:0;margin-left:-10px;">
+    </header> -->
+    <nav class="navbar navbar-default bgc-black border-none" role="navigation">
+      <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="<?php echo base_url(); ?>">
-            <img src="<?php echo base_url("images/logodepanamanah_crop.png") ?>" alt="amanahdagang.com website logo depan">
-            <img src="<?php echo base_url("images/logoamanah.png") ?>" alt="amanahdagang.com website logo belakang">
+          <a class="navbar-brand" href="<?php echo base_url(); ?>" style="display:table;">
+            <!--<img src="<?php echo base_url("images/logodepanamanah_crop.png") ?>" alt="amanahdagang.com website logo depan"> -->
+            <img width="160px" src="<?php echo base_url("images/amanahstores logo FULL.png") ?>" alt="amanahstores.com website logo belakang">
           </a>
         </div>
       </div>
@@ -16,9 +16,9 @@
       <div style="margin-bottom:10px;"></div>
       <?php echo form_open(base_url("allresult_mobile")); ?>
         <input class="form-control" type="text" name="sedang-mencari-barang" placeholder="Iklan disekitar kita" style="float:left;text-align:left;width:85%;">
-        <button class="btn btn-primary" type="submit" style="float:right;background-color:#30e1cf;">Cari</button>
+        <button class="btn btn-primary _btn_std pull-right" type="submit">Cari</button>
       <?php echo form_close(); ?>
-      <a href="<?php echo base_url('home/mobile-pasang-iklan'); ?>" class="btn btn-primary" style="font-size:23px;box-sizing:border-box;margin-top:10px;width:100%;background-color:#30e1cf;">Pasang Iklan</a>
+      <a href="<?php echo base_url('home/mobile-pasang-iklan'); ?>" class="btn btn-primary _btn_std pasang_iklan">Pasang Iklan</a>
     </div>
     <section class="container-fluid menu-container">
       <?php //print_r($_SERVER);?>
