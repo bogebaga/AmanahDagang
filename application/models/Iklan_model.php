@@ -41,7 +41,7 @@ class Iklan_model extends CI_Model{
     return $result->result_array();
   }
 
-  public function get_all_iklan($kategori = '', $tayang_barang = '', $jenis_iklan = '', $urutan = 'DESC' )
+  public function get_all_iklan($kategori = '', $tayang_barang = '', $jenis_iklan = '', $user_kode = '' , $urutan = 'DESC' )
   {
     $this->db->from('ad_barang ab');
     $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
@@ -56,6 +56,10 @@ class Iklan_model extends CI_Model{
     if ($jenis_iklan)
     {
       $this->db->where('ab.jenis_iklan !=', $jenis_iklan);
+    }
+    if ($user_kode)
+    {
+      $this->db->where('ab.user_kode', $user_kode);
     }
     if ($urutan)
     {
@@ -161,9 +165,8 @@ class Iklan_model extends CI_Model{
   public function simpan_iklan_by_kdbarang($data)
   {
     $this->load->helper('array');
-
-    $this->db->where('barang_kode', element('barang_kode', $data));
-    unset($data['barang_kode']);
+    $this->db->where('slug_nama_barang', element('slug_nama_barang', $data));
+    unset($data['slug_nama_barang']);
 
     return $this->db->update('ad_barang', $data);
   }
@@ -176,7 +179,6 @@ class Iklan_model extends CI_Model{
   public function edit_iklan_admin($data)
   {
     $this->load->helper('array');
-
     $this->db->where('slug_nama_barang', element('slug_nama_barang', $data));
     unset($data['slug_nama_barang']);
 

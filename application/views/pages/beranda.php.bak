@@ -93,12 +93,12 @@
           'mobil' => 'fa-car material-blue',
           'motor' => 'fa-motorcycle material-violet',
           'fashion' => 'fa-shopping-bag material-blue',
-          'mobile' => 'fa-mobile material-green-grass',
+          'handphone' => 'fa-mobile material-green-grass',
           'komputer' => 'fa-laptop material-blue',
           'travel' => 'fa-suitcase material-orange',
           'kitchen' => 'fa-cutlery material-blue',
-          'makanan' => 'fa-lemon-o material-orange',
-          'kesehatan' => 'fa-heart material-red',
+          'makanan' => 'fa-cutlery material-blue',
+          'kesehatan' => 'fa-heart material-blue',
           'service' => 'fa-handshake-o material-tea',
           'lowongan-kerja' => 'fa-user material-green-old',
           'lainnya' => 'fa-ellipsis-h material-grey'];  ?>
@@ -110,6 +110,50 @@
                   <?php echo $value['nama_kategori'] ?>
                 </a></li>
               <?php endforeach; ?>
+              <!-- <li><a href="mobil/kategori">
+                <span class="fa fa-car material-blue" aria-hidden="true"></span>
+                Mobil
+              </a></li>
+              <li><a href="motor/kategori">
+                <span class="fa fa-motorcycle material-violet" aria-hidden="true"></span>
+                Motor
+              </a></li>
+              <li><a href="fashion/kategori">
+                <span class="fa fa-shopping-bag material-blue" aria-hidden="true"></span>
+                Fashion
+              </a></li>
+              <li><a href="handphone/kategori">
+                <span class="fa fa-mobile material-green-grass" aria-hidden="true"></span>
+                Mobile
+              </a></li>
+              <li><a href="komputer/kategori">
+                <span class="fa fa-laptop material-blue" aria-hidden="true"></span>
+                Komputer
+              </a></li>
+              <li><a href="travel/kategori">
+                <span class="fa fa-suitcase material-orange" aria-hidden="true"></span>
+                Travel
+              </a></li>
+              <li><a href="kitchen/kategori">
+                <span class="fa fa-cutlery material-blue" aria-hidden="true"></span>
+                Kitchen
+              </a></li>
+              <li><a href="kesehatan/kategori">
+                <span class="fa fa-heart material-pink" aria-hidden="true"></span>
+                Kesehatan
+              </a></li>
+              <li><a href="service/kategori">
+                <span class="fa fa-handshake-o material-tea" aria-hidden="true"></span>
+                Services
+              </a></li>
+              <li><a href="lowongan-kerja/kategori">
+                <span class="fa fa-user material-green-old" aria-hidden="true"></span>
+                Lowongan Kerja
+              </a></li>
+              <li><a href="lainnya/kategori">
+                <span class="fa fa-ellipsis-h material-grey" aria-hidden="true"></span>
+                Lainnya
+              </a></li> -->
             </ul>
           </div>
       </div>

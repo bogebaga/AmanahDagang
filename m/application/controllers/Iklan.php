@@ -31,7 +31,6 @@ class Iklan extends CI_Controller{
   				'allowed_types' => 'jpg|png|gif|jpeg',
   				'file_name' => $After_explode[0]."_".$slug_nama_iklan."-".$barang_kode."_Fitur",
   				'overwrite' => TRUE,
-          'max_size' => '6048',
   			]);
 
   		if(! $this->upload->do_upload('foto_fitur_name'))
@@ -102,25 +101,27 @@ class Iklan extends CI_Controller{
       show_404();
     }
 
-		// $data = [
-		// 	'nama_iklan' => $this->input->post('nama_iklan'),
-		// 	'slug_nama_iklan' => $slug_nama_iklan."-".$barang_kode,
-		// 	'barang_kode' => $barang_kode,
-		// 	'barang_upload_tgl' => date('Y-m-d H:i:s'),
-		// 	'user_kode' => $this->session->userdata('user_kd'),
-		// 	'nama_kategori' => $this->input->post('nama_kategori'),
-		// 	'jenis_iklan' => '',
-		// 	'jenis_barang' => $this->input->post('ji'),
-		// 	'harga_iklan' => $this->input->post('harga_iklan'),
-		// 	'telpon' => $this->input->post('telpon'),
-		// 	'deskripsi_iklan' => $this->input->post('deskripsi_iklan'),
-		// 	'gambar_barang' => $hasil_implode,
-		// 	'gambar_fitur' => $data['upload_data'],
-		// 	'alamat' => $this->input->post('alamat')
-		// ];
-    //
-		// $this->iklan_model->pasang_iklan($data);
-		// redirect(base_url());
+    $data = [
+      'nama_barang' => $this->input->post('nama_iklan'),
+      'slug_nama_barang' => $slug_nama_iklan."-".$barang_kode,
+      'barang_kode' => $barang_kode,
+      'barang_upload_tgl' => date('Y-m-d H:i:s'),
+      'user_kode' => $this->session->userdata('user_kd'),
+      'id_kategori' => $this->input->post('nama_kategori'),
+      'jenis_iklan' => 'iklan',
+      'jenis_barang' => $this->input->post('ji'),
+      'harga_barang' => $this->input->post('harga_iklan'),
+      'telpon' => $this->input->post('telpon'),
+      'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
+      'gambar_barang' => $hasil_implode,
+      'gambar_fitur' => $data['upload_data'],
+      'alamat_barang' => $this->input->post('alamat'),
+      'tayang_barang' => 'unpublish',
+      'fitur_barang' => 'none'
+    ];
+
+		$this->iklan_model->pasang_iklan($data);
+		redirect(base_url());
   }
 
   private function tanggal_indonesia($tanggal)

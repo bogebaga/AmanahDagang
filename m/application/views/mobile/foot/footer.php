@@ -12,19 +12,19 @@
 <footer>
   <!-- <img src="<?php echo base_url("images/AMANAH_WHITE_2850x650.png") ?>" alt=""> -->
   <div class="social-media">
-    <a href="#">
+    <a href="https://www.facebook.com/profile.php?id=100019591120282" target="_blank">
       <div class="sprite-media facebook"></div>
     </a>
-    <a href="#">
+    <a href="https://plus.google.com/u/0/109458552857548437750" target="_blank">
       <div class="sprite-media googleplus"></div>
     </a>
-    <a href="#">
+    <a href="https://twitter.com/amanahstores" target="_blank">
       <div class="sprite-media twitter"></div>
     </a>
-    <a href="#">
+    <!-- <a href="#">
       <div class="sprite-media youtube"></div>
-    </a>
-    <a href="#">
+    </a> -->
+    <a href="https://www.linkedin.com/in/amanah-stores-7630a8147/" target="_blank">
       <div class="sprite-media linkedin"></div>
     </a>
   </div>

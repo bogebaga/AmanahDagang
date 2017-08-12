@@ -67,10 +67,10 @@ class Beranda extends CI_Controller {
 		if (empty($this->session->userdata('user_login')) OR ! isset($_POST['submit'])) {
 			redirect(base_url());
 		}
-		// if(! file_exists('./images/user_iklan/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($this->input->post('uplusr')))).'/'.$this->input->post('nama').'-'.$this->session->userdata('user_kd')))
-		// {
-		// 	mkdir('./images/user_iklan/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($this->input->post('uplusr')))).'/'.$this->input->post('nama').'-'.$this->session->userdata('user_kd'), 0777, TRUE);
-		// }
+		if(! file_exists('./images/user_iklan/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($this->input->post('uplusr'))))))
+		{
+			mkdir('./images/user_iklan/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($this->input->post('uplusr')))), 0777, TRUE);
+		}
 		$config = [
 			'file_name' => strtolower($this->input->post('nama')."-".$this->session->userdata('user_login')),
 			// 'upload_path' => './images/user_iklan/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($this->input->post('uplusr')))).'/'.$this->input->post('nama').'-'.$this->session->userdata('user_kd'),
@@ -94,7 +94,6 @@ class Beranda extends CI_Controller {
 			'user_deskripsi' => $this->input->post('deskripsi')
 		];
 
-		// echo 'test';
 		$this->user_model->update_user($data);
 		redirect('profil');
 	}

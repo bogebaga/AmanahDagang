@@ -81,7 +81,7 @@ class Proses extends CI_Controller {
 
 			if(! file_exists('./images/post_foto_feature/'.$this->tanggal_indonesia_convert(date('Y-m-d-N'))))
 			{
-				mkdir('./images/post_foto_feature/'.$this->tanggal_indonesia_convert(date('Y-m-d-N')));
+				mkdir('./images/post_foto_feature/'.$this->tanggal_indonesia_convert(date('Y-m-d-N')), 0777, TRUE);
 			}
 
 			$this->upload->initialize(
@@ -101,11 +101,11 @@ class Proses extends CI_Controller {
 				$data = ['upload_data' => $this->upload->data('file_name')];
 			}
 
-			$gambar_count = count($_FILES['image']['name']);
 			if (! file_exists('./images/post_foto_ikl/'.$this->tanggal_indonesia_convert(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode)):
-				mkdir('./images/post_foto_ikl/'.$this->tanggal_indonesia_convert(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode);
+				mkdir('./images/post_foto_ikl/'.$this->tanggal_indonesia_convert(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode, 0777, TRUE);
 			endif;
 
+			$gambar_count = count($_FILES['image']['name']);
 			for ($i=0; $i < $gambar_count ; $i++)
 			{
 				if ($_FILES['image']['error'][$i] == 4)
@@ -160,7 +160,7 @@ class Proses extends CI_Controller {
 			'gambar_fitur' => $data['upload_data'],
 			'alamat_barang' => $this->input->post('alamat'),
 			'barang_provinsi' => $this->input->post('provinsi'),
-			'barang_kota' => $this->input->post('kabkota'),
+			'barang_kota' => $this->input->post('kota'),
 			'barang_kecamatan' => $this->input->post('kecamatan'),
 			'tayang_barang' => 'unpublish',
 			'fitur_barang' => 'none'
@@ -183,14 +183,14 @@ class Proses extends CI_Controller {
 		$tanggal = date('Y-m-d-N', strtotime($iklan_data_obj->barang_upload_tgl));
 
 		if (! file_exists('./images/post_foto_feature/'.$this->tanggal_indonesia_convert($tanggal))) :
-			mkdir('./images/post_foto_feature/'.$this->tanggal_indonesia_convert($tanggal));
+			mkdir('./images/post_foto_feature/'.$this->tanggal_indonesia_convert($tanggal), 0777, TRUE);
 		endif;
 
 		$this->upload->initialize(
 		[
 			'upload_path' => './images/post_foto_feature/'.$this->tanggal_indonesia_convert($tanggal),
 			'allowed_types' => 'jpg|png|gif|jpeg',
-			'file_name' => $After_explode[0]."_".$slug_nama."_Fitur",
+			'file_name' => $After_explode[0]."_".$this->input->post('slug_iklan')."_Fitur",
 			'overwrite' => TRUE
 		]);
 
@@ -215,7 +215,7 @@ class Proses extends CI_Controller {
 			$gambar_count = count($_FILES['image']['name']);
 			if (! file_exists('./images/post_foto_ikl/'.$this->tanggal_indonesia_convert($tanggal).$this->input->post('slug_iklan'))) :
 				# code...
-				mkdir('./images/post_foto_ikl/'.$this->tanggal_indonesia_convert($tanggal).$this->input->post('slug_iklan'));
+				mkdir('./images/post_foto_ikl/'.$this->tanggal_indonesia_convert($tanggal).$this->input->post('slug_iklan'), 0777, TRUE);
 			endif;
 
 			for ($i=0; $i < $gambar_count ; $i++)
@@ -265,9 +265,8 @@ class Proses extends CI_Controller {
 		}
 
 		$data=[
-			'barang_kode' => $this->input->post('kd_barang'),
 			'id_kategori' => $this->input->post('nama_kategori'),
-			'slug_nama_barang' => $slug_nama,
+			'slug_nama_barang' => $this->input->post('slug_iklan'),
 			'nama_barang' => $this->input->post('nama_iklan'),
 			'alamat_barang' => $this->input->post('alamat'),
 			'barang_provinsi' => $this->input->post('provinsi'),
@@ -277,13 +276,12 @@ class Proses extends CI_Controller {
 			'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
 			'harga_barang' => $this->input->post('harga_iklan'),
 			'jenis_barang' => $this->input->post('jenis_barang'),
-			'jenis_iklan' => $this->input->post('jenis_iklan'),
 			'gambar_fitur' => $data['upload_data'],
 			'gambar_barang' => $hasil_implode
 		];
 
 		$this->iklan_model->simpan_iklan_by_kdbarang($data);
-		redirect(base_url().'barang/edit/'.$slug_nama);
+		redirect(base_url().'barang/edit/'.$this->input->post('slug_iklan'));
 	}
 
 	public function hapus_iklan($slug)

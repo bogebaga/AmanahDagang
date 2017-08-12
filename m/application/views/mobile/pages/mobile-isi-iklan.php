@@ -91,8 +91,11 @@
           </ul>
         </div>
         <div class="contact-item same-size" style="text-align:center;">
-        <a href="#" class="btn btn-success btn-lg" title="handphone"><span class="fa fa-2x fa-phone"></span></a>
-      </div>
+          <a href="#" class="btn btn-success btn-lg" title="handphone"><span class="fa fa-2x fa-phone"></span></a>
+        </div>
+        <div class="contact-item same-size">
+          <div class="fb-comments" data-href="<?php echo current_url(); ?>" data-width="100%" data-numposts="10"></div>
+        </div>
       </div>
     </section>
     <br>

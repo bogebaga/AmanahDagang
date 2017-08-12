@@ -14,7 +14,7 @@ class User_model extends CI_Model
     }
 
     $result = $this->db->get('ad_user');
-    return $result->result_array();
+    return $result->row_array();
   }
 
   public function validate_user_exist($param)
@@ -75,7 +75,6 @@ class User_model extends CI_Model
   public function update_user($data)
   {
     $this->load->library('session');
-
     $this->db->where('user_kode', $this->session->userdata('user_kd'));
     return $this->db->update('ad_user', $data);
   }
@@ -103,6 +102,7 @@ class User_model extends CI_Model
     $this->db->select('b.user_nama, b.user_kode,a.barang_kode, a.id_barang, a.jenis_iklan, a.barang_upload_tgl, a.slug_nama_barang, a.nama_barang, a.tayang_barang, a.action');
     $this->db->from('ad_barang a');
     $this->db->join('ad_user b', 'a.user_kode = b.user_kode');
+    $this->db->order_by('a.barang_upload_tgl', 'DESC');
     $result = $this->db->get();
 
     return $result->result_array();

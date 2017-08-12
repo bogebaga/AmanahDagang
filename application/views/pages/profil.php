@@ -19,25 +19,25 @@ $(function() {
 });
 </script>
 <section>
-  <?php echo form_open_multipart('edit', '', ['uplusr' => $data_user[0]['user_add']]); ?>
+  <?php echo form_open_multipart('edit', '', ['uplusr' => $data_user['user_add']]); ?>
   <div  class="detail-biodata">
     <div class="dua">
       <div class="user-container" style="margin-bottom:30px;text-align:center;">
         <label for="foto_user">
-          <?php if (empty($data_user[0]['user_picture'])): ?>
+          <?php if (empty($data_user['user_picture'])): ?>
             <img id="user_picture_0" src="images/gambar.jpg" width="200px">
           <?php else: ?>
-            <img id="user_picture_0" src="<?php echo base_url()."images/user_iklan/".$data_user[0]['user_picture'] ?>">
+            <img id="user_picture_0" src="<?php echo base_url("images/user_iklan/".$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($data_user['user_add']))).$data_user['user_picture']) ?>" width="200px">
           <?php endif; ?>
         </label>
-        <h4><?php echo $data_user[0]['user_nama'] ?></h4>
+        <h4><?php echo $data_user['user_nama'] ?></h4>
         <h4>Makassar</h4>
       </div>
       <div class="col-xs-6">
         <label for="" class="label-control">Provinsi</label>
         <select class="form-control" name="provinsi" id="provinsi">
           <?php foreach ($data_provinsi as $provinsi): ?>
-            <?php if ($data_user[0]['user_provinsi'] == $provinsi['id']): ?>
+            <?php if ($data_user['user_provinsi'] == $provinsi['id']): ?>
               <option value="<?php echo $provinsi['id'] ?>" selected><?php echo $provinsi['nama'] ?></option>
             <?php continue; ?>
             <?php endif; ?>
@@ -46,9 +46,9 @@ $(function() {
         </select>
         <label for="" class="label-control">Kabupaten/Kota</label>
         <select class="form-control" name="kota" id="kabkota">
-        <?php $data_kabkota = $this->iklan_model->get_data_kabkota($data_user[0]['user_provinsi']) ?>
+        <?php $data_kabkota = $this->iklan_model->get_data_kabkota($data_user['user_provinsi']) ?>
         <?php foreach ($data_kabkota as $kota): ?>
-          <?php if ($data_user[0]['user_kota'] == $kota['id']): ?>
+          <?php if ($data_user['user_kota'] == $kota['id']): ?>
             <option value="<?php echo $kota['id'] ?>" selected><?php echo $kota['nama'] ?></option>
           <?php continue; ?>
           <?php endif; ?>
@@ -56,13 +56,13 @@ $(function() {
         <?php endforeach; ?>
         </select>
         <label class="label-control">Nama</label>
-        <input type="text" class="form-control" name="nama" placeholder="Nama lengkap" value="<?php echo $data_user[0]['user_nama'] ?>" required>
+        <input type="text" class="form-control" name="nama" placeholder="Nama lengkap" value="<?php echo $data_user['user_nama'] ?>" required>
         <label class="label-control">Telepon</label>
-        <input type="text" class="form-control" name="telpon" placeholder="08xxxxx" value="<?php echo $data_user[0]['user_telpon'] ?>">
+        <input type="text" class="form-control" name="telpon" placeholder="08xxxxx" value="<?php echo $data_user['user_telpon'] ?>">
       </div>
       <div class="col-xs-6">
         <label class="label-control">Deskripsi</label>
-        <textarea name="deskripsi" class="form-control" rows="7"><?php echo $data_user[0]['user_deskripsi'] ?></textarea>
+        <textarea name="deskripsi" class="form-control" rows="7"><?php echo $data_user['user_deskripsi'] ?></textarea>
         <br>
         <input type="file" onchange="load_image(this, 'user_picture_0', '200')" name="foto_user" id="foto_user" style="display:none;">
         <button type="submit" name="submit" class="btn btn-lg btn-success pull-right">Simpan</button>

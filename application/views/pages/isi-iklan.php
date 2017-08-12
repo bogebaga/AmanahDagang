@@ -6,12 +6,10 @@
       </li>
       <li class="active"><?php echo $iklan['nama_kategori'] ?></li>
     </ol>
-
     <div class="judul-barang">
       <h2><?php echo $iklan['nama_barang'] ?></h2>
       <h2 style="color:#ce6161;"><?php echo ($iklan['harga_barang']) ? "Rp. ".$iklan['harga_barang'] : ucwords(str_replace("_"," ", $iklan['jenis_iklan']))  ?></h2>
     </div>
-
     <div class="slide-barang">
       <div class="gambar-gambar" align="center">
         <?php $path_ff = base_url('images/post_foto_feature/'.$this->proses->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($iklan['barang_upload_tgl'])))); ?>
@@ -107,4 +105,7 @@
       <img src="<?php echo base_url("images/gambar.jpg")?>" class="img-responsive" alt="iklan">
     </div> -->
   </aside>
+  <section class="detail-barang" style="margin-top:0;">
+    <div class="fb-comments" data-href="<?php echo current_url(); ?>" data-width="100%" data-numposts="10"></div>
+  </section>
 </div>

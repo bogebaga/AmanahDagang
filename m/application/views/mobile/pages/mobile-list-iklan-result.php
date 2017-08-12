@@ -27,9 +27,9 @@
         <?php //$path_fitur = FCPATH.'images/post_foto_feature/'; ?>
         <?php if ($iklan == NULL)
         {
-          echo '<div style="width:100%;text-align:center">
+          echo '<li class="item-iklan"><div style="width:100%;text-align:center">
             <img width="250px" src="'.base_url("images/not_found.png").'" alt="">
-          </div>';
+          </div></li>';
         } ?>
         <?php foreach ($iklan as $loadfirst) : ?>
           <li class="item-iklan">

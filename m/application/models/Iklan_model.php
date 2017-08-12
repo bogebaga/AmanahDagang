@@ -33,7 +33,7 @@ class Iklan_model extends CI_Model{
     return $query->result_array();
   }
 
-  public function get_all_iklan($kategori = '', $tayang_barang = '', $jenis_iklan = '', $urutan = 'DESC' )
+  public function get_all_iklan($kategori = '', $tayang_barang = '', $jenis_iklan = '', $user_kode = '' , $urutan = 'DESC' )
   {
     $this->db->from('ad_barang ab');
     $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
@@ -48,6 +48,10 @@ class Iklan_model extends CI_Model{
     if ($jenis_iklan)
     {
       $this->db->where('ab.jenis_iklan !=', $jenis_iklan);
+    }
+    if ($user_kode)
+    {
+      $this->db->where('ab.user_kode', $user_kode);
     }
     if ($urutan)
     {
@@ -145,27 +149,10 @@ class Iklan_model extends CI_Model{
 
     return $query->row_array();
   }
+
   public function pasang_iklan($data)
   {
-      $store_db = [
-        'nama_barang' => $data['nama_iklan'],
-        'slug_nama_barang' => $data['slug_nama_iklan'],
-        'barang_kode' => $data['barang_kode'],
-        'barang_upload_tgl' => $data['barang_upload_tgl'],
-        'user_kode' => $data['user_kode'],
-        'id_kategori' => $data['nama_kategori'],
-        'jenis_iklan' => $data['jenis_iklan'],
-        'jenis_barang' => $data['jenis_barang'],
-        'harga_barang' => $data['harga_iklan'],
-        'telpon' => $data['telpon'],
-        'deskripsi_barang' => $data['deskripsi_iklan'],
-        'gambar_barang' => $data['gambar_barang'],
-        'gambar_fitur' => $data['gambar_fitur'],
-        'alamat_barang' => $data['alamat'],
-        'tayang_barang' => 'unpublish',
-        'fitur_barang' => 'none'
-      ];
-      return $this->db->insert('ad_barang', $store_db);
+      return $this->db->insert('ad_barang', $data);
   }
 
   public function simpan_iklan_by_kdbarang($data)
