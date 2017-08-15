@@ -32,10 +32,10 @@ class Login extends CI_Controller {
 		}
 		else
 		{
-			$this->session->set_flashdata('login_term', '<div class="alert alert-danger alert-dismissable show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:0;padding:0 15px;"> <span aria-hidden="true">&times;</span> </button> <strong>Alamat Email belum terdaftar.</strong> <a href="'.base_url('beranda/daftar').'">Daftar</a> terlebih dahulu untuk memulai berjualan dan memasang iklan. </div>');
-
+			$this->session->set_flashdata('login_term', '<div class="alert alert-danger alert-dismissable show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:0;padding:0 15px;"> <span aria-hidden="true">&times;</span> </button>Email dan password yang dimasukkan salah. </div>');
 			redirect(base_url('beranda/login'));
 		}
+		
 		redirect(base_url());
 	}
 

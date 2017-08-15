@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
+ <head>
 	<!-- META -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 	<!-- TITLE -->
-	<title>amanahstores.com - Semua ada disini</title>
+	<title><?php echo $this->session->flashdata('title_tag') ?>amanahstores.com - Semua ada disini</title>
+
+	<meta name="description" content="<?php echo $this->session->flashdata('desc'); ?>">
+	<meta name="robots" content="index, follow">
+	<meta name="author" content="amanahstores">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="<?php echo $this->session->flashdata('title_tag') ?>amanahstores.com - Semua ada disini">
+	<meta property="og:site_name" content="amanahstores.com">
+	<meta property="og:url" content="<?php echo $this->session->flashdata('url')?>">
+	<meta property="og:image" content="<?php echo $this->session->flashdata('image') ?>">
+	<meta property="article:published_time" content="<?php echo $this->session->flashdata('publish-time') ?>">
+	<meta property="article:author" content="amanahstores.com">
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="<?php echo base_url("web/css/bootstrap.min.css") ?>">

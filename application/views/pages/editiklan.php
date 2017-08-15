@@ -1,7 +1,9 @@
 <div class="bungkus">
   <section class="detail-form">
     <h1>Edit Iklan</h1>
-
+    <div class="df">
+      <?php echo $this->session->flashdata('success') ?>
+    </div>
     <?php echo form_open_multipart('iklan/edit', '', [
       'slug_iklan' => $slug_data->slug_nama_barang
     ]);?>

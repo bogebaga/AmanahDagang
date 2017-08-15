@@ -12,16 +12,17 @@ class User_model extends CI_Model
     {
       $this->db->where('user_kode', $val);
     }
-
     $result = $this->db->get('ad_user');
     return $result->row_array();
   }
 
-  public function validate_user_exist($param)
+  public function validate_user_exist($email ='', $pass='', $bool = TRUE)
   {
-    $this->db->where('user_email', $param);
+    $this->db->where('user_email', $email);
+    if ($bool) {
+      $this->db->where('user_pass', md5($pass));
+    }
     $result = $this->db->get('ad_user');
-
     return $result->row_array();
   }
 
@@ -30,7 +31,6 @@ class User_model extends CI_Model
     $this->db->where('user_email', $data['email']);
     $this->db->where('user_pass', $data['password']);
     $result = $this->db->get('ad_user');
-
     return $result->row();
   }
 
@@ -48,24 +48,21 @@ class User_model extends CI_Model
   {
     $this->load->helper(['form']);
     $user_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,7);
-
     $data = [
       'user_kode' => $user_kode,
       'user_add' => date('Y-m-d H:i:s'),
       'user_login' => $this->input->post('user_nama'),
-      'user_pass' => md5($this->input->post('sandi')),
+      'user_nama' => $this->input->post('nlengkap'),
+      'user_pass' => md5($this->input->post('password')),
       'user_email' => $this->input->post('email'),
       'user_type' => 'general'
     ];
-
     return $this->db->insert('ad_user', $data);
   }
-
 
   public function edit_user_save($data)
   {
       $this->load->helper('array');
-
       $this->db->where('user_kode', element('user_kode', $data));
       unset($data['user_kode']);
 

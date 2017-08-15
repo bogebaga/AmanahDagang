@@ -53,6 +53,12 @@
 										</div>
 									</div>
 									<div class="form-group">
+										<label for="lengkapnama" class="col-sm-3 control-label">Nama Lengkap</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control" required name="nlengkap" id="lengkapnama" placeholder="Nama Lengkap">
+										</div>
+									</div>
+									<div class="form-group">
 										<label for="eml" class="col-sm-3 control-label">E-mail</label>
 										<div class="col-sm-9">
 											<input type="email" class="form-control" required name="email" id="eml" placeholder="example@email.com">

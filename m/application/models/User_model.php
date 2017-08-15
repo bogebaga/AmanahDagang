@@ -24,11 +24,13 @@ class User_model extends CI_Model
     return $result->result_array();
   }
 
-  public function validate_user_exist($param)
+  public function validate_user_exist($email ='', $pass='', $bool = TRUE)
   {
-    $this->db->where('user_email', $param);
+    $this->db->where('user_email', $email);
+    if ($bool) {
+      $this->db->where('user_pass', md5($pass));
+    }
     $result = $this->db->get('ad_user');
-
     return $result->row_array();
   }
 
@@ -59,9 +61,9 @@ class User_model extends CI_Model
     $data = [
       'user_kode' => $user_kode,
       'user_add' => date('Y-m-d H:i:s'),
-      'user_login' => $this->input->post('nama'),
+      'user_login' => $this->input->post('user_nama'),
       'user_nama' => $this->input->post('nlengkap'),
-      'user_pass' => md5($this->input->post('sandi')),
+      'user_pass' => md5($this->input->post('password')),
       'user_email' => $this->input->post('email'),
       'user_type' => 'general'
     ];

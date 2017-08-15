@@ -12,7 +12,12 @@
 				<h1 class="page-header">Tabel</h1>
 			</div>
 		</div><!--/.row-->
-
+		<div class="row">
+			<div class="col-xs-12">
+				<?php echo $this->session->flashdata('success_edit'); ?>
+				<?php echo $this->session->flashdata('has_delete'); ?>
+			</div>
+		</div>
 
 		<div class="row">
 			<div class="col-lg-12">

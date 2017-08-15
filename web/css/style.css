@@ -404,8 +404,8 @@ a, p, h1, h2, h3, h4, label{
 }
 
 .foto-dagangan li img{
-	width: 195px;
-	height: 170px;
+	width: 100%;
+	height: 200px;
 }
 
 .foto-dagangan figcaption{
@@ -956,6 +956,8 @@ footer::before
 .dua label > img
 {
 	border-radius: 200px;
+	width: 200px;
+	height: 200px;
 }
 
 .detail-biodata .dua .nav li.active a{

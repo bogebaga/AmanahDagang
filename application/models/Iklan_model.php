@@ -104,8 +104,9 @@ class Iklan_model extends CI_Model{
     return $result->result_array();
   }
 
-  public function get_all_iklan_limit($limit='', $jenis_iklan = 'iklan_baris')
+  public function get_all_iklan_limit($tayang='',$limit='', $jenis_iklan = 'iklan_baris')
   {
+    // $this->db->where('tayang_barang', $tayang);
     $this->db->where('jenis_iklan != ', $jenis_iklan);
     $this->db->order_by('barang_upload_tgl', 'DESC');
     $this->db->limit($limit);

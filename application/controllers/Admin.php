@@ -69,8 +69,6 @@ class Admin extends CI_Controller{
     $this->load->view('template/navbar-admin');
     $this->load->view('admin/admin_edit_user', $data);
     $this->load->view('template/footer-admin');
-
-    redirect(base_url().'admin/iklan');
   }
 
   public function user()
@@ -164,22 +162,28 @@ class Admin extends CI_Controller{
       'barang_upload_tgl' => date('Y-m-d H:i:s'),
       'nama_barang' => $this->input->post('nama_barang'),
       'slug_nama_barang' => $slug_nama_iklan."-".$barang_kode,
-      'alamat_barang' => $this->input->post('alamat'),
-      'barang_provinsi' => $this->input->post('provinsi'),
-      'barang_kota' => $this->input->post('kabkota'),
-      'barang_kecamatan' => $this->input->post('kecamatan'),
       'deskripsi_barang' => $this->input->post('deskripsi'),
-      'telpon' => $this->input->post('telpon'),
       'gambar_fitur' => $data['upload_data'],
       'gambar_barang' => $hasil_implode,
       'harga_barang' => $this->input->post('harga'),
       'jenis_barang' => $this->input->post('jenis_barang'),
       'jenis_iklan' => $this->input->post('jenis_iklan'),
       'tayang_barang' => 'publish',
+      // 'alamat_barang' => $this->input->post('alamat'),
+      // 'barang_provinsi' => $this->input->post('provinsi'),
+      // 'barang_kota' => $this->input->post('kabkota'),
+      // 'barang_kecamatan' => $this->input->post('kecamatan'),
+      // 'telpon' => $this->input->post('telpon'),
       'fitur_barang' => 'none'
     ];
 
     $this->iklan_model->pasang_iklan_admin($data);
+    $this->session->set_flashdata('success', '<div class="alert alert-success alert-dismissable show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      Iklan anda telah berhasil diunggah
+    </div>');
     redirect(base_url()."admin/add_iklan");
   }
 
@@ -219,7 +223,9 @@ class Admin extends CI_Controller{
 			// var_dump($data = ['upload_data' => $this->upload->data('file_name')]);
 			if ($iklan_data_obj->gambar_fitur)
 			{
-				unlink(FCPATH.'images/post_foto_feature/'.$this->tanggal_indonesia($tanggal_data).$iklan_data_obj->gambar_fitur);
+        if (file_exists(FCPATH.'images/post_foto_feature/'.$this->tanggal_indonesia($tanggal_data).$iklan_data_obj->gambar_fitur)) {
+          unlink(FCPATH.'images/post_foto_feature/'.$this->tanggal_indonesia($tanggal_data).$iklan_data_obj->gambar_fitur);
+        }
 			}
 			$data = ['upload_data' => $this->upload->data('file_name')];
 		}
@@ -280,20 +286,26 @@ class Admin extends CI_Controller{
       'id_kategori' => $this->input->post('kategori'),
       'slug_nama_barang' => $this->input->post('slug_nama_barang'),
       'nama_barang' => $this->input->post('nama_barang'),
-      'alamat_barang' => $this->input->post('alamat'),
-      'barang_provinsi' => $this->input->post('provinsi'),
-      'barang_kota' => $this->input->post('kabkota'),
-      'barang_kecamatan' => $this->input->post('kecamatan'),
-      'telpon' => $this->input->post('telpon'),
       'deskripsi_barang' => $this->input->post('deskripsi'),
       'harga_barang' => $this->input->post('harga'),
       'jenis_barang' => $this->input->post('jenis_barang'),
-      'jenis_iklan' => $this->input->post('jenis_iklan'),
       'gambar_fitur' => $data['upload_data'],
       'gambar_barang' => $hasil_implode,
+      // 'alamat_barang' => $this->input->post('alamat'),
+      // 'barang_provinsi' => $this->input->post('provinsi'),
+      // 'barang_kota' => $this->input->post('kabkota'),
+      // 'barang_kecamatan' => $this->input->post('kecamatan'),
+      // 'telpon' => $this->input->post('telpon'),
+      // 'jenis_iklan' => $this->input->post('jenis_iklan'),
       'tayang_barang' => $this->input->post('tayang_iklan')
     ];
 
+    $this->session->set_flashdata('success_edit', '<div class="alert alert-info alert-dismissable show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        Iklan dengan <strong>'.$iklan_data_obj->nama_barang.'</strong> telah berhasil di edit
+      </div>');
     $this->iklan_model->edit_iklan_admin($data);
     redirect(base_url()."admin/iklan");
   }
@@ -314,6 +326,12 @@ class Admin extends CI_Controller{
       }
       rmdir(FCPATH.'images/post_foto_ikl/'.$this->tanggal_indonesia($tanggal).$slug);
     }
+    $this->session->set_flashdata('has_delete', '<div class="alert alert-danger alert-dismissable show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      Iklan <strong>'.$file_hapus.'</strong> telah berhasil dihapus.
+    </div>');
     $this->user_model->iklan_hapus($slug);
     redirect(base_url().'admin/iklan');
   }
@@ -324,17 +342,19 @@ class Admin extends CI_Controller{
     // {
     //   mkdir('./images/user_iklan/'.$this->tanggal_indonesia(date('Y-m-d-N', strtotime($this->input->post('uplusr')))).$this->input->post('nama').'-'.$this->session->post('kd_user'), 0777, TRUE);
     // }
-
+    $get_user = $this->user_model->get_user_profil($this->session->userdata('user_kd_admin'));
     $this->upload->initialize([
       // 'upload_path' => './images/user_iklan/'.$tanggal_indonesia(date('Y-m-d-N', strtotime($this->input->post('uplusr')))).$this->input->post('nama').'-'.$this->input->post('kd_user'),
-      'upload_path' => './images/user_iklan/'.$tanggal_indonesia(date('Y-m-d-N', strtotime($this->input->post('uplusr')))),
+      'upload_path' => './images/user_iklan/'.$this->tanggal_indonesia(date('Y-m-d-N', strtotime($this->input->post('uplusr')))),
       'allowed_types' => 'jpg|jpeg|png|gif',
       'file_name' => strtolower($this->input->post('nama').'-'.$this->session->userdata('user_login_admin')),
       'overwrite' => TRUE
     ]);
 
-    if ($this->upload->do_upload('foto_upload'))
+    if (! $this->upload->do_upload('foto_upload'))
     {
+      $foto = $get_user['user_picture'];
+    }else{
       $foto = $this->upload->data('file_name');
     }
 
@@ -342,13 +362,21 @@ class Admin extends CI_Controller{
       'user_kode' => $this->input->post('kd_user'),
       'user_provinsi' => $this->input->post('provinsi'),
       'user_kota' => $this->input->post('kabupaten'),
-      'user_nama' => $this->input->post('nama'),
+      'user_kecamatan' => $this->input->post('kecamatan'),
+      'user_alamat' => $this->input->post('alamat'),
       'user_telpon' => $this->input->post('telpon'),
-      // 'user_picture' => $foto,
+      'user_nama' => $this->input->post('nama'),
+      'user_picture' => $foto,
       'user_deskripsi' => $this->input->post('deskripsi'),
       'user_type' => $this->input->post('hak_akses')
     ];
 
+    $this->session->set_flashdata('success_user', '<div class="alert alert-success alert-dismissable show" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			User anda telah berhasil di ubah.
+		</div>');
     $this->user_model->edit_user_save($data);
     redirect(base_url().'admin/user/edit/'.$this->input->post('kd_user'));
   }
@@ -361,6 +389,12 @@ class Admin extends CI_Controller{
       unlink(FCPATH.'images/user_iklan/'.$this->tanggal_indonesia(date('Y-m-d-N', strtotime($valid_user_image[0]['user_add']))).$valid_user_image[0]['user_picture']);
     }
 
+    $this->session->set_flashdata('has_delete_user', '<div class="alert alert-danger alert-dismissable show" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			User anda telah berhasil di hapus.
+		</div>');
     $this->user_model->user_hapus($kode_user);
     redirect(base_url().'admin/user');
   }

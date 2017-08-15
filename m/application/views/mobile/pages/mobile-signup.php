@@ -19,12 +19,14 @@
               <?php echo $this->session->flashdata('mobile_info_akun'); ?>
             </div>
           </div>
-          <label for="">Nama<em class="required">*</em></label>
+          <label for="">Username<em class="required">*</em></label>
           <input type="text" class="form-control" name="user_nama" placeholder="Username" required>
+          <label for="">Nama Lengkap<em class="required">*</em></label>
+          <input type="text" class="form-control" name="nlengkap" placeholder="Nama Lengkap" required>
           <label for="">Email<em class="required">*</em></label>
           <input type="email" class="form-control" name="email" placeholder="example@email.com" required>
           <label for="">Password<em class="required">*</em></label>
-          <input type="password" class="form-control" name="sandi" placeholder="********" required>
+          <input type="password" class="form-control" name="password" placeholder="********" required>
           <input type="checkbox" required>Dengan mendaftar di AmanahStores.com, saya menyetujui <a href="#" title=""> Syarat & Ketentuan</a> AmanahStores.com.
           <br>
           <br>

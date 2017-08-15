@@ -5,12 +5,16 @@
 				<li class="active">Forms</li>
 			</ol>
 		</div><!--/.row-->
-
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Forms</h1>
 			</div>
 		</div><!--/.row-->
+		<div class="row">
+			<div class="col-xs-12">
+				<?php echo $this->session->flashdata('success'); ?>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">

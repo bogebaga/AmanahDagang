@@ -36,7 +36,7 @@
 <script>
   tinymce.init({
     selector: 'textarea',
-    height: 110,
+    height: 220,
     image_advtab:true,
     menubar:false,
     plugins:

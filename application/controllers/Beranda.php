@@ -67,6 +67,8 @@ class Beranda extends CI_Controller {
 		if (empty($this->session->userdata('user_login')) OR ! isset($_POST['submit'])) {
 			redirect(base_url());
 		}
+		$get_user = $this->user_model->get_user_profil($this->session->userdata('user_kd'));
+
 		if(! file_exists('./images/user_iklan/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($this->input->post('uplusr'))))))
 		{
 			mkdir('./images/user_iklan/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($this->input->post('uplusr')))), 0777, TRUE);
@@ -79,21 +81,29 @@ class Beranda extends CI_Controller {
 			'overwrite' => TRUE
 		];
 		$this->upload->initialize($config);
-
-		if($this->upload->do_upload('foto_user'))
+		if(! $this->upload->do_upload('foto_user'))
 		{
-			$data['upload_data'] = $this->upload->data();
+			$data['upload_data'] = $get_user['user_picture'];
+		} else {
+			$data['upload_data'] = $this->upload->data('file_name');
 		}
-
 		$data = [
 			'user_provinsi' => $this->input->post('provinsi'),
 			'user_kota' => $this->input->post('kota'),
-			'user_nama' => $this->input->post('nama'),
+			'user_kecamatan' => $this->input->post('kecamatan'),
+			'user_alamat' => $this->input->post('alamat'),
 			'user_telpon' => $this->input->post('telpon'),
-			'user_picture' => $data['upload_data']['file_name'],
+			'user_nama' => $this->input->post('nama'),
+			'user_picture' => $data['upload_data'],
 			'user_deskripsi' => $this->input->post('deskripsi')
 		];
 
+		$this->session->set_flashdata('success_user', '<div class="alert alert-success alert-dismissable show" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			User anda telah berhasil di ubah.
+		</div>');
 		$this->user_model->update_user($data);
 		redirect('profil');
 	}

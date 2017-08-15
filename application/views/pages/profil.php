@@ -5,6 +5,12 @@ $(function() {
     $('#kabkota').empty();
     data_kabkota (provinsi);
   });
+  $("#kabkota").change(function() {
+      var kabkota = $("#kabkota").val();
+      $("#kecamatan").empty();
+      data_kecamatan(kabkota);
+  });
+
   function data_kabkota (a)
   {
     $.post('kabkota',{id_provinsi : a}, function(data1)
@@ -16,17 +22,35 @@ $(function() {
       }
     });
   }
+  function data_kecamatan (a)
+  {
+    $.post('kecamatan',{id_kecamatan : a}, function(data) {
+      var data = JSON.parse(data);
+
+      for (var i = 0; i < data.length; i++) {
+        var select = "<option value='"+data[i]['id']+"'>"+data[i]['nama']+"</option>";
+        $("#kecamatan").append(select);
+      }
+    });
+  }
+
 });
 </script>
 <section>
   <?php echo form_open_multipart('edit', '', ['uplusr' => $data_user['user_add']]); ?>
   <div  class="detail-biodata">
     <div class="dua">
+      <?php echo $this->session->flashdata('success_user') ?>
+    </div>
+    <div class="dua">
       <div class="user-container" style="margin-bottom:30px;text-align:center;">
         <label for="foto_user">
           <?php if (empty($data_user['user_picture'])): ?>
             <img id="user_picture_0" src="images/gambar.jpg" width="200px">
           <?php else: ?>
+            <?php if (!file_exists(FCPATH."images/user_iklan/".$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($data_user['user_add']))).$data_user['user_picture'])): ?>
+              <img id="user_picture_0" src="images/gambar.jpg" width="200px">
+            <?php endif; ?>
             <img id="user_picture_0" src="<?php echo base_url("images/user_iklan/".$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($data_user['user_add']))).$data_user['user_picture']) ?>" width="200px">
           <?php endif; ?>
         </label>
@@ -55,10 +79,23 @@ $(function() {
             <option value="<?php echo $kota['id'] ?>"><?php echo $kota['nama'] ?></option>
         <?php endforeach; ?>
         </select>
+        <label for="" class="label-control">Kecamatan</label>
+        <select class="form-control" name="kecamatan" id="kecamatan">
+        <?php $data_kecamatan= $this->iklan_model->get_data_kecamatan($data_user['user_kota']) ?>
+        <?php foreach ($data_kecamatan as $kecamatan): ?>
+          <?php if ($data_user['user_kecamatan'] == $kecamatan['id']): ?>
+            <option value="<?php echo $kecamatan['id'] ?>" selected><?php echo $kecamatan['nama'] ?></option>
+          <?php continue; ?>
+          <?php endif; ?>
+            <option value="<?php echo $kecamatan['id'] ?>"><?php echo $kecamatan['nama'] ?></option>
+        <?php endforeach; ?>
+        </select>
         <label class="label-control">Nama</label>
         <input type="text" class="form-control" name="nama" placeholder="Nama lengkap" value="<?php echo $data_user['user_nama'] ?>" required>
         <label class="label-control">Telepon</label>
         <input type="text" class="form-control" name="telpon" placeholder="08xxxxx" value="<?php echo $data_user['user_telpon'] ?>">
+        <label class="label-control">Alamat</label>
+        <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $data_user['user_alamat'] ?>">
       </div>
       <div class="col-xs-6">
         <label class="label-control">Deskripsi</label>
@@ -83,7 +120,8 @@ $(function() {
     }
     </script>
     <div class="clearfix"></div>
-    <div class="tiga"> <ul class="nav nav-pills">
+    <div class="tiga">
+      <ul class="nav nav-pills">
         <li class="active">
           <a href="#iklan" data-toggle="pill">Iklan General</a>
         </li>
@@ -94,145 +132,66 @@ $(function() {
           <a href="#iklanBiasa" data-toggle="pill">Iklan Favorit</a>
         </li>
       </ul>
+      <?php $data_iklan = [
+        '0' => ['jenis_iklan' => 'iklan',
+                'iklan_heading' => 'IKLAN GENERAL',
+                'status' => 'active in'],
+        '1' => ['jenis_iklan' => 'iklanBaris',
+                'iklan_heading' => 'IKLAN BARIS',
+                'status' => ''],
+        '2' => ['jenis_iklan' => 'iklanBiasa',
+                'iklan_heading' => 'IKLAN FAVORIT',
+                'status' => '']
+        ] ?>
       <div class="tab-content">
-        <div id="iklan" class="tab-pane fade active in">
-          <br>
-          <div class="panel panel-primary">
-            <div class="panel-heading">IKLAN GENERAL</div>
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Tanggal</th>
-                    <th>Judul Iklan</th>
-                    <th>Status</th>
-                    <th>Harga</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                <?php
-                  $i = 1;
-                  foreach ($this->iklan_model->load_jenis_iklan('iklan', $this->session->userdata('user_kd')) as $isi_iklan):
-                ?>
-                      <tr>
-                        <td><?php echo $i++ ?></td>
-                        <td>
-                          Dari :
-                          <?php
-                            echo date('j M  H:i', strtotime($isi_iklan['barang_upload_tgl'])) ;
-                          ?>
-                        </td>
-                        <td>
-                          <?php echo $isi_iklan['nama_barang'] ?>
-                          <br>
-                          <button type="button" class="btn btn-primary btn-xs" onclick="window.location = 'barang/edit/<?php echo $isi_iklan['slug_nama_barang'] ?>'"><span class="fa fa-pencil-square-o"></span>&nbsp;Edit</button>
-                          <button type="button" class="btn btn-danger btn-xs" onclick="window.location='barang/hapus/<?php echo $isi_iklan['slug_nama_barang'] ?>'"><span class="fa fa-remove"></span>&nbsp;Hapus</button>
-                          <button type="button" class="btn btn-info btn-xs" name="button" onclick="window.location ='barang/<?php echo $isi_iklan['slug_nama_barang'] ?>'"><span class="fa fa-eye"></span>&nbsp;Lihat</button>
-                        </td>
-                        <td><span style="font-size:14px;" <?php echo $isi_iklan['tayang_barang'] == 'unpublish' ? "class='label label-danger'" : "class = 'label label-primary'"?>><?php echo $isi_iklan['tayang_barang'] ?></span></td>
-                        <td><?php echo $isi_iklan['harga_barang'] ?></td>
-                        <td><button class="btn btn-success" type="button" name="button">Promosi</button></td>
-                      </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
+        <?php for ($i=0; $i < count($data_iklan) ; $i++): ?>
+          <div id="<?php echo $data_iklan[$i]['jenis_iklan'] ?>" class="tab-pane fade <?php echo $data_iklan[$i]['status']; ?>">
+            <br>
+            <div class="panel panel-primary">
+              <div class="panel-heading"><?php echo $data_iklan[$i]['iklan_heading']; ?></div>
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Tanggal</th>
+                      <th>Judul Iklan</th>
+                      <th>Status</th>
+                      <th>Harga</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?php
+                    $no = 1;
+                    foreach ($this->iklan_model->load_jenis_iklan($data_iklan[$i]['jenis_iklan'], $this->session->userdata('user_kd')) as $data):
+                      ?>
+                        <tr>
+                          <td><?php echo $no++ ?></td>
+                          <td>
+                            Dari :
+                            <?php
+                              echo date('j M  H:i', strtotime($data['barang_upload_tgl'])) ;
+                            ?>
+                          </td>
+                          <td>
+                            <?php echo $data['nama_barang'] ?>
+                            <br>
+                            <button type="button" class="btn btn-primary btn-xs" onclick="window.location = 'barang/edit/<?php echo $data['slug_nama_barang'] ?>'"><span class="fa fa-pencil-square-o"></span>&nbsp;Edit</button>
+                            <button type="button" class="btn btn-danger btn-xs" onclick="window.location='barang/hapus/<?php echo $data['slug_nama_barang'] ?>'"><span class="fa fa-remove"></span>&nbsp;Hapus</button>
+                            <button type="button" class="btn btn-info btn-xs" name="button" onclick="window.location ='barang/<?php echo $data['slug_nama_barang'] ?>'"><span class="fa fa-eye"></span>&nbsp;Lihat</button>
+                          </td>
+                          <td><span style="font-size:14px;" <?php echo $data['tayang_barang'] == 'unpublish' ? "class='label label-danger'" : "class = 'label label-primary'"?>><?php echo $data['tayang_barang'] ?></span></td>
+                          <td><?php echo $data['harga_barang'] ?></td>
+                          <td><button class="btn btn-success" type="button" name="button">Promosi</button></td>
+                        </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
-        <div id="iklanBaris" class="tab-pane fade">
-          <br>
-          <div class="panel panel-primary">
-            <div class="panel-heading">IKLAN BARIS</div>
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Tanggal</th>
-                    <th>Judul Iklan</th>
-                    <th>Status</th>
-                    <th>Harga</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                <?php
-                  $i = 1;
-                  foreach ($this->iklan_model->load_jenis_iklan('iklan_baris', $this->session->userdata('user_kd')) as $isi_iklan_baris):
-                ?>
-                      <tr>
-                        <td><?php echo $i++ ?></td>
-                        <td>
-                          Dari :
-                          <?php
-                            echo date('j M  H:i', strtotime($isi_iklan_baris['barang_upload_tgl'])) ;
-                          ?>
-                        </td>
-                        <td>
-                          <?php echo $isi_iklan_baris['nama_barang'] ?>
-                          <br>
-                          <button type="button" class="btn btn-primary btn-xs" onclick="window.location = 'barang/edit/<?php echo $isi_iklan_baris['slug_nama_barang'] ?>'"><span class="fa fa-pencil-square-o"></span>&nbsp;Edit</button>
-                          <button type="button" class="btn btn-danger btn-xs" onclick="window.location='barang/hapus/<?php echo $isi_iklan_baris['slug_nama_barang'] ?>'"><span class="fa fa-remove"></span>&nbsp;Hapus</button>
-                          <button type="button" class="btn btn-info btn-xs" name="button" onclick="window.location ='barang/<?php echo $isi_iklan_baris['slug_nama_barang'] ?>'"><span class="fa fa-eye"></span>&nbsp;Lihat</button>
-                        </td>
-                        <td><span style="font-size:14px;" <?php echo $isi_iklan_baris['tayang_barang'] == 'unpublish' ? "class='label label-danger'" : "class = 'label label-primary'"?>><?php echo $isi_iklan_baris['tayang_barang'] ?></span></td>
-                        <td><?php echo $isi_iklan_baris['harga_barang'] ?></td>
-                        <td><button class="btn btn-success" type="button" name="button">Promosi</button></td>
-                      </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div id="iklanBiasa" class="tab-pane fade">
-          <br>
-          <div class="panel panel-primary">
-            <div class="panel-heading">IKLAN FAVORIT</div>
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Tanggal</th>
-                    <th>Judul Iklan</th>
-                    <th>Status</th>
-                    <th>Harga</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                <?php
-                  $i = 1;
-                  foreach ($this->iklan_model->load_jenis_iklan('iklan_foto', $this->session->userdata('user_kd')) as $isi_iklan_foto):
-                ?>
-                      <tr>
-                        <td><?php echo $i++ ?></td>
-                        <td>
-                          Dari :
-                          <?php
-                            echo date('j M  H:i', strtotime($isi_iklan_foto['barang_upload_tgl'])) ;
-                          ?>
-                        </td>
-                        <td>
-                          <?php echo $isi_iklan_foto['nama_barang'] ?>
-                          <br>
-                          <button type="button" class="btn btn-primary btn-xs" onclick="window.location='barang/edit/<?php echo $isi_iklan_foto['slug_nama_barang'] ?>'"><span class="fa fa-pencil-square-o" ></span>&nbsp;Edit</button>
-                          <button type="button" class="btn btn-danger btn-xs" onclick="window.location='barang/hapus/<?php echo $isi_iklan_foto['slug_nama_barang'] ?>'"><span class="fa fa-remove"></span>&nbsp;Hapus</button>
-                          <button type="button" class="btn btn-info btn-xs" name="button" onclick="window.location = 'barang/<?php echo $isi_iklan_foto['slug_nama_barang'] ?>'"><span class="fa fa-eye"></span>&nbsp;Lihat</button>
-                        </td>
-                        <td><span style="font-size:14px;" <?php echo $isi_iklan_foto['tayang_barang'] == 'unpublish' ? "class='label label-danger'" : "class = 'label label-primary'"?>><?php echo $isi_iklan_foto['tayang_barang'] ?></span></td>
-                        <td><?php echo $isi_iklan_foto['harga_barang'] ?></td>
-                        <td><button class="btn btn-success" type="button" name="button">Promosi</button></td>
-                      </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+        <?php endfor; ?>
       </div>
     </div>
   </div>

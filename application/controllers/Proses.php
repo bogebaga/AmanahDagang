@@ -7,22 +7,32 @@ class Proses extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(['form', 'url']);
 		$this->load->library(['session', 'upload']);
-		$this->load->model('iklan_model');
+		$this->load->model(['iklan_model', 'user_model']);
 		$this->proses =& get_instance();
 	}
 
 	public function load_iklan($slug_iklan = '')
 	{
-		$link = array(
-			'home' => base_url(),
-			'bantuan' => base_url().'bantuan',
-			'network' => base_url().'tentang'
-		);
-
 		$isi_iklan['iklan'] = $this->iklan_model->load_isi_iklan($slug_iklan);
+		$isi_iklan['user'] = $this->user_model->get_user_profil($this->session->userdata('user_kd'));
 		if(count($isi_iklan['iklan']['slug_nama_barang']) <= 0):
 			show_404();
 		endif;
+
+		$meta_info =[
+			'title_tag' => $isi_iklan['iklan']['nama_barang']." | ",
+			'publish-time' => date('Y-m-d', strtotime($isi_iklan['iklan']['barang_upload_tgl'])),
+			'url' => base_url('barang/'.$slug_iklan),
+			'image' => base_url('images/post_foto_feature/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($isi_iklan['iklan']['barang_upload_tgl']))).$isi_iklan['iklan']['gambar_fitur']),
+			'desc' => strip_tags($isi_iklan['iklan']['deskripsi_barang'])
+		];
+
+		$link = array(
+			'home' => base_url(),
+			'bantuan' => base_url().'bantuan',
+			'network' => base_url().'tentang',
+		);
+		$this->session->set_flashdata($meta_info);
 
 		$isi_iklan['viewer'] = $this->iklan_model->add_viewer($slug_iklan, $isi_iklan['iklan']['view_barang']);
 		$this->load->view('template/header', $link);
@@ -154,18 +164,24 @@ class Proses extends CI_Controller {
 			'jenis_iklan' => $this->input->post('jenis_iklan'),
 			'jenis_barang' => $this->input->post('jenis_barang'),
 			'harga_barang' => $this->input->post('harga_iklan'),
-			'telpon' => $this->input->post('telpon'),
 			'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
 			'gambar_barang' => $hasil_implode,
 			'gambar_fitur' => $data['upload_data'],
-			'alamat_barang' => $this->input->post('alamat'),
-			'barang_provinsi' => $this->input->post('provinsi'),
-			'barang_kota' => $this->input->post('kota'),
-			'barang_kecamatan' => $this->input->post('kecamatan'),
 			'tayang_barang' => 'unpublish',
+			// 'telpon' => $this->input->post('telpon'),
+			// 'alamat_barang' => $this->input->post('alamat'),
+			// 'barang_provinsi' => $this->input->post('provinsi'),
+			// 'barang_kota' => $this->input->post('kota'),
+			// 'barang_kecamatan' => $this->input->post('kecamatan'),
 			'fitur_barang' => 'none'
 		];
 
+		$this->session->set_flashdata('success', '<div class="alert alert-success alert-dismissable show" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			Iklan anda telah berhasil diunggah
+		</div>');
 		$this->iklan_model->pasang_iklan($data);
 		redirect(base_url()."pasangiklan");
 	}
@@ -268,18 +284,24 @@ class Proses extends CI_Controller {
 			'id_kategori' => $this->input->post('nama_kategori'),
 			'slug_nama_barang' => $this->input->post('slug_iklan'),
 			'nama_barang' => $this->input->post('nama_iklan'),
-			'alamat_barang' => $this->input->post('alamat'),
-			'barang_provinsi' => $this->input->post('provinsi'),
-			'barang_kota' => $this->input->post('kabkota'),
-			'barang_kecamatan' => $this->input->post('kecamatan'),
-			'telpon' => $this->input->post('telpon'),
 			'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
 			'harga_barang' => $this->input->post('harga_iklan'),
 			'jenis_barang' => $this->input->post('jenis_barang'),
 			'gambar_fitur' => $data['upload_data'],
+			// 'alamat_barang' => $this->input->post('alamat'),
+			// 'telpon' => $this->input->post('telpon'),
+			// 'barang_provinsi' => $this->input->post('provinsi'),
+			// 'barang_kota' => $this->input->post('kabkota'),
+			// 'barang_kecamatan' => $this->input->post('kecamatan'),
 			'gambar_barang' => $hasil_implode
 		];
 
+		$this->session->set_flashdata('success', '<div class="alert alert-success alert-dismissable show" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			Iklan anda telah berhasil diunggah
+		</div>');
 		$this->iklan_model->simpan_iklan_by_kdbarang($data);
 		redirect(base_url().'barang/edit/'.$this->input->post('slug_iklan'));
 	}

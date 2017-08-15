@@ -42,7 +42,7 @@
   <aside class="iklan-barang">
     <div class="bungkus-penjual">
       <div class="foto-penjual">
-        <img src="<?php echo $iklan['user_picture'] == '' ? base_url().'images/gambar.jpg' : base_url().'images/user_iklan/'.$iklan['user_picture'] ?>" class="img-responsive" alt="foto">
+        <img src="<?php echo $iklan['user_picture'] == '' ? base_url().'images/gambar.jpg' : base_url('images/user_iklan/'.$this->proses->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($user['user_add']))).$iklan['user_picture']) ?>" class="img-responsive" alt="foto">
       </div>
       <div class="identitas-penjual">
         <!-- <h3>IDENTITAS DIRI : </h3> -->

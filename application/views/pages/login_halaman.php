@@ -34,10 +34,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<form action="<?php echo base_url("login") ?>" class="wrapper-daftar" style="min-height:calc(100vh - 400px)" method="post">
+					<form action="<?php echo base_url("login") ?>" class="wrapper-daftar" method="post">
 						<h4>Login</h4>
             <div class="row">
+              <div class="col-xs-8" style="float:none;margin:0 auto;">
                 <?php echo $this->session->flashdata('login_term') ?>
+                <?php echo $this->session->flashdata('pesan_akun_success') ?>
+              </div>
             </div>
 						<div class="col-lg-7">
 							<div class="bkiri">
@@ -81,5 +84,6 @@
 					</form>
 				</div>
 			</div>
+      <div class="row" style="min-height:calc(100vh - 715px)"></div>
 		</div>
 </section>

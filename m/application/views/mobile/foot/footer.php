@@ -1,7 +1,7 @@
 <section class="container-fluid" style="padding:0;">
   <div class="navigation-bottom">
     <a href="<?php echo base_url('home/mobile-pasang-iklan') ?>">Pasang Iklan</a>
-    <a href="<?php echo base_url('home/mobile-akun-saya') ?>">Akun Saya</a>
+    <a href="<?php echo base_url('home/mobile-akun-saya') ?>">Akun Saya <?php echo (! empty($this->session->userdata('user_name'))) ? "(".$this->session->userdata('user_name').")" : ""; ?></a>
     <?php if (! empty($this->session->userdata('user_email'))): ?>
       <a href="<?php echo base_url('signout') ?>">Keluar</a>
     <?php endif; ?>

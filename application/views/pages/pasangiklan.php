@@ -1,6 +1,9 @@
 <div class="bungkus">
   <section class="detail-form">
     <h1>Pasang Iklan</h1>
+      <div class="df">
+        <?php echo $this->session->flashdata('success') ?>
+      </div>
     <?php echo form_open_multipart('pasangiklan/masukki');?>
       <div class="df" style="background-color: #eceff1;" ?>
         <h4 style="visibility:hidden;">Jenis Iklan</h4>
@@ -33,32 +36,11 @@
         </select>
       </div>
       <div class="df">
-        <h4>Regional</h4>
-        <select name="provinsi" id="provinsi" required>
-          <option value="">Pilih Provinsi</option>
-          <?php foreach ($this->iklan_model->get_data_provinsi() as $provinsi): ?>
-            <option value="<?php echo $provinsi['id'] ?>"><?php echo $provinsi['nama'] ?></option>
-          <?php endforeach; ?>
-        </select>
-        <h4 style="visibility:hidden;">Kategori</h4>
-        <select name="kota" id="kabkota" required>
-          <option>Pilih Kabupaten/Kota</option>
-        </select>
-        <h4 style="visibility:hidden;">Kategori</h4>
-        <select id="kecamatan" name="kecamatan" required>
-          <option>Pilih Kecamatan</option>
-        </select>
-      </div>
-      <div class="df">
         <h4>Jenis Barang</h4>
         <input type="radio" name="jenis_barang" id="jb" value="baru" checked>
         <label for="jb">Baru</label>
         <input type="radio" name="jenis_barang" id="jb1" value="bekas">
         <label for="jb1">Bekas</label>
-      </div>
-      <div class="df">
-        <h4>Harga</h4>
-        <input type="text" name="harga_iklan" id="harga_barang" placeholder="Harga Rupiah">
       </div>
       <div class="df" style="position:relative;">
         <h4 style="position:absolute;">Deskripsi</h4>
@@ -67,12 +49,8 @@
         </div>
       </div>
       <div class="df">
-        <h4>No Telp/HP</h4>
-        <input type="text" name="telpon" placeholder="08xxxxxxx">
-      </div>
-      <div class="df">
-        <h4>Alamat</h4>
-        <input type="text" name="alamat" placeholder="Tinggal dimana....." required>
+        <h4>Harga</h4>
+        <input type="text" name="harga_iklan" id="harga_barang" placeholder="Harga Rupiah">
       </div>
       <div class="df">
         <h4>Foto Fitur</h4>
@@ -115,6 +93,59 @@
           <input type="file" name="image[]" onchange="loadImage(this, 'image_6', 83, 83 )" style="display:none;">
         </label>
       </div>
+      <h2>Identitas Diri</h2>
+      <?php $data_user_pasang = $this->user_model->get_user_profil($this->session->userdata('user_kd')) ?>
+        <div class="df">
+          <h4>Nama</h4>
+          <input type="text" name="nama" placeholder="Nama" value="<?php echo $data_user_pasang['user_nama'] ?>">
+        </div>
+        <div class="df">
+          <h4>Email</h4>
+          <input type="email" name="email" placeholder="Email" value="<?php echo $data_user_pasang['user_email'] ?>">
+        </div>
+        <div class="df">
+          <h4>No Telp/HP</h4>
+          <input type="text" name="telpon" placeholder="08xxxxxxx" value="<?php echo $data_user_pasang['user_telpon'] ?>">
+        </div>
+        <div class="df">
+          <h4>Regional</h4>
+          <select name="provinsi" id="provinsi" required>
+            <option value="">Pilih Provinsi</option>
+            <?php foreach ($this->iklan_model->get_data_provinsi() as $provinsi): ?>
+              <?php if ($provinsi['id'] == $data_user_pasang['user_provinsi']): ?>
+                  <option value="<?php echo $provinsi['id'] ?>" selected><?php echo $provinsi['nama'] ?></option>
+              <?php else: ?>
+                  <option value="<?php echo $provinsi['id'] ?>"><?php echo $provinsi['nama'] ?></option>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </select>
+          <h4 style="visibility:hidden;">Kategori</h4>
+          <select name="kota" id="kabkota" required>
+            <option>Pilih Kabupaten/Kota</option>
+            <?php foreach ($this->iklan_model->get_data_kabkota($data_user_pasang['user_provinsi']) as $kota): ?>
+              <?php if ($data_user_pasang['user_kota'] == $kota['id']): ?>
+                <option value="<?php echo $kota['id'] ?>" selected><?php echo $kota['nama'] ?></option>
+              <?php else: ?>
+                <option value="<?php echo $kota['id'] ?>" ><?php echo $kota['nama'] ?></option>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </select>
+          <h4 style="visibility:hidden;">Kategori</h4>
+          <select id="kecamatan" name="kecamatan" required>
+            <option>Pilih Kecamatan</option>
+            <?php foreach ($this->iklan_model->get_data_kecamatan($data_user_pasang['user_kota']) as $kecamatan): ?>
+              <?php if ($kecamatan['id'] == $data_user_pasang['user_kecamatan']): ?>
+                <option value="<?php echo $kecamatan['id'] ?>" selected><?php echo $kecamatan['nama'] ?></option>
+              <?php else: ?>
+                <option value="<?php echo $kecamatan['id'] ?>" ><?php echo $kecamatan['nama'] ?></option>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </select>
+        </div>
+        <div class="df">
+          <h4>Alamat</h4>
+          <input type="text" name="alamat" placeholder="Alamat" value="<?php echo $data_user_pasang['user_alamat'] ?>" required>
+        </div>
       <script>
         function loadImage(i, addr, w, h)
         {
@@ -176,7 +207,7 @@
         //     }
         //   });
         // }
-        function data_kecamatan(a)
+        function data_kecamatan (a)
         {
           $.post('kecamatan',{id_kecamatan : a}, function(data) {
             var data = JSON.parse(data);
@@ -203,21 +234,6 @@
       <br>
       <button type="submit" name="submit" class="simpan btn btn-success btn-lg">Pasang Iklan</button>
       <?php echo form_close();?>
-    <!-- <h1>Identitas Diri Anda | <a href="<?php echo base_url() ?>profil">Profil</a></h1>
-    <form>
-      <div class="df">
-        <h4>Nama</h4>
-        <input type="text" name="nama" placeholder="Nama" value="<?php echo $this->session->userdata('user_name') ?>">
-      </div>
-      <div class="df">
-        <h4>Email</h4>
-        <input type="email" name="email" placeholder="Email" value="<?php echo $this->session->userdata('user_email') ?>">
-      </div>
-      <div class="df">
-        <h4>No. Handphone/Telp</h4>
-        <input type="text" name="nomor" placeholder="08xxxx" value="<?php echo $this->session->userdata('user_telpon') ?>">
-      </div>
-    </form> -->
   </section>
   <!-- <aside class="iklan-barang">
     <div class="bungkus-info" style="display:none;">

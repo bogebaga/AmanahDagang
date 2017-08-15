@@ -11,12 +11,13 @@
         </div>
       </div>
     </nav>
-    <section class="container-fluid" style="background-color:white;padding:20px 10px;min-height:calc(100vh - 280px)">
+    <section class="container-fluid" style="background-color:white;padding:20px 10px;">
       <div class="container-login">
         <?php echo form_open(base_url('masuk')) ?>
         <div class="row">
           <div class="col-xs-12">
             <?php echo $this->session->flashdata('login-term') ?>
+            <?php echo $this->session->flashdata('pesan_akun_success') ?>
           </div>
         </div>
           <label for="">Email<em class="required">*</em></label>
@@ -35,4 +36,5 @@
         <span>Dengan log in anda menerima <a href="#">Syarat & Ketententuan</a> di amanahdagang.com</span>
       </div>
     </section>
+    <section style="min-height:calc(100vh - 572px)"></section>
     <br>

@@ -43,4 +43,5 @@
       <br>
       <a class="btn btn-sm btn-success" href="<?php echo base_url('home/mobile-pasang-iklan') ?>">Pasang Iklan</a>
     </section>
+    <section style="height:calc(100vh - 471px);"></section>
     <br>
