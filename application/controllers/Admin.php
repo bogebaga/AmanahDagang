@@ -169,11 +169,11 @@ class Admin extends CI_Controller{
       'jenis_barang' => $this->input->post('jenis_barang'),
       'jenis_iklan' => $this->input->post('jenis_iklan'),
       'tayang_barang' => 'publish',
-      // 'alamat_barang' => $this->input->post('alamat'),
+      'alamat_barang' => $this->input->post('alamat'),
       // 'barang_provinsi' => $this->input->post('provinsi'),
       // 'barang_kota' => $this->input->post('kabkota'),
       // 'barang_kecamatan' => $this->input->post('kecamatan'),
-      // 'telpon' => $this->input->post('telpon'),
+      'telpon' => $this->input->post('telpon'),
       'fitur_barang' => 'none'
     ];
 
@@ -291,11 +291,11 @@ class Admin extends CI_Controller{
       'jenis_barang' => $this->input->post('jenis_barang'),
       'gambar_fitur' => $data['upload_data'],
       'gambar_barang' => $hasil_implode,
-      // 'alamat_barang' => $this->input->post('alamat'),
+      'alamat_barang' => $this->input->post('alamat'),
       // 'barang_provinsi' => $this->input->post('provinsi'),
       // 'barang_kota' => $this->input->post('kabkota'),
       // 'barang_kecamatan' => $this->input->post('kecamatan'),
-      // 'telpon' => $this->input->post('telpon'),
+      'telpon' => $this->input->post('telpon'),
       // 'jenis_iklan' => $this->input->post('jenis_iklan'),
       'tayang_barang' => $this->input->post('tayang_iklan')
     ];

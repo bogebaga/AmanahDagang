@@ -11,7 +11,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img src="<?php echo base_url("images/slider/slide 1.jpg") ?>" class="img-responsive">
+          <a href="http://www.telkomsel.com" target="_blank"><img src="<?php echo base_url("images/slider/telkomsel_slide.jpg") ?>" class="img-responsive"></a>
         </div>
         <div class="item">
           <img src="<?php echo base_url("images/slider/slide 2.jpg") ?>" class="img-responsive">
@@ -119,7 +119,7 @@
     </div>
   </div>
   <hr style="border-color:rgba(44, 62, 80, 0.27);">
-  <h3 style="color:#ff9800;">#JualBekasBisaJadiDuit</h3>
+  <h1 style="color:#ff9800;">#JualBekasBisaJadiDuit</h1>
   <br>
   <div class="barang-dagang tab-content">
     <div id="mobil" class="tab-pane fade in active">
@@ -146,10 +146,10 @@
       </div> -->
       <ul class="foto-dagangan" style="padding-top:0;background:rgba(255,255,255,0);border:none;">
         <?php $path_fitur = "images/post_foto_feature/"; ?>
-        <?php foreach ($this->iklan_model->get_all_iklan_limit('publish','5') as $new_ads) { ?>
+        <?php foreach ($this->iklan_model->get_all_iklan_limit('publish','','5') as $new_ads) { ?>
           <li style="background:white;">
             <a href="<?php echo "barang/".$new_ads['slug_nama_barang'] ?>">
-              <img src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
+              <img src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?> alt="<?php echo $new_ads['nama_barang']?>" title="<?php echo $new_ads['nama_barang']?>">
               <figcaption>
                 <h3><?php echo $new_ads['nama_barang'] ?></h3>
                 <h4><?php echo (empty($new_ads['harga_barang']) ? '<div></div>' : "Rp. ".$new_ads['harga_barang'])?></h4>

@@ -57,7 +57,7 @@
       <h3 style="color:#f57c00;">#JualBekasBisaJadiDuit</h3>
       <ul class="iklanku">
         <?php $path_fitur = base_url("../images/post_foto_feature/"); ?>
-        <?php foreach ($this->iklan_model->get_all_iklan_limit('6') as $new_ads) : ?>
+        <?php foreach ($this->iklan_model->get_all_iklan_limit('publish','6') as $new_ads) : ?>
           <li>
             <a href="<?php echo base_url("isiiklan/".$new_ads['slug_nama_barang']) ?>">
               <img src="<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->welcome_mob->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?>" alt="">

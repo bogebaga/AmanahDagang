@@ -72,7 +72,7 @@ class Proses extends CI_Controller {
 			'network' => base_url().'tentang'
 		);
 
-		$tampil_iklan['iklan'] = $this->iklan_model->get_all_iklan_by_kategori($param);
+		$tampil_iklan['iklan'] = $this->iklan_model->get_all_iklan_by_kategori($param, 'publish');
 		$tampil_iklan['kategori'] = $this->iklan_model->get_kategori();
 		$tampil_iklan['active_kategori'] = $param;
 
@@ -165,15 +165,21 @@ class Proses extends CI_Controller {
 			'jenis_barang' => $this->input->post('jenis_barang'),
 			'harga_barang' => $this->input->post('harga_iklan'),
 			'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
+			'telpon' => $this->input->post('telpon'),
+			'alamat_barang' => $this->input->post('alamat'),
 			'gambar_barang' => $hasil_implode,
 			'gambar_fitur' => $data['upload_data'],
 			'tayang_barang' => 'unpublish',
-			// 'telpon' => $this->input->post('telpon'),
-			// 'alamat_barang' => $this->input->post('alamat'),
-			// 'barang_provinsi' => $this->input->post('provinsi'),
-			// 'barang_kota' => $this->input->post('kota'),
-			// 'barang_kecamatan' => $this->input->post('kecamatan'),
 			'fitur_barang' => 'none'
+		];
+
+		$identitas = [
+			'user_nama' => $this->input->post('identitas_nama'),
+			'user_telpon' => $this->input->post('identitas_telpon'),
+			'user_alamat' => $this->input->post('identitas_alamat'),
+			'user_provinsi' => $this->input->post('provinsi'),
+			'user_kota' => $this->input->post('kota'),
+			'user_kecamatan' => $this->input->post('kecamatan')
 		];
 
 		$this->session->set_flashdata('success', '<div class="alert alert-success alert-dismissable show" role="alert">
@@ -182,7 +188,7 @@ class Proses extends CI_Controller {
 			</button>
 			Iklan anda telah berhasil diunggah
 		</div>');
-		$this->iklan_model->pasang_iklan($data);
+		$this->iklan_model->pasang_iklan($data, $identitas, TRUE);
 		redirect(base_url()."pasangiklan");
 	}
 
@@ -288,8 +294,8 @@ class Proses extends CI_Controller {
 			'harga_barang' => $this->input->post('harga_iklan'),
 			'jenis_barang' => $this->input->post('jenis_barang'),
 			'gambar_fitur' => $data['upload_data'],
-			// 'alamat_barang' => $this->input->post('alamat'),
-			// 'telpon' => $this->input->post('telpon'),
+			'alamat_barang' => $this->input->post('alamat'),
+			'telpon' => $this->input->post('telpon'),
 			// 'barang_provinsi' => $this->input->post('provinsi'),
 			// 'barang_kota' => $this->input->post('kabkota'),
 			// 'barang_kecamatan' => $this->input->post('kecamatan'),
@@ -303,7 +309,7 @@ class Proses extends CI_Controller {
 			Iklan anda telah berhasil diunggah
 		</div>');
 		$this->iklan_model->simpan_iklan_by_kdbarang($data);
-		redirect(base_url().'barang/edit/'.$this->input->post('slug_iklan'));
+		redirect(base_url('barang/edit/'.$this->input->post('slug_iklan')));
 	}
 
 	public function hapus_iklan($slug)

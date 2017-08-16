@@ -63,6 +63,14 @@ class Welcome extends CI_Controller{
     {
         show_404();
     }
+    $meta_info =[
+			'title_tag' => $isi_iklan['iklan']['nama_barang']." | ",
+			'publish-time' => date('Y-m-d', strtotime($isi_iklan['iklan']['barang_upload_tgl'])),
+			'url' => base_url('isiiklan/'.$slug),
+			'image' => '../images/post_foto_feature/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($isi_iklan['iklan']['barang_upload_tgl']))).$isi_iklan['iklan']['gambar_fitur'],
+			'desc' => strip_tags($isi_iklan['iklan']['deskripsi_barang'])
+		];
+    $this->session->set_flashdata($meta_info);
 
     $isi_iklan['viewer'] = $this->iklan_model->add_viewer($slug, $isi_iklan['iklan']['view_barang']);
     $this->load->view("mobile/head/m_head");
@@ -72,7 +80,7 @@ class Welcome extends CI_Controller{
 
   public function allresult_mobile($param = '')
   {
-    $mobile_iklan['iklan'] = $this->iklan_model->get_all_iklan_by_kategori($param);
+    $mobile_iklan['iklan'] = $this->iklan_model->get_all_iklan_by_kategori('publish', $param);
 
     $this->load->view('mobile/head/m_head');
     $this->load->view('mobile/pages/mobile-list-iklan-result', $mobile_iklan);

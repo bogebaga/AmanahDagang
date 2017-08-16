@@ -28,7 +28,7 @@
 						<div class="col-md-6">
 								<div class="form-group">
 									<label>Judul Iklan</label>
-									<input class="form-control" placeholder="example: Jual cepat apa saja" name="nama_barang" value="<?php echo $barang->nama_barang ?>" minlength="20" required>
+									<input class="form-control" placeholder="example: Jual cepat apa saja" name="nama_barang" value="<?php echo $barang->nama_barang ?>" minlength="20" maxlength="70" required>
 								</div>
 								<div class="form-group">
 									<label>Kategori</label>
@@ -42,7 +42,7 @@
 										<?php endforeach; ?>
 									</select>
 								</div>
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label>Regional</label>
 									<select class="form-control" name="provinsi" id="provinsi" style="margin-bottom:5px">
 										<option>Pilih Provinsi</option>
@@ -74,7 +74,7 @@
 											<?php endif; ?>
 										<?php endforeach; ?>
 									</select>
-								</div>
+								</div> -->
 								<!-- <div class="form-group">
 									<label>Jenis Iklan</label>
 									<div class="radio">

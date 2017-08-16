@@ -28,11 +28,12 @@
     </div>
     <div class="footer-law">
       <p>
-        2017 HarianAmanah.com All Right Reserved
+        &copy;&nbsp;2017 amanahstores.com All Right Reserved
       </p>
     </div>
   </div>
 </footer>
+<?php $this->load->view('analytics'); ?>
 <script>
   tinymce.init({
     selector: 'textarea',

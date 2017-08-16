@@ -33,22 +33,6 @@
         <br>
         <label>Deskripsi <em class="required">*</em></label>
         <textarea class="form-control" name="deskripsi_iklan" rows="7" cols="80" required></textarea>
-        <div class="form-group">
-  				<label class="pull-left">Regional <em class="required">*</em></label>
-  				<select class="form-control" name="provinsi" id="provinsi" style="margin-bottom:5px">
-  					<option>Pilih Provinsi</option>
-  				</select>
-  				<select class="form-control" name="kabkota" id="kabkota" style="margin-bottom:5px">
-  					<option>Pilih Kabupaten/Kota</option>
-  				</select>
-  				<select class="form-control" name="kecamatan" id="kecamatan">
-  					<option>Pilih Kecamatan</option>
-					</select>
-				</div>
-        <label>Alamat</label>
-        <input class="form-control" type="text" name="alamat" placeholder="Alamat barang yang di iklan">
-        <label>Telepon</label>
-        <input class="form-control" type="tel" name="telpon" placeholder="08xxxxxxxxx">
         <label for="">Harga</label>
         <input class="form-control" type="text" name="harga_iklan" placeholder="Harga iklan">
         <label>Foto iklan 1<em class="required">*</em></label>
@@ -65,6 +49,25 @@
         <input type="file" name="image[]">
         <label>Foto iklan 7</label>
         <input type="file" name="image[]">
+        <h3 style="text-align:left;">Identitas Diri</h3>
+        <label>Nama</label>
+        <input class="form-control" type="text" name="name" placeholder="Nama Lengkap">
+        <label>Telepon</label>
+        <input class="form-control" type="tel" name="telpon" placeholder="08xxxxxxxxx">
+        <div class="form-group">
+  				<label class="pull-left">Regional </label>
+  				<select class="form-control" name="provinsi" id="provinsi" style="margin-bottom:5px">
+  					<option>Pilih Provinsi</option>
+  				</select>
+  				<select class="form-control" name="kabkota" id="kabkota" style="margin-bottom:5px">
+  					<option>Pilih Kabupaten/Kota</option>
+  				</select>
+  				<select class="form-control" name="kecamatan" id="kecamatan">
+  					<option>Pilih Kecamatan</option>
+					</select>
+				</div>
+        <label>Alamat</label>
+        <input class="form-control" type="text" name="alamat" placeholder="Alamat barang yang di iklan">
         <br>
         <button class="btn btn-success" type="submit" name="submit">Pasang</button>
         <?php echo form_close() ?>

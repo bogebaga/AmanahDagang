@@ -12,7 +12,7 @@
 	<meta name="description" content="<?php echo $this->session->flashdata('desc'); ?>">
 	<meta name="robots" content="index, follow">
 	<meta name="author" content="amanahstores">
-	<meta property="og:type" content="article">
+	<meta property="og:type" content="website">
 	<meta property="og:title" content="<?php echo $this->session->flashdata('title_tag') ?>amanahstores.com - Semua ada disini">
 	<meta property="og:site_name" content="amanahstores.com">
 	<meta property="og:url" content="<?php echo $this->session->flashdata('url')?>">

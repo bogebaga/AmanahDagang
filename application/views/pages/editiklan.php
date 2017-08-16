@@ -9,7 +9,7 @@
     ]);?>
       <div class="df">
         <h4>Judul Iklan</h4>
-        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." value="<?php echo $slug_data->nama_barang ?>" required minlenght="20">
+        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." value="<?php echo $slug_data->nama_barang ?>" required minlenght="20" maxlength="70">
       </div>
       <div class="df">
         <h4>Kategori</h4>
@@ -23,7 +23,7 @@
         <?php endforeach; ?>
         </select>
       </div>
-      <div class="df">
+      <!-- <div class="df">
         <h4>Regional</h4>
           <select name="provinsi" id="provinsi">
             <option>Pilih Provinsi</option>
@@ -57,7 +57,7 @@
               <?php endif; ?>
             <?php endforeach; ?>
           </select>
-      </div>
+      </div> -->
       <!-- <div class="df">
         <h4>Jenis Iklan</h4>
         <input type="radio" name="jenis_iklan" id="ji" value="iklan_baris" <?php echo ($slug_data->jenis_iklan == 'iklan_baris') ? 'checked' : '' ?>>
@@ -72,10 +72,6 @@
         <input type="radio" name="jenis_barang" id="jb1" value="bekas" <?php echo ($slug_data->jenis_barang == 'bekas') ? 'checked' : '' ?>>
         <label for="jb1">Bekas</label>
       </div>
-      <div class="df">
-        <h4>Harga</h4>
-        <input type="text" name="harga_iklan" id="harga_barang" placeholder="Harga Rupiah" value="<?php echo $slug_data->harga_barang ?>">
-      </div>
       <script>
         $('#harga_barang').maskMoney({thousands:'.', decimal: ',', precision:0});
       </script>
@@ -86,12 +82,16 @@
         </div>
       </div>
       <div class="df">
-        <h4>No Telp/HP</h4>
-        <input type="tel" name="telpon" placeholder="08xxxxxxx" value="<?php echo $slug_data->telpon ?>" />
+        <h4>Alamat Barang</h4>
+        <input type="text" name="alamat" placeholder="Alamat" value="<?php echo $slug_data->alamat_barang ?>" required>
       </div>
       <div class="df">
-        <h4>Alamat</h4>
-        <input type="text" name="alamat" placeholder="Tinggal dimana....." value="<?php echo $slug_data->alamat_barang ?>" required>
+        <h4>Nomor HP</h4>
+        <input type="text" name="telpon" placeholder="08xxxxxxx" value="<?php echo $slug_data->telpon ?>" />
+      </div>
+      <div class="df">
+        <h4>Harga</h4>
+        <input type="text" name="harga_iklan" id="harga_barang" placeholder="Harga Rupiah" value="<?php echo $slug_data->harga_barang ?>">
       </div>
       <div class="df">
         <h4>Foto Fitur</h4>

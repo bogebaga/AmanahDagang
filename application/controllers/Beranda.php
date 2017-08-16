@@ -24,7 +24,6 @@ class Beranda extends CI_Controller {
 			'bantuan' => base_url().'bantuan',
 			'network' => base_url().'tentang'
 		);
-
 		$this->load->view('template/header', $link);
 			if ($halaman == 'beranda')
 			{
