@@ -22,7 +22,7 @@
     <section class="container-fluid">
       <h4>List iklan</h4>
       <ul class="list-iklan">
-        <?php $path_fitur = base_url('../images/post_foto_feature/'); ?>
+        <?php $path_fitur = ONLINE_IMAGE.'images/post_foto_feature/'; ?>
         <?php //$path_fitur = FCPATH.'images/post_foto_feature/'; ?>
         <?php if ($iklan == NULL)
         {

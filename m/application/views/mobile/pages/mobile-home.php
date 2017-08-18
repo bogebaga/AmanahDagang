@@ -56,7 +56,7 @@
     <section class="container-fluid">
       <h3 style="color:#f57c00;">#JualBekasBisaJadiDuit</h3>
       <ul class="iklanku">
-        <?php $path_fitur = base_url("../images/post_foto_feature/"); ?>
+        <?php $path_fitur = ONLINE_IMAGE."images/post_foto_feature/"; ?>
         <?php foreach ($this->iklan_model->get_all_iklan_limit('publish','6') as $new_ads) : ?>
           <li>
             <a href="<?php echo base_url("isiiklan/".$new_ads['slug_nama_barang']) ?>">

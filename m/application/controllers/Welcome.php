@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+define('ONLINE_IMAGE', 'http://www.amanahstores.com/');
 
 // XXX: MOBILE AKSES (TRON CONTROLLER)
 class Welcome extends CI_Controller{
-
   public function __construct()
   {
     parent::__construct();
@@ -49,7 +49,7 @@ class Welcome extends CI_Controller{
 
   public function mkategori($param = '')
   {
-    $mobile_iklan['iklan'] = $this->iklan_model->get_all_iklan_by_kategori($param);
+    $mobile_iklan['iklan'] = $this->iklan_model->get_all_iklan_by_kategori('publish', $param);
 
     $this->load->view('mobile/head/m_head');
     $this->load->view('mobile/pages/mobile-list-iklan', $mobile_iklan);
