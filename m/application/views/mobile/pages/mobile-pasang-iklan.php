@@ -32,7 +32,7 @@
         <!-- <label for="" style="display:block;"><input type="checkbox" name="nego" value="Nego"> Nego</label> -->
         <br>
         <label>Deskripsi <em class="required">*</em></label>
-        <textarea class="form-control" name="deskripsi_iklan" rows="7" cols="80" required></textarea>
+        <textarea class="form-control" name="deskripsi_iklan" rows="7" cols="80" style="text-align:left;" required></textarea>
         <label for="">Harga</label>
         <input class="form-control" type="text" name="harga_iklan" placeholder="Harga iklan">
         <label>Foto iklan 1<em class="required">*</em></label>

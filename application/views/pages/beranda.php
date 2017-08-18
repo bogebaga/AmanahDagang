@@ -11,7 +11,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <a href="http://www.telkomsel.com" target="_blank"><img src="<?php echo base_url("images/slider/telkomsel_slide.jpg") ?>" class="img-responsive"></a>
+          <a id="image_tes" href="http://www.telkomsel.com" target="_blank"><img src="<?php echo base_url("images/slider/telkomsel_slide.jpg") ?>" class="img-responsive"></a>
         </div>
         <div class="item">
           <img src="<?php echo base_url("images/slider/slide 2.jpg") ?>" class="img-responsive">
@@ -149,6 +149,7 @@
         <?php foreach ($this->iklan_model->get_all_iklan_limit('publish','','5') as $new_ads) { ?>
           <li style="background:white;">
             <a href="<?php echo "barang/".$new_ads['slug_nama_barang'] ?>">
+              <!-- <img data-blur="true" src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?> alt="<?php echo $new_ads['nama_barang']?>"> -->
               <img src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?> alt="<?php echo $new_ads['nama_barang']?>" title="<?php echo $new_ads['nama_barang']?>">
               <figcaption>
                 <h3><?php echo $new_ads['nama_barang'] ?></h3>
@@ -165,7 +166,6 @@
         <?php } ?>
       </ul>
     </div>
-  </div>
   <div class="iklan-lebar">
     <img src="<?php echo base_url("images/footer-banner.jpg") ?>" alt="amanahdagang pasang iklan">
   </div>

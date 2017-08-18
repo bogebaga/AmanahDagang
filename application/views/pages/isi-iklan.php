@@ -20,16 +20,16 @@
       $explode_string = explode(',',$iklan['gambar_barang']);
       rsort($explode_string);
       foreach ($explode_string as $slide_gambar): ?>
-          <?php echo ($slide_gambar == '') ? '' : '<div class="gambar-gambar"><img src="'.$path_bd.$this->proses->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($iklan['barang_upload_tgl']))).$iklan['slug_nama_barang'].'/'.$slide_gambar.'"  class="img-responsive" alt="'.$iklan['nama_barang'].'" title="'.$iklan['nama_barang'].'"></div>' ?>
+          <?php echo ($slide_gambar == '') ? '' : '<div class="gambar-gambar" align="center"><img src="'.$path_bd.$this->proses->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($iklan['barang_upload_tgl']))).$iklan['slug_nama_barang'].'/'.$slide_gambar.'"  class="img-responsive" alt="'.$iklan['nama_barang'].'" title="'.$iklan['nama_barang'].'"></div>' ?>
       <?php endforeach; ?>
       <a class="arah-kiri" onclick="plusDivs(-1)">&#10094;</a>
       <a class="arah-kanan" onclick="plusDivs(1)">&#10095;</a>
     </div>
     <div class="sosmed-penjual dashed">
       <div class="btn btn-lg" style="border:0;">SHARE</div>
-      <a href="#" class="btn btn-primary btn-lg" title="Twitter"><span class="fa fa-2x fa-twitter"></span></a>
-      <a href="#" class="btn btn-danger btn-lg" title="Google+"><span class="fa fa-2x fa-google-plus"></span></a>
-      <a href="#" class="btn btn-primary btn-lg" title="Facebook"><span class="fa fa-2x fa-facebook"></span></a>
+      <a href="https://twitter.com/intent/tweet?text=<?php echo $iklan['nama_barang']?>&amp;url=<?php echo base_url('barang/'.$iklan['slug_nama_barang']) ?>" class="btn btn-primary btn-lg" title="Twitter"><span class="fa fa-2x fa-twitter"></span></a>
+      <a href="http://plus.google.com/share?url=<?php echo base_url('barang/'.$iklan['slug_nama_barang']) ?>" class="btn btn-danger btn-lg" title="Google+" target="_blank"><span class="fa fa-2x fa-google-plus"></span></a>
+      <a class="btn btn-primary btn-lg" title="Facebook"><span class="fa fa-2x fa-facebook"></span></a>
     </div>
     <div class="deskripsi-barang">
       <h3 style="margin-top:7px;">Detail Barang</h3>

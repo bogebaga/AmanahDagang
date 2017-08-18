@@ -100,13 +100,7 @@
 						</p>
 					</div>
 				</div>
-
-
-
-
-
 			</div><!--/.col-->
-
 			<div class="col-lg-6">
 				<div class="panel panel-default">
 					<div class="panel-heading">Dropdown Buttons</div>

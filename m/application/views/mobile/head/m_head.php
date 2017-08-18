@@ -17,6 +17,7 @@
   	<meta property="article:published_time" content="<?php echo $this->session->flashdata('publish-time') ?>">
   	<meta property="article:author" content="amanahstores.com">
 
+    <link rel="canonical" href="http://m.amanahstores.com">
     <!-- <link rel="shortcut icon" type="image/x-image" href="<?php echo base_url("images/fav.ico") ?>"> -->
     <link rel="stylesheet" href="<?php echo base_url("web/css/bootstrap.min.css") ?>">
     <link rel="stylesheet" href="<?php echo base_url("web/css/font-awesome/css/font-awesome.min.css") ?>">

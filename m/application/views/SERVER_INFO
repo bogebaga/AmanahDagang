@@ -1,0 +1,36 @@
+Array
+(
+  [USER] => nginx
+  [HOME] => /var/lib/nginx
+  [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,id;q=0.6,es;q=0.4
+  [HTTP_ACCEPT_ENCODING] => gzip, deflate
+  [HTTP_DNT] => 1
+  [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+  [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36
+  [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+  [HTTP_CONNECTION] => keep-alive
+  [HTTP_HOST] => m.amanahstores.com
+  [REDIRECT_STATUS] => 200
+  [SERVER_NAME] => m.amanahstores.com
+  [SERVER_PORT] => 80
+  [SERVER_ADDR] => 192.168.20.70
+  [REMOTE_PORT] => 11669
+  [REMOTE_ADDR] => 192.168.20.1
+  [SERVER_SOFTWARE] => nginx/1.10.2
+  [GATEWAY_INTERFACE] => CGI/1.1
+  [REQUEST_SCHEME] => http
+  [SERVER_PROTOCOL] => HTTP/1.1
+  [DOCUMENT_ROOT] => /var/www/html/m
+  [DOCUMENT_URI] => /index.php
+  [REQUEST_URI] => /
+  [SCRIPT_NAME] => /index.php
+  [CONTENT_LENGTH] =>
+  [CONTENT_TYPE] =>
+  [REQUEST_METHOD] => GET
+  [QUERY_STRING] =>
+  [SCRIPT_FILENAME] => /var/www/html/m/index.php
+  [FCGI_ROLE] => RESPONDER
+  [PHP_SELF] => /index.php
+  [REQUEST_TIME_FLOAT] => 1503041802.1203
+  [REQUEST_TIME] => 1503041802
+)
