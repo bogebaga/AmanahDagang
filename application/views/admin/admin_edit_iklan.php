@@ -126,30 +126,6 @@
 								</div>
 								<p class="help-block">Example block-level help text here.</p>
 							</div>
-							<script>
-							function loadImage(i, addr, w, h)
-							{
-								if (i.files && i.files[0])
-								{
-									var reader = new FileReader();
-									reader.onload = function(e)
-									{
-										$('#'+addr).attr('src', e.target.result).width(w).height(h);
-									}
-									reader.readAsDataURL(i.files[0]);
-								}
-							}
-							// function saveImage(e)
-							// {
-							//   var kd_img = $(e).attr('image-role');
-							//   var nm_arr = $(e).val().split('\\');
-							//   var path_nama = window.location.pathname.split('/');
-							//   $.post('/path/to/file', {kd_img: kd_image, name : nm_arr, sl: path_nama});
-							//   // console.log(kd_img);
-							//   // console.log(nm_arr[2]);
-							//   // console.log(path_nama[4]);
-							// }
-							</script>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Deskripsi</label>

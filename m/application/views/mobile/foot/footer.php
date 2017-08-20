@@ -29,6 +29,10 @@
     </a>
   </div>
 </footer>
+<?php $this->load->view('analytics'); ?>
+<script src="<?php echo base_url('web/js/slideImages.js') ?>" charset="utf-8"></script>
+<script src="<?php echo base_url('web/js/FormatCur.js') ?>" charset="utf-8"></script>
+<script src="<?php echo base_url('web/js/Region.js') ?>" charset="utf-8"></script>
 <script type="text/javascript">
   $(".alert").alert();
 </script>

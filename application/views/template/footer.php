@@ -34,24 +34,25 @@
   </div>
 </footer>
 <?php $this->load->view('analytics'); ?>
+<script src="<?php echo base_url('web/js/FormatCur.js')?>" charset="utf-8"></script>
+<script src="<?php echo base_url('web/js/slideImages.js')?>" charset="utf-8"></script>
+<script src="<?php echo base_url('web/js/Region.js')?>" charset="utf-8"></script>
 <script>
+  $('#harga_barang').maskMoney({thousands: '.', decimal: ',', precision: 0});
+  $(".alert").alert();
+  
   tinymce.init({
     selector: 'textarea',
     height: 220,
     image_advtab:true,
     menubar:false,
     plugins:
-      'advlist autolink lists link image charmap print preview hr anchor pagebreak searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor colorpicker textpattern imagetools'
-    ,
+      'advlist autolink lists link image charmap print preview hr anchor pagebreak searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor colorpicker textpattern imagetools',
     toolbar:[
       'undo redo | bold italic | alignleft aligncenter alignjustify | bullist numlist outdent indent',
       'forecolor backcolor | fontselect fontsizeselect'
-    ],
-    image_advtab: true
+    ]
   });
-  $(".alert").alert();
 </script>
-<script src="<?php echo base_url('web/js/FormatCur.js')?>" charset="utf-8"></script>
-<script src="<?php echo base_url('web/js/slideImages.js')?>" charset="utf-8"></script>
 </body>
 </html>

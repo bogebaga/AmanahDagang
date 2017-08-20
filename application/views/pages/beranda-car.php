@@ -63,7 +63,7 @@
               <img src=<?php echo (empty($loadfirst['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->proses->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($loadfirst['barang_upload_tgl']))).$loadfirst['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
               <figcaption>
                 <h3><?php echo $loadfirst['nama_barang'] ?></h3>
-                <h4><?php echo (empty($loadfirst['harga_barang']) ? '<div></div>' : "Rp. ".$loadfirst['harga_barang'])?></h4>
+                <h4 class="price-tag"><?php echo (empty($loadfirst['harga_barang']) ? '<div></div>' : "Rp. ".$loadfirst['harga_barang'])?></h4>
                 <div class="icon-btm-left" style="color:#2c3e50;">
                   <span class="fa fa-archive"></span> <?php echo ucwords($loadfirst['jenis_barang']); ?>
                 </div>
@@ -91,7 +91,6 @@
         'service' => 'fa-handshake-o material-tea',
         'lowongan-kerja' => 'fa-user material-green-old',
         'lainnya' => 'fa-ellipsis-h material-grey'];  ?>
-
     <?php foreach ($data as $value): ?>
       <div id="<?php echo lcfirst($value['nama_kategori']) ?>" class="tab-pane fade">
         <div class="row">
@@ -109,7 +108,7 @@
                 <img src=<?php echo (empty($data['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->proses->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($data['barang_upload_tgl']))).$data['gambar_fitur'] ?> alt="fitur foto iklan amanah dagang">
                 <figcaption>
                   <h3><?php echo $data['nama_barang'] ?></h3>
-                  <h4><?php echo (empty($data['harga_barang']) ? '<div></div>' : "Rp. ".$data['harga_barang'])?></h4>
+                  <h4 class="price-tag"><?php echo (empty($data['harga_barang']) ? '<div></div>' : "Rp. ".$data['harga_barang'])?></h4>
                   <div class="icon-btm-left" style="color:#2c3e50;">
                     <span class="fa fa-archive"></span> <?php echo ucwords($data['jenis_barang']); ?>
                   </div>

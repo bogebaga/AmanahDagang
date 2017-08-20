@@ -3,7 +3,6 @@
     $('#test_carousel_indicator_show_indicator').carousel()
   });
 
-
   tinymce.init({
     selector: 'textarea',
     height: 200,

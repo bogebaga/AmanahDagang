@@ -25,7 +25,7 @@
       </div>
       <div class="df">
         <h4>Judul Iklan</h4>
-        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." minlenght="20" maxlength="70" required>
+        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." minlength="20" maxlength="70" required>
       </div>
       <div class="df">
         <h4>Kategori</h4>
@@ -155,22 +155,6 @@
           <input type="text" name="identitas_alamat" placeholder="Alamat" value="<?php echo $data_user_pasang['user_alamat'] ?>" required>
         </div>
       <script>
-        function loadImage(i, addr, w, h)
-        {
-          if (i.files && i.files[0])
-          {
-            var reader = new FileReader();
-            reader.onload = function(e)
-            {
-              $('#'+addr).attr('src', e.target.result).width(w).height(h);
-            }
-
-            reader.readAsDataURL(i.files[0]);
-          }
-        }
-
-        $('#harga_barang').maskMoney({thousands:'.', decimal:',', precision:0});
-
         $("#ji").click(function(){
           $("#ads-iklan-baris").removeClass("none");
           $("#ads-iklan, #ads-iklan-fav").addClass("none");
@@ -191,53 +175,6 @@
           $("[name='nama_iklan'], [name='harga_iklan'], [name='nama_kategori'], [name='alamat'], [rule='deskripsi-iklan'], #gmbr-ftr1").removeClass();
           $("#gmbr-ftr1").addClass("buf");
         });
-
-        $("#provinsi").change(function(){
-          var provinsi = $("#provinsi").val();
-          $("#kabkota").empty();
-          data_kabkota (provinsi);
-        });
-
-        $("#kabkota").change(function() {
-          var kabkota = $("#kabkota").val();
-          $("#kecamatan").empty();
-          data_kecamatan(kabkota);
-        });
-
-        // function data_provinsi()
-        // {
-        //   $.post('provinsi', function(data0) {
-        //     var provinsi_data = JSON.parse(data0);
-        //
-        //     for (var i = 0; i < provinsi_data.length; i++) {
-        //       var select_pro = "<option value='"+provinsi_data[i]['id']+"'>"+provinsi_data[i]['nama']+"</option>";
-        //       $('#provinsi').append(select_pro);
-        //     }
-        //   });
-        // }
-        function data_kecamatan (a)
-        {
-          $.post('kecamatan',{id_kecamatan : a}, function(data) {
-            var data = JSON.parse(data);
-
-            for (var i = 0; i < data.length; i++) {
-              var select = "<option value='"+data[i]['id']+"'>"+data[i]['nama']+"</option>";
-              $("#kecamatan").append(select);
-            }
-          });
-        }
-
-        function data_kabkota (a)
-        {
-          $.post('kabkota',{id_provinsi : a}, function(data1)
-          {
-            var data_arr = JSON.parse(data1);
-            for (var i = 0; i < data_arr.length; i++) {
-              var select = "<option value='"+data_arr[i]['id']+"'>"+data_arr[i]['nama']+"</option>";
-              $('#kabkota').append(select);
-            }
-          });
-        }
       </script>
       <br>
       <button type="submit" name="submit" class="simpan btn btn-success btn-lg">Pasang Iklan</button>
