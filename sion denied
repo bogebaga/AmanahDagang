@@ -1,0 +1,315 @@
+[33mcommit 691021459845808c13cb6fc9a6ce8380600d84c6[m
+Author: Sulfikar bin Amboupe <bogebaga@gmail.com>
+Date:   Sun Aug 20 10:50:00 2017 +0800
+
+    MERGED - 200817
+
+[33mcommit f3788f3927fc3329dc28eebc3675047c792b0517[m
+Author: BogeBaga <bogebaga@gmail.com>
+Date:   Tue Aug 15 09:53:00 2017 +0800
+
+    Move identitas to user database
+
+[33mcommit bbdc49a0bae4d0ac9daf1ec6d3e1b7183982e583[m
+Author: Sulfikar <bogebaga@gmail.com>
+Date:   Sat Aug 12 12:41:24 2017 +0800
+
+    Add facebook comment, update assets
+
+[33mcommit 506bd731178f7f32507431edb8c23e1a45e14db1[m
+Author: Sulfikar <bogebaga@gmail.com>
+Date:   Thu Aug 10 20:48:52 2017 +0800
+
+    Fix route
+
+[33mcommit 0a748e09d26d435478729e9c0bd5c764d1210052[m
+Author: Sulfikar bin Amboupe <bogebaga@gmail.com>
+Date:   Mon Aug 7 07:54:40 2017 +0800
+
+    ADD daerah to user pasang iklan template
+
+[33mcommit 84d10faa66782285d847a5eeb76f4bee2eb22853[m
+Author: Sulfikar bin AmboUpe <bogebaga@gmail.com>
+Date:   Fri Aug 4 16:36:40 2017 +0800
+
+    Changed : Proses Controller
+
+[33mcommit 045e2f9be0c41af9778c644701efd421e28d26d5[m
+Author: Sulfikar bin AmboUpe <bogebaga@gmail.com>
+Date:   Fri Aug 4 07:10:55 2017 +0800
+
+    edit, save image to redirectori based on name slug
+
+[33mcommit 7b72a6a110f0e976d1cb881ae0b1e05421cb36ae[m
+Author: Sulfikar bin AmboUpe <bogebaga@gmail.com>
+Date:   Thu Aug 3 22:05:19 2017 +0800
+
+    Redirectori for image
+
+[33mcommit bace446220ff8dc29618e1f1305189906b1eafc4[m
+Author: Sulfikar bin AmboUpe <bogebaga@gmail.com>
+Date:   Sat Jul 29 09:47:50 2017 +0800
+
+    Subdirectory for mobile website, update assets, login and signup page
+
+[33mcommit fae08f3af368851e38609476a81d17cc64738249[m
+Author: Bogebaga <bogebaga@gmail.com>
+Date:   Fri Jul 21 14:17:45 2017 +0800
+
+    Mobile Fitur 2
+
+[33mcommit 6a6962535a9cdf2e3d1d2ba88b981b266122e389[m
+Author: mrbigbro <bogebaga@gmail.com>
+Date:   Wed Jul 19 17:07:13 2017 +0800
+
+    Add Mobile site
+
+[33mcommit 6f7e04f15fd806cc7a7c3b9cea202f7bb50ab53d[m
+Author: Bogebaga <bogebaga@gmail.com>
+Date:   Thu Jul 6 14:35:36 2017 +0800
+
+    Modified style.css and beranda-car.php
+
+[33mcommit acf0e41a7cedb66ed003d2840dea3f0a087034f8[m
+Author: Bogebaga <bogebaga@gmail.com>
+Date:   Thu Jul 6 08:10:56 2017 +0800
+
+    Add favicon, logo, new kategori | Modified Searchform | FIX - default image for empty value image
+
+[33mcommit 79a26ec223007dd978b8ec5863873aced7478bfc[m
+Author: Bogebaga <bogebaga@gmail.com>
+Date:   Wed Jul 5 13:35:43 2017 +0800
+
+    Modified homepage, search form, kategori and style.css
+
+[33mcommit d78debafffe87b9652b80d5fbf943d76004fe5e7[m
+Author: Bogebaga <bogebaga@gmail.com>
+Date:   Tue Jul 4 08:47:35 2017 +0800
+
+    Modified Homepage, responsive logo and search-form
+
+[33mcommit cf2d8949189f6bacfeb0cc1bae8af67e5297dc22[m
+Author: mrbigbro <bogebaga@gmail.com>
+Date:   Thu Jun 22 09:02:23 2017 +0800
+
+    ADD - new layout for tron view
+
+[33mcommit 611d9fb70cf15192bc0bafb09bcd958cd17506e6[m
+Author: Bogebaga <bogebaga@gmail.com>
+Date:   Wed Jun 21 11:40:15 2017 +0800
+
+    MODIFIED - tros.css
+
+[33mcommit b2021c2716408b2336ac81303bdd262b99474bdf[m
+Author: Bogebaga <bogebaga@gmail.com>
+Date:   Tue Jun 20 19:11:07 2017 +0800
+
+    ADD - youtube embed, tron admin page
+
+[33mcommit 0d31547978c912adbce5b64f78d5c70180298d56[m
+Author: mrbigbro <bogebaga@gmail.com>
+Date:   Sat Jun 17 10:13:38 2017 +0800
+
+    Modified - tron-page.php, tron.css & Add - BAK
+
+[33mcommit ee97dfb62d1b68df9ea637d0fdf0c92a0b9e2ed6[m
+Author: Bogebaga <bogebaga@gmail.com>
+Date:   Fri Jun 16 13:41:40 2017 +0800
+
+    Modified - tron page, header-tron(responsive meta tag) dan tron.css
+
+[33mcommit 4428f4a71567efea5d839b5e7565e93473055a90[m
+Author: Bogebaga <bogebaga@gmail.com>
+Date:   Wed Jun 14 09:12:53 2017 +0800
+
+    fix - modified tron frontend, add - new database file
+
+[33mcommit 226051b3cafe7f03ecf297c97ab2455d607768d9[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Wed Jun 7 11:18:18 2017 +0800
+
+    "Modified tron view, add carousel slide to view"
+
+[33mcommit 9ab5dca1feeb401e45539882d777c749626d92b2[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Tue Jun 6 12:43:05 2017 +0800
+
+    Modified tron css & tron-page
+
+[33mcommit 8277a3dddeb3a5c5ebfc95eadf986c94f193fdb0[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Fri Jun 2 22:47:12 2017 +0800
+
+    Add tron page for ads
+
+[33mcommit b15d73c6effcec9a555866b5d992c858ef00d2e7[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Sat May 13 22:27:02 2017 +0800
+
+    FIX Admin & Register Controller, Model, Style
+
+[33mcommit 11e4cff8c898f6f1ca463995fa23dde58f7fbb4b[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Sat May 13 09:45:21 2017 +0800
+
+    Menampilkan default gambar untuk tampilan awal
+
+[33mcommit 13deb3673da53734e5a8332af5b492420024c808[m
+Merge: a380c00 8d52cd4
+Author: mrbigbro <bogebaga@gmail.com>
+Date:   Sat May 13 09:11:32 2017 +0800
+
+    merge with several item from GIT (isi-iklan)
+
+[33mcommit a380c006f981033ad30d626e7cf77bfd8c6b467c[m
+Author: mrbigbro <bogebaga@gmail.com>
+Date:   Sat May 13 09:05:16 2017 +0800
+
+    Modified isi-iklan
+
+[33mcommit 8d52cd44a85473d468116243b15ba15666f00dc5[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Sat May 13 00:53:06 2017 +0800
+
+    Modified Isi-iklan & Beranda
+
+[33mcommit 4f5047f8915394fd5c3207a4afeb7fb3213089ed[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Fri May 12 22:36:34 2017 +0800
+
+    Modified Admin & Proses Controller for save/edit Foto Feature
+
+[33mcommit 827a9de773739bddf3b4c2608f82021accd750b0[m
+Author: mrbigbro <bogebaga@gmail.com>
+Date:   Wed May 10 10:55:42 2017 +0800
+
+    Modified Admin Controller, Many Pages, CSS
+
+[33mcommit 9b186c6fc55706aaaa9e2900114618884008e59e[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Tue May 9 09:03:26 2017 +0800
+
+    Modified controller Admin & Style.css
+
+[33mcommit 4452df881965770a8f4df67e22212a2a8102e3a3[m
+Author: mrbigbro <bogebaga@gmail.com>
+Date:   Mon May 8 23:42:34 2017 +0800
+
+    Modified iklan_model and beranda_page
+
+[33mcommit 5bb26a58442ccc40a663c351ee1a122f46dee147[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Mon May 8 17:32:06 2017 +0800
+
+    edit admin_edit_iklan, form_iklan, dan editiklan
+
+[33mcommit 3913a7f846b1ee6ea325f9ae7684483d299af75d[m
+Merge: 81a5db8 47ac2c7
+Author: mrbigbro <bogebaga@gmail.com>
+Date:   Sun May 7 11:04:21 2017 +0800
+
+    Merge branch 'develop' of https://bitbucket.org/Bogebaga/amanahdagang into develop
+
+[33mcommit 81a5db8d9684adf9dc4df81b111e26193697c028[m
+Author: mrbigbro <bogebaga@gmail.com>
+Date:   Sun May 7 11:03:20 2017 +0800
+
+    Customize input field for register form
+
+[33mcommit 47ac2c72981063c23826d10a58f98d11330de123[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Sun May 7 10:52:32 2017 +0800
+
+    fix upload image iklan and edit image iklan - ADMIN
+
+[33mcommit 56cfb7a5234d2d6c938d1c84714eac4628726a67[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Thu May 4 18:28:14 2017 +0800
+
+    Modified save edit foto iklan also delete old file in the dir
+
+[33mcommit a299c920a72508fd900a58fa43c6625e9d350c0d[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Thu May 4 18:25:15 2017 +0800
+
+    Add New DB Amanahdagang
+    Fix save edit image also delete old image
+
+[33mcommit c5cfa2e5f73bcf095f5160a5c8e55521ee625011[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Thu May 4 15:00:49 2017 +0800
+
+    Modified - edit_save_gambar
+    add - unlink method to profil delete adv
+
+[33mcommit 57b9d3368b0889043946bc21f90f68a7e90b5a7f[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Thu May 4 12:41:22 2017 +0800
+
+    rebase + modified - input file on edit Iklan
+
+[33mcommit ce5b82accbe0d0f4af139954a38a34e4ec4ab43d[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Thu May 4 12:16:42 2017 +0800
+
+    ++_ add images/post_foto_feature dir
+
+[33mcommit 4c59ca985f3af7a268c2dd4272d137b987fe7c54[m
+Merge: 57c47e8 647cb21
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Thu May 4 12:01:57 2017 +0800
+
+    Modified save_edit_iklan
+
+[33mcommit 57c47e85fa607a1b5c2cce5d1012bd06bb6aee66[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Thu May 4 11:53:24 2017 +0800
+
+    Modified - migrasi
+
+[33mcommit 647cb21f5c7837d50de1324f92c6b6f1f426aec6[m
+Merge: 42720dc 4d2e361
+Author: mrbigbro <bogebaga@gmail.com>
+Date:   Thu May 4 11:48:01 2017 +0800
+
+    Save edit image
+
+[33mcommit 4d2e36149e0381076f96aa4705515ba9ba14506c[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Thu May 4 11:34:02 2017 +0800
+
+    add - bower
+    change - save edit photo
+
+[33mcommit 42720dc1ef59ac6bccf7c8c04c8a641894e89adf[m
+Author: mrbigbro <bogebaga@gmail.com>
+Date:   Wed May 3 19:52:36 2017 +0800
+
+    not change image on input file not selected
+
+[33mcommit ca6429d026763d868da66a0957f537a3b734d33c[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Sun Apr 30 07:35:51 2017 +0800
+
+    - fix delete file also deleto to root folder
+
+[33mcommit e7016f055b649f9930b83bb51dd8e0d3fc231c29[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Fri Apr 28 21:19:48 2017 +0800
+
+    - Edit user FIX
+    - Edit iklan FIX
+    - Hapus user FIX
+    - Hapus iklan FIX
+
+[33mcommit 7a2283893e969dca359a557f581c1b694ebd985b[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Wed Apr 26 09:18:32 2017 +0800
+
+    add db_update file .zip
+
+[33mcommit 9f3ba55bd188f5d9161801253714a7ad75bc621b[m
+Author: callmeboge <bogebaga@gmail.com>
+Date:   Wed Apr 26 07:23:36 2017 +0800
+
+    Master amanahdagang
