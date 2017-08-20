@@ -22,7 +22,7 @@
           <a href="#" class="btn btn-primary btn-lg" title="Twitter"><span class="fa fa-twitter"></span></a>
         </div>
         <div class="gambar-iklan" style="padding-top:10px">
-          <?php $path_ff = base_url('../images/post_foto_feature/'.$this->welcome_mob->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($iklan['barang_upload_tgl'])))); ?>
+          <?php $path_ff = ONLINE_IMAGE.'images/post_foto_feature/'.$this->welcome_mob->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($iklan['barang_upload_tgl']))); ?>
           <img src="<?php echo (empty($iklan['gambar_fitur'])) ? base_url('images/base.png') : $path_ff.$iklan['gambar_fitur']; ?>" alt="">
           <span><a href="#">Sebelumnya</a> | <a href="#">Selanjutnya</a></span>
           <div style="padding:10px;font-size:25px;background-color:#ede7f6;display:inline-block;margin-bottom:5px;border-radius:5px;">
@@ -34,7 +34,7 @@
             <li>
               <label>Kategori iklan</label>
               <span>
-                <a href=""><?php echo $iklan['nama_kategori'] ?></a>
+                <a><?php echo $iklan['nama_kategori'] ?></a>
               </span>
             </li>
             <li>

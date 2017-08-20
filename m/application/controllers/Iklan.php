@@ -1,8 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+define('ONLINE_IMAGE', 'http://www.amanahstores.com/');
 
 class Iklan extends CI_Controller{
-
+  var $location = '/var/www/html/amanahdagang/';
   public function __construct()
   {
     parent::__construct();
@@ -20,14 +21,14 @@ class Iklan extends CI_Controller{
       $After_explode = explode(".", $_FILES['foto_fitur_name']['name']);
 
       // echo  $this->tanggal_indonesia(date('Y-m-d-N'));
-      if(! file_exists('../images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')))):
-        mkdir('../images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')), 0777, true);
+      if(! file_exists($this->location.'images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')))):
+        mkdir($this->location.'images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')), 0777, true);
       endif;
 
       // NOTE: Ini untuk upload tunggal
   		$this->upload->initialize(
   			[
-  				'upload_path' => '../images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')),
+  				'upload_path' => $this->location.'images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')),
   				'allowed_types' => 'jpg|png|gif|jpeg',
   				'file_name' => $After_explode[0]."_".$slug_nama_iklan."-".$barang_kode."_Fitur",
   				'overwrite' => TRUE,
@@ -74,12 +75,12 @@ class Iklan extends CI_Controller{
   				$_FILES['images']['size'] = $_FILES['image']['size'][$i];
   				$After_explode = explode(".", $_FILES['images']['name']);
 
-          if(! file_exists('../images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode)):
-            mkdir('../images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode, 0777, true);
+          if(! file_exists($this->location.'images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode)):
+            mkdir($this->location.'images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode, 0777, true);
           endif;
 
   				$this->upload->initialize([
-  					'upload_path' => '../images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode,
+  					'upload_path' => $this->location.'images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode,
   					'allowed_types' => 'jpeg|jpg|png|gif',
   					'file_name' => $After_explode[0].'_'.$slug_nama_iklan.'-'.$barang_kode.'_'.$i,
   					'overwrite' => TRUE

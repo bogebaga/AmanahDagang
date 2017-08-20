@@ -98,7 +98,7 @@ ul > li > ul.right-navigation,
 ul > li > ul.left-navigation > li,
 ul.iklanku > li
 {
-  width: 24%;
+  width: 32.5%;
   height: auto;
   min-height: 100px;
   margin-bottom: 5px;
@@ -195,6 +195,11 @@ ul.list-iklan > li.item-iklan,
   background-color: #fff;
   -webkit-box-shadow: 0px 5px 3px 0px rgba(43, 43, 43, 0.25);
           box-shadow: 0px 5px 3px 0px rgba(43, 43, 43, 0.25);
+}
+
+.container-isi-iklan > .informasi-iklan td
+{
+  text-align: left;
 }
 
 .container-isi-iklan > .contact-item.same-size > a
@@ -385,11 +390,11 @@ ul.iklanku > li
   width: 49%;
   padding:0;
 }
-ul.iklanku > li > a,
 ul.iklanku > li > a > img
 {
   width: 100%;
 }
+
 ul.iklanku > li > a  div
 {
   text-align: left;
@@ -458,6 +463,7 @@ footer img
 }
 .sprite-media:hover
 {
+  -webkit-transition: background .2s linear;
   transition: background .2s linear;
 
   background: url("../../images/social_media/4794x72_color.png") no-repeat;
