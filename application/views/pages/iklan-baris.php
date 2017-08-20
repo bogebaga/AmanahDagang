@@ -10,7 +10,6 @@
       <?php endforeach; ?>
     </ul>
   </div>
-
   <div class="barang-dagang tab-content">
     <div id="load-first" class="tab-pane fade active in">
       <ul class="foto-dagangan">

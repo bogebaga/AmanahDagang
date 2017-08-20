@@ -49,6 +49,14 @@
         </div>
       </div>
       <div class="df">
+        <h4>Alamat Barang</h4>
+        <input type="text" name="alamat" placeholder="Alamat" required>
+      </div>
+      <div class="df">
+        <h4>Nomor HP</h4>
+        <input type="text" name="telpon" placeholder="08xxxxxxx">
+      </div>
+      <div class="df">
         <h4>Harga</h4>
         <input type="text" name="harga_iklan" id="harga_barang" placeholder="Harga Rupiah">
       </div>
@@ -97,15 +105,15 @@
       <?php $data_user_pasang = $this->user_model->get_user_profil($this->session->userdata('user_kd')) ?>
         <div class="df">
           <h4>Nama</h4>
-          <input type="text" name="nama" placeholder="Nama" value="<?php echo $data_user_pasang['user_nama'] ?>">
+          <input type="text" name="identitas_nama" placeholder="Nama" value="<?php echo $data_user_pasang['user_nama'] ?>">
         </div>
         <div class="df">
           <h4>Email</h4>
-          <input type="email" name="email" placeholder="Email" value="<?php echo $data_user_pasang['user_email'] ?>">
+          <input type="text" value="<?php echo $data_user_pasang['user_email'] ?>"disabled>
         </div>
         <div class="df">
           <h4>No Telp/HP</h4>
-          <input type="text" name="telpon" placeholder="08xxxxxxx" value="<?php echo $data_user_pasang['user_telpon'] ?>">
+          <input type="text" name="identitas_telpon" placeholder="08xxxxxxx" value="<?php echo $data_user_pasang['user_telpon'] ?>">
         </div>
         <div class="df">
           <h4>Regional</h4>
@@ -144,7 +152,7 @@
         </div>
         <div class="df">
           <h4>Alamat</h4>
-          <input type="text" name="alamat" placeholder="Alamat" value="<?php echo $data_user_pasang['user_alamat'] ?>" required>
+          <input type="text" name="identitas_alamat" placeholder="Alamat" value="<?php echo $data_user_pasang['user_alamat'] ?>" required>
         </div>
       <script>
         function loadImage(i, addr, w, h)

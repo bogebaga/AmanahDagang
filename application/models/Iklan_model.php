@@ -69,10 +69,14 @@ class Iklan_model extends CI_Model{
     return $query->result_array();
   }
 
-  public function get_all_iklan_by_kategori($kategori = '', $jenis_iklan = 'iklan_baris', $urutan = 'DESC')
+  public function get_all_iklan_by_kategori($kategori = '',$tayang = '', $jenis_iklan = 'iklan_baris', $urutan = 'DESC')
   {
     $this->db->from('ad_barang ab');
     $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
+    if ($tayang)
+    {
+      $this->db->where('ab.tayang_barang', $tayang);
+    }
     if ($kategori)
     {
       $this->db->where('ak.nama_kategori', $kategori);
@@ -104,9 +108,12 @@ class Iklan_model extends CI_Model{
     return $result->result_array();
   }
 
-  public function get_all_iklan_limit($tayang='',$limit='', $jenis_iklan = 'iklan_baris')
+  public function get_all_iklan_limit($tayang='', $user='',$limit='', $jenis_iklan = 'iklan_baris')
   {
-    // $this->db->where('tayang_barang', $tayang);
+    if ($user) {
+      $this->db->where('user_kode', $user);
+    }
+    $this->db->where('tayang_barang', $tayang);
     $this->db->where('jenis_iklan != ', $jenis_iklan);
     $this->db->order_by('barang_upload_tgl', 'DESC');
     $this->db->limit($limit);
@@ -158,8 +165,11 @@ class Iklan_model extends CI_Model{
 
     return $query->row_array();
   }
-  public function pasang_iklan($data)
+  public function pasang_iklan($data = '', $identitas = '', $bool = TRUE)
   {
+      if ($bool) {
+        $this->db->update('ad_user', $identitas, "user_kode ='".$this->session->userdata('user_kd')."'");
+      }
       return $this->db->insert('ad_barang', $data);
   }
 

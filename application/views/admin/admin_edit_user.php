@@ -5,12 +5,16 @@
 				<li class="active">Forms</li>
 			</ol>
 		</div><!--/.row-->
-
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Forms</h1>
 			</div>
 		</div><!--/.row-->
+		<div class="row">
+			<div class="col-xs-12">
+				<?php echo $this->session->flashdata('success_user'); ?>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
@@ -75,9 +79,9 @@
 							<div class="form-group">
 								<label style="display:block;">Foto Upload</label>
 								<label class="chs-img" style="width:255px;padding: 35px 0;">
-									<img>
+									<img id="foto_profil" <?php echo ($data_user['user_picture']) ? 'src='.base_url('images/user_iklan/'.$this->admin->tanggal_indonesia(date('Y-m-d-N', strtotime($data_user['user_add']))).$data_user['user_picture']) : '' ?> width="252" height="112">
 									<span class="glyphicon glyphicon-eye-open"></span>
-									<input type="file" name='foto_upload' style="display:none;">
+									<input type="file" name='foto_upload' onchange="loadImage(this, 'foto_profil', 252, 112)" style="display:none;">
 								</label>
 								<p class="help-block" style="display:block;">Example block-level help text here.</p>
 							</div>
@@ -100,6 +104,18 @@
 							<button type="reset" class="btn btn-default">Reset</button>
 						</div>
 							<?php echo form_close() ?>
+							<script>
+								function loadImage(i, elemen, w ,h){
+									if (i.files && i.files[0]) {
+										var reader = new FileReader();
+
+										reader.onload = function(e){
+											$('#'+elemen).attr('src', e.target.result).width(w).height(h);
+										}
+										reader.readAsDataURL(i.files[0]);
+									}
+								}
+							</script>
 				</div>
 			</div><!-- /.col-->
 		</div><!-- /.row -->

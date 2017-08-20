@@ -54,7 +54,7 @@ class User_model extends CI_Model
       'user_login' => $this->input->post('user_nama'),
       'user_nama' => $this->input->post('nlengkap'),
       'user_pass' => md5($this->input->post('password')),
-      'user_email' => $this->input->post('email'),
+      'user_email' => strtolower($this->input->post('email')),
       'user_type' => 'general'
     ];
     return $this->db->insert('ad_user', $data);
