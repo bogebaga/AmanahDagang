@@ -9,7 +9,7 @@
     ]);?>
       <div class="df">
         <h4>Judul Iklan</h4>
-        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." value="<?php echo $slug_data->nama_barang ?>" required minlenght="20" maxlength="70">
+        <input type="text" name="nama_iklan" placeholder="Jual cepat barang yang sudah tidak dipakai..." value="<?php echo $slug_data->nama_barang ?>" required minlength="20" maxlength="70">
       </div>
       <div class="df">
         <h4>Kategori</h4>
@@ -72,9 +72,6 @@
         <input type="radio" name="jenis_barang" id="jb1" value="bekas" <?php echo ($slug_data->jenis_barang == 'bekas') ? 'checked' : '' ?>>
         <label for="jb1">Bekas</label>
       </div>
-      <script>
-        $('#harga_barang').maskMoney({thousands:'.', decimal: ',', precision:0});
-      </script>
       <div class="df" style="position:relative;">
         <h4 style="position:absolute">Deskripsi</h4>
         <div style="width:500px;margin-left:205px;">
@@ -111,32 +108,6 @@
             <input type="file" name="image[]" onchange="loadImage(this,'image_<?php echo $key+1?>', 85, 85)" style="display:none;">
           </label>
         <?php endforeach; ?>
-      <script>
-      function loadImage(i, addr, w, h)
-      {
-        if (i.files && i.files[0])
-        {
-          var reader = new FileReader();
-
-          reader.onload = function(e)
-          {
-            $('#'+addr).attr('src', e.target.result).width(w).height(h);
-          }
-
-          reader.readAsDataURL(i.files[0]);
-        }
-      }
-      // function saveImage(e)
-      // {
-      //   var kd_img = $(e).attr('image-role');
-      //   var nm_arr = $(e).val().split('\\');
-      //   var path_nama = window.location.pathname.split('/');
-      //   $.post('/path/to/file', {kd_img: kd_image, name : nm_arr, sl: path_nama});
-      //   // console.log(kd_img);
-      //   // console.log(nm_arr[2]);
-      //   // console.log(path_nama[4]);
-      // }
-      </script>
       </div>
       <br>
       <button type="submit" name="submit" class="simpan btn btn-success btn-lg">Simpan</button>

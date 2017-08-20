@@ -43,7 +43,6 @@
 								</div>
 							</li>
 							<li class="divider"></li>
-
 							<li>
 								<div class="all-button">
 									<a href="#">
@@ -90,7 +89,6 @@
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
-
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<form role="search">
 			<div class="form-group">
@@ -105,12 +103,12 @@
 				</a>
 				<ul class="children collapse" id="sub-item-1">
 					<li>
-						<a class="" href="<?php echo base_url('admin/iklan') ?>">
+						<a href="<?php echo base_url('admin/iklan') ?>">
 							<span class="glyphicon glyphicon-share-alt"></span> Iklan
 						</a>
 					</li>
 					<li>
-						<a class="" href="<?php echo base_url("admin/user") ?>">
+						<a href="<?php echo base_url("admin/user") ?>">
 							<span class="glyphicon glyphicon-share-alt"></span> Profil
 						</a>
 					</li>
@@ -118,11 +116,11 @@
 			</li>
 			<li class="parent">
 				<a data-toggle="collapse" href="#sub-item-2">
-					<span class="glyphicon glyphicon-pencil"></span> admin forms<span  class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+					<span class="glyphicon glyphicon-pencil"></span> admin forms<span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-2">
 					<li>
-						<a class="" href="<?php echo base_url('admin/add_iklan') ?>">
+						<a href="<?php echo base_url('admin/add_iklan') ?>">
 							<span class="glyphicon glyphicon-share-alt"></span>Iklan
 						</a>
 					</li>
@@ -135,7 +133,7 @@
 				</a>
 				<ul class="children collapse" id="sub-item-3">
 					<li>
-						<a class="" href="<?php echo base_url('admin/youtube_embed') ?>">
+						<a href="<?php echo base_url('admin/youtube_embed') ?>">
 							<span class="glyphicon glyphicon-share-alt"></span> Tambah
 						</a>
 					</li>

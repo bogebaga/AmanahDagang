@@ -86,7 +86,6 @@
 									</label>
 									<p class="help-block" style="display:block;">Example block-level help text here.</p>
 								</div>
-
 								<div class="form-group">
 									<label style="display:block;">Foto Grup</label>
 									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
@@ -122,22 +121,6 @@
 								</div>
 								<p class="help-block">Example block-level help text here.</p>
 							</div>
-							<script>
-							function loadImage(i, addr, w, h)
-							{
-								if (i.files && i.files[0])
-								{
-									var reader = new FileReader();
-
-									reader.onload = function(e)
-									{
-										$('#'+addr).attr('src', e.target.result).width(w).height(h);
-									}
-
-									reader.readAsDataURL(i.files[0]);
-								}
-							}
-							</script>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Deskripsi</label>

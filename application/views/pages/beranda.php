@@ -1,6 +1,3 @@
-<script type="text/javascript">
-  $('#slider-home-1').carousel();
-</script>
 <section class="wrapper">
   <div class="iklan">
     <div id="slider-home-1" class="carousel slide" data-ride="carousel">
@@ -153,7 +150,7 @@
               <img src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?> alt="<?php echo $new_ads['nama_barang']?>" title="<?php echo $new_ads['nama_barang']?>">
               <figcaption>
                 <h3><?php echo $new_ads['nama_barang'] ?></h3>
-                <h4><?php echo (empty($new_ads['harga_barang']) ? '<div></div>' : "Rp. ".$new_ads['harga_barang'])?></h4>
+                <h4 class="price-tag"><?php echo (empty($new_ads['harga_barang']) ? '<div></div>' : "Rp. ".$new_ads['harga_barang'])?></h4>
                 <div class="icon-btm-left" style="color:#2c3e50;">
                   <span class="fa fa-archive"></span> <?php echo ucwords($new_ads['jenis_barang']); ?>
                 </div>

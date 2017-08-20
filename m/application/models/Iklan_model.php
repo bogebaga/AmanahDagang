@@ -155,15 +155,17 @@ class Iklan_model extends CI_Model{
     return $query->row_array();
   }
 
-  public function pasang_iklan($data)
+  public function pasang_iklan($data, $user, $bool= TRUE)
   {
+      if ($bool) {
+        $this->db->update('ad_user', $user, 'user_kode = '.$this->session->userdata('user_kd'));
+      }
       return $this->db->insert('ad_barang', $data);
   }
 
   public function simpan_iklan_by_kdbarang($data)
   {
     $this->load->helper('array');
-
     $this->db->where('barang_kode', element('barang_kode', $data));
     unset($data['barang_kode']);
 

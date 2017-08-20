@@ -15,6 +15,14 @@ class Welcome extends CI_Controller{
 
   public function index ()
   {
+    $meta_information = [
+			'title_tag' => 'Ketemu banyak pedagang terpercaya dengan mudah di amanahstores.com - Semua ada disini',
+			'desc' => 'Wadah bagi pemasang iklan untuk memasarkan produknya, memungkinkan seseorang ataupun pemilik usaha di Indonesia untuk mengelola usahanya sendiri secara mudah dan gratis. amanahstores akan memberikan keamanan dan kenyamanan dalam berbelanja online',
+			'url' => base_url(),
+			'publish-time' => date('Y-m-d')
+		];
+    
+    $this->session->set_flashdata($meta_information);
     $this->load->view('mobile/head/m_head');
     $this->load->view('mobile/pages/mobile-home');
     $this->load->view('mobile/foot/footer');
@@ -25,6 +33,14 @@ class Welcome extends CI_Controller{
     if(! file_exists(APPPATH."views/mobile/pages/".$param.".php")):
       show_404();
     endif;
+    $meta_information = [
+			'title_tag' => 'Ketemu banyak pedagang terpercaya dengan mudah di amanahstores.com - Semua ada disini',
+			'desc' => 'Wadah bagi pemasang iklan untuk memasarkan produknya, memungkinkan seseorang ataupun pemilik usaha di Indonesia untuk mengelola usahanya sendiri secara mudah dan gratis. amanahstores akan memberikan keamanan dan kenyamanan dalam berbelanja online',
+			'url' => base_url(),
+			'publish-time' => date('Y-m-d')
+		];
+    
+    $this->session->set_flashdata($meta_information);
     $this->load->view('mobile/head/m_head');
     if ($param == 'mobile-pasang-iklan'):
       $data['kategori'] = $this->iklan_model->get_kategori();
@@ -98,8 +114,8 @@ class Welcome extends CI_Controller{
 
   public function tanggal_indonesia_convert($tanggal)
   {
-    $nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
     $nama_hari = [1 => 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+    $nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
     $tanggal_split = explode('-', $tanggal);
     $tanggal_output = $tanggal_split[0]."/".$nama_bulan[(int)$tanggal_split[1]]."/".$nama_hari[(int)$tanggal_split[3]]."-".$tanggal_split[2]."/";
 

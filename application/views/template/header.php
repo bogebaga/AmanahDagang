@@ -16,10 +16,10 @@
 	<meta property="og:url" content="<?php echo $this->session->flashdata('url')?>">
 	<meta property="og:image" content="<?php echo $this->session->flashdata('image') ?>">
 	<meta property="article:published_time" content="<?php echo $this->session->flashdata('publish-time') ?>">
-	<meta property="article:author" content="amanahstores.com">
+	<meta property="article:author" content="amanahstores">
     <link rel="alternate" media="only screen and (max-width:640px)" href="http://m.amanahstores.com">
     <link rel="alternate" media="handheld" href="http://m.amanahstores.com">
-    <link rel="canonical" href="<?php $this->session->flashdata('url') ?>">
+    <link rel="canonical" href="<?php echo $this->session->flashdata('url') ?>">
 	<!-- CSS -->
 	<link rel="stylesheet" href="<?php echo base_url("web/css/bootstrap.min.css") ?>">
 	<link rel="stylesheet" href="<?php echo base_url("web/css/font-awesome/css/font-awesome.min.css"); ?>">

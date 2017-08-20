@@ -20,6 +20,28 @@
       <?php echo form_close(); ?>
       <a href="<?php echo base_url('home/mobile-pasang-iklan'); ?>" class="btn btn-primary _btn_std pasang_iklan">Pasang Iklan</a>
     </div>
+    <section class="container-fluid menu-container" style="padding-bottom:0;">
+      <div class="iklan">
+        <div id="slider-home-1" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#slider-home-1" data-slide-to="0" class="active"></li>
+            <li data-target="#slider-home-1" data-slide-to="1"></li>
+            <li data-target="#slider-home-1" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <a id="image_tes" href="http://www.telkomsel.com" target="_blank"><img src="<?php echo base_url("images/slider/telkomsel_slide.jpg") ?>" class="img-responsive"></a>
+            </div>
+            <div class="item">
+              <img src="<?php echo base_url("images/slider/slide 2.jpg") ?>" class="img-responsive">
+            </div>
+            <div class="item">
+              <img src="<?php echo base_url("images/slider/slide 3.jpg") ?>" class="img-responsive">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="container-fluid menu-container">
       <?php //print_r($_SERVER);?>
       <ul class="container-sidenav">
@@ -56,8 +78,9 @@
     <section class="container-fluid">
       <h3 style="color:#f57c00;">#JualBekasBisaJadiDuit</h3>
       <ul class="iklanku">
-        <?php $path_fitur = ONLINE_IMAGE."images/post_foto_feature/"; ?>
-        <?php foreach ($this->iklan_model->get_all_iklan_limit('publish','6') as $new_ads) : ?>
+        <?php //$path_fitur = ONLINE_IMAGE."images/post_foto_feature/"; ?>
+        <?php $path_fitur = "../images/post_foto_feature/"; ?>
+        <?php foreach ($this->iklan_model->get_all_iklan_limit('publish', '14') as $new_ads) : ?>
           <li>
             <a href="<?php echo base_url("isiiklan/".$new_ads['slug_nama_barang']) ?>">
               <img src="<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->welcome_mob->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?>" alt="">

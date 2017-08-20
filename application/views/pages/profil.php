@@ -1,41 +1,3 @@
-<script type="text/javascript">
-$(function() {
-  $('#provinsi').change(function() {
-    var provinsi = $('#provinsi').val();
-    $('#kabkota').empty();
-    data_kabkota (provinsi);
-  });
-  $("#kabkota").change(function() {
-      var kabkota = $("#kabkota").val();
-      $("#kecamatan").empty();
-      data_kecamatan(kabkota);
-  });
-
-  function data_kabkota (a)
-  {
-    $.post('kabkota',{id_provinsi : a}, function(data1)
-    {
-      var data_arr = JSON.parse(data1);
-      for (var i = 0; i < data_arr.length; i++) {
-        var select = "<option value='"+data_arr[i]['id']+"'>"+data_arr[i]['nama']+"</option>";
-        $('#kabkota').append(select);
-      }
-    });
-  }
-  function data_kecamatan (a)
-  {
-    $.post('kecamatan',{id_kecamatan : a}, function(data) {
-      var data = JSON.parse(data);
-
-      for (var i = 0; i < data.length; i++) {
-        var select = "<option value='"+data[i]['id']+"'>"+data[i]['nama']+"</option>";
-        $("#kecamatan").append(select);
-      }
-    });
-  }
-
-});
-</script>
 <section>
   <?php echo form_open_multipart('edit', '', ['uplusr' => $data_user['user_add']]); ?>
   <div  class="detail-biodata">
@@ -101,24 +63,10 @@ $(function() {
         <label class="label-control">Deskripsi</label>
         <textarea name="deskripsi" class="form-control" rows="7"><?php echo $data_user['user_deskripsi'] ?></textarea>
         <br>
-        <input type="file" onchange="load_image(this, 'user_picture_0', '200')" name="foto_user" id="foto_user" style="display:none;">
+        <input type="file" onchange="loadImage(this, 'user_picture_0', '200', '200')" name="foto_user" id="foto_user" style="display:none;">
         <button type="submit" name="submit" class="btn btn-lg btn-success pull-right">Simpan</button>
       </div>
     </div>
-    <script type="text/javascript">
-    function load_image(file, element, w)
-    {
-      if (file.files && file.files[0])
-      {
-        var reader = new FileReader();
-        reader.onload = function(e){
-          $('#'+element).attr('src', e.target.result).width(w);
-        }
-
-        reader.readAsDataURL(file.files[0])
-      }
-    }
-    </script>
     <div class="clearfix"></div>
     <div class="tiga">
       <ul class="nav nav-pills">

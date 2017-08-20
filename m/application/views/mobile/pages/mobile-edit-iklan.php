@@ -15,7 +15,7 @@
       <h4>Pasang Iklan</h4>
         <?php echo form_open('iklan/edit'); ?>
         <label for="">Judul iklan<em class="required">*</em></label>
-        <input class="form-control" type="text" name="nama_iklan" placeholder="Iklan apa yang kamu input" required minlenght="20" value="<?php echo $this->isi_iklan->nama_barang; ?>">
+        <input class="form-control" type="text" name="nama_iklan" placeholder="Iklan apa yang kamu input" required minlength="20" maxlength="70" value="<?php echo $this->isi_iklan->nama_barang; ?>">
         <label for="">Kategori iklan<em class="required">*</em></label>
         <select class="form-control" name="nama_kategori" required>
         <?php foreach ($isi_iklan as $iklanku): ?>
