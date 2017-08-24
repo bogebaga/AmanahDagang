@@ -17,7 +17,7 @@
       </div>
       <?php echo form_open(base_url("allresult_mobile")); ?>
         <input class="form-control" type="text" name="cari_barang" placeholder="Iklan disekitar kita" style="float:left;text-align:left;width:85%;">
-        <button class="btn btn-primary" type="submit" style="float:right;background-color:#30e1cf;">Cari</button>
+        <button class="btn btn-primary" type="submit" style="float:right;background-color:#30e1cf;font-size:17px;width:14%;">Cari</button>
       <?php echo form_close(); ?>
     </div>
     <section class="container-fluid">

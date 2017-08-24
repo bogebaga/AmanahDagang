@@ -7,9 +7,9 @@ class Iklan extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
-    $this->load->helper(['url','form']);
-    $this->load->library(['upload','session', 'image_lib']);
-    $this->load->model(['iklan_model','user_model']);
+    $this->load->helper(['url', 'form']);
+    $this->load->library(['upload', 'session', 'image_lib']);
+    $this->load->model(['iklan_model', 'user_model']);
   }
 
   public function index()
@@ -101,7 +101,6 @@ class Iklan extends CI_Controller{
     {
       show_404();
     }
-
     $data = [
       'nama_barang' => $this->input->post('nama_iklan'),
       'slug_nama_barang' => $slug_nama_iklan."-".$barang_kode,
@@ -120,14 +119,13 @@ class Iklan extends CI_Controller{
       'tayang_barang' => 'unpublish',
       'fitur_barang' => 'none'
     ];
-    
     $user = [
-      'user_nama' => ,
-      'user_provinsi' => ,
-      'user_kota' => ,
-      'user_kecamatan' => ,
-      'telpon' => $this->input->post('telpon_sy'),
-      'alamat_barang' => $this->input->post('alamat_sy')
+      'user_nama' => $this->input->post('name_sy'),
+      'user_telpon' => $this->input->post('telpon_sy'),
+      'user_alamat' => $this->input->post('alamat_sy'),
+      'user_provinsi' => $this->input->post('provinsi'),
+      'user_kota' => $this->input->post('kabkota'),
+      'user_kecamatan' => $this->input->post('kecamatan')
     ];
 
 		$this->iklan_model->pasang_iklan($data, $user);
@@ -136,8 +134,8 @@ class Iklan extends CI_Controller{
 
   private function tanggal_indonesia($tanggal)
   {
-    $nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
     $nama_hari = [1 => 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+    $nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
     $tanggal_split = explode('-', $tanggal);
     $tanggal_output = $tanggal_split[0]."/".$nama_bulan[(int)$tanggal_split[1]]."/".$nama_hari[(int)$tanggal_split[3]]."-".$tanggal_split[2]."/";
 

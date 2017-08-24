@@ -104,37 +104,50 @@
 				<ul class="children collapse" id="sub-item-1">
 					<li>
 						<a href="<?php echo base_url('admin/iklan') ?>">
-							<span class="glyphicon glyphicon-share-alt"></span> Iklan
+							<span class="glyphicon glyphicon-edit"></span> Iklan
 						</a>
 					</li>
 					<li>
 						<a href="<?php echo base_url("admin/user") ?>">
-							<span class="glyphicon glyphicon-share-alt"></span> Profil
+							<span class="glyphicon glyphicon-edit"></span> Profil
 						</a>
 					</li>
 				</ul>
 			</li>
 			<li class="parent">
 				<a data-toggle="collapse" href="#sub-item-2">
-					<span class="glyphicon glyphicon-pencil"></span> admin forms<span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+					<span class="glyphicon glyphicon-list"></span> admin forms<span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-2">
 					<li>
 						<a href="<?php echo base_url('admin/add_iklan') ?>">
-							<span class="glyphicon glyphicon-share-alt"></span>Iklan
+							<span class="glyphicon glyphicon-pencil"></span>Iklan
 						</a>
 					</li>
 				</ul>
 			</li>
 			<!-- <li><a href="<?php echo base_url("admin/youtube_embed") ?>"><span class="glyphicon glyphicon-facetime-video"></span> Youtube Embed</a></li> -->
+			<li role="presentation" class="divider"></li>
 			<li class="parent">
 				<a data-toggle="collapse" href="#sub-item-3">
-					<span class="glyphicon glyphicon-facetime-video"></span> youtube embed<span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+					<span class="glyphicon glyphicon-facetime-video"></span> youtube<span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-3">
 					<li>
 						<a href="<?php echo base_url('admin/youtube_embed') ?>">
-							<span class="glyphicon glyphicon-share-alt"></span> Tambah
+							<span class="glyphicon glyphicon-pencil"></span> Embed
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="parent">
+				<a data-toggle="collapse" href="#sub-item-4">
+					<span class="glyphicon glyphicon-flag"></span> helpdesk <span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+				</a>
+				<ul class="children collapse" id="sub-item-4">
+					<li>
+						<a href="<?php echo base_url('admin/helpdesk') ?>">
+							<span class="glyphicon glyphicon-pencil"></span> Menu
 						</a>
 					</li>
 				</ul>

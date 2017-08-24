@@ -1,12 +1,9 @@
 <footer>
   <div class="footer1">
     <ul class="footer-heading">
-      <li><a href="<?php echo $network ?>">About Us</a></li>
-      <li><a href="#">Contact Us</a></li>
-      <li><a href="#">Privacy Policy</a></li>
-      <li><a href="#">Aturan dan Ketentuan</a></li>
-      <li><a href="#">Disclaimer</a></li>
-      <li><a href="#">Tips Belanja</a></li>
+      <?php foreach ($this->user_model->helpdesk_parse() as $helpdesk): ?>
+        <li><a href="<?php echo base_url('helpdesk/'.$helpdesk['ad_link_help']) ?>"><?php echo $helpdesk['ad_helpdesk'] ?></a></li>
+      <?php endforeach; ?>
     </ul>
     <div class="garis-footer"></div>
     <div class="social-media">
@@ -33,14 +30,18 @@
     </div>
   </div>
 </footer>
-<?php $this->load->view('analytics'); ?>
+<?php $this->load->view('analyticstracking'); ?>
+<script src="<?php echo base_url('web/bower_components/masonry/dist/masonry.pkgd.min.js')?>" charset="utf-8"></script>
 <script src="<?php echo base_url('web/js/FormatCur.js')?>" charset="utf-8"></script>
 <script src="<?php echo base_url('web/js/slideImages.js')?>" charset="utf-8"></script>
 <script src="<?php echo base_url('web/js/Region.js')?>" charset="utf-8"></script>
 <script>
   $('#harga_barang').maskMoney({thousands: '.', decimal: ',', precision: 0});
   $(".alert").alert();
-  
+  $(".grid").masonry({
+    itemSelector: '.grid-item'
+  });
+
   tinymce.init({
     selector: 'textarea',
     height: 220,

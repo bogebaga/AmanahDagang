@@ -32,6 +32,15 @@ class Iklan_model extends CI_Model{
 
     return $query->result_array();
   }
+  public function get_data_kecamatan($data = '')
+  {
+    if($data):
+      $this->db->where('id_kabkota', $data);
+    endif;
+
+    $result = $this->db->get('ad_kecamatan');
+    return $result->result_array();
+  }
 
   public function get_all_iklan($kategori = '', $tayang_barang = '', $jenis_iklan = '', $user_kode = '' , $urutan = 'DESC' )
   {
@@ -158,7 +167,7 @@ class Iklan_model extends CI_Model{
   public function pasang_iklan($data, $user, $bool= TRUE)
   {
       if ($bool) {
-        $this->db->update('ad_user', $user, 'user_kode = '.$this->session->userdata('user_kd'));
+        $this->db->update('ad_user', $user, "user_kode = '".$this->session->userdata('user_kd')."'");
       }
       return $this->db->insert('ad_barang', $data);
   }

@@ -11,7 +11,8 @@
 	<meta name="robots" content="index, follow">
 	<meta name="author" content="amanahstores">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="<?php echo $this->session->flashdata('title_tag') ?>">
+	<meta property="og:description" content="<?php echo $this->session->flashdata('desc'); ?>">
+	<meta property="og:title" content="<?php echo $this->session->flashdata('title_tag'); ?>">
 	<meta property="og:site_name" content="amanahstores.com">
 	<meta property="og:url" content="<?php echo $this->session->flashdata('url')?>">
 	<meta property="og:image" content="<?php echo $this->session->flashdata('image') ?>">
@@ -29,7 +30,7 @@
 	<link rel="shortcut icon" type="image/x-image" href="<?php echo base_url('images/favicon_amanahstores.ico'); ?>">
 	<!-- <link rel="shortcut icon" type="image/x-image" href="<?php echo base_url('images/fav.ico'); ?>"> -->
 	<!-- FONT -->
-	<link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto">
 	<!-- JS -->
 	<script src="<?php echo base_url('web/bower_components/jquery/dist/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('web/js-admin/bootstrap.min.js'); ?>"></script>
@@ -43,8 +44,8 @@
 	<div id="fb-root"></div>
 	<script>
 		(function(d, s, id) {
-		  var js, fjs = d.getElementByTagName(s)[0];
-		  if (d.getElementId(id)) return;
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
 		  js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.10";
 		  fjs.parentNode.insertBefore(js, fjs);

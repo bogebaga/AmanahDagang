@@ -16,11 +16,11 @@
         <div class="judul-iklan">
           <span><?php echo $iklan['nama_barang'] ?></span>
         </div>
-        <div class="contact-item same-size width15 circle" style="text-align:center;">
+        <!-- <div class="contact-item same-size width15 circle" style="text-align:center;">
           <a href="#" class="btn btn-primary btn-lg" title="Facebook"><span class="fa fa-facebook"></span></a>
           <a href="#" class="btn btn-danger btn-lg" title="Google+"><span class="fa fa-google-plus"></span></a>
           <a href="#" class="btn btn-primary btn-lg" title="Twitter"><span class="fa fa-twitter"></span></a>
-        </div>
+        </div> -->
         <div class="gambar-iklan" style="padding-top:10px">
           <?php $path_ff = ONLINE_IMAGE.'images/post_foto_feature/'.$this->welcome_mob->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($iklan['barang_upload_tgl']))); ?>
           <img src="<?php echo (empty($iklan['gambar_fitur'])) ? base_url('images/base.png') : $path_ff.$iklan['gambar_fitur']; ?>" alt="">

@@ -4,7 +4,7 @@
     <nav class="navbar navbar-default bgc-black border-none" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="<?php echo base_url('home/mobile-home'); ?>" style="display:table;">
+          <a class="navbar-brand" href="<?php echo base_url(); ?>" style="display:table;">
             <!-- <img src="<?php echo base_url("images/logodepanamanah_crop.png") ?>" alt="amanahdagang.com website logo depan"> -->
             <img width="160px" src="<?php echo base_url("images/amanahstores logo FULL.png") ?>" alt="amanahstores.com website logo belakang">
           </a>
@@ -16,7 +16,7 @@
       <div style="margin-bottom:10px;"></div>
       <?php echo form_open(); ?>
       <input class="form-control" type="text" name="sedang-mencari-barang" placeholder="Iklan disekitar kita" style="float:left;text-align:left;width:85%;">
-      <button class="btn btn-primary" type="submit" name="button" style="float:right;background-color:#30e1cf;">Cari</button>
+      <button class="btn btn-primary" type="submit" name="button" style="float:right;background-color:#30e1cf;width:14%;font-size:17px;">Cari</button>
       <?php echo form_close(); ?>
     </div>
     <section class="container-fluid">

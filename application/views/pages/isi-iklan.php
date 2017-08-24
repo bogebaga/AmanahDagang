@@ -34,9 +34,9 @@
     <div class="deskripsi-barang">
       <h3 style="margin-top:7px;">Detail Barang</h3>
       <p><?php echo $iklan['deskripsi_barang'] ?></p>
-      <p>
+      <div class="belanja-aman">
         Hati-hati dengan penipuan. Bertemu langsung dengan penjual adalah cara aman berbelanja.
-      </p>
+      </div>
     </div>
   </section>
   <aside class="iklan-barang">
@@ -72,18 +72,18 @@
           <p><a href="#"><?php echo $iklan['nama_kategori'] ?></a></p>
         </div>
       </div>
+      <!-- <div class="detail-lokasi">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <div class="kata">
+          <p>Lokasi</p>
+          <p><?php echo $iklan['alamat_barang']?></p>
+        </div>
+      </div> -->
       <div class="detail-waktu">
         <i class="fa fa-plus" aria-hidden="true"></i>
         <div class="kata">
           <p>Ditambahkan</p>
           <p><?php echo date('j M Y',strtotime($iklan['barang_upload_tgl'])) ?></p>
-        </div>
-      </div>
-      <div class="detail-lokasi">
-        <i class="fa fa-map-marker" aria-hidden="true"></i>
-        <div class="kata">
-          <p>Lokasi</p>
-          <p><?php echo $iklan['alamat_barang']?></p>
         </div>
       </div>
       <div class="detail-view">
@@ -100,14 +100,22 @@
           <p>5</p>
         </div>
       </div> -->
-    </div>
-    <div class="bungkus-detail">
+    <!-- <div class="bungkus-detail">
       tes aja
-    </div>
+    </div> -->
     <!-- <div class="bungkus-iklan">
       <img src="<?php echo base_url("images/gambar.jpg")?>" class="img-responsive" alt="iklan">
     </div> -->
   </aside>
+  <section class="detail-barang" style="margin-top:0;">
+    <div class="detail-lokasi">
+      <i class="fa fa-map-marker fa-2x" aria-hidden="true" style="color:#CE6161;"></i>
+      <span style="font-size:3ex;margin-left:10px;">Lokasi</span>
+      <div class="kata pull-right">
+        <p style="font-size:2ex;"><?php echo $iklan['alamat_barang']?></p>
+      </div>
+    </div>
+  </section>
   <?php $user_data = $this->user_model->get_user_profil($iklan['user_kode']); ?>
   <?php if ($this->iklan_model->get_all_iklan_limit('publish', $iklan['user_kode'])): ?>
     <section class="detail-barang" style="margin-top:0;padding:0;background-color:transparent;box-shadow:none;">

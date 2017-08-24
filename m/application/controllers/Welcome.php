@@ -9,7 +9,7 @@ class Welcome extends CI_Controller{
     parent::__construct();
     $this->load->helper(['url','form']);
     $this->load->library('session');
-    $this->load->model('iklan_model');
+    $this->load->model(['user_model', 'iklan_model']);
     $this->welcome_mob =& get_instance();
   }
 
@@ -21,7 +21,7 @@ class Welcome extends CI_Controller{
 			'url' => base_url(),
 			'publish-time' => date('Y-m-d')
 		];
-    
+
     $this->session->set_flashdata($meta_information);
     $this->load->view('mobile/head/m_head');
     $this->load->view('mobile/pages/mobile-home');
@@ -39,7 +39,7 @@ class Welcome extends CI_Controller{
 			'url' => base_url(),
 			'publish-time' => date('Y-m-d')
 		];
-    
+
     $this->session->set_flashdata($meta_information);
     $this->load->view('mobile/head/m_head');
     if ($param == 'mobile-pasang-iklan'):

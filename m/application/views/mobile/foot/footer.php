@@ -29,11 +29,19 @@
     </a>
   </div>
 </footer>
-<?php $this->load->view('analytics'); ?>
+<script src="<?php echo base_url("web/bower_components/jquery/dist/jquery.min.js") ?>" charset="utf-8"></script>
+<script src="<?php echo base_url("web/js/bootstrap.min.js") ?>" charset="utf-8"></script>
+<script src="<?php echo base_url("web/js/jquery.maskMoney.min.js") ?>" charset="utf-8"></script>
+<script src="<?php echo base_url('web/bower_components/masonry/dist/masonry.pkgd.min.js') ?>" charset="utf-8"></script>
 <script src="<?php echo base_url('web/js/slideImages.js') ?>" charset="utf-8"></script>
 <script src="<?php echo base_url('web/js/FormatCur.js') ?>" charset="utf-8"></script>
 <script src="<?php echo base_url('web/js/Region.js') ?>" charset="utf-8"></script>
+<?php $this->load->view('analyticstracking'); ?>
 <script type="text/javascript">
+  $("#harga_iklan").maskMoney({thousands: '.', decimal: ',', precision: 0});
+  $(".grid").masonry({
+    itemSelector: '.grid-item'
+  });
   $(".alert").alert();
 </script>
 </body>

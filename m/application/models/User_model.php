@@ -12,16 +12,14 @@ class User_model extends CI_Model
     if ($val)
     {
       $this->db->where('user_kode', $val);
-      // echo "1";
     }
     else
     {
       $this->db->where('user_kode', $this->session->userdata('user_kd'));
-      // echo "2";
     }
 
     $result = $this->db->get('ad_user');
-    return $result->result_array();
+    return $result->row_array();
   }
 
   public function validate_user_exist($email ='', $pass='', $bool = TRUE)

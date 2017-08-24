@@ -20,7 +20,7 @@ class Proses extends CI_Controller {
 		endif;
 
 		$meta_info =[
-			'title_tag' => $isi_iklan['iklan']['nama_barang']." | ",
+			'title_tag' => $isi_iklan['iklan']['nama_barang']." - amanahstores.com",
 			'publish-time' => date('Y-m-d', strtotime($isi_iklan['iklan']['barang_upload_tgl'])),
 			'url' => base_url('barang/'.$slug_iklan),
 			'image' => base_url('images/post_foto_feature/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($isi_iklan['iklan']['barang_upload_tgl']))).$isi_iklan['iklan']['gambar_fitur']),

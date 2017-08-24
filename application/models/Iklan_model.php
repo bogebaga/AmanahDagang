@@ -205,6 +205,15 @@ class Iklan_model extends CI_Model{
     $this->db->select('view_barang');
     $this->db->where('slug_nama_barang', $slug);
     return $this->db->get('ad_barang')->row_array();
+  }
 
+  public function helpdesk_insert($data)
+  {
+    return $this->db->insert('ad_helpdesk', $data);
+  }
+
+  public function helpdesk_update($data)
+  {
+    return $this->db->update('ad_helpdesk', $data, "ad_link_help = '" .$data['ad_link_help']."'");
   }
 }

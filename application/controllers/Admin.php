@@ -32,6 +32,14 @@ class Admin extends CI_Controller{
     $this->load->view('template/footer-admin');
   }
 
+  public function helpdesk()
+  {
+    $this->load->view('template/header-admin');
+    $this->load->view('template/navbar-admin');
+    $this->load->view('admin/helpdesk');
+    $this->load->view('template/footer-admin');
+  }
+
   public function iklan()
   {
     $this->load->view('template/header-admin');
@@ -399,6 +407,49 @@ class Admin extends CI_Controller{
     redirect(base_url().'admin/user');
   }
 
+  public function helpdesk_save()
+  {
+    if (isset($_POST['submit']))
+    {
+      $slug_helpdesk = url_title($this->input->post('nama_helpdesk'));
+      $data = [
+        'ad_helpdesk' => $this->input->post('nama_helpdesk'),
+        'ad_link_help' => $slug_helpdesk,
+        'ad_fill_text' => $this->input->post('isi_helpdesk')
+      ];
+
+      $this->iklan_model->helpdesk_insert($data);
+      redirect(base_url('admin/helpdesk'));
+    }
+  }
+  public function helpdesk_edit()
+  {
+    if (isset($_POST['submit']))
+    {
+      $data = [
+        'ad_link_help' => $this->input->post('slug-helpdesk'),
+        'ad_fill_text' => $this->input->post('isi_helpdesk')
+      ];
+
+    $this->iklan_model->helpdesk_update($data);
+    redirect(base_url('admin/helpdesk'));
+    }
+  }
+
+  public function helpdesk_edit_page($menu_help = '')
+  {
+    if (empty ($this->user_model->helpdesk_parse($menu_help))){
+      redirect(base_url('admin/helpdesk'));
+    }else {
+      $helpdesk['menu_helpdesk'] = $this->user_model->helpdesk_parse($menu_help);
+
+      $this->load->view('template/header-admin');
+      $this->load->view('template/navbar-admin');
+      $this->load->view('admin/helpdesk', $helpdesk);
+      $this->load->view('template/footer-admin');
+    }
+  }
+
   // NOTE: User parse and iklan parse to JSON data
   public function user_parse()
   {
@@ -407,8 +458,8 @@ class Admin extends CI_Controller{
     $panjang = count($data);
 
     for ($i=0; $i < $panjang ; $i++) {
-      $user_hapus = "onclick=window.location='".base_url()."admin/user/hapus/".$data[$i]['user_kode']."'";
-      $user_edit = "onclick=window.location='".base_url()."admin/user/edit/".$data[$i]['user_kode']."'";
+      $user_hapus = "onclick=window.location='".base_url("admin/user/hapus/").$data[$i]['user_kode']."'";
+      $user_edit = "onclick=window.location='".base_url("admin/user/edit/").$data[$i]['user_kode']."'";
 
       $data[$i]['user_id'] = $i+1;
       $data[$i]['user_add'] = date('j M', strtotime($data[$i]['user_add']));
@@ -441,11 +492,23 @@ class Admin extends CI_Controller{
     echo json_encode($data);
   }
 
+  public function helpdesk_parse()
+  {
+    $data = $this->user_model->helpdesk_parse();
+
+    $panjang = count($data);
+    for ($i=0; $i < $panjang ; $i++) {
+      $edit_helpdesk = base_url('admin/helpdesk/'.$data[$i]['ad_link_help']);
+      $data[$i]['action'] = "<a class='btn btn-default btn-circle margin' href='".$edit_helpdesk."'><span class='glyphicon glyphicon-edit'></span></a>";
+    }
+    echo json_encode($data);
+  }
+
   // NOTE: Tanggal Indonesia Admin
   public function tanggal_indonesia($tanggal)
   {
-    $nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
     $nama_hari = [1 => 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+    $nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
     $tanggal_split = explode('-', $tanggal);
     $tanggal_output = $tanggal_split[0]."/".$nama_bulan[(int)$tanggal_split[1]]."/".$nama_hari[(int)$tanggal_split[3]]."-".$tanggal_split[2]."/";
 

@@ -16,7 +16,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">Form Youtube Embed </div>
         <div class="panel-body">
-          <?php echo form_open_multipart('admin/edit_user_save'); ?>
+          <?php echo form_open(); ?>
           <div class="col-md-6">
             <div class="form-group">
               <label>Youtube Embeb Code</label>

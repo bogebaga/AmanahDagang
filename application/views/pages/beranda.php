@@ -8,13 +8,13 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <a id="image_tes" href="http://www.telkomsel.com" target="_blank"><img src="<?php echo base_url("images/slider/telkomsel_slide.jpg") ?>" class="img-responsive"></a>
+          <a id="image_tes" href="http://www.telkomsel.com" target="_blank"><img src="<?php echo base_url("images/slider/telkomsel_slide.jpg") ?>" class="img-responsive" alt="amanahstores slide gambar 1"></a>
         </div>
         <div class="item">
-          <img src="<?php echo base_url("images/slider/slide 2.jpg") ?>" class="img-responsive">
+          <img src="<?php echo base_url("images/slider/slide 2.jpg") ?>" class="img-responsive" alt="amanahstores slide gambar 2">
         </div>
         <div class="item">
-          <img src="<?php echo base_url("images/slider/slide 3.jpg") ?>" class="img-responsive">
+          <img src="<?php echo base_url("images/slider/slide 3.jpg") ?>" class="img-responsive" alt="amanahstores slide gambar 3">
         </div>
       </div>
     </div>
@@ -98,9 +98,11 @@
           'kesehatan' => 'fa-heart material-red',
           'service' => 'fa-handshake-o material-tea',
           'lowongan-kerja' => 'fa-user material-green-old',
+          'komoditi' => 'fa-leaf material-green-grass',
+          'pendidikan' => 'fa-graduation-cap material-blue',
           'lainnya' => 'fa-ellipsis-h material-grey'];  ?>
           <div class="kategori-dagang">
-            <ul>
+            <ul style="text-align:justify;">
               <?php foreach ($data as $value): ?>
                 <li><a href="<?php echo lcfirst($value['nama_kategori'])?>/kategori">
                   <span class="fa <?php  echo $class[lcfirst($value['nama_kategori'])] ?>" aria-hidden="true"></span>
@@ -111,7 +113,7 @@
           </div>
       </div>
       <div class="col-xs-7">
-        <img width="80%" src="<?php echo base_url("images/banner 640x510 amanahdagang.jpg"); ?>" alt="banner amanahdagang.com samping">
+        <img width="80%" src="<?php echo base_url("images/banner 640x510 amanahdagang.png"); ?>" alt="banner amanahstores samping">
       </div>
     </div>
   </div>
@@ -164,6 +166,6 @@
       </ul>
     </div>
   <div class="iklan-lebar">
-    <img src="<?php echo base_url("images/footer-banner.jpg") ?>" alt="amanahdagang pasang iklan">
+    <img src="<?php echo base_url("images/footer-banner.jpg") ?>" alt="amanahstores pasang iklan">
   </div>
 </section>

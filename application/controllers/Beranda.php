@@ -159,7 +159,20 @@ class Beranda extends CI_Controller {
 		$this->load->view('pages/daftar');
 		$this->load->view('template/footer');
 	}
-
+	
+	public function helpdesk($data = '')
+	{
+		$link = array(
+			'home' => base_url(),
+			'bantuan' => base_url().'bantuan',
+			'network' => base_url().'tentang'
+		);
+		$helpdesk['isi_helpdesk'] = $this->user_model->helpdesk_parse($data);
+		
+		$this->load->view('template/header', $link);
+		$this->load->view('pages/helpdesk', $helpdesk);
+		$this->load->view('template/footer');
+	}
 	public function tanggal_indonesia_convert($tanggal)
 	{
 		$nama_bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei','Juni' ,'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];

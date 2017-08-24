@@ -16,7 +16,7 @@
       <div style="margin-bottom:10px;"></div>
       <?php echo form_open(base_url("allresult_mobile")); ?>
         <input class="form-control" type="text" name="sedang-mencari-barang" placeholder="Iklan disekitar kita" style="float:left;text-align:left;width:85%;">
-        <button class="btn btn-primary _btn_std pull-right" type="submit">Cari</button>
+        <button class="btn btn-primary _btn_std pull-right" type="submit" style="width:14%;font-size:17px;">Cari</button>
       <?php echo form_close(); ?>
       <a href="<?php echo base_url('home/mobile-pasang-iklan'); ?>" class="btn btn-primary _btn_std pasang_iklan">Pasang Iklan</a>
     </div>
@@ -63,6 +63,8 @@
               'kesehatan' => 'fa-heart material-red',
               'service' => 'fa-handshake-o material-tea',
               'lowongan-kerja' => 'fa-user material-green-old',
+              'komoditi' => 'fa-leaf material-green-grass',
+              'pendidikan' => 'fa-graduation-cap material-blue',
               'lainnya' => 'fa-ellipsis-h material-grey'];
             ?>
             <?php foreach ($data as $value): ?>
@@ -75,15 +77,15 @@
         </li>
       </ul>
     </section>
-    <section class="container-fluid">
+    <section class="container-fluid" style="padding-left:3px;padding-right:3px;">
       <h3 style="color:#f57c00;">#JualBekasBisaJadiDuit</h3>
-      <ul class="iklanku">
-        <?php //$path_fitur = ONLINE_IMAGE."images/post_foto_feature/"; ?>
-        <?php $path_fitur = "../images/post_foto_feature/"; ?>
+      <ul class="iklanku grid">
+        <?php $path_fitur = ONLINE_IMAGE."images/post_foto_feature/"; ?>
+        <?php //$path_fitur = "../images/post_foto_feature/"; ?>
         <?php foreach ($this->iklan_model->get_all_iklan_limit('publish', '14') as $new_ads) : ?>
-          <li>
+          <li class="grid-item" style="margin-left:4px;">
             <a href="<?php echo base_url("isiiklan/".$new_ads['slug_nama_barang']) ?>">
-              <img src="<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->welcome_mob->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?>" alt="">
+              <img src="<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->welcome_mob->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?>" alt="<?php echo $new_ads['nama_barang'] ?>" title="<?php echo $new_ads['nama_barang'] ?>">
               <div style="padding:12px;">
                 <div class="judul-iklan" style="font-weight:bold;">
                   <?php echo $new_ads['nama_barang'] ?>

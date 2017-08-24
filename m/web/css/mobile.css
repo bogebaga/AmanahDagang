@@ -381,9 +381,9 @@ li[data-base='paragraf-deskripsi'] p
 
 ul.iklanku > li
 {
-  display: -webkit-inline-box;
+  /*display: -webkit-inline-box;
   display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: inline-flex;*/
 
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -398,6 +398,7 @@ ul.iklanku > li > a > img
 ul.iklanku > li > a  div
 {
   text-align: left;
+  word-wrap: break-word;
 }
 
 ul.iklanku > li > a  div.harga-iklan

@@ -91,17 +91,26 @@ class User_model extends CI_Model
   // IDEA: Parse user & parse iklan untuk table admin frontend
   public function parse_user()
   {
-      $this->db->select('user_id, user_add, user_kode, user_nama, user_email, user_type, action');
+      $this->db->select('user_id, user_add, user_kode, user_nama, user_email, user_type');
       return $this->db->get('ad_user')->result_array();
   }
 
   public function iklan_parse(){
-    $this->db->select('b.user_nama, b.user_kode,a.barang_kode, a.id_barang, a.jenis_iklan, a.barang_upload_tgl, a.slug_nama_barang, a.nama_barang, a.tayang_barang, a.action');
+    $this->db->select('b.user_nama, b.user_kode,a.barang_kode, a.id_barang, a.jenis_iklan, a.barang_upload_tgl, a.slug_nama_barang, a.nama_barang, a.tayang_barang');
     $this->db->from('ad_barang a');
     $this->db->join('ad_user b', 'a.user_kode = b.user_kode');
     $this->db->order_by('a.barang_upload_tgl', 'DESC');
     $result = $this->db->get();
 
     return $result->result_array();
+  }
+
+  public function helpdesk_parse($data = '')
+  {
+    if($data)
+    {
+      $this->db->where('ad_link_help', $data);
+    }
+    return $this->db->get('ad_helpdesk')->result_array();
   }
 }

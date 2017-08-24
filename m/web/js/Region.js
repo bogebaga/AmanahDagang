@@ -9,38 +9,38 @@
 //     }
 //   });
 // }
-
+// var URL = window.location.origin + '/';
+// URL += window.location.pathname.split('/')[1] + '/';
+var URL = window.location.origin.replace('m.', 'www.');
 $(function() {
   $('#provinsi').change(function() {
     var provinsi = $('#provinsi').val();
     $('#kabkota').empty();
-    data_kabkota (provinsi);
+    data_kabkota(provinsi);
   });
-  $("#kabkota").change(function() {
-      var kabkota = $("#kabkota").val();
-      $("#kecamatan").empty();
+  $('#kabkota').change(function() {
+      var kabkota = $('#kabkota').val();
+      $('#kecamatan').empty();
       data_kecamatan(kabkota);
-  });
+    });
 
-  function data_kabkota (a)
-  {
-    $.post('kabkota',{id_provinsi : a}, function(data1)
-    {
-      var data_arr = JSON.parse(data1);
-      for (var i = 0; i < data_arr.length; i++) {
-        var select = "<option value='"+data_arr[i]['id']+"'>"+data_arr[i]['nama']+"</option>";
+  function data_kabkota(a) {
+    $.post(URL + 'kabkota', {id_provinsi: a}, function(data1) {
+      var datakota = JSON.parse(data1);
+      for (var i = 0; i < datakota.length; i++) {
+        var select = '<option value=' + datakota[i].id + '>' +
+        datakota[i].nama + '</option>';
         $('#kabkota').append(select);
       }
     });
   }
-  function data_kecamatan (a)
-  {
-    $.post('kecamatan',{id_kecamatan : a}, function(data) {
-      var data = JSON.parse(data);
-
-      for (var i = 0; i < data.length; i++) {
-        var select = "<option value='"+data[i]['id']+"'>"+data[i]['nama']+"</option>";
-        $("#kecamatan").append(select);
+  function data_kecamatan(a) {
+    $.post(URL + 'kecamatan', {id_kecamatan: a}, function(data) {
+      var datakec = JSON.parse(data);
+      for (var i = 0; i < datakec.length; i++) {
+        var select = '<option value=' + datakec[i].id + '>' +
+        datakec[i].nama + '</option>';
+        $('#kecamatan').append(select);
       }
     });
   }

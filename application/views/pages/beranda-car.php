@@ -21,7 +21,8 @@
     <ul class="nav nav-tabs">
       <?php foreach ($kategori as $data_kategori): ?>
         <li class="<?php echo (strtolower($data_kategori['nama_kategori']) == $active_kategori) ? 'active' : '' ?>">
-          <a data-toggle="tab" href="#<?php echo strtolower($data_kategori['nama_kategori']) ?>"><?php echo str_replace('-', ' ', $data_kategori['nama_kategori']) ?></a>
+          <!-- <a data-toggle="tab" href="#<?php echo strtolower($data_kategori['nama_kategori']) ?>"><?php echo str_replace('-', ' ', $data_kategori['nama_kategori']) ?></a> -->
+          <a href="<?php echo "../".strtolower($data_kategori['nama_kategori'])."/kategori" ?>"><?php echo str_replace('-', ' ', $data_kategori['nama_kategori']) ?></a>
         </li>
       <?php endforeach; ?>
     </ul>
@@ -91,7 +92,7 @@
         'service' => 'fa-handshake-o material-tea',
         'lowongan-kerja' => 'fa-user material-green-old',
         'lainnya' => 'fa-ellipsis-h material-grey'];  ?>
-    <?php foreach ($data as $value): ?>
+    <!-- <?php foreach ($data as $value): ?>
       <div id="<?php echo lcfirst($value['nama_kategori']) ?>" class="tab-pane fade">
         <div class="row">
           <img src="<?php echo base_url("images/banner_kategori/".lcfirst($value['nama_kategori'])."jpg") ?>">
@@ -121,7 +122,7 @@
             <?php } ?>
           </ul>
         </div>
-    <?php endforeach; ?>
+    <?php endforeach; ?> -->
   </div>
   <div class="iklan-lebar">
     <!-- <img src="<?php echo base_url('images/iklan.jpg'); ?>" alt=""> -->
