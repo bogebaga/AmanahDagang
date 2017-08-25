@@ -12,30 +12,31 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-    $data = [
+		$data = [
       'email' => $this->input->post('email'),
       'password' => md5($this->input->post('password'))
     ];
-    $this->form_validation->set_rules('email', 'Email', 'required');
-    $this->form_validation->set_rules('password', 'Password', 'required');
 
-		if($this->form_validation->run() == TRUE)
-    {
-			$result = $this->user_model->get_user($data);
-			if(! empty($result))
-			{
-				$session_data = [
-					'user_email' => $result->user_email,
-					'user_kd' => $result->user_kode,
-					'user_telpon' => $result->user_telpon,
-					'user_pass' => $result->user_pass,
-					'user_name' => $result->user_nama,
-					'user_login' => $result->user_login
-				];
-				$this->session->set_userdata($session_data);
-			}
-			redirect(base_url());
-	  }
+		$result = $this->user_model->get_user($data);
+		if(! empty($result))
+		{
+			$session_data = [
+				'user_email' => $result->user_email,
+				'user_kd' => $result->user_kode,
+				'user_telpon' => $result->user_telpon,
+				'user_pass' => $result->user_pass,
+				'user_name' => $result->user_nama,
+				'user_login' => $result->user_login
+			];
+			$this->session->set_userdata($session_data);
+		}
+		else
+		{
+			$this->session->set_flashdata('login_term', '<div class="alert alert-danger alert-dismissable show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:0;padding:0 15px;"> <span aria-hidden="true">&times;</span> </button>Email dan password yang dimasukkan salah. </div>');
+			redirect(base_url('beranda/login'));
+		}
+		
+		redirect(base_url());
 	}
 
 	public function signout()

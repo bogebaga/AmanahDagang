@@ -9,27 +9,7 @@
 <script src="<?php echo base_url("web/js-admin/bootstrap-table.js"); ?>"></script>
 <script src="<?php echo base_url("web/js/tinymce/tinymce.min.js"); ?>"></script>
 <script src="<?php echo base_url("web/js/jquery.maskMoney.min.js"); ?>"></script>
-<script>
-$(function() {
-  $('#provinsi').change(function() {
-    var provinsi = $('#provinsi').val();
-    $('#kabkota').empty();
-    data_kabkota (provinsi);
-  });
-
-  function data_kabkota (a)
-  {
-    $.post('<?php echo base_url(); ?>kabkota',{id_provinsi : a}, function(data1)
-    {
-      var data_arr = JSON.parse(data1);
-      for (var i = 0; i < data_arr.length; i++) {
-        var select = "<option value='"+data_arr[i]['id']+"'>"+data_arr[i]['nama']+"</option>";
-        $('#kabkota').append(select);
-      }
-    });
-  }
-});
-</script>
+<script src="<?php echo base_url("web/js/Region.js"); ?>"></script>
 <script>
   $('#harga').maskMoney({thousands: '.', decimal: ',', precision:0});
 
@@ -37,18 +17,15 @@ $(function() {
     selector: 'textarea',
     height: 200,
     image_advtab:true,
-    menubar:false,
+    menubar:true,
     plugins:
-      'advlist autolink lists link image charmap print preview hr anchor pagebreak searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor colorpicker textpattern imagetools'
-    ,
+      'advlist autolink lists link image charmap print preview hr anchor pagebreak searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor colorpicker textpattern imagetools',
     toolbar:[
       'undo redo | bold italic | alignleft aligncenter alignjustify | bullist numlist outdent indent',
       'forecolor backcolor | fontselect fontsizeselect'
-    ],
-    image_advtab: true
+    ]
   });
-</script>
-<script>
+
 window.onload = function(){
   var chart1 = document.getElementById("line-chart").getContext("2d");
   window.myLine = new Chart(chart1).Line(lineChartData, {
@@ -70,24 +47,20 @@ window.onload = function(){
     scaleLineColor: "rgba(255,255,255,.05)",
     angleLineColor : "rgba(255,255,255,.2)"
   });
-
 };
-</script>
-<script>
-  !function ($) {
-    $(document).on("click","ul.nav li.parent > a > span.icon", function(){
-      $(this).find('em:first').toggleClass("glyphicon-minus");
-    });
-    $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-  }(window.jQuery);
+!function ($) {
+  $(document).on("click","ul.nav li.parent > a > span.icon", function(){
+    $(this).find('em:first').toggleClass("glyphicon-minus");
+  });
+  $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+}(window.jQuery);
 
-  $(window).on('resize', function () {
-    if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
-  })
-  $(window).on('resize', function () {
-    if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
-  })
+$(window).on('resize', function () {
+  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+})
+$(window).on('resize', function () {
+  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+})
 </script>
 </body>
-
 </html>

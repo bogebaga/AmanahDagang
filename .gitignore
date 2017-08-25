@@ -1,4 +1,8 @@
 .DS_Store
+.vscode
+/db
+/user_guide
+BACKUPCODE
 
 application/cache/*
 !application/cache/index.html

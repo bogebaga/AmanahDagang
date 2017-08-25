@@ -1,4 +1,3 @@
-
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<ol class="breadcrumb">
@@ -12,13 +11,18 @@
 				<h1 class="page-header">Tabel</h1>
 			</div>
 		</div><!--/.row-->
-
+		<div class="row">
+			<div class="col-xs-12">
+				<?php echo $this->session->flashdata('success_user'); ?>
+				<?php echo $this->session->flashdata('has_delete_user'); ?>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">Tabel User</div>
 					<div class="panel-body">
-						<table data-toggle="table" data-url="<?php echo base_url()?>uparse"  data-show-refresh="true" data-show-columns="true" data-search="true" data-select-item-name="state" data-pagination="true" data-sort-name="nama" data-sort-order="desc">
+						<table data-toggle="table" data-url="<?php echo base_url("uparse")?>"  data-show-refresh="true" data-show-columns="true" data-search="true" data-pagination="true" data-sort-name="nama" data-sort-order="desc">
 						    <thead>
 						    <tr>
 						        <!-- <th data-field="state" data-checkbox="true" ></th> -->

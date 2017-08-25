@@ -16,9 +16,9 @@ a, p, h1, h2, h3, h4, label{
 }
 
 #menu {
-    background-color: #2c3e50;
+    background-color: #263238;
     border-radius: 0;
-    border-bottom: solid 3px #6498a3;
+    /*border-bottom: solid 3px #6498a3;*/
 }
 
 #menu .navbar-brand {
@@ -39,7 +39,7 @@ a, p, h1, h2, h3, h4, label{
 }
 
 .menu-header .navbar-nav{
-	float: right
+	float: right;
 }
 
 .menu-header .navbar-nav li form{
@@ -63,13 +63,23 @@ a, p, h1, h2, h3, h4, label{
 	color: white;
 }
 
-.menu-header .navbar-nav li:last-child{
+/*.menu-header .navbar-nav li:last-child{
 	background: #F27935;
+	cursor: pointer;
+}*/
+
+/*.menu-header .navbar-nav li:last-child a:hover{
+	background: rgba(255,255,255,.1) !important;
+	text-decoration: none;
+}*/
+
+.menu-header .navbar-nav li{
+	/*background: #F27935;*/
 	cursor: pointer;
 }
 
-.menu-header .navbar-nav li:last-child a:hover{
-	background: #d65811 !important;
+.menu-header .navbar-nav li a:hover{
+	background: rgba(255,255,255,.1) !important;
 	text-decoration: none;
 }
 
@@ -90,7 +100,7 @@ a, p, h1, h2, h3, h4, label{
 	font-size: 15px;
 	font-weight: 100;
 	color: #ffffff !important;
-	padding-top: 21px;
+	padding: 25px;
 }
 
 .menu-header ul li a:hover{
@@ -105,10 +115,11 @@ a, p, h1, h2, h3, h4, label{
 
 
 .logo img{
-	width: 165px;
-	height: 35px;
+	/*height: 35px;*/
 	float: left;
 	vertical-align: middle;
+	/*height: 35px;*/
+	width: 160px;
 }
 
 #bagian-atas ul li{
@@ -119,16 +130,18 @@ a, p, h1, h2, h3, h4, label{
 	width: 1150px;
 	margin: 0 auto;
 	text-align: center;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 .iklan{
 	overflow: hidden;
 	 position: relative;
 	width: 100%;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
 	height: fit-content;
 	/* background: black; */
-	/* margin-top: 65px; */
+	 margin-top: 75px;
 }
 
 .iklan .login-background{
@@ -154,11 +167,14 @@ a, p, h1, h2, h3, h4, label{
 }
 
 .iklan .login-background .kotak-daftar .form-pendaftaran{
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	background: white;
 	/* float: left; */
 	padding: 25px;
-	box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+	-webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+	        box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
 /* 	position: absolute;
 	left: 50px;
 	top: 120px; */
@@ -178,8 +194,6 @@ a, p, h1, h2, h3, h4, label{
 	margin-top: 15px;
 	width: 100%;
 }
-
-
 /* .iklan .arah-kiri, .iklan .arah-kanan{
 	font-size: 50px;
 	position: absolute;
@@ -259,14 +273,22 @@ a, p, h1, h2, h3, h4, label{
 }
 
 .menu-bawah ul{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
 	width: 100%;
-	margin-top: 30px;
+	/*margin-top: 30px;*/
 	margin-bottom: 10px;
-	background: linear-gradient(to right, #2c3e50, #679da5);
+	background: #009688;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 
 .menu-bawah ul li{
 /* 	background: #6498a3;  */
+	display: inline-block;
+	float:none;
 }
 
 .menu-bawah ul li a{
@@ -332,23 +354,64 @@ a, p, h1, h2, h3, h4, label{
 	border-radius: 0;
 }
 
+.foto-dagangan[data-layout="iklan_baris"]
+{
+	display: inline-block;
+}
+
 .foto-dagangan{
-	text-align: center;
-	float: left;
+	width: 100%;
+	padding:30px 40px;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	text-align: left;
 	background: white;
 	border: 1px solid #ddd;
 	border-top: transparent;
 }
 
 .foto-dagangan li{
-	list-style: none;
-	float: left;
-	width: 150px;
+	list-style-type: none;
+	/*display: inline-block;*/
+	position: relative;
+	min-height: 310px;
+	width: 200px;
 	height: auto;
-	min-height: 280px;
 	border: 1px solid #ddd;
-	margin: 7px;
-	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.1);
+	margin: 4px 3px;
+	-webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,.1);
+	        box-shadow: 1px 1px 2px 0 rgba(0,0,0,.1);
+}
+
+.foto-dagangan[data-layout="iklan_baris"] li
+{
+	min-height: auto;
+	width: 175px;
+}
+
+.foto-dagangan li.line
+{
+	margin:0;
+	margin-left:-1px;
+	border-right:1px solid black;
+	border-left:1px solid black;
+	background:#d8d8d8;
+}
+
+.foto-dagangan li.line::after
+{
+	content: '';
+	position: absolute;
+	border-bottom: 1px solid black;
+	width: 90%;
+	right: 0;
+	left:0;
+	bottom: 0;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .foto-dagangan li:hover{
@@ -361,18 +424,58 @@ a, p, h1, h2, h3, h4, label{
 }
 
 .foto-dagangan li img{
-	width: 148px;
-	height: 150px;
+	width: 198px;
+	height: 200px;
+	-o-object-fit: contain;
+	   object-fit: contain;
+		 background-color: rgba(158, 158, 158, 0.32);
+		 /*-webkit-filter: blur(10px);
+		         filter: blur(10px);
+						 -webkit-transform: scale(1);
+						         transform: scale(1);*/
 }
+/*.foto-dagangan li img[data-blur='true']
+{
+	-o-object-fit: cover;
+	   object-fit: cover;
+		 background-color: rgba(158, 158, 158, 0.32);
+}*/
+
 
 .foto-dagangan figcaption{
-	padding: 12px 12px 30px;
+	padding: 12px 12px 60px;
+	min-height: 113px;
 }
+
+/* NB: tambahan style */
+.foto-dagangan figcaption div
+{
+	font-size: 13px;
+}
+
+.foto-dagangan figcaption div.icon-btm-left{
+	position: absolute;
+	bottom: 10px;
+	left:10px;
+}
+
+.foto-dagangan figcaption div.icon-btm-right{
+	position: absolute;
+	bottom: 10px;
+	right:10px;
+}
+
 
 .foto-dagangan h4{
 	color: #f44336;
 	font-weight: bold;
 	margin: 0;
+}
+.foto-dagangan h4.price-tag
+{
+	position: absolute;
+	bottom: 30px;
+	left: 10px;
 }
 
 .foto-dagangan h3{
@@ -387,11 +490,26 @@ a, p, h1, h2, h3, h4, label{
 
 footer{
 	width: 100%;
-	background: #2c3e50;
-	border-top: solid 4px #6498a3;
+	background: #263238;
+	/*border-top: solid 4px #6498a3;*/
+	margin-top: 215px;
+	position: relative;
+}
+footer::before
+{
+	content: "";
+	background: url("../../images/file_sky.png") repeat-x 0 0 / 865px 200px;
+	position: absolute;
+	width: 100%;
+	height:135%;
+	bottom: 95%;
+	left:0;
+	right:0;
 }
 
 .footer1{
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	margin: 0 auto;
 	padding: 15px 0;
@@ -399,7 +517,12 @@ footer{
 
 .footer1 ul{
 	list-style: none;
+	/*display: -webkit-box;
+	display: -ms-flexbox;*/
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	justify-content: center;
 	margin-bottom: 7px;
 }
 
@@ -423,7 +546,7 @@ footer{
 }
 
 .footer1 .footer-law{
-	margin-top: 7px;
+	margin-top: 5px;
 }
 
 
@@ -471,7 +594,8 @@ footer{
 	float: left;
 	padding: 15px;
 	margin: 75px 0 10px;
-	box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+	-webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+	        box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
 }
 
 .detail-form h1{
@@ -504,6 +628,8 @@ footer{
 }
 
 .detail-form form .df h4{
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
 	display: inline-flex;
 	width: 200px;
 }
@@ -558,6 +684,15 @@ footer{
 	margin-bottom: 10px;
 }
 
+.gambar-gambar > img
+{
+	width: 100%;
+	height: 500px;
+	-o-object-fit: contain;
+	   object-fit: contain;
+		 background-color: rgba(158, 158, 158, 0.32);
+}
+
 .judul-barang .fa{
 	padding-right: 7px;
 }
@@ -582,7 +717,7 @@ footer{
 	padding-top: 10px;
 }
 
-.deskripsi-barang p:last-child{
+.deskripsi-barang div.belanja-aman{
 	width: 100%;
 	background: #ce6161;
 	padding: 20px;
@@ -599,20 +734,34 @@ footer{
 	margin-top: 75px;
 }
 
+.identitas-penjual
+{
+	margin-top: 15px;
+	text-align: center;
+	padding:5px 0;
+}
+
 .bungkus-penjual{
 	background: white;
 	padding: 15px;
-	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
+	-webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
+	        box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
+	display: table;
+	min-width: 340px;
 }
 
 .foto-penjual{
-	float: left;
+	/*float: left;*/
+	text-align: center;
 }
 
 .foto-penjual img{
-	width: 100px;
-	height: 100px;
-	margin-right: 10px;
+	width: 150px;
+	height: 150px;
+	border-radius: 200px;
+	margin:10px auto 20px;
+	/*margin-right: 10px;
+	margin-bottom:10px;*/
 }
 
 .identitas-penjual h3{
@@ -622,7 +771,7 @@ footer{
 }
 
 .identitas-penjual h4{
-	margin: 0;
+	margin: 5px 0;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -633,10 +782,26 @@ footer{
 }
 
 .sosmed-penjual{
-	/* text-align: center; */
+	text-align: center;
 	margin-top: 15px;
 	padding-top: 8px;
-	border-top: 1px solid #dcdcdc;
+	border-top: 1px solid #b9b9b9;
+}
+
+.sosmed-penjual.dashed
+{
+	border-top-style: dashed;
+	text-align: right;
+}
+
+.sosmed-penjual.dashed > a
+{
+	width: 10%;
+}
+
+.sosmed-penjual > a
+{
+	width:19%;
 }
 
 .sosmed-penjual a:hover{
@@ -660,14 +825,16 @@ footer{
 	margin-top: 10px;
 	padding: 15px;
 	font-size: 15px;
-	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
+	-webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
+	        box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
 }
 
 .bungkus-info{
 	background: white;
 	padding: 15px;
 	font-size: 15px;
-	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
+	-webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
+	        box-shadow: 1px 1px 2px 0 rgba(0,0,0,.2);
 }
 
 .bungkus-info h3{
@@ -755,7 +922,8 @@ footer{
 .kotak-bantuan{
 	width: 1150px;
 	margin: 75px auto 10px;
-	box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+	-webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+	        box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
 	background: white;
 	padding: 15px;
 	overflow: hidden;
@@ -782,7 +950,6 @@ footer{
 
 
 .dropdown {
-    position: relative;
     display: inline-block;
 }
 
@@ -791,7 +958,8 @@ footer{
     position: absolute;
     background: #f27935;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
@@ -821,7 +989,8 @@ footer{
 	background: white;
 	margin: 75px auto 0;
 	padding: 15px;
-	box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+	-webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
+	        box-shadow: 1px 1px 5px 0 rgba(0,0,0,.2);
 	overflow: hidden;
 }
 
@@ -836,12 +1005,13 @@ footer{
 	float: left;
 }
 
-.detail-biodata .dua{
-	background: rgb(244, 246, 245);
-	width: 800px;
-	height: 445px;
-	float: right;
-	margin-bottom: 15px;
+.dua label > img
+{
+	border-radius: 200px;
+	width: 200px;
+	height: 200px;
+	-o-object-fit: cover;
+	   object-fit: cover;
 }
 
 .detail-biodata .dua .nav li.active a{
@@ -855,9 +1025,192 @@ footer{
 	width: 1120px;
 	/*height: 300px;*/
 	overflow: hidden;
+	margin-top: 45px;
 }
 
 .deskripsi-barang ol, .deskripsi-barang ul
 {
 	margin-left: 20px;
+}
+
+.search-container
+{
+	text-align: center;
+	border-radius: 20px;
+	margin: 10px 0;
+	width: 100%;
+	background: -webkit-gradient(linear, left top, right top, from(rgba(44, 62, 80, 0.38)), to(rgba(103, 157, 165, 0.5)));
+	background: linear-gradient(to right, rgba(44, 62, 80, 0.38), rgba(103, 157, 165, 0.5));
+}
+
+.search-container > form
+{
+	padding: 25px;
+	text-align: left;
+}
+
+.search-container form > .form-control
+{
+	margin-right: 6px;
+	vertical-align: middle;
+	position: relative;
+	padding:6px 12px;
+}
+
+.search-container form > .form-control input
+{
+	outline: none;
+}
+
+.kategori-dagang ul li
+{
+	list-style: none;
+	width: 24%;
+	display: inline-block;
+	padding: 20px 10px;
+	text-align: center;
+}
+
+.kategori-dagang ul li a
+{
+	text-decoration: none;
+}
+
+.kategori-dagang ul li span
+{
+	padding-bottom: 10px;
+	font-size: 50px;
+	display: block;
+}
+
+.container-iklan-baris
+{
+	background: white;
+	width: 100%;
+	margin: 10px 0;
+}
+
+.dropdown[data-style="triangle"]::before
+{
+	content: '';
+	position: absolute;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 20px solid white;
+	top:-20px;
+	left:200px;
+}
+
+.dropdown[data-style="triangle"] > .kabkota-container
+{
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	background-color: white;
+	box-shadow: 0 0 0 2000px rgba(102,102,102,0.4);
+	-webkit-box-shadow:0 0 0 2000px rgba(102,102,102,0.4);
+}
+.dropdown[data-style="triangle"] > .kabkota-container ul
+{
+	padding: 10px 0;
+}
+.dropdown[data-style="triangle"] > .kabkota-container ul li a
+{
+	padding:6px 28px 6px 12px;
+	display: block;
+}
+
+.colom
+{
+	display: table-cell;
+	border-left: 1px solid #ccc;
+}
+.width25
+{
+	width: 25%;
+}
+
+.none
+{
+	display: none;
+}
+
+.social-media
+{
+	margin-top: 10px;
+	text-align: center;
+}
+
+.sprite-media
+{
+  background: url("../../images/social_media/4794x72.png") no-repeat;
+  width:100px;
+  height:101px;
+  zoom:0.5;
+  display: inline-block;
+}
+.sprite-media:hover
+{
+  -webkit-transition: background .2s linear;
+  transition: background .2s linear;
+  background: url("../../images/social_media/4794x72_color.png") no-repeat;
+}
+
+.sprite-media.facebook
+{
+  background-position: -35px -42px ;
+}
+
+.sprite-media.twitter
+{
+  background-position: -665px -165px ;
+}
+.sprite-media.linkedin
+{
+  background-position: -665px -288px ;
+}
+.sprite-media.googleplus
+{
+  background-position: -539px -42px ;
+}
+.sprite-media.youtube
+{
+  background-position: -539px -165px ;
+}
+
+table.table-search
+{
+	margin: 0 auto;
+}
+table.table-search table
+{
+	border: 1px solid #e0e0e0;
+}
+
+table.table-search table td
+{
+	padding:0;
+}
+
+table.table-search tr:hover
+{
+	background-color: #f5f5f5;
+	-webkit-transition: background-color .5s linear;
+	transition: background-color .5s linear;
+}
+
+.user-container
+{
+	position: relative;
+}
+
+.user-container::after
+{
+	position: absolute;
+	content: '';
+	border:1px dashed #f27935;
+	width: 15em;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
 }

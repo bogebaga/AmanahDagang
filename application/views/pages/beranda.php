@@ -1,44 +1,125 @@
 <section class="wrapper">
   <div class="iklan">
-    <img src="images/tes.jpeg" class="img-responsive">
-    <div class="login-background">
-      <div class="kotak-daftar">
-        <h3>Buat Akun Anda</h3>
-        <div class="form-pendaftaran">
-          <?php echo validation_errors();?>
-          <?php echo form_open('register')?>
-          <input type="text" name="nlengkap" placeholder="Nama Lengkap" size="35" autofocus>
-          <input type="text" name="nama" placeholder="Username" size="35">
-          <input type="email" name="email" placeholder="Alamat Email" size="35">
-          <input type="password" name="sandi" placeholder="Kata Sandi" size="35">
-
-          <button type="submit" name="submit" class="btn btn-primary">Mendaftar</button>
-          <?php echo form_close();?>
+    <div id="slider-home-1" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#slider-home-1" data-slide-to="0" class="active"></li>
+        <li data-target="#slider-home-1" data-slide-to="1"></li>
+        <li data-target="#slider-home-1" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <a id="image_tes" href="http://www.telkomsel.com" target="_blank"><img src="<?php echo base_url("images/slider/telkomsel_slide.jpg") ?>" class="img-responsive" alt="amanahstores slide gambar 1"></a>
+        </div>
+        <div class="item">
+          <img src="<?php echo base_url("images/slider/slide 2.jpg") ?>" class="img-responsive" alt="amanahstores slide gambar 2">
+        </div>
+        <div class="item">
+          <img src="<?php echo base_url("images/slider/slide 3.jpg") ?>" class="img-responsive" alt="amanahstores slide gambar 3">
         </div>
       </div>
     </div>
-    <div class="fanpage">
-      <h3>Semua Ada disini</h3>
-      <h1>AMANAH DAGANG</h1>
-      <button type="button" onclick="window.location='https://www.facebook.com/harianamanah/?hc_ref=NEWSFEED'" class="sosmed-1">Facebook</button>
-      <button type="button" onclick="window.location='https://twitter.com/harianamanah'" class="sosmed-2">Twitter</button>
-    </div>
   </div>
 </section>
+<!-- <a class="sosmed-1" href="https://www.facebook.com/harianamanah/?hc_ref=NEWSFEED" target="_blank">Facebook</a> -->
+<!-- <a class="sosmed-2" href="https://twitter.com/harianamanah" target="_blank">Twitter</a> -->
 <section class="wrapper">
-  <div class="daerah-dagang">
-
+  <div class="search-container">
+    <!-- <?php echo form_open(base_url("all-result")); ?> -->
+    <form action="<?php echo base_url("all-result") ?>" method="get">
+      <div class="form-control" style="width:43%;display:inline-block;font-size:20px;height:40px;text-align:left;">
+        <span class="fa fa-location-arrow"></span>
+        <input name="lokasi" type="text" placeholder="Lokasi" style="border:none;width:90%;margin-left:10px;">
+      </div>
+      <div class="form-control" style="width:50%;display:inline-block;font-size:20px;height:40px;text-align:left;">
+        <span class="fa fa-file-text-o"></span>
+        <input name="iklan" type="text" placeholder="Iklan yang sedang dicari" style="border:none;width:90%;margin-left:10px;">
+      </div>
+      <button class="btn btn-success" type="submit" style="font-size:20px;"><span class="fa fa-search"></span></button>
+    <?php echo form_close(); ?>
   </div>
-  <div class="menu-bawah">
-    <ul class="nav nav-tabs">
-      <?php foreach ($kategori as $data_kategori): ?>
-        <li>
-          <a data-toggle="tab" href="#<?php echo strtolower($data_kategori['nama_kategori']) ?>"><?php echo $data_kategori['nama_kategori'] ?></a>
-        </li>
-      <?php endforeach; ?>
-    </ul>
+  <div class="dropdown" data-style="triangle" style="width:95%;display:none;">
+    <div class="kabkota-container">
+      <ul class="text-left width25 colom list-unstyled">
+        <li><a href="#">menu-1</a></li>
+        <li><a href="#">menu-2</a></li>
+        <li><a href="#">menu-3</a></li>
+        <li><a href="#">menu-4</a></li>
+        <li><a href="#">menu-5</a></li>
+        <li><a href="#">menu-6</a></li>
+        <li><a href="#">menu-7</a></li>
+        <li><a href="#">menu-8</a></li>
+      </ul>
+      <ul class="text-left width25 colom list-unstyled">
+        <li><a href="#">menu-1</a></li>
+        <li><a href="#">menu-2</a></li>
+        <li><a href="#">menu-3</a></li>
+        <li><a href="#">menu-4</a></li>
+        <li><a href="#">menu-5</a></li>
+        <li><a href="#">menu-6</a></li>
+        <li><a href="#">menu-7</a></li>
+        <li><a href="#">menu-8</a></li>
+      </ul>
+      <ul class="text-left width25 colom list-unstyled">
+        <li><a href="#">menu-1</a></li>
+        <li><a href="#">menu-2</a></li>
+        <li><a href="#">menu-3</a></li>
+        <li><a href="#">menu-4</a></li>
+        <li><a href="#">menu-5</a></li>
+        <li><a href="#">menu-6</a></li>
+        <li><a href="#">menu-7</a></li>
+        <li><a href="#">menu-8</a></li>
+      </ul>
+      <ul class="text-left width25 colom list-unstyled">
+        <li><a href="#">menu-1</a></li>
+        <li><a href="#">menu-2</a></li>
+        <li><a href="#">menu-3</a></li>
+        <li><a href="#">menu-4</a></li>
+        <li><a href="#">menu-5</a></li>
+        <li><a href="#">menu-6</a></li>
+        <li><a href="#">menu-7</a></li>
+        <li><a href="#">menu-8</a></li>
+      </ul>
+    </div>
   </div>
-
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="col-xs-5">
+        <?php $data = $this->iklan_model->get_kategori(); ?>
+        <?php $class = [
+          'properti' => 'fa-home material-red',
+          'mobil' => 'fa-car material-blue',
+          'motor' => 'fa-motorcycle material-violet',
+          'fashion' => 'fa-shopping-bag material-blue',
+          'mobile' => 'fa-mobile material-green-grass',
+          'komputer' => 'fa-laptop material-blue',
+          'travel' => 'fa-suitcase material-orange',
+          'kitchen' => 'fa-cutlery material-blue',
+          'makanan' => 'fa-lemon-o material-orange',
+          'kesehatan' => 'fa-heart material-red',
+          'service' => 'fa-handshake-o material-tea',
+          'lowongan-kerja' => 'fa-user material-green-old',
+          'komoditi' => 'fa-leaf material-green-grass',
+          'pendidikan' => 'fa-graduation-cap material-blue',
+          'lainnya' => 'fa-ellipsis-h material-grey'];  ?>
+          <div class="kategori-dagang">
+            <ul style="text-align:justify;">
+              <?php foreach ($data as $value): ?>
+                <li><a href="<?php echo lcfirst($value['nama_kategori'])?>/kategori">
+                  <span class="fa <?php  echo $class[lcfirst($value['nama_kategori'])] ?>" aria-hidden="true"></span>
+                  <?php echo $value['nama_kategori'] ?>
+                </a></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+      </div>
+      <div class="col-xs-7">
+        <img width="80%" src="<?php echo base_url("images/banner 640x510 amanahdagang.png"); ?>" alt="banner amanahstores samping">
+      </div>
+    </div>
+  </div>
+  <hr style="border-color:rgba(44, 62, 80, 0.27);">
+  <h1 style="color:#ff9800;">#JualBekasBisaJadiDuit</h1>
+  <br>
   <div class="barang-dagang tab-content">
     <div id="mobil" class="tab-pane fade in active">
       <!-- <div class="form-detail">
@@ -53,9 +134,7 @@
             <option value="bekas">Bekas</option>}
           </select>
         </div>
-
         <button type="button" class="btn btn-primary">Cari</button>
-
         <select name="urutkan_harga">
           <option value="harga_termahal">Harga Termahal</option>
           <option value="harga_termurah">Harga Termurah</option>
@@ -64,174 +143,29 @@
         </select>
         <p>Atur Berdasarkan :</p>
       </div> -->
-
-      <ul class="foto-dagangan">
+      <ul class="foto-dagangan" style="padding-top:0;background:rgba(255,255,255,0);border:none;">
         <?php $path_fitur = "images/post_foto_feature/"; ?>
-        <?php foreach ($this->iklan_model->get_all_iklan('Mobil', 'publish') as $mobil) { ?>
-          <li>
-            <a href="<?php echo "barang/".$mobil['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$mobil['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$mobil['gambar_fitur']) ? $path_fitur.$mobil['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
+        <?php foreach ($this->iklan_model->get_all_iklan_limit('publish','','5') as $new_ads) { ?>
+          <li style="background:white;">
+            <a href="<?php echo "barang/".$new_ads['slug_nama_barang'] ?>">
+              <!-- <img data-blur="true" src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?> alt="<?php echo $new_ads['nama_barang']?>"> -->
+              <img src=<?php echo (empty($new_ads['gambar_fitur'])) ? base_url('images/src_img_default/center.jpg') : $path_fitur.$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($new_ads['barang_upload_tgl']))).$new_ads['gambar_fitur'] ?> alt="<?php echo $new_ads['nama_barang']?>" title="<?php echo $new_ads['nama_barang']?>">
               <figcaption>
-                <h3><?php echo $mobil['nama_barang'] ?></h3>
-                <h4><?php echo ($mobil['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $mobil['jenis_iklan'])) : $mobil['harga_barang'])?></h4>
+                <h3><?php echo $new_ads['nama_barang'] ?></h3>
+                <h4 class="price-tag"><?php echo (empty($new_ads['harga_barang']) ? '<div></div>' : "Rp. ".$new_ads['harga_barang'])?></h4>
+                <div class="icon-btm-left" style="color:#2c3e50;">
+                  <span class="fa fa-archive"></span> <?php echo ucwords($new_ads['jenis_barang']); ?>
+                </div>
+                <div class="icon-btm-right" style="color:#757575;">
+                  <span class="fa fa-eye"></span> <?php echo ucwords($new_ads['view_barang']); ?>
+                </div>
               </figcaption>
             </a>
           </li>
         <?php } ?>
       </ul>
     </div>
-    <div id="motor" class="tab-pane fade">
-      <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Motor', 'publish') as $motor) { ?>
-          <li>
-            <a href="<?php echo "barang/".$motor['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$motor['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$motor['gambar_fitur']) ? $path_fitur.$motor['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
-              <figcaption>
-                <h3><?php echo $motor['nama_barang'] ?></h3>
-                <h4><?php echo ($motor['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $motor['jenis_iklan'])) : $motor['harga_barang'])?></h4>
-              </figcaption>
-            </a>
-          </li>
-          <?php } ?>
-      </ul>
-    </div>
-    <div id="properti" class="tab-pane fade">
-      <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Properti', 'publish') as $properti) { ?>
-          <li>
-            <a href="<?php echo "barang/".$properti['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$properti['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$properti['gambar_fitur']) ? $path_fitur.$properti['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
-              <figcaption>
-                <h3><?php echo $properti['nama_barang'] ?></h3>
-                <h4><?php echo ($properti['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $properti['jenis_iklan'])) : $properti['harga_barang']) ?></h4>
-              </figcaption>
-            </a>
-          </li>
-        <?php } ?>
-      </ul>
-    </div>
-    <div id="fashion" class="tab-pane fade">
-      <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Fashion', 'publish') as $fashion) { ?>
-          <li>
-            <a href="<?php echo "barang/".$fashion['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$fashion['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$fashion['gambar_fitur']) ? $path_fitur.$fashion['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
-              <figcaption>
-                <h3><?php echo $fashion['nama_barang'] ?></h3>
-                <h4><?php echo ($fashion['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $fashion['jenis_iklan'])) : $fashion['harga_barang']) ?></h4>
-              </figcaption>
-            </a>
-          </li>
-          <?php } ?>
-      </ul>
-    </div>
-    <div id="handphone" class="tab-pane fade">
-      <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Handphone', 'publish') as $handphone) { ?>
-          <li>
-            <a href="<?php echo "barang/".$handphone['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$handphone['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$handphone['gambar_fitur']) ? $path_fitur.$handphone['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
-              <figcaption>
-                <h3><?php echo $handphone['nama_barang'] ?></h3>
-                <h4><?php echo ($handphone['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $handphone['jenis_iklan'])) : $handphone['harga_barang']) ?></h4>
-              </figcaption>
-            </a>
-          </li>
-          <?php } ?>
-      </ul>
-    </div>
-    <div id="komputer" class="tab-pane fade">
-      <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Komputer', 'publish') as $komputer) { ?>
-          <li>
-            <a href="<?php echo "barang/".$komputer['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$komputer['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$komputer['gambar_fitur']) ? $path_fitur.$komputer['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
-              <figcaption>
-                <h3><?php echo $komputer['nama_barang'] ?></h3>
-                <h4><?php echo ($komputer['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $komputer['jenis_iklan'])) : $komputer['harga_barang']) ?></h4>
-              </figcaption>
-            </a>
-          </li>
-          <?php } ?>
-        </ul>
-    </div>
-    <div id="travel" class="tab-pane fade">
-      <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Travel', 'publish') as $travel) { ?>
-          <li>
-            <a href="<?php echo "barang/".$travel['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$travel['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$travel['gambar_fitur']) ? $path_fitur.$travel['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
-              <figcaption>
-                <h3><?php echo $travel['nama_barang'] ?></h3>
-                <h4><?php echo ($travel['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $travel['jenis_iklan'])) : $travel['harga_barang'])?></h4>
-              </figcaption>
-            </a>
-          </li>
-          <?php } ?>
-        </ul>
-    </div>
-    <div id="kitchen" class="tab-pane fade">
-      <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Kitchen', 'publish') as $kitchen) { ?>
-          <li>
-            <a href="<?php echo "barang/".$kitchen['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$kitchen['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$handphone['gambar_fitur']) ? $path_fitur.$handphone['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
-              <figcaption>
-                <h3><?php echo $kitchen['nama_barang'] ?></h3>
-                <h4><?php echo ($kitchen['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $kitchen['jenis_iklan'])) : $kitchen['harga_barang']) ?></h4>
-              </figcaption>
-            </a>
-          </li>
-          <?php } ?>
-        </ul>
-    </div>
-    <div id="kesehatan" class="tab-pane fade">
-      <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Kesehatan', 'publish') as $kesehatan) { ?>
-          <li>
-            <a href="<?php echo "barang/".$kesehatan['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$kesehatan['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$kesehatan['gambar_fitur']) ? $path_fitur.$kesehatan['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
-              <figcaption>
-                <h3><?php echo $kesehatan['nama_barang'] ?></h3>
-                <h4><?php echo ($kesehatan['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $kesehatan['jenis_iklan'])) : $kesehatan['harga_barang']) ?></h4>
-              </figcaption>
-            </a>
-          </li>
-          <?php } ?>
-        </ul>
-    </div>
-    <div id="makanan" class="tab-pane fade">
-      <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Makanan', 'publish') as $makanan) { ?>
-          <li>
-            <a href="<?php echo "barang/".$makanan['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$makanan['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$makanan['gambar_fitur']) ? $path_fitur.$makanan['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
-              <figcaption>
-                <h3><?php echo $makanan['nama_barang'] ?></h3>
-                <h4><?php echo ($makanan['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $makanan['jenis_iklan'])) : $makanan['harga_barang']) ?></h4>
-              </figcaption>
-            </a>
-          </li>
-          <?php } ?>
-        </ul>
-    </div>
-    <div id="lainnya" class="tab-pane fade">
-      <ul class="foto-dagangan">
-        <?php foreach ($this->iklan_model->get_all_iklan('Lainnya', 'publish') as $lainnya) { ?>
-          <li>
-            <a href="<?php echo "barang/".$lainnya['slug_nama_barang'] ?>">
-              <img src=<?php echo ($path_fitur.$lainnya['gambar_fitur'] == '' ? 'images/src_img_default/center.jpg' : (file_exists($path_fitur.$lainnya['gambar_fitur']) ? $path_fitur.$lainnya['gambar_fitur'] : 'images/src_img_default/center.jpg'));?> alt="fitur foto iklan amanah dagang">
-              <figcaption>
-                <h3><?php echo $lainnya['nama_barang'] ?></h3>
-                <h4><?php echo ($lainnya['harga_barang'] == '' ? ucwords(str_replace('_', ' ', $lainnya['jenis_iklan'])) : $lainnya['harga_barang']) ?></h4>
-              </figcaption>
-            </a>
-          </li>
-          <?php } ?>
-        </ul>
-    </div>
-  </div>
   <div class="iklan-lebar">
-    <img src="images/iklan.jpg" alt="">
+    <img src="<?php echo base_url("images/footer-banner.jpg") ?>" alt="amanahstores pasang iklan">
   </div>
 </section>

@@ -25,27 +25,101 @@ class Iklan_model extends CI_Model{
   {
     if($data):
       $this->db->where('id_provinsi', $data);
-      $query = $this->db->get('ad_kabkota');
-    else:
-      $query = $this->db->get('ad_kabkota');
     endif;
 
+    $query = $this->db->get('ad_kabkota');
     return $query->result_array();
   }
 
-  public function get_all_iklan($param = '', $param1 = '')
+  public function get_data_kecamatan($data = '')
+  {
+    if($data):
+      $this->db->where('id_kabkota', $data);
+    endif;
+
+    $result = $this->db->get('ad_kecamatan');
+    return $result->result_array();
+  }
+
+  public function get_all_iklan($kategori = '', $tayang_barang = '', $jenis_iklan = '', $user_kode = '' , $urutan = 'DESC' )
   {
     $this->db->from('ad_barang ab');
     $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
-    if ($param)
+    if ($kategori)
     {
-      $this->db->where('ak.nama_kategori', $param);
-    }elseif ($param1) {
-      $this->db->where('ab.tayang_barang', $param1);
+      $this->db->where('ak.nama_kategori', $kategori);
     }
-
+    if ($tayang_barang)
+    {
+      $this->db->where('ab.tayang_barang', $tayang_barang);
+    }
+    if ($jenis_iklan)
+    {
+      $this->db->where('ab.jenis_iklan !=', $jenis_iklan);
+    }
+    if ($user_kode)
+    {
+      $this->db->where('ab.user_kode', $user_kode);
+    }
+    if ($urutan)
+    {
+      $this->db->order_by('barang_upload_tgl', $urutan);
+    }
     $query = $this->db->get();
     return $query->result_array();
+  }
+
+  public function get_all_iklan_by_kategori($kategori = '',$tayang = '', $jenis_iklan = 'iklan_baris', $urutan = 'DESC')
+  {
+    $this->db->from('ad_barang ab');
+    $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
+    if ($tayang)
+    {
+      $this->db->where('ab.tayang_barang', $tayang);
+    }
+    if ($kategori)
+    {
+      $this->db->where('ak.nama_kategori', $kategori);
+    }
+    if ($jenis_iklan)
+    {
+      $this->db->where('ab.jenis_iklan !=', $jenis_iklan);
+    }
+    if ($urutan)
+    {
+      $this->db->order_by('ab.barang_upload_tgl', $urutan);
+    }
+
+    $result = $this->db->get();
+    return $result->result_array();
+  }
+
+  public function get_all_iklan_baris($kategori='', $jenis_iklan = 'iklan_baris')
+  {
+    $this->db->from('ad_barang ab');
+    $this->db->join('ad_kategori ak', 'ab.id_kategori = ak.id_kategori');
+
+    if($jenis_iklan)
+      $this->db->where('ab.jenis_iklan', $jenis_iklan);
+    if($kategori)
+      $this->db->where('ak.nama_kategori', $kategori);
+
+    $result = $this->db->get();
+    return $result->result_array();
+  }
+
+  public function get_all_iklan_limit($tayang='', $user='',$limit='', $jenis_iklan = 'iklan_baris')
+  {
+    if ($user) {
+      $this->db->where('user_kode', $user);
+    }
+    $this->db->where('tayang_barang', $tayang);
+    $this->db->where('jenis_iklan != ', $jenis_iklan);
+    $this->db->order_by('barang_upload_tgl', 'DESC');
+    $this->db->limit($limit);
+    $result = $this->db->get('ad_barang');
+
+    return $result->result_array();
   }
 
   public function get_iklan_by_slug($data)
@@ -89,36 +163,21 @@ class Iklan_model extends CI_Model{
     $this->db->where('slug_nama_barang', $data);
     $query = $this->db->get();
 
-    return $query->result_array();
+    return $query->row_array();
   }
-  public function pasang_iklan($data)
+  public function pasang_iklan($data = '', $identitas = '', $bool = TRUE)
   {
-      $store_db = [
-        'nama_barang' => $data['nama_iklan'],
-        'slug_nama_barang' => $data['slug_nama_iklan'],
-        'barang_kode' => $data['barang_kode'],
-        'barang_upload_tgl' => $data['barang_upload_tgl'],
-        'user_kode' => $data['user_kode'],
-        'id_kategori' => $data['nama_kategori'],
-        'jenis_iklan' => $data['jenis_iklan'],
-        'jenis_barang' => $data['jenis_barang'],
-        'harga_barang' => $data['harga_iklan'],
-        'deskripsi_barang' => $data['deskripsi_iklan'],
-        'gambar_barang' => $data['gambar_barang'],
-        'gambar_fitur' => $data['gambar_fitur'],
-        'alamat_barang' => $data['alamat'],
-        'tayang_barang' => 'unpublish',
-        'fitur_barang' => 'none'
-      ];
-      return $this->db->insert('ad_barang', $store_db);
+      if ($bool) {
+        $this->db->update('ad_user', $identitas, "user_kode ='".$this->session->userdata('user_kd')."'");
+      }
+      return $this->db->insert('ad_barang', $data);
   }
 
   public function simpan_iklan_by_kdbarang($data)
   {
     $this->load->helper('array');
-
-    $this->db->where('barang_kode', element('barang_kode', $data));
-    unset($data['barang_kode']);
+    $this->db->where('slug_nama_barang', element('slug_nama_barang', $data));
+    unset($data['slug_nama_barang']);
 
     return $this->db->update('ad_barang', $data);
   }
@@ -131,7 +190,6 @@ class Iklan_model extends CI_Model{
   public function edit_iklan_admin($data)
   {
     $this->load->helper('array');
-
     $this->db->where('slug_nama_barang', element('slug_nama_barang', $data));
     unset($data['slug_nama_barang']);
 
@@ -146,16 +204,16 @@ class Iklan_model extends CI_Model{
 
     $this->db->select('view_barang');
     $this->db->where('slug_nama_barang', $slug);
-
-    return $this->db->get('ad_barang')->result_array();
+    return $this->db->get('ad_barang')->row_array();
   }
 
-  public function tes_ilmu($data)
+  public function helpdesk_insert($data)
   {
-    $this->db->where('id', $data);
-    $result = $this->db->get('tes');
-    $array[$data] = $result->result_array();
+    return $this->db->insert('ad_helpdesk', $data);
+  }
 
-    return $array;
+  public function helpdesk_update($data)
+  {
+    return $this->db->update('ad_helpdesk', $data, "ad_link_help = '" .$data['ad_link_help']."'");
   }
 }

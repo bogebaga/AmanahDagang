@@ -12,14 +12,19 @@
 				<h1 class="page-header">Tabel</h1>
 			</div>
 		</div><!--/.row-->
-
+		<div class="row">
+			<div class="col-xs-12">
+				<?php echo $this->session->flashdata('success_edit'); ?>
+				<?php echo $this->session->flashdata('has_delete'); ?>
+			</div>
+		</div>
 
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">Tabel Iklan</div>
 					<div class="panel-body">
-						<table data-toggle="table" data-url="<?php echo base_url()?>iklanparse"  data-show-refresh="true" data-show-columns="true" data-search="true" data-select-item-name="state" data-pagination="true" data-sort-name="nama" data-sort-order="desc">
+						<table data-toggle="table" data-url="<?php echo base_url("iklanparse")?>" data-show-refresh="true" data-show-columns="true" data-search="true" data-pagination="true" data-sort-name="nama" data-sort-order="desc">
 						    <thead>
 						    <tr>
 						        <th data-field="id_barang" data-sortable="true" >No.</th>
@@ -28,7 +33,7 @@
 										<th data-field="jenis_iklan" data-sortable="true">Jenis Iklan</th>
 						        <th data-field="nama_barang"  data-sortable="true">Judul Iklan</th>
 						        <th data-field="tayang_barang" data-sortable="true">Status</th>
-						        <th data-field="action" data-sortable="true">Action</th>
+						        <th data-field="action">Action</th>
 						    </tr>
 						    </thead>
 						</table>

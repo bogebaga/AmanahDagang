@@ -5,12 +5,16 @@
 				<li class="active">Forms</li>
 			</ol>
 		</div><!--/.row-->
-
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Forms</h1>
 			</div>
 		</div><!--/.row-->
+		<div class="row">
+			<div class="col-xs-12">
+				<?php echo $this->session->flashdata('success'); ?>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
@@ -20,7 +24,7 @@
 						<div class="col-md-6">
 								<div class="form-group">
 									<label>Judul Iklan</label>
-									<input class="form-control" placeholder="example: Jual cepat mobil bmw" name="nama_barang" required>
+									<input class="form-control" placeholder="example: Jual cepat mobil bmw" name="nama_barang" minlength="20" maxlength="70"required>
 								</div>
 								<div class="form-group">
 									<label>Kategori</label>
@@ -30,12 +34,28 @@
 										<?php endforeach; ?>
 									</select>
 								</div>
-
+								<!-- <div class="form-group">
+									<label>Regional</label>
+									<select class="form-control" name="provinsi" id="provinsi" style="margin-bottom:5px">
+										<option>Pilih Provinsi</option>
+									</select>
+									<select class="form-control" name="kabkota" id="kabkota" style="margin-bottom:5px">
+										<option>Pilih Kabupaten/Kota</option>
+									</select>
+									<select class="form-control" name="kecamatan" id="kecamatan">
+										<option>Pilih Kecamatan</option>
+									</select>
+								</div> -->
 								<div class="form-group">
 									<label>Jenis Iklan</label>
 									<div class="radio">
 										<label>
-											<input type="radio" name="jenis_iklan" value="iklan_baris" checked>Iklan Baris
+											<input type="radio" name="jenis_iklan" value="iklan" checked>Iklan
+										</label>
+									</div>
+									<div class="radio">
+										<label>
+											<input type="radio" name="jenis_iklan" value="iklan_baris">Iklan Baris
 										</label>
 									</div>
 									<div class="radio">
@@ -66,7 +86,6 @@
 									</label>
 									<p class="help-block" style="display:block;">Example block-level help text here.</p>
 								</div>
-
 								<div class="form-group">
 									<label style="display:block;">Foto Grup</label>
 									<label class="chs-img" style="width:80px; padding:15px 0; font-size:15px">
@@ -102,31 +121,15 @@
 								</div>
 								<p class="help-block">Example block-level help text here.</p>
 							</div>
-							<script>
-							function loadImage(i, addr, w, h)
-							{
-								if (i.files && i.files[0])
-								{
-									var reader = new FileReader();
-
-									reader.onload = function(e)
-									{
-										$('#'+addr).attr('src', e.target.result).width(w).height(h);
-									}
-
-									reader.readAsDataURL(i.files[0]);
-								}
-							}
-							</script>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Deskripsi</label>
 									<textarea class="form-control" name="deskripsi" id="deskripsi"></textarea>
 								</div>
-								<!-- <div class="form-group">
+								<div class="form-group">
 									<label>Telepon/HP</label>
 									<input type="text" class="form-control" name="telpon" placeholder="example: 085xxx">
-								</div> -->
+								</div>
 								<div class="form-group">
 									<label>Alamat</label>
 									<input type="text" class="form-control" list="alamatta" name="alamat" placeholder="example: Kamu tinggal dimana?" required>
