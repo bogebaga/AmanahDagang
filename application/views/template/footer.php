@@ -41,6 +41,7 @@
   $(".grid").masonry({
     itemSelector: '.grid-item'
   });
+  $('[data-toggle="popover"]').popover();
 
   tinymce.init({
     selector: 'textarea',

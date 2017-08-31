@@ -48,14 +48,14 @@
           <textarea name="deskripsi_iklan"></textarea>
         </div>
       </div>
-      <div class="df">
+      <!-- <div class="df">
         <h4>Alamat Barang</h4>
         <input type="text" name="alamat" placeholder="Alamat" required>
       </div>
       <div class="df">
         <h4>Nomor HP</h4>
         <input type="text" name="telpon" placeholder="08xxxxxxx">
-      </div>
+      </div> -->
       <div class="df">
         <h4>Harga</h4>
         <input type="text" name="harga_iklan" id="harga_barang" placeholder="Harga Rupiah">

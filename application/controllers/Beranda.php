@@ -21,6 +21,7 @@ class Beranda extends CI_Controller {
 			'title_tag' => 'Ketemu banyak pedagang terpercaya dengan mudah di amanahstores.com - Semua ada disini',
 			'desc' => 'Wadah bagi pemasang iklan untuk memasarkan produknya, memungkinkan seseorang ataupun pemilik usaha di Indonesia untuk mengelola usahanya sendiri secara mudah dan gratis. amanahstores akan memberikan keamanan dan kenyamanan dalam berbelanja online',
 			'url' => base_url(),
+			'image' => base_url('images/banner 640x510 amanahdagang.png'),
 			'publish-time' => date('Y-m-d')
 		];
 
@@ -159,7 +160,7 @@ class Beranda extends CI_Controller {
 		$this->load->view('pages/daftar');
 		$this->load->view('template/footer');
 	}
-	
+
 	public function helpdesk($data = '')
 	{
 		$link = array(
@@ -168,7 +169,7 @@ class Beranda extends CI_Controller {
 			'network' => base_url().'tentang'
 		);
 		$helpdesk['isi_helpdesk'] = $this->user_model->helpdesk_parse($data);
-		
+
 		$this->load->view('template/header', $link);
 		$this->load->view('pages/helpdesk', $helpdesk);
 		$this->load->view('template/footer');

@@ -16,19 +16,19 @@ class Iklan extends CI_Controller{
   {
     if (isset($_POST['submit']))
 		{
-  		$slug_nama_iklan = url_title($this->input->post('nama_iklan'));
+  		$slug_nama_iklan = url_title($this->input->post('nama_iklan'), '-', TRUE);
   		$barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
       $After_explode = explode(".", $_FILES['foto_fitur_name']['name']);
 
       // echo  $this->tanggal_indonesia(date('Y-m-d-N'));
-      if(! file_exists('../images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')))):
-        mkdir('../images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')), 0777, true);
+      if(! file_exists($this->location.'images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')))):
+        mkdir($this->location.'images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')), 0777, true);
       endif;
 
       // NOTE: Ini untuk upload tunggal
   		$this->upload->initialize(
   			[
-  				'upload_path' => '../images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')),
+  				'upload_path' => $this->location.'images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')),
   				'allowed_types' => 'jpg|png|gif|jpeg',
   				'file_name' => $After_explode[0]."_".$slug_nama_iklan."-".$barang_kode."_Fitur",
   				'overwrite' => TRUE,
@@ -45,11 +45,11 @@ class Iklan extends CI_Controller{
         // $this->image_lib->initialize(
         //   [
         //     'image_library' => 'gd2',
-        //     'source_image' =>  '../images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')).$this->upload->data('file_name'),
+        //     'source_image' =>  $this->location.'images/post_foto_feature/'.$this->tanggal_indonesia(date('Y-m-d-N')).$this->upload->data('file_name'),
         //     'create_thumb' => TRUE,
         //     'maintain_ratio' => TRUE,
         //     'width' => 85,
-        //     'new_image' => '../images/post_foto_feature/thumb'
+        //     'new_image' => $this->location.'images/post_foto_feature/thumb'
         //   ]);
         //
         // if (! $this->image_lib->resize()) {
@@ -75,12 +75,12 @@ class Iklan extends CI_Controller{
   				$_FILES['images']['size'] = $_FILES['image']['size'][$i];
   				$After_explode = explode(".", $_FILES['images']['name']);
 
-          if(! file_exists('../images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode)):
-            mkdir('../images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode, 0777, true);
+          if(! file_exists($this->location.'images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode)):
+            mkdir($this->location.'images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode, 0777, true);
           endif;
 
   				$this->upload->initialize([
-  					'upload_path' => '../images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode,
+  					'upload_path' => $this->location.'images/post_foto_ikl/'.$this->tanggal_indonesia(date('Y-m-d-N')).$slug_nama_iklan.'-'.$barang_kode,
   					'allowed_types' => 'jpeg|jpg|png|gif',
   					'file_name' => $After_explode[0].'_'.$slug_nama_iklan.'-'.$barang_kode.'_'.$i,
   					'overwrite' => TRUE
@@ -89,7 +89,7 @@ class Iklan extends CI_Controller{
   				if($this->upload->do_upload('images'))
   				{
   					$uploaded[$i] = $this->upload->data('file_name');
-  					// echo "<pre>";
+            // echo "<pre>";
   					// echo var_export($uploaded[$i] = $this->upload->data('file_name'));
   					// echo "</pre>";
   				}
@@ -111,11 +111,11 @@ class Iklan extends CI_Controller{
       'jenis_iklan' => 'iklan',
       'jenis_barang' => $this->input->post('ji'),
       'harga_barang' => $this->input->post('harga_iklan'),
-      'telpon' => $this->input->post('telpon'),
       'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
       'gambar_barang' => $hasil_implode,
       'gambar_fitur' => $data['upload_data'],
-      'alamat_barang' => $this->input->post('alamat'),
+      // 'telpon' => $this->input->post('telpon'),
+      // 'alamat_barang' => $this->input->post('alamat'),
       'tayang_barang' => 'unpublish',
       'fitur_barang' => 'none'
     ];

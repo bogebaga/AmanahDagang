@@ -8,13 +8,13 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <a id="image_tes" href="http://www.telkomsel.com" target="_blank"><img src="<?php echo base_url("images/slider/telkomsel_slide.jpg") ?>" class="img-responsive" alt="amanahstores slide gambar 1"></a>
+          <a id="image_tes" href="http://www.telkomsel.com" target="_blank"><img src="<?php echo base_url("images/slider/telkomsel_slide.jpg") ?>" class="img-responsive" alt="amanahstores.com slide gambar 1"></a>
         </div>
         <div class="item">
-          <img src="<?php echo base_url("images/slider/slide 2.jpg") ?>" class="img-responsive" alt="amanahstores slide gambar 2">
+          <img src="<?php echo base_url("images/slider/slide 2.jpg") ?>" class="img-responsive" alt="amanahstores.com slide gambar 2">
         </div>
         <div class="item">
-          <img src="<?php echo base_url("images/slider/slide 3.jpg") ?>" class="img-responsive" alt="amanahstores slide gambar 3">
+          <img src="<?php echo base_url("images/slider/slide 3.jpg") ?>" class="img-responsive" alt="amanahstores.com slide gambar 3">
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
         <span class="fa fa-file-text-o"></span>
         <input name="iklan" type="text" placeholder="Iklan yang sedang dicari" style="border:none;width:90%;margin-left:10px;">
       </div>
-      <button class="btn btn-success" type="submit" style="font-size:20px;"><span class="fa fa-search"></span></button>
+      <button class="btn btn-success" type="submit" style="font-size:20px;width:5%;"><span class="fa fa-search"></span></button>
     <?php echo form_close(); ?>
   </div>
   <div class="dropdown" data-style="triangle" style="width:95%;display:none;">
@@ -95,17 +95,19 @@
           'travel' => 'fa-suitcase material-orange',
           'kitchen' => 'fa-cutlery material-blue',
           'makanan' => 'fa-lemon-o material-orange',
-          'kesehatan' => 'fa-heart material-red',
+          'kesehatan' => 'fa-heartbeat material-red',
           'service' => 'fa-handshake-o material-tea',
           'lowongan-kerja' => 'fa-user material-green-old',
-          'komoditi' => 'fa-leaf material-green-grass',
+          'komoditi' => 'fa-coffee material-green-grass',
           'pendidikan' => 'fa-graduation-cap material-blue',
+          'hand-craft' => 'fa-hand-scissors-o material-tea',
+          'furniture' => 'fa-cubes material-violet',
           'lainnya' => 'fa-ellipsis-h material-grey'];  ?>
           <div class="kategori-dagang">
             <ul style="text-align:justify;">
               <?php foreach ($data as $value): ?>
-                <li><a href="<?php echo lcfirst($value['nama_kategori'])?>/kategori">
-                  <span class="fa <?php  echo $class[lcfirst($value['nama_kategori'])] ?>" aria-hidden="true"></span>
+                <li><a href="<?php echo url_title(strtolower($value['nama_kategori']), '-', TRUE)?>/kategori">
+                  <span class="fa <?php  echo $class[url_title(strtolower($value['nama_kategori']), '-', TRUE)] ?>" aria-hidden="true"></span>
                   <?php echo $value['nama_kategori'] ?>
                 </a></li>
               <?php endforeach; ?>
@@ -113,12 +115,12 @@
           </div>
       </div>
       <div class="col-xs-7">
-        <img width="80%" src="<?php echo base_url("images/banner 640x510 amanahdagang.png"); ?>" alt="banner amanahstores samping">
+        <img width="80%" src="<?php echo base_url("images/banner_640x510_amanahdagang.png"); ?>" alt="banner amanahstores samping">
       </div>
     </div>
   </div>
   <hr style="border-color:rgba(44, 62, 80, 0.27);">
-  <h1 style="color:#ff9800;">#JualBekasBisaJadiDuit</h1>
+  <h1 style="color:#ff9800;">#JualBarangBaruMasuk</h1>
   <br>
   <div class="barang-dagang tab-content">
     <div id="mobil" class="tab-pane fade in active">

@@ -85,7 +85,7 @@ class Proses extends CI_Controller {
 	{
 		if (isset($_POST['submit']))
 		{
-			$slug_nama_iklan = url_title($this->input->post('nama_iklan'));
+			$slug_nama_iklan = url_title($this->input->post('nama_iklan'), '-', TRUE);
 			$barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
 			$After_explode = explode(".", $_FILES['fitur_foto_name']['name']);
 
@@ -165,8 +165,8 @@ class Proses extends CI_Controller {
 			'jenis_barang' => $this->input->post('jenis_barang'),
 			'harga_barang' => $this->input->post('harga_iklan'),
 			'deskripsi_barang' => $this->input->post('deskripsi_iklan'),
-			'telpon' => $this->input->post('telpon'),
-			'alamat_barang' => $this->input->post('alamat'),
+			// 'telpon' => $this->input->post('telpon'),
+			// 'alamat_barang' => $this->input->post('alamat'),
 			'gambar_barang' => $hasil_implode,
 			'gambar_fitur' => $data['upload_data'],
 			'tayang_barang' => 'unpublish',
@@ -294,8 +294,8 @@ class Proses extends CI_Controller {
 			'harga_barang' => $this->input->post('harga_iklan'),
 			'jenis_barang' => $this->input->post('jenis_barang'),
 			'gambar_fitur' => $data['upload_data'],
-			'alamat_barang' => $this->input->post('alamat'),
-			'telpon' => $this->input->post('telpon'),
+			// 'alamat_barang' => $this->input->post('alamat'),
+			// 'telpon' => $this->input->post('telpon'),
 			// 'barang_provinsi' => $this->input->post('provinsi'),
 			// 'barang_kota' => $this->input->post('kabkota'),
 			// 'barang_kecamatan' => $this->input->post('kecamatan'),

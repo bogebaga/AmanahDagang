@@ -4,9 +4,9 @@
   <div class="menu-bawah" style="margin-top:15px;">
     <ul class="nav nav-tabs">
       <?php foreach ($kategori as $data_kategori): ?>
-        <li class="<?php echo (lcfirst($data_kategori['nama_kategori']) == $args) ? 'active' : '' ?>">
+        <li class="<?php echo strtolower(url_title($data_kategori['nama_kategori']), '-', TRUE) == $args ? 'active' : '' ?>">
           <!-- <a data-toggle="tab" href="#<?php echo strtolower($data_kategori['nama_kategori']) ?>"><?php echo str_replace('-', ' ', $data_kategori['nama_kategori']) ?></a> -->
-          <a href="<?php echo '../'.strtolower($data_kategori['nama_kategori']).'/iklanbaris' ?>"><?php echo str_replace('-', ' ', $data_kategori['nama_kategori']) ?></a>
+          <a href="<?php echo '../'.strtolower(url_title($data_kategori['nama_kategori']), '-', TRUE).'/iklanbaris' ?>"><?php echo str_replace('-', ' ', $data_kategori['nama_kategori']) ?></a>
         </li>
       <?php endforeach; ?>
     </ul>

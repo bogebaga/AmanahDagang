@@ -1,11 +1,8 @@
-<section>
+<section style="width:1150px;margin:auto">
   <?php echo form_open_multipart('edit', '', ['uplusr' => $data_user['user_add']]); ?>
-  <div  class="detail-biodata">
+  <div class="detail-biodata foto-container">
     <div class="dua">
-      <?php echo $this->session->flashdata('success_user') ?>
-    </div>
-    <div class="dua">
-      <div class="user-container" style="margin-bottom:30px;text-align:center;">
+      <div class="user-container" style="text-align:center;">
         <label for="foto_user">
           <?php if (empty($data_user['user_picture'])): ?>
             <img id="user_picture_0" src="images/gambar.jpg" width="200px">
@@ -19,7 +16,28 @@
         <h4><?php echo $data_user['user_nama'] ?></h4>
         <h4>Makassar</h4>
       </div>
-      <div class="col-xs-6">
+    </div>
+  </div>
+  <div class="detail-biodata info-container">
+    <div>
+      <?php echo $this->session->flashdata('success_user') ?>
+    </div>
+    <div class="dua">
+      <!-- <div class="user-container" style="margin-bottom:30px;text-align:center;">
+        <label for="foto_user">
+          <?php if (empty($data_user['user_picture'])): ?>
+            <img id="user_picture_0" src="images/gambar.jpg" width="200px">
+          <?php else: ?>
+            <?php if (!file_exists(FCPATH."images/user_iklan/".$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($data_user['user_add']))).$data_user['user_picture'])): ?>
+              <img id="user_picture_0" src="images/gambar.jpg" width="200px">
+            <?php endif; ?>
+            <img id="user_picture_0" src="<?php echo base_url("images/user_iklan/".$this->beranda->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($data_user['user_add']))).$data_user['user_picture']) ?>" width="200px">
+          <?php endif; ?>
+        </label>
+        <h4><?php echo $data_user['user_nama'] ?></h4>
+        <h4>Makassar</h4>
+      </div> -->
+      <div class="col-xs-4">
         <label for="" class="label-control">Provinsi</label>
         <select class="form-control" name="provinsi" id="provinsi">
           <?php foreach ($data_provinsi as $provinsi): ?>
@@ -59,7 +77,7 @@
         <label class="label-control">Alamat</label>
         <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $data_user['user_alamat'] ?>">
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-8">
         <label class="label-control">Deskripsi</label>
         <textarea name="deskripsi" class="form-control" rows="7"><?php echo $data_user['user_deskripsi'] ?></textarea>
         <br>

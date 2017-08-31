@@ -20,9 +20,9 @@
   <div class="menu-bawah">
     <ul class="nav nav-tabs">
       <?php foreach ($kategori as $data_kategori): ?>
-        <li class="<?php echo (strtolower($data_kategori['nama_kategori']) == $active_kategori) ? 'active' : '' ?>">
+        <li class="<?php echo (strtolower(url_title($data_kategori['nama_kategori']), '-', TRUE) == $active_kategori) ? 'active' : '' ?>">
           <!-- <a data-toggle="tab" href="#<?php echo strtolower($data_kategori['nama_kategori']) ?>"><?php echo str_replace('-', ' ', $data_kategori['nama_kategori']) ?></a> -->
-          <a href="<?php echo "../".strtolower($data_kategori['nama_kategori'])."/kategori" ?>"><?php echo str_replace('-', ' ', $data_kategori['nama_kategori']) ?></a>
+          <a href="<?php echo "../".strtolower(url_title($data_kategori['nama_kategori']), '-', TRUE)."/kategori" ?>"><?php echo str_replace('-', ' ', $data_kategori['nama_kategori']) ?></a>
         </li>
       <?php endforeach; ?>
     </ul>
@@ -88,7 +88,7 @@
         'travel' => 'fa-suitcase material-orange',
         'kitchen' => 'fa-cutlery material-blue',
         'makanan' => 'fa-lemon-o material-orange',
-        'kesehatan' => 'fa-heart material-red',
+        'kesehatan' => 'fa-heartbeat material-red',
         'service' => 'fa-handshake-o material-tea',
         'lowongan-kerja' => 'fa-user material-green-old',
         'lainnya' => 'fa-ellipsis-h material-grey'];  ?>

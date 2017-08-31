@@ -6,7 +6,7 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="<?php echo base_url(); ?>" style="display:table;">
             <!--<img src="<?php echo base_url("images/logodepanamanah_crop.png") ?>" alt="amanahdagang.com website logo depan"> -->
-            <img width="160px" src="<?php echo base_url("images/amanahstores logo FULL.png") ?>" alt="amanahstores.com website logo belakang">
+            <img width="160px" src="<?php echo base_url("images/amanahstores_logo_FULL.png") ?>" alt="amanahstores.com website logo belakang">
           </a>
         </div>
       </div>
@@ -47,7 +47,7 @@
       <ul class="container-sidenav">
         <li>
           <ul class="left-navigation">
-            <li><a href="<?php echo base_url() ?>mkategori/">Semua Kategori</a></li>
+            <li><a href="<?php echo base_url('mkategori/')?>">Semua Kategori</a></li>
             <?php
             $data = $this->iklan_model->get_kategori();
             $class = [
@@ -60,16 +60,18 @@
               'travel' => 'fa-suitcase material-orange',
               'kitchen' => 'fa-cutlery material-blue',
               'makanan' => 'fa-lemon-o material-orange',
-              'kesehatan' => 'fa-heart material-red',
+              'kesehatan' => 'fa-heartbeat material-red',
               'service' => 'fa-handshake-o material-tea',
               'lowongan-kerja' => 'fa-user material-green-old',
               'komoditi' => 'fa-leaf material-green-grass',
               'pendidikan' => 'fa-graduation-cap material-blue',
+              'hand-craft' => 'fa-hand-scissors-o material-tea',
+              'furniture' => 'fa-cubes material-violet',
               'lainnya' => 'fa-ellipsis-h material-grey'];
             ?>
             <?php foreach ($data as $value): ?>
-              <li><a href="<?php echo base_url("mkategori/".lcfirst($value['nama_kategori'])) ?>">
-                <span class="fa <?php echo $class[lcfirst($value['nama_kategori'])] ?>" aria-hidden="true"></span>
+              <li><a href="<?php echo base_url("mkategori/".strtolower(url_title($value['nama_kategori'], '-', TRUE))) ?>">
+                <span class="fa <?php echo $class[strtolower(url_title($value['nama_kategori'], '-', TRUE))] ?>" aria-hidden="true"></span>
                 <?php echo $value['nama_kategori'] ?>
               </a></li>
             <?php endforeach; ?>

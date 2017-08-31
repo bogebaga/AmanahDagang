@@ -5,9 +5,9 @@
     </ol>
     <div class="deskripsi-barang">
       <?php echo $isi_helpdesk[0]['ad_fill_text']; ?>
-      <p>
+      <div class="belanja-aman">
         Hati-hati dengan penipuan. Bertemu langsung dengan penjual adalah cara aman berbelanja.
-      </p>
+      </div>
     </div>
   </section>
 </div>

@@ -13,6 +13,13 @@ html, body
   background-color: #e4f9f4;
 }
 
+body.fixed-social > .social-container
+{
+  position: fixed;
+  top:0;
+  left: 0;
+}
+
 header > img
 {
   width: 100%;
@@ -440,17 +447,20 @@ footer img
   margin-bottom: 10px;
 }
 
-/*.social-media::before
+.social-container
 {
-  border-top: 1px solid white;
-  content: '';
-  width: 25%;
-  position: absolute;
-  top: 47%;
-  left:0;
-  right:0;
-  margin: 0 auto;
-}*/
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+.social-container > .social-share
+{
+  font-size:18px;
+  color:#fff;
+  padding:12px 0;
+  display:table-cell;
+}
 
 .sprite-media
 {

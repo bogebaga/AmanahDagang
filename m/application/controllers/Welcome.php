@@ -19,6 +19,7 @@ class Welcome extends CI_Controller{
 			'title_tag' => 'Ketemu banyak pedagang terpercaya dengan mudah di amanahstores.com - Semua ada disini',
 			'desc' => 'Wadah bagi pemasang iklan untuk memasarkan produknya, memungkinkan seseorang ataupun pemilik usaha di Indonesia untuk mengelola usahanya sendiri secara mudah dan gratis. amanahstores akan memberikan keamanan dan kenyamanan dalam berbelanja online',
 			'url' => base_url(),
+      'image' => base_url('images/amanahstores_logo_FULL.png'),
 			'publish-time' => date('Y-m-d')
 		];
 
@@ -37,6 +38,7 @@ class Welcome extends CI_Controller{
 			'title_tag' => 'Ketemu banyak pedagang terpercaya dengan mudah di amanahstores.com - Semua ada disini',
 			'desc' => 'Wadah bagi pemasang iklan untuk memasarkan produknya, memungkinkan seseorang ataupun pemilik usaha di Indonesia untuk mengelola usahanya sendiri secara mudah dan gratis. amanahstores akan memberikan keamanan dan kenyamanan dalam berbelanja online',
 			'url' => base_url(),
+      'image' => base_url('images/amanahstores_logo_FULL.png'),
 			'publish-time' => date('Y-m-d')
 		];
 
@@ -80,10 +82,10 @@ class Welcome extends CI_Controller{
         show_404();
     }
     $meta_info =[
-			'title_tag' => $isi_iklan['iklan']['nama_barang']." | ",
+			'title_tag' => $isi_iklan['iklan']['nama_barang']." - amanahstores.com",
 			'publish-time' => date('Y-m-d', strtotime($isi_iklan['iklan']['barang_upload_tgl'])),
 			'url' => base_url('isiiklan/'.$slug),
-			'image' => '../images/post_foto_feature/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($isi_iklan['iklan']['barang_upload_tgl']))).$isi_iklan['iklan']['gambar_fitur'],
+			'image' => ONLINE_IMAGE.'images/post_foto_feature/'.$this->tanggal_indonesia_convert(date('Y-m-d-N', strtotime($isi_iklan['iklan']['barang_upload_tgl']))).$isi_iklan['iklan']['gambar_fitur'],
 			'desc' => strip_tags($isi_iklan['iklan']['deskripsi_barang'])
 		];
     $this->session->set_flashdata($meta_info);

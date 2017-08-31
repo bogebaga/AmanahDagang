@@ -103,7 +103,7 @@ class Admin extends CI_Controller{
   {
     if (isset($_POST['submit']))
     {
-      $slug_nama_iklan = url_title($this->input->post('nama_barang'));
+      $slug_nama_iklan = url_title($this->input->post('nama_barang'), '-', TRUE);
       $barang_kode = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,6);
       $nama_explode = explode(".", $_FILES['foto_upload']['name']);
 
@@ -199,7 +199,7 @@ class Admin extends CI_Controller{
   {
 		$iklan_data_obj = $this->iklan_model->get_iklan_by_slug($this->input->post('slug_nama_barang'));
     $get_gambar_banyak = explode(",", $iklan_data_obj->gambar_barang);
-    // $slug_nama_iklan = url_title($this->input->post('nama_barang'));
+    // $slug_nama_iklan = url_title($this->input->post('nama_barang'), '-', TRUE);
     $After_explode = explode(".", $_FILES['foto_upload']['name']);
 
     $tanggal_data = date('Y-m-d-N', strtotime($this->input->post('upload_tgl')));
@@ -411,7 +411,7 @@ class Admin extends CI_Controller{
   {
     if (isset($_POST['submit']))
     {
-      $slug_helpdesk = url_title($this->input->post('nama_helpdesk'));
+      $slug_helpdesk = url_title($this->input->post('nama_helpdesk'), '-', TRUE);
       $data = [
         'ad_helpdesk' => $this->input->post('nama_helpdesk'),
         'ad_link_help' => $slug_helpdesk,

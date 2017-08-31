@@ -18,6 +18,16 @@
 	<meta property="og:image" content="<?php echo $this->session->flashdata('image') ?>">
 	<meta property="article:published_time" content="<?php echo $this->session->flashdata('publish-time') ?>">
 	<meta property="article:author" content="amanahstores">
+  <meta property="fb:admins" content="1430652300353603">
+  <meta property="fb:app_id" content="1333366313378639">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@amanahstores">
+  <meta name="twitter:site:id" content="@amanahstores">
+  <meta name="twitter:creator" content="@amanahstores">
+  <meta name="twitter:image:src" content="<?php echo $this->session->flashdata('image'); ?>">
+  <!-- <meta name="google-site-verification" content="9m0vVMoImdv7ar7DXH5htw4nPIHOdRh_GRmMAERQrsI" /> -->
+
+    <link rel="publisher" href="https://plus.google.com/u/1/109458552857548437750">
     <link rel="alternate" media="only screen and (max-width:640px)" href="http://m.amanahstores.com">
     <link rel="alternate" media="handheld" href="http://m.amanahstores.com">
     <link rel="canonical" href="<?php echo $this->session->flashdata('url') ?>">
@@ -27,7 +37,7 @@
 	<link rel="stylesheet" href="<?php echo base_url("web/css/style.css"); ?>">
 	<link rel="stylesheet" href="<?php echo base_url("web/css/color.css"); ?>">
 	<!-- FAV -->
-	<link rel="shortcut icon" type="image/x-image" href="<?php echo base_url('images/favicon_amanahstores.ico'); ?>">
+	<link rel="shortcut icon" type="image/x-ico" href="<?php echo base_url('images/favicon_amanahstores.ico'); ?>">
 	<!-- <link rel="shortcut icon" type="image/x-image" href="<?php echo base_url('images/fav.ico'); ?>"> -->
 	<!-- FONT -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto">
@@ -37,20 +47,30 @@
 	<script src="<?php echo base_url('web/js/jquery.maskMoney.min.js'); ?>"></script>
 	<!-- <script src="<?php echo base_url('web/bower_components/color-thief/dist/color-thief.min.js'); ?>"></script> -->
 	<script src="<?php echo base_url('web/js/tinymce/tinymce.min.js'); ?>"></script>
+  <script type="text/javascript">
+    // var URL = window.location.href.split('/').pop();
+    // if (screen.width < 768) {
+    //   if (URL) {
+    //     document.location = 'http://m.amanahstores.com/isiiklan/'+URL;
+    //   }else {
+    //     document.location = 'http://m.amanahstores.com';
+    //   }
+    // }
+  </script>
 </head>
 <body>
   <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
   <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
-	<div id="fb-root"></div>
-	<script>
-		(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.10";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.10&appId=1333366313378639";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 	<header>
 		<nav id="menu" class="navbar-fixed-top">
 			<div class="row">
@@ -59,7 +79,7 @@
 						<a class="navbar-brand" href="<?php echo $home?>">
 							<div class="logo">
 								<!-- <img width="100px" src="<?php echo base_url('images/AMANAH.png'); ?>"> -->
-								<img src="<?php echo base_url('images/amanahstores logo FULL.png'); ?>">
+								<img src="<?php echo base_url('images/amanahstores_logo_FULL.png'); ?>">
 							</div>
 						</a>
 					</div>
@@ -79,9 +99,6 @@
 								<?php endif; ?>
 							</li>
 							<!-- <li>
-								<a href="<?php echo $bantuan;?>">Bantuan</a>
-							</li>
-							<li>
 								<a href="<?php echo $network;?>">Network</a>
 							</li> -->
 							<?php if (! empty($this->session->userdata('user_login'))): ?>
@@ -102,6 +119,11 @@
 									<a href="<?php echo base_url("beranda/login") ?>">Login</a>
 								</li>
 							<?php endif; ?>
+              <?php if (empty($this->session->userdata('user_name'))): ?>
+                <li>
+                  <a href="<?php echo base_url("beranda/daftar");?>" style="color:#C75F5F !important;">Daftar</a>
+                </li>
+              <?php endif; ?>
 						</ul>
 					</div>
 				</div>
